@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandy Hills UGC - Creative Portfolio</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Brea UGC Portfolio</title>
+    <meta name="title" content="Brea UGC Portfolio">
+    <meta name="description" content="Brea UGC - Creative Portfolio">
+    <meta property="og:title" content="Brea UGC Portfolio">
+    <meta property="og:description" content="Brea UGC - Creative Portfolio">
     
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +21,9 @@
     
     <!-- Load FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Video Loader Styles -->
+    <link rel="stylesheet" href="css/video-loader.css">
     
     <style>
         /* Base Styles with Fallback Fonts */
@@ -1004,6 +1014,16 @@
             .organic-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* Improve navigation on tablet */
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .nav-links a {
+                font-size: 14px;
+                padding: 10px 16px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1041,6 +1061,43 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
             }
+            
+            /* Mobile navigation improvements */
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 12px;
+                padding: 8px 12px;
+                letter-spacing: 1px;
+            }
+            
+            /* Hero section mobile fixes */
+            .hero {
+                padding-left: 20px;
+                padding-top: 150px;
+            }
+            
+            .hero-about {
+                right: 20px;
+                max-width: calc(100% - 40px);
+            }
+            
+            .bio-header {
+                font-size: 2rem;
+            }
+            
+            .hero-about p {
+                font-size: 14px;
+            }
+            
+            /* Better touch targets for mobile */
+            .control-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 16px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1077,6 +1134,59 @@
             .paid-ads-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+            
+            /* Small mobile specific fixes */
+            .nav-links a {
+                font-size: 11px;
+                padding: 6px 10px;
+            }
+            
+            .dropdown-menu a {
+                font-size: 12px;
+                padding: 10px 15px;
+            }
+            
+            /* Hero mobile layout fixes */
+            .hero {
+                padding-left: 15px;
+                padding-top: 120px;
+                background-size: 40%;
+                background-position: 5% 60%;
+            }
+            
+            .hero-about {
+                right: 15px;
+                max-width: calc(100% - 30px);
+                top: 60%;
+            }
+            
+            .bio-header {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+            
+            .hero-credentials {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            
+            .hero-about p {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+            
+            /* Improve footer on mobile */
+            footer {
+                padding: 40px 0;
+            }
+            
+            .footer-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .social-links a {
+                font-size: 20px;
             }
         }
     </style>
@@ -1564,16 +1674,18 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             <div class="footer-content">
                 <h2>Let's Create Together</h2>
                 <p>Ready to elevate your brand with authentic UGC content? Let's discuss your vision.</p>
-                <p>Email: brea@sandyhillsugc.com</p>
+                <p>Email: brea@breaugc.com</p>
                 <div class="social-links">
                     <a href="https://instagram.com/brea_ugc" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://tiktok.com/@brea_ugc" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Google Drive Integration -->
+    <script src="js/drive-integration.js"></script>
+    
     <!-- JavaScript for Video Carousel -->
     <script>
         // Function to play video with audio
