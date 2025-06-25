@@ -180,11 +180,11 @@
         
         /* Hero Section - Mauve & Gold Theme */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-top: 100px;
+            padding: 120px 20px 40px 20px;
             background: #9F8AB3;
             position: relative;
         }
@@ -195,7 +195,8 @@
             justify-content: space-between;
             max-width: 1200px;
             width: 100%;
-            gap: 60px;
+            gap: clamp(30px, 5vw, 60px);
+            margin: 0 auto;
         }
         
         .hero-text-content {
@@ -204,14 +205,16 @@
         }
         
         .hero-image-content {
-            flex: 0 0 400px;
+            flex: 0 0 clamp(350px, 40vw, 500px);
             display: flex;
             justify-content: center;
         }
         
         .hero-desktop-image {
-            width: 350px;
+            width: clamp(350px, 35vw, 450px);
             height: auto;
+            object-fit: cover;
+            object-position: center top;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             position: relative;
             z-index: 2;
@@ -295,6 +298,16 @@
             display: none;
             position: relative;
             z-index: 3;
+        }
+        
+        .hero-about-top {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .hero-about-bottom {
+            text-align: center;
+            margin-top: 30px;
         }
         
         /* Hide desktop layout on mobile */
@@ -467,7 +480,7 @@
             text-shadow: 2px 2px 0px rgba(212, 175, 55, 0.3);
             letter-spacing: 2px;
             padding: 15px 25px;
-            background: rgba(255, 255, 255, 0.9);
+            background: transparent;
             border: 2px solid #D4AF37;
             box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
             white-space: nowrap;
@@ -490,7 +503,7 @@
         }
         
         .logo-with-image .logo-image {
-            height: 30px;
+            height: 45px;
         }
         
         .logo-image-only {
@@ -498,7 +511,7 @@
         }
         
         .logo-image-only .logo-image {
-            height: 50px;
+            height: 60px;
         }
         
         .logo-text {
@@ -1841,9 +1854,16 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             
             <!-- Mobile-only layout -->
             <div class="hero-mobile-content">
-                <div class="hero-about">
+                <!-- Content above photo: only heading and subtitle -->
+                <div class="hero-about-top">
                     <h1 class="bio-header">Hey brands, I'm Brea!</h1>
                     <div class="hero-credentials">UGC Creator | Content Strategist | Vocal Performance Coach</div>
+                </div>
+                
+                <img src="Portfolio pic.jpg" alt="Brea Profile" class="hero-mobile-image">
+                
+                <!-- Content below photo: bio bullets, buttons, and long bio -->
+                <div class="hero-about-bottom">
                     <p><span class="star-bullets">⭐️28-year-old Bahamian-American Gen Z creator<br>
 ⭐️Serial hobbyist<br>
 ⭐️Based in Huntsville, AL<br>
@@ -1860,8 +1880,6 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
 
 Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collaborate and bring your brand's message to life with authenticity and flair. Let's create something worth watching—and converting. 💡📈</p>
                 </div>
-                
-                <img src="Portfolio pic.jpg" alt="Brea Profile" class="hero-mobile-image">
             </div>
         </div>
     </section>
