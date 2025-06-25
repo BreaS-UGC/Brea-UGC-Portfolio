@@ -914,6 +914,219 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
         
+        /* Services Section Styles - Mauve & Gold Theme */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(159, 138, 179, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(159, 138, 179, 0.25);
+        }
+        
+        .service-card.featured {
+            border-color: #D4AF37;
+            background: linear-gradient(135deg, #fff 0%, #fefdf8 100%);
+        }
+        
+        .service-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .service-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0eff3;
+        }
+        
+        .service-header h3 {
+            font-family: 'Fredoka One', Georgia, serif;
+            font-size: 1.8rem;
+            color: #7D6A96;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .service-price {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #D4AF37;
+            position: relative;
+        }
+        
+        .service-price::before {
+            content: '$';
+            font-size: 1.5rem;
+            position: relative;
+            top: -10px;
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+        
+        .service-features li {
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            padding: 10px 0;
+            color: #4a4a4a;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #D4AF37;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .service-ideal {
+            background: rgba(159, 138, 179, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #7D6A96;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        
+        /* Add-ons Section */
+        .addons-section {
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 2px solid #f0eff3;
+            text-align: center;
+        }
+        
+        .addons-section h3 {
+            font-family: 'Fredoka One', Georgia, serif;
+            font-size: 2rem;
+            color: #7D6A96;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .addon-item {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(159, 138, 179, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0eff3;
+        }
+        
+        .addon-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(159, 138, 179, 0.2);
+            border-color: #D4AF37;
+        }
+        
+        .addon-item h4 {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 1.1rem;
+            color: #7D6A96;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .addon-item p {
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            color: #6c757d;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .addon-price {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-weight: 600;
+            color: #D4AF37;
+            font-size: 1.1rem;
+        }
+        
+        /* Services CTA */
+        .services-cta {
+            text-align: center;
+            margin-top: 80px;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #9F8AB3 0%, #7D6A96 100%);
+            border-radius: 20px;
+            color: white;
+        }
+        
+        .services-cta h3 {
+            font-family: 'Fredoka One', Georgia, serif;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .services-cta p {
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #D4AF37;
+            color: #7D6A96;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+        
         /* Footer Styles - Mauve & Gold Theme */
         footer {
             background-color: #7D6A96; /* Darker mauve */
@@ -1165,6 +1378,43 @@
             .social-links a {
                 font-size: 20px;
             }
+            
+            /* Services mobile responsiveness */
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .service-card {
+                padding: 25px 20px;
+            }
+            
+            .service-header h3 {
+                font-size: 1.5rem;
+            }
+            
+            .service-price {
+                font-size: 2rem;
+            }
+            
+            .addons-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .services-cta {
+                padding: 40px 20px;
+                margin-top: 60px;
+            }
+            
+            .services-cta h3 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -1183,7 +1433,7 @@
                         <a href="#" class="dropdown-toggle">More</a>
                         <div class="dropdown-menu">
                             <a href="#">Couple UGC</a>
-                            <a href="#rate-card">Rate Card</a>
+                            <a href="#services">Services</a>
                             <a href="#contact">Contact</a>
                         </div>
                     </div>
@@ -1513,6 +1763,116 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                     </div>
                     <div class="concept-type">Day-in-the-Life</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="portfolio-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Services & Packages</h2>
+                <p>Professional UGC content creation tailored to your brand's goals and budget</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Starter Package -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Starter Package</h3>
+                        <div class="service-price">$150</div>
+                    </div>
+                    <div class="service-content">
+                        <ul class="service-features">
+                            <li>1 UGC Video (30-60 seconds)</li>
+                            <li>Basic concept development</li>
+                            <li>Raw footage + edited version</li>
+                            <li>1 revision included</li>
+                            <li>7-day turnaround</li>
+                        </ul>
+                        <div class="service-ideal">
+                            Perfect for: Testing UGC for your brand, small campaigns
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Growth Package -->
+                <div class="service-card featured">
+                    <div class="service-badge">Most Popular</div>
+                    <div class="service-header">
+                        <h3>Growth Package</h3>
+                        <div class="service-price">$400</div>
+                    </div>
+                    <div class="service-content">
+                        <ul class="service-features">
+                            <li>3 UGC Videos (30-60 seconds each)</li>
+                            <li>Strategic concept development</li>
+                            <li>Multiple angles/versions per video</li>
+                            <li>2 revisions per video</li>
+                            <li>10-day turnaround</li>
+                            <li>Performance insights included</li>
+                        </ul>
+                        <div class="service-ideal">
+                            Perfect for: Regular content needs, A/B testing, campaign variety
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Premium Package</h3>
+                        <div class="service-price">$750</div>
+                    </div>
+                    <div class="service-content">
+                        <ul class="service-features">
+                            <li>5 UGC Videos (30-60 seconds each)</li>
+                            <li>Comprehensive strategy session</li>
+                            <li>Multiple concepts per video</li>
+                            <li>Unlimited revisions</li>
+                            <li>14-day turnaround</li>
+                            <li>Performance optimization</li>
+                            <li>Monthly strategy call</li>
+                        </ul>
+                        <div class="service-ideal">
+                            Perfect for: Major campaigns, ongoing partnerships, brand launches
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add-ons Section -->
+            <div class="addons-section">
+                <h3>Add-On Services</h3>
+                <div class="addons-grid">
+                    <div class="addon-item">
+                        <h4>Rush Delivery</h4>
+                        <p>48-hour turnaround</p>
+                        <span class="addon-price">+$100</span>
+                    </div>
+                    <div class="addon-item">
+                        <h4>Extra Revisions</h4>
+                        <p>Beyond package limits</p>
+                        <span class="addon-price">$25 each</span>
+                    </div>
+                    <div class="addon-item">
+                        <h4>Custom Concepts</h4>
+                        <p>Unique creative direction</p>
+                        <span class="addon-price">+$75</span>
+                    </div>
+                    <div class="addon-item">
+                        <h4>Extended Length</h4>
+                        <p>60+ second videos</p>
+                        <span class="addon-price">+$50</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="services-cta">
+                <h3>Ready to Get Started?</h3>
+                <p>Let's discuss your project and create content that converts</p>
+                <a href="#contact" class="cta-button">Get Quote</a>
             </div>
         </div>
     </section>
