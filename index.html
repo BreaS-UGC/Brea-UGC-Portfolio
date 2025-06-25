@@ -89,13 +89,14 @@
         .nav-links a {
             text-decoration: none;
             color: #fff;
-            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-family: 'Fredoka One', Georgia, serif;
             font-weight: 400;
             transition: all 0.3s;
             font-size: 16px;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             padding: 8px 16px;
             border-radius: 4px;
+            text-transform: uppercase;
         }
         
         .nav-links a:hover {
@@ -111,15 +112,16 @@
         .dropdown-toggle {
             text-decoration: none;
             color: #fff;
-            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-family: 'Fredoka One', Georgia, serif;
             font-weight: 400;
             transition: all 0.3s;
             font-size: 16px;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             padding: 8px 16px;
             border-radius: 4px;
             display: inline-block;
             box-sizing: border-box;
+            text-transform: uppercase;
         }
         
         .dropdown-toggle:hover {
@@ -267,6 +269,8 @@
         /* Hide mobile image on desktop */
         .hero-mobile-content {
             display: none;
+            position: relative;
+            z-index: 3;
         }
         
         /* Mobile Navigation */
@@ -307,12 +311,14 @@
         .mobile-nav a {
             color: white;
             text-decoration: none;
-            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-family: 'Fredoka One', Georgia, serif;
             font-size: 24px;
             padding: 20px;
             text-align: center;
             width: 100%;
             transition: background 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .mobile-nav a:hover {
@@ -468,7 +474,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
-        /* Add subtle scanline effect */
+        /* Add subtle scanline effect - excludes mobile image area */
         .hero::before {
             content: '';
             position: absolute;
@@ -485,6 +491,11 @@
             );
             pointer-events: none;
             z-index: 1;
+        }
+        
+        .hero-mobile-content {
+            position: relative;
+            z-index: 3;
         }
         
         /* Pixelated borders for phone frames */
@@ -1594,16 +1605,15 @@
             }
             
             .hero-mobile-image {
-                width: 180px;
-                height: 180px;
-                border-radius: 50%;
+                width: 200px;
+                height: auto;
                 object-fit: cover;
                 object-position: center top;
                 margin: 0 auto;
-                border: 4px solid #D4AF37;
                 display: block;
                 box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-                overflow: hidden;
+                position: relative;
+                z-index: 2;
             }
             
             .hero-about {
