@@ -180,16 +180,42 @@
         
         /* Hero Section - Mauve & Gold Theme */
         .hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Changed from center to flex-start */
-    text-align: left; /* Changed from center to left */
-    padding-top: 200px;
-    padding-left: 160px; /* Add left padding */
-    background: #9F8AB3 url('Portfolio pic.jpg') 10% 60%/cover no-repeat;
-    background-size: 35%;
-}
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 100px;
+            background: #9F8AB3;
+            position: relative;
+        }
+        
+        .hero-desktop-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 100%;
+            gap: 60px;
+        }
+        
+        .hero-text-content {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .hero-image-content {
+            flex: 0 0 400px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero-desktop-image {
+            width: 350px;
+            height: auto;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 2;
+        }
         
         .hero-content h1 {
             font-family: 'Fredoka One', Georgia, serif;
@@ -215,17 +241,15 @@
         }
         
         .hero-about {
-            position: absolute;
-            right: 80px;
-            top: 55%;
-            transform: translateY(-50%);
-            max-width: 600px;
-            height: 70vh;
+            position: static;
+            max-width: 100%;
+            height: auto;
+            transform: none;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
+            align-items: flex-start;
+            text-align: left;
         }
         
         .bio-header {
@@ -266,11 +290,20 @@
             text-align: center;
         }
         
-        /* Hide mobile image on desktop */
+        /* Hide mobile layout on desktop */
         .hero-mobile-content {
             display: none;
             position: relative;
             z-index: 3;
+        }
+        
+        /* Hide desktop layout on mobile */
+        .hero-desktop-layout {
+            display: flex;
+        }
+        
+        .hero-image-content {
+            display: flex;
         }
         
         /* Mobile Navigation */
@@ -1528,15 +1561,25 @@
                 display: flex;
             }
             
+            /* Hide desktop hero layout on mobile */
+            .hero-desktop-layout {
+                display: none;
+            }
+            
+            /* Show mobile hero layout */
+            .hero-mobile-content {
+                display: block;
+            }
+            
             /* Hero section mobile fixes */
             .hero {
-                padding-left: 20px;
-                padding-top: 150px;
+                padding: 150px 20px 40px 20px;
+                text-align: center;
             }
             
             .hero-about {
-                right: 20px;
-                max-width: calc(100% - 40px);
+                text-align: center;
+                margin-bottom: 30px;
             }
             
             .bio-header {
@@ -1622,15 +1665,11 @@
                 height: auto;
                 min-height: 100vh;
                 padding: 120px 15px 40px 15px;
-                background: #9F8AB3;
-                display: block;
-                text-align: center;
             }
             
             .hero-mobile-content {
                 display: block;
                 max-width: 100%;
-                margin-bottom: 30px;
             }
             
             .hero-mobile-image {
@@ -1638,22 +1677,11 @@
                 height: auto;
                 object-fit: cover;
                 object-position: center top;
-                margin: 0 auto;
+                margin: 30px auto 0 auto;
                 display: block;
                 box-shadow: 0 8px 20px rgba(0,0,0,0.3);
                 position: relative;
                 z-index: 2;
-            }
-            
-            .hero-about {
-                position: static;
-                max-width: 100%;
-                height: auto;
-                transform: none;
-                top: auto;
-                right: auto;
-                text-align: center;
-                margin: 0;
             }
             
             .bio-header {
@@ -1782,29 +1810,58 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <!-- Mobile-only image -->
-            <div class="hero-mobile-content">
-                <img src="Portfolio pic.jpg" alt="Brea Profile" class="hero-mobile-image">
-            </div>
-            
-            <div class="hero-about">
-                <h1 class="bio-header">Hey brands, I'm Brea!</h1>
-                <div class="hero-credentials">UGC Creator | Content Strategist | Vocal Performance Coach</div>
-                <p><span class="star-bullets">⭐️28-year-old Bahamian-American Gen Z creator<br>
+            <!-- Desktop Layout -->
+            <div class="hero-desktop-layout">
+                <div class="hero-text-content">
+                    <div class="hero-about">
+                        <h1 class="bio-header">Hey brands, I'm Brea!</h1>
+                        <div class="hero-credentials">UGC Creator | Content Strategist | Vocal Performance Coach</div>
+                        <p><span class="star-bullets">⭐️28-year-old Bahamian-American Gen Z creator<br>
 ⭐️Serial hobbyist<br>
 ⭐️Based in Huntsville, AL<br>
 ⭐️Professional actress, singer, and dancer of 15+ years<br>
 ⭐️An "okay" cook (according to my Caribbean mom)</span></p>
 
-                <!-- CTA Buttons -->
-                <div class="hero-cta-buttons">
-                    <a href="mailto:brea@breaugc.com" class="hero-btn primary-btn">Let's Create</a>
-                    <a href="#brand-logos" class="hero-btn secondary-btn">Past Work</a>
-                </div>
+                        <!-- CTA Buttons -->
+                        <div class="hero-cta-buttons">
+                            <a href="mailto:brea@breaugc.com" class="hero-btn primary-btn">Let's Create</a>
+                            <a href="#brand-logos" class="hero-btn secondary-btn">Past Work</a>
+                        </div>
 
-                <p class="hero-bio">As a direct response UGC creator, I combine humor, real-life relatability, and performance-driven creativity to craft scroll-stopping content. My videos are designed to make viewers pause and think, "Wait… are they talking to me?" (Yes. Yes, I am.)<br><br>
+                        <p class="hero-bio">As a direct response UGC creator, I combine humor, real-life relatability, and performance-driven creativity to craft scroll-stopping content. My videos are designed to make viewers pause and think, "Wait… are they talking to me?" (Yes. Yes, I am.)<br><br>
 
 Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collaborate and bring your brand's message to life with authenticity and flair. Let's create something worth watching—and converting. 💡📈</p>
+                    </div>
+                </div>
+                
+                <div class="hero-image-content">
+                    <img src="Portfolio pic.jpg" alt="Brea Profile" class="hero-desktop-image">
+                </div>
+            </div>
+            
+            <!-- Mobile-only layout -->
+            <div class="hero-mobile-content">
+                <div class="hero-about">
+                    <h1 class="bio-header">Hey brands, I'm Brea!</h1>
+                    <div class="hero-credentials">UGC Creator | Content Strategist | Vocal Performance Coach</div>
+                    <p><span class="star-bullets">⭐️28-year-old Bahamian-American Gen Z creator<br>
+⭐️Serial hobbyist<br>
+⭐️Based in Huntsville, AL<br>
+⭐️Professional actress, singer, and dancer of 15+ years<br>
+⭐️An "okay" cook (according to my Caribbean mom)</span></p>
+
+                    <!-- CTA Buttons -->
+                    <div class="hero-cta-buttons">
+                        <a href="mailto:brea@breaugc.com" class="hero-btn primary-btn">Let's Create</a>
+                        <a href="#brand-logos" class="hero-btn secondary-btn">Past Work</a>
+                    </div>
+
+                    <p class="hero-bio">As a direct response UGC creator, I combine humor, real-life relatability, and performance-driven creativity to craft scroll-stopping content. My videos are designed to make viewers pause and think, "Wait… are they talking to me?" (Yes. Yes, I am.)<br><br>
+
+Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collaborate and bring your brand's message to life with authenticity and flair. Let's create something worth watching—and converting. 💡📈</p>
+                </div>
+                
+                <img src="Portfolio pic.jpg" alt="Brea Profile" class="hero-mobile-image">
             </div>
         </div>
     </section>
