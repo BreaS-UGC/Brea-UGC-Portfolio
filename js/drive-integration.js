@@ -92,13 +92,20 @@ class DriveVideoManager {
             
             if (this.videos.has(filename)) {
                 const videoInfo = this.videos.get(filename);
-                const driveUrl = this.getDriveDirectUrl(videoInfo.driveId);
                 
-                // Update source with Google Drive URL
-                source.setAttribute('src', driveUrl);
+                // Try multiple Google Drive URL formats
+                const driveUrls = [
+                    `https://drive.usercontent.google.com/download?id=${videoInfo.driveId}&export=download`,
+                    `https://drive.google.com/uc?export=download&id=${videoInfo.driveId}`,
+                    `https://drive.google.com/file/d/${videoInfo.driveId}/view`
+                ];
+                
+                // Try the first URL format
+                source.setAttribute('src', driveUrls[0]);
                 source.setAttribute('data-fallback', videoInfo.fallback);
+                source.setAttribute('data-drive-urls', JSON.stringify(driveUrls));
                 
-                // Add error handling for fallback
+                // Add error handling with multiple URL attempts
                 const video = source.parentElement;
                 video.addEventListener('error', () => this.handleVideoError(source));
                 video.addEventListener('loadstart', () => this.showLoadingState(video));
