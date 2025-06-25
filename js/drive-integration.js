@@ -8,59 +8,65 @@ class DriveVideoManager {
         this.initializeVideos();
     }
 
-    // Initialize video mappings - replace these with actual Google Drive file IDs
+    // Initialize video mappings with actual Google Drive file IDs
     initializeVideos() {
         this.videos.set('loreal ugly ad.mov', {
-            driveId: 'YOUR_DRIVE_FILE_ID_1',
+            driveId: '1dooJhyM35knrZVJJCz3H8Sybi3CXJQYy',
             title: 'L\'Oreal Demo',
             fallback: 'videos/loreal ugly ad.mov'
         });
         
         this.videos.set('Calzen paid ad.mov', {
-            driveId: 'YOUR_DRIVE_FILE_ID_2', 
+            driveId: '1Z9xZiYfJBnseTbvhsVe_Xlr3j_vbbX08', 
             title: 'Calzen Wellness Ad',
             fallback: 'videos/Calzen paid ad.mov'
         });
         
         this.videos.set('BODYROK paid ad.mov', {
-            driveId: 'YOUR_DRIVE_FILE_ID_3',
+            driveId: '1Iev7oOqFqFUxI0jKCyVs4QmQq_T0SbiP',
             title: 'BodyRok Experience Ad',
             fallback: 'videos/BODYROK paid ad.mov'
         });
         
         this.videos.set('JG 3.mp4', {
-            driveId: 'YOUR_DRIVE_FILE_ID_4',
+            driveId: '1sCWXMhtCH4Ws2-edVWhR5MY7K_NlXfSg',
             title: 'Justin Guitar Ad',
             fallback: 'videos/JG 3.mp4'
         });
         
         this.videos.set('Raw actives paid ad.mov', {
-            driveId: 'YOUR_DRIVE_FILE_ID_5',
+            driveId: '1CMxW7I0LqiJGVhb6Ii22S5FVwh_s39_x',
             title: 'Raw Actives Hair/Beauty Ad',
             fallback: 'videos/Raw actives paid ad.mov'
         });
         
+        this.videos.set('Youzu foundations live_.mov', {
+            driveId: '1F0fgH9a4ODlB9LdhldvdCWWuP1sVVNYT',
+            title: 'Youzu Foundation Live',
+            fallback: 'videos/Youzu foundations live_.mov'
+        });
+        
         // Organic videos
         this.videos.set('BODYROK_AZ organic.mov', {
-            driveId: 'YOUR_DRIVE_FILE_ID_6',
+            driveId: '1TJUBxXdQByCPgAzZiDZ6two8X_ZY-_Sn',
             title: 'BodyRok Organic',
             fallback: 'videos/BODYROK_AZ organic.mov'
         });
         
         this.videos.set('Calzen organic_.mov', {
-            driveId: 'YOUR_DRIVE_FILE_ID_7',
+            driveId: '1Hqab1RmvvydswDnl1mwf_5yC7gwN3iIH',
             title: 'Calzen Organic',
             fallback: 'videos/Calzen organic_.mov'
         });
         
         this.videos.set('Planta organic_.mov', {
-            driveId: 'YOUR_DRIVE_FILE_ID_8',
+            driveId: '1jWifeMUzaXmVqAAXB-2aIWmEkPB8IcZs',
             title: 'Planta Organic',
             fallback: 'videos/Planta organic_.mov'
         });
         
         this.videos.set('Temptations organic_.mov', {
-            driveId: 'YOUR_DRIVE_FILE_ID_9',
+            driveId: '1_mC-bXzJREHiPeGLuBqykFuyaT-I7BCc',
             title: 'Temptations Organic',
             fallback: 'videos/Temptations organic_.mov'
         });
@@ -73,7 +79,7 @@ class DriveVideoManager {
     
     // Get direct download URL (for video element src)
     getDriveDirectUrl(fileId) {
-        return `https://drive.google.com/uc?export=download&id=${fileId}`;
+        return `https://drive.google.com/uc?export=view&id=${fileId}`;
     }
     
     // Initialize video elements with Google Drive sources
