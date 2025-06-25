@@ -424,24 +424,53 @@
         }
         
         .logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
             font-family: 'Fredoka One', Georgia, serif;
-            font-size: 24px;
+            font-size: 18px;
             color: #7D6A96;
             text-shadow: 2px 2px 0px rgba(212, 175, 55, 0.3);
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             padding: 15px 25px;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             border: 2px solid #D4AF37;
             box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
             white-space: nowrap;
             transform: skew(-5deg);
             transition: all 0.3s ease;
+            min-width: 200px;
         }
         
         .logo-item:hover {
-            transform: skew(-5deg) scale(1.1);
+            transform: skew(-5deg) scale(1.05);
             background: #D4AF37;
             color: white;
+        }
+        
+        .logo-image {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+        }
+        
+        .logo-with-image .logo-image {
+            height: 30px;
+        }
+        
+        .logo-image-only {
+            padding: 20px 30px;
+        }
+        
+        .logo-image-only .logo-image {
+            height: 50px;
+        }
+        
+        .logo-text {
+            font-weight: 400;
+            text-transform: uppercase;
         }
         
         @keyframes scroll-logos {
@@ -2096,24 +2125,36 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             
             <div class="logos-marquee">
                 <div class="marquee-track">
-                    <!-- Placeholder logos - will be replaced with actual brand logos -->
-                    <div class="logo-item">CALZEN</div>
-                    <div class="logo-item">BODYROK</div>
-                    <div class="logo-item">JUSTIN GUITAR</div>
-                    <div class="logo-item">RAW ACTIVES</div>
-                    <div class="logo-item">TEMPTATIONS</div>
-                    <div class="logo-item">PLANTA</div>
-                    <div class="logo-item">YOUZU</div>
-                    <div class="logo-item">L'OREAL</div>
+                    <!-- Actual brand logos -->
+                    <div class="logo-item logo-with-image">
+                        <img src="calzen-logo.png" alt="Calzen Logo" class="logo-image">
+                        <span class="logo-text">CALZEN</span>
+                    </div>
+                    <div class="logo-item logo-image-only">
+                        <img src="bodyrok-logo.png" alt="BodyRok" class="logo-image">
+                    </div>
+                    <div class="logo-item logo-with-image">
+                        <img src="justinguitar-logo.png" alt="Justin Guitar Logo" class="logo-image">
+                        <span class="logo-text">JUSTIN GUITAR</span>
+                    </div>
+                    <div class="logo-item logo-image-only">
+                        <img src="planta-logo.png" alt="Planta" class="logo-image">
+                    </div>
                     <!-- Duplicate for seamless loop -->
-                    <div class="logo-item">CALZEN</div>
-                    <div class="logo-item">BODYROK</div>
-                    <div class="logo-item">JUSTIN GUITAR</div>
-                    <div class="logo-item">RAW ACTIVES</div>
-                    <div class="logo-item">TEMPTATIONS</div>
-                    <div class="logo-item">PLANTA</div>
-                    <div class="logo-item">YOUZU</div>
-                    <div class="logo-item">L'OREAL</div>
+                    <div class="logo-item logo-with-image">
+                        <img src="calzen-logo.png" alt="Calzen Logo" class="logo-image">
+                        <span class="logo-text">CALZEN</span>
+                    </div>
+                    <div class="logo-item logo-image-only">
+                        <img src="bodyrok-logo.png" alt="BodyRok" class="logo-image">
+                    </div>
+                    <div class="logo-item logo-with-image">
+                        <img src="justinguitar-logo.png" alt="Justin Guitar Logo" class="logo-image">
+                        <span class="logo-text">JUSTIN GUITAR</span>
+                    </div>
+                    <div class="logo-item logo-image-only">
+                        <img src="planta-logo.png" alt="Planta" class="logo-image">
+                    </div>
                 </div>
             </div>
         </div>
