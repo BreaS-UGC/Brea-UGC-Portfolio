@@ -79,7 +79,7 @@ class DriveVideoManager {
     
     // Get direct download URL (for video element src)
     getDriveDirectUrl(fileId) {
-        return `https://drive.google.com/uc?export=view&id=${fileId}`;
+        return `https://drive.google.com/uc?export=download&id=${fileId}`;
     }
     
     // Initialize video elements with Google Drive sources
