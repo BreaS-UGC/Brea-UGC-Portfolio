@@ -494,13 +494,18 @@
         
         /* Specific styling for Calzen logo */
         .logo-item.calzen {
-            background: transparent;
+            background: #F5F5DC;
             color: #2D5A2D;
         }
         
         .logo-item.calzen:hover {
-            background: transparent;
+            background: #F0F0D0;
             color: #1A3A1A;
+        }
+        
+        /* Increase Calzen logo size */
+        .logo-item.calzen .logo-image {
+            height: 70px;
         }
         
         /* Specific styling for Justin Guitar logo */
@@ -514,9 +519,16 @@
             color: #000;
         }
         
-        /* Make Justin Guitar logo bigger since it's image-only now */
+        /* Make Justin Guitar logo much bigger and zoomed in */
         .logo-item.justin-guitar .logo-image {
-            height: 80px;
+            height: 100px;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        /* Increase Planta logo size */
+        .logo-image-only .logo-image {
+            height: 85px;
         }
         
         .logo-image {
