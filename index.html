@@ -269,26 +269,25 @@
 
         /* Typewriter Animation */
         .typewriter {
-            overflow: hidden;
-            border-right: 3px solid #D4AF37;
-            white-space: nowrap;
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-            width: 0;
+            position: relative;
+            display: inline-block;
         }
 
-        .typewriter.animate {
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-            width: 100%;
+        .typewriter::after {
+            content: '|';
+            color: #D4AF37;
+            animation: blink 1s infinite;
+            font-weight: normal;
         }
 
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+        .typewriter.typing::after {
+            animation: none;
+            opacity: 1;
         }
 
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #D4AF37; }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
         
         .hero-about p {
@@ -1466,7 +1465,7 @@
         
         .social-links a {
             color: #D4AF37; /* Gold icons */
-            font-size: 36px;
+            font-size: 48px;
             transition: transform 0.3s;
         }
         
@@ -1731,7 +1730,7 @@
             }
             
             .social-links a {
-                font-size: 28px;
+                font-size: 36px;
             }
             
             /* Services mobile responsiveness */
@@ -1923,7 +1922,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
     <section id="paid-ads" class="portfolio-section paid-ads-new-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="typewriter" data-text="Paid Ads">Paid Ads</h2>
+                <h2 class="typewriter" data-text="Paid Ads"></h2>
                 <p>Where my performance training meets your sales goals—I create sponsored content that converts browsers into buyers</p>
             </div>
             
@@ -2063,7 +2062,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
     <section id="organic" class="portfolio-section organic-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="typewriter" data-text="Organic Concepts">Organic Concepts</h2>
+                <h2 class="typewriter" data-text="Organic Concepts"></h2>
                 <p>Creative content that feels like hanging out with a friend—real moments where your brand fits naturally into my world</p>
             </div>
             
@@ -2432,11 +2431,31 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             });
         });
 
-        // Typewriter animation on scroll
+        // Typewriter animation - letter by letter
+        function typeWriter(element, text, speed = 100) {
+            element.innerHTML = '';
+            element.classList.add('typing');
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML = text.substring(0, i + 1);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    element.classList.remove('typing');
+                }
+            }
+            type();
+        }
+
+        // Intersection Observer for typewriter
         const typewriterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    const text = entry.target.dataset.text;
+                    typeWriter(entry.target, text, 150);
+                    entry.target.classList.add('animated');
                 }
             });
         }, {
