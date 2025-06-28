@@ -257,13 +257,38 @@
         
         .bio-header {
             font-family: 'Fredoka One', Georgia, serif;
-            font-size: 2.5rem;
+            font-size: 3.2rem;
             color: #D4AF37;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
             margin-bottom: 5px;
             text-align: center;
             -webkit-text-stroke: 1px black;
             text-stroke: 1px black;
+        }
+
+
+        /* Typewriter Animation */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #D4AF37;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+            width: 0;
+        }
+
+        .typewriter.animate {
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+            width: 100%;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #D4AF37; }
         }
         
         .hero-about p {
@@ -1441,7 +1466,7 @@
         
         .social-links a {
             color: #D4AF37; /* Gold icons */
-            font-size: 24px;
+            font-size: 36px;
             transition: transform 0.3s;
         }
         
@@ -1706,7 +1731,7 @@
             }
             
             .social-links a {
-                font-size: 20px;
+                font-size: 28px;
             }
             
             /* Services mobile responsiveness */
@@ -1836,8 +1861,8 @@
             <div class="hero-desktop-layout">
                 <div class="hero-text-content">
                     <div class="hero-about">
-                        <h1 class="bio-header">Hey brands, I'm Brea!</h1>
-                        <div class="hero-credentials">UGC Creator | Content Strategist | Vocal Performance Coach</div>
+                        <h1 class="bio-header">Hey Brands, I'm Brea!</h1>
+                        <div class="hero-credentials">UGC Creator | Creative Strategist | Professional Actress</div>
                         <p><span class="star-bullets">⭐️28-year-old Bahamian-American Gen Z creator<br>
 ⭐️Serial hobbyist<br>
 ⭐️Based in Huntsville, AL<br>
@@ -1866,7 +1891,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <!-- Content above photo: only heading and subtitle -->
                 <div class="hero-about-top">
                     <h1 class="bio-header">Hey brands, I'm Brea!</h1>
-                    <div class="hero-credentials">UGC Creator | Content Strategist | Vocal Performance Coach</div>
+                    <div class="hero-credentials">UGC Creator | Creative Strategist | Professional Actress</div>
                 </div>
                 
                 <img src="Portfolio pic.jpg" alt="Brea Profile" class="hero-mobile-image">
@@ -1898,7 +1923,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
     <section id="paid-ads" class="portfolio-section paid-ads-new-section">
         <div class="container">
             <div class="section-header">
-                <h2>Paid Ads</h2>
+                <h2 class="typewriter" data-text="Paid Ads">Paid Ads</h2>
                 <p>Where my performance training meets your sales goals—I create sponsored content that converts browsers into buyers</p>
             </div>
             
@@ -2038,7 +2063,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
     <section id="organic" class="portfolio-section organic-section">
         <div class="container">
             <div class="section-header">
-                <h2>Organic Concepts</h2>
+                <h2 class="typewriter" data-text="Organic Concepts">Organic Concepts</h2>
                 <p>Creative content that feels like hanging out with a friend—real moments where your brand fits naturally into my world</p>
             </div>
             
@@ -2404,6 +2429,24 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             const allVideos = document.querySelectorAll('video');
             allVideos.forEach(video => {
                 videoObserver.observe(video);
+            });
+        });
+
+        // Typewriter animation on scroll
+        const typewriterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const typewriterElements = document.querySelectorAll('.typewriter');
+            typewriterElements.forEach(element => {
+                typewriterObserver.observe(element);
             });
         });
     </script>
