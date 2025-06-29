@@ -65,19 +65,24 @@
         }
         
         .logo {
-            font-family: 'Fredoka One', Georgia, serif;
-            font-weight: 400;
-            font-size: 28px;
-            color: #D4AF37; /* Gold text */
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            width: 200px;
+            object-fit: contain;
+            object-position: center;
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
         }
         
-        .logo:hover {
-            color: #fff;
+        .logo:hover img {
             transform: scale(1.05);
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
         }
         
         .nav-links {
@@ -270,7 +275,11 @@
         /* Typewriter Animation */
         .typewriter {
             position: relative;
-            display: inline-block;
+            display: block;
+            height: 3.6rem;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
         }
 
         .typewriter::after {
@@ -418,7 +427,7 @@
             font-family: 'Fredoka One', Georgia, serif;
             font-size: 18px;
             font-weight: 400;
-            padding: 12px 30px;
+            padding: 15px 30px;
             text-decoration: none;
             border: 3px solid;
             border-radius: 0;
@@ -428,6 +437,12 @@
             position: relative;
             overflow: hidden;
             box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+            height: 60px;
+            line-height: 1;
+            box-sizing: border-box;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .primary-btn {
@@ -668,6 +683,10 @@
             margin-bottom: 15px;
             color: #7D6A96; /* Darker mauve */
             letter-spacing: 1px;
+            height: 3.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .section-header p {
@@ -1631,6 +1650,14 @@
                 padding: 0 10px;
             }
             
+            /* Force white text on mobile bio content - except header */
+            .hero-mobile-content .hero-credentials,
+            .hero-mobile-content p,
+            .hero-mobile-content .star-bullets,
+            .hero-mobile-content .hero-bio {
+                color: #fff !important;
+            }
+            
             .logo {
                 font-size: 20px;
             }
@@ -1818,7 +1845,7 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo" onclick="scrollToTop(event)">
-                    Brea UGC
+                    <img src="logo 250px.png" alt="Brea UGC" />
                 </a>
                 
                 <!-- Desktop Navigation -->
@@ -1889,7 +1916,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             <div class="hero-mobile-content">
                 <!-- Content above photo: only heading and subtitle -->
                 <div class="hero-about-top">
-                    <h1 class="bio-header">Hey brands, I'm Brea!</h1>
+                    <h1 class="bio-header">Hey Brands, I'm Brea!</h1>
                     <div class="hero-credentials">UGC Creator | Creative Strategist | Professional Actress</div>
                 </div>
                 
@@ -2257,7 +2284,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             <div class="footer-content">
                 <h2>Let's Create Together</h2>
                 <p>Ready to see what happens when performance training meets creative strategy? Reach out today for all your brand and content needs.</p>
-                <p>Email: brea@breaugc.com</p>
+                <p>Email: <a href="mailto:brea@breaugc.com" style="color: #D4AF37; text-decoration: none;">brea@breaugc.com</a></p>
                 <div class="social-links">
                     <a href="https://instagram.com/itsyagirlbrea" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://tiktok.com/@itsyagirlbrea" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -2433,19 +2460,41 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
 
         // Typewriter animation - letter by letter
         function typeWriter(element, text, speed = 100) {
-            element.innerHTML = '';
-            element.classList.add('typing');
             let i = 0;
+            let isTyping = true;
             
             function type() {
-                if (i < text.length) {
-                    element.innerHTML = text.substring(0, i + 1);
-                    i++;
-                    setTimeout(type, speed);
+                if (isTyping) {
+                    if (i < text.length) {
+                        element.innerHTML = text.substring(0, i + 1);
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        setTimeout(() => {
+                            isTyping = false;
+                            erase();
+                        }, 2000);
+                    }
                 } else {
-                    element.classList.remove('typing');
+                    if (i > 0) {
+                        element.innerHTML = text.substring(0, i - 1);
+                        i--;
+                        setTimeout(type, speed / 2);
+                    } else {
+                        setTimeout(() => {
+                            isTyping = true;
+                            type();
+                        }, 1000);
+                    }
                 }
             }
+            
+            function erase() {
+                type();
+            }
+            
+            element.innerHTML = '';
+            element.classList.add('typing');
             type();
         }
 
@@ -2454,7 +2503,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
                     const text = entry.target.dataset.text;
-                    typeWriter(entry.target, text, 150);
+                    typeWriter(entry.target, text, 100);
                     entry.target.classList.add('animated');
                 }
             });
