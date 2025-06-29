@@ -73,15 +73,17 @@
         }
 
         .logo img {
-            height: 60px;
-            width: 600px;
+            height: 50px;
+            width: 750px;
             object-fit: contain;
-            object-position: center;
+            object-position: left;
             filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+            transform: scale(3.5) translateY(0px);
+            transform-origin: left center;
         }
         
         .logo:hover img {
-            transform: scale(1.05);
+            transform: scale(3.5) translateY(0px);
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
         }
         
@@ -190,7 +192,7 @@
             align-items: center;
             justify-content: center;
             padding: 120px 20px 40px 20px;
-            background: #9F8AB3;
+            background: #6B4C85;
             position: relative;
         }
         
@@ -269,6 +271,7 @@
             text-align: center;
             -webkit-text-stroke: 1px black;
             text-stroke: 1px black;
+            white-space: nowrap;
         }
 
 
@@ -614,15 +617,7 @@
         }
         
         .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #D4AF37, #9F8AB3, #D4AF37);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            display: none;
         }
         
         /* Add subtle scanline effect - excludes mobile image area */
@@ -1586,7 +1581,9 @@
             }
             
             .hamburger-menu {
-                display: flex;
+                display: flex !important;
+                z-index: 1001;
+                position: relative;
             }
             
             /* Hide desktop hero layout on mobile */
@@ -1660,6 +1657,21 @@
             
             .logo {
                 font-size: 20px;
+                width: 200px;
+                height: 40px;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            .logo img {
+                transform: scale(2.5) translateY(-3px);
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            
+            .logo:hover img {
+                transform: scale(2.5) translateY(-3px);
             }
             
             .phone-showcase {
@@ -1845,7 +1857,7 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo" onclick="scrollToTop(event)">
-                    <img src="logo 250px.png" alt="Brea UGC" />
+                    <img src="Brea UGC logo.svg" alt="Brea UGC" />
                 </a>
                 
                 <!-- Desktop Navigation -->
