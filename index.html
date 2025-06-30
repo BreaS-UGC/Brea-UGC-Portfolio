@@ -191,7 +191,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 20px 40px 20px;
+            padding: 80px 20px 40px 20px;
             background: #6B4C85;
             position: relative;
         }
@@ -218,7 +218,7 @@
         }
         
         .hero-desktop-image {
-            width: clamp(350px, 35vw, 450px);
+            width: clamp(400px, 45vw, 550px);
             height: auto;
             object-fit: cover;
             object-position: center top;
@@ -251,7 +251,7 @@
         }
         
         .hero-about {
-            position: static;
+            position: relative;
             max-width: 100%;
             height: auto;
             transform: none;
@@ -263,15 +263,29 @@
         }
         
         .bio-header {
-            font-family: 'Fredoka One', Georgia, serif;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 3.2rem;
+            font-weight: 600;
             color: #D4AF37;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
             margin-bottom: 5px;
             text-align: center;
-            -webkit-text-stroke: 1px black;
-            text-stroke: 1px black;
             white-space: nowrap;
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 3px;
+            text-transform: lowercase;
+        }
+        
+        .bio-header-svg {
+            height: 35rem;
+            width: auto;
+            margin-top: -140px;
+            margin-bottom: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
 
@@ -314,20 +328,25 @@
         .hero-about .star-bullets {
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             color: #fff !important;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6) !important;
             font-weight: 400;
+            margin-top: -120px;
+            position: relative;
+            z-index: 10;
         }
         
         .hero-credentials {
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 1.1rem;
             max-width: 600px;
-            margin: -5px auto 15px;
+            margin: -180px auto 15px;
             color: #fff; /* Bright white text */
             font-weight: 400;
             line-height: 1.4;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
             text-align: center;
+            position: relative;
+            z-index: 10;
         }
         
         /* Hide mobile layout on desktop */
@@ -338,6 +357,7 @@
         }
         
         .hero-about-top {
+            position: relative;
             text-align: center;
             margin-bottom: 30px;
         }
@@ -1611,6 +1631,20 @@
                 font-size: 2rem;
             }
             
+            .bio-header-svg {
+                height: 22rem;
+                margin-top: -100px;
+                margin-bottom: 20px;
+            }
+            
+            .hero-credentials {
+                margin: -100px auto 15px;
+            }
+            
+            .hero-about .star-bullets {
+                margin-top: -80px;
+            }
+            
             .hero-about p {
                 font-size: 14px;
             }
@@ -1749,9 +1783,19 @@
                 margin-bottom: 8px;
             }
             
+            .bio-header-svg {
+                height: 15rem;
+                margin-top: -70px;
+                margin-bottom: 15px;
+            }
+            
             .hero-credentials {
                 font-size: 0.9rem;
-                margin-bottom: 8px;
+                margin: -50px auto 8px;
+            }
+            
+            .hero-about .star-bullets {
+                margin-top: -40px;
             }
             
             .hero-about p {
@@ -1899,13 +1943,13 @@
             <div class="hero-desktop-layout">
                 <div class="hero-text-content">
                     <div class="hero-about">
-                        <h1 class="bio-header">Meet Brea</h1>
+                        <img src="meet brea.svg" alt="Meet Brea" class="bio-header-svg">
                         <div class="hero-credentials">UGC Creator | Creative Strategist | Professional Actress</div>
-                        <p><span class="star-bullets">⭐️28-year-old Bahamian-American Gen Z creator<br>
-⭐️Serial hobbyist<br>
-⭐️Based in Huntsville, AL<br>
-⭐️Professional actress, singer, and dancer of 15+ years<br>
-⭐️An "okay" cook (according to my Caribbean mom)</span></p>
+                        <p><span class="star-bullets">•28-year-old Bahamian-American Gen Z creator<br>
+•Serial hobbyist<br>
+•Based in Huntsville, AL<br>
+•Professional actress, singer, and dancer of 15+ years<br>
+•An "okay" cook (according to my Caribbean mom)</span></p>
 
                         <!-- CTA Buttons -->
                         <div class="hero-cta-buttons">
@@ -1928,7 +1972,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             <div class="hero-mobile-content">
                 <!-- Content above photo: only heading and subtitle -->
                 <div class="hero-about-top">
-                    <h1 class="bio-header">Meet Brea</h1>
+                    <img src="meet brea.svg" alt="Meet Brea" class="bio-header-svg">
                     <div class="hero-credentials">UGC Creator | Creative Strategist | Professional Actress</div>
                 </div>
                 
@@ -1936,11 +1980,11 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 
                 <!-- Content below photo: bio bullets, buttons, and long bio -->
                 <div class="hero-about-bottom">
-                    <p><span class="star-bullets">⭐️28-year-old Bahamian-American Gen Z creator<br>
-⭐️Serial hobbyist<br>
-⭐️Based in Huntsville, AL<br>
-⭐️Professional actress, singer, and dancer of 15+ years<br>
-⭐️An "okay" cook (according to my Caribbean mom)</span></p>
+                    <p><span class="star-bullets">•28-year-old Bahamian-American Gen Z creator<br>
+•Serial hobbyist<br>
+•Based in Huntsville, AL<br>
+•Professional actress, singer, and dancer of 15+ years<br>
+•An "okay" cook (according to my Caribbean mom)</span></p>
 
                     <!-- CTA Buttons -->
                     <div class="hero-cta-buttons">
