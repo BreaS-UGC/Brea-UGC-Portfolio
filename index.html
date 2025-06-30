@@ -351,7 +351,7 @@
         
         /* Hide mobile layout on desktop */
         .hero-mobile-content {
-            display: none;
+            display: none !important;
             position: relative;
             z-index: 3;
         }
@@ -1613,7 +1613,7 @@
             
             /* Show mobile hero layout */
             .hero-mobile-content {
-                display: block;
+                display: block !important;
             }
             
             /* Hero section mobile fixes */
@@ -1771,7 +1771,7 @@
             }
             
             .hero-mobile-content {
-                display: block;
+                display: block !important;
                 max-width: 100%;
             }
             
@@ -1964,7 +1964,7 @@
             <div class="hero-desktop-layout">
                 <div class="hero-text-content">
                     <div class="hero-about">
-                        <img src="meet brea.svg" alt="Meet Brea" class="bio-header-svg">
+                        <img src="meet brea.svg?v=2" alt="Meet Brea" class="bio-header-svg">
                         <div class="hero-credentials">UGC Creator | Creative Strategist | Professional Actress</div>
                         <p><span class="star-bullets">•28-year-old Bahamian-American Gen Z creator<br>
 •Serial hobbyist<br>
@@ -1993,7 +1993,8 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             <div class="hero-mobile-content">
                 <!-- Content above photo: only heading and subtitle -->
                 <div class="hero-about-top">
-                    <img src="meet brea.svg" alt="Meet Brea" class="bio-header-svg">
+                    <img src="meet brea.svg?v=2" alt="Meet Brea" class="bio-header-svg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <h1 class="bio-header" style="display: none;">Meet Brea</h1>
                     <div class="hero-credentials">UGC Creator | Creative Strategist | Professional Actress</div>
                 </div>
                 
