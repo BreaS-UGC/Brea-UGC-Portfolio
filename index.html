@@ -104,6 +104,10 @@
             padding: 8px 16px;
             border-radius: 4px;
             text-transform: uppercase;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            z-index: 1001;
         }
         
         .nav-links a:hover {
@@ -130,6 +134,8 @@
             display: inline-block;
             box-sizing: border-box;
             text-transform: uppercase;
+            position: relative;
+            z-index: 1001;
         }
         
         .dropdown-toggle:hover {
@@ -445,13 +451,14 @@
             justify-content: center;
             margin: 25px 0;
             flex-wrap: wrap;
+            padding-left: 15px;
         }
         
         .hero-btn {
             font-family: 'Fredoka One', Georgia, serif;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 400;
-            padding: 15px 30px;
+            padding: 16px 33px;
             text-decoration: none;
             border: 3px solid;
             border-radius: 0;
@@ -461,7 +468,7 @@
             position: relative;
             overflow: hidden;
             box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
-            height: 60px;
+            height: 66px;
             line-height: 1;
             box-sizing: border-box;
             display: inline-flex;
@@ -531,6 +538,7 @@
             display: inline-flex;
             animation: scroll-logos 30s linear infinite;
             gap: 80px;
+            will-change: transform;
         }
         
         .logo-item {
@@ -583,15 +591,20 @@
             color: #333;
         }
         
-        /* Make Justin Guitar logo much bigger */
+        /* Make Justin Guitar logo much bigger - with higher specificity */
         .logo-item.justin-guitar .logo-image {
-            height: 180px;
+            height: 180px !important;
             object-fit: contain;
             object-position: center;
         }
         
         /* Increase Planta logo size */
         .logo-image-only .logo-image {
+            height: 85px;
+        }
+        
+        /* Ensure other logos don't get overridden by general rules */
+        .logo-image-only:not(.justin-guitar) .logo-image {
             height: 85px;
         }
         
@@ -617,6 +630,13 @@
         .logo-text {
             font-weight: 400;
             text-transform: uppercase;
+        }
+        
+        /* Remove white background from Temptations logo */
+        .temptations .logo-image {
+            background: transparent;
+            mix-blend-mode: multiply;
+            filter: contrast(1.2) brightness(1.1);
         }
         
         @keyframes scroll-logos {
@@ -2314,8 +2334,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
     <section id="brand-logos" class="portfolio-section brand-logos-section">
         <div class="container">
             <div class="section-header">
-                <h2>Trusted by Brands</h2>
-                <p>Companies that have worked with Brea for authentic UGC content</p>
+                <h2>Brand Collaborations</h2>
             </div>
             
             <div class="logos-marquee">
@@ -2334,6 +2353,12 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                     <div class="logo-item logo-image-only">
                         <img src="planta-logo.png" alt="Planta" class="logo-image">
                     </div>
+                    <div class="logo-item logo-image-only temptations">
+                        <img src="temptations-logo.jpg" alt="Temptations" class="logo-image">
+                    </div>
+                    <div class="logo-item logo-image-only raw-actives">
+                        <img src="raw-actives-logo.jpg" alt="Raw Actives" class="logo-image">
+                    </div>
                     <!-- Duplicate for seamless loop -->
                     <div class="logo-item logo-with-image calzen">
                         <img src="calzen logo.png" alt="Calzen Logo" class="logo-image">
@@ -2347,6 +2372,12 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                     </div>
                     <div class="logo-item logo-image-only">
                         <img src="planta-logo.png" alt="Planta" class="logo-image">
+                    </div>
+                    <div class="logo-item logo-image-only temptations">
+                        <img src="temptations-logo.jpg" alt="Temptations" class="logo-image">
+                    </div>
+                    <div class="logo-item logo-image-only raw-actives">
+                        <img src="raw-actives-logo.jpg" alt="Raw Actives" class="logo-image">
                     </div>
                 </div>
             </div>
@@ -2507,11 +2538,15 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
 
         // Smooth scrolling for navigation links
         // Debug what elements are being found
-        console.log('Nav elements found:', document.querySelectorAll('.nav-links a'));
+        const navElements = document.querySelectorAll('.nav-links a');
+        console.log('Nav elements found:', navElements);
+        navElements.forEach((el, i) => {
+            console.log(`Nav element ${i}:`, el.textContent, el.getAttribute('href'), el.classList.toString());
+        });
         console.log('Logo found:', document.querySelector('.logo'));
         
-        // Only target specific navigation elements, not entire header
-        document.querySelectorAll('.nav-links a').forEach((anchor, index) => {
+        // Target navigation and CTA buttons for smooth scrolling
+        document.querySelectorAll('.nav-links a, .hero-btn[href^="#"]').forEach((anchor, index) => {
             console.log(`Setting up navigation ${index}:`, anchor.textContent, anchor.getAttribute('href'));
             anchor.addEventListener('click', function (e) {
                 console.log('Navigation clicked:', this.textContent, this.getAttribute('href'));
