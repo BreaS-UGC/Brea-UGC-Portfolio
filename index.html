@@ -632,12 +632,6 @@
             text-transform: uppercase;
         }
         
-        /* Remove white background from Temptations logo */
-        .temptations .logo-image {
-            background: transparent;
-            mix-blend-mode: multiply;
-            filter: contrast(1.2) brightness(1.1);
-        }
         
         @keyframes scroll-logos {
             0% {
@@ -1007,7 +1001,7 @@
         .mini-phone-screen {
             background: #fff;
             border-radius: 18px;
-            height: 344px;
+            height: calc(100% - 10px);
             overflow: hidden;
             position: relative;
         }
@@ -1061,12 +1055,17 @@
             background-color: #9F8AB3;
             color: white;
             font-size: 10px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
         
         .mini-app-content {
             height: calc(100% - 60px);
             overflow: hidden;
             position: relative;
+            top: 30px;
         }
         
         .mini-app-footer {
@@ -1497,6 +1496,218 @@
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
         }
         
+        /* Services Tiles Section */
+        .services-new-section {
+            background-color: #f8f8fa;
+            padding: 100px 0;
+        }
+        
+        .services-tiles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .service-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-tile:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tile-image {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(159, 138, 179, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .tile-image:hover {
+            box-shadow: 0 15px 40px rgba(159, 138, 179, 0.3);
+        }
+        
+        .tile-bg-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .strategy-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #9F8AB3 0%, #7D6A96 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .strategy-placeholder i {
+            font-size: 60px;
+            color: #D4AF37;
+            opacity: 0.8;
+        }
+        
+        .tile-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            padding: 30px 20px;
+            color: white;
+        }
+        
+        .tile-title {
+            font-family: 'Fredoka One', Georgia, serif;
+            font-size: 2.2rem;
+            margin: 0;
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .coming-soon-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(159, 138, 179, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .couple-tile:hover .coming-soon-overlay {
+            opacity: 1;
+        }
+        
+        .coming-soon-overlay span {
+            font-family: 'Fredoka One', Georgia, serif;
+            font-size: 2rem;
+            color: #D4AF37;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+        }
+        
+        .tile-dropdown {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .dropdown-item a, .dropdown-item span {
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #7D6A96;
+            text-decoration: underline;
+            text-decoration-color: #D4AF37;
+            text-underline-offset: 4px;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .dropdown-item a:hover {
+            color: #D4AF37;
+        }
+        
+        .dropdown-item.disabled span {
+            color: #ccc;
+            text-decoration-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        /* Expandable Items */
+        .expandable-item {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .expand-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            border-bottom: 1px solid transparent;
+        }
+        
+        .expand-header:hover {
+            border-bottom: 1px solid #D4AF37;
+        }
+        
+        .expand-header:hover span {
+            color: #D4AF37;
+        }
+        
+        .expand-header:hover .expand-arrow {
+            color: #7D6A96;
+        }
+        
+        .expand-header span {
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #7D6A96;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .expand-arrow {
+            color: #D4AF37;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+        
+        .expand-header.active .expand-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .expand-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: rgba(248, 248, 250, 0.8);
+            border-radius: 0 0 8px 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-top: none;
+        }
+        
+        .expand-content.active {
+            max-height: 200px;
+            padding: 15px 20px;
+        }
+        
+        .expand-content p {
+            margin: 0;
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        
         /* Footer Styles - Mauve & Gold Theme */
         footer {
             background-color: #7D6A96; /* Darker mauve */
@@ -1771,7 +1982,7 @@
             }
             
             .mini-phone-screen {
-                height: 235px;
+                height: calc(100% - 8px);
             }
             
             .paid-ads-grid {
@@ -1913,6 +2124,30 @@
                 padding: 10px 25px;
                 width: 200px;
                 text-align: center;
+            }
+            
+            /* Services tiles mobile */
+            .services-tiles-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-top: 40px;
+            }
+            
+            .tile-image {
+                height: 300px;
+            }
+            
+            .tile-title {
+                font-size: 1.8rem;
+            }
+            
+            .strategy-placeholder i {
+                font-size: 40px;
+                gap: 20px;
+            }
+            
+            .coming-soon-overlay span {
+                font-size: 1.5rem;
             }
         }
         
@@ -2385,11 +2620,107 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="portfolio-section">
+    <section id="services" class="portfolio-section services-new-section">
         <div class="container">
             <div class="section-header">
                 <h2>Services & Packages</h2>
-                <p>Custom UGC content creation packages coming soon</p>
+            </div>
+            
+            <div class="services-tiles-grid">
+                <!-- UGC Tile -->
+                <div class="service-tile ugc-tile">
+                    <div class="tile-image">
+                        <img src="ugc-tile.jpg" alt="UGC Services" class="tile-bg-image">
+                        <div class="tile-overlay">
+                            <h3 class="tile-title">UGC</h3>
+                        </div>
+                    </div>
+                    <div class="tile-dropdown">
+                        <div class="expandable-item">
+                            <div class="expand-header" onclick="toggleExpand(this)">
+                                <span>What is UGC?</span>
+                                <i class="fas fa-chevron-down expand-arrow"></i>
+                            </div>
+                            <div class="expand-content">
+                                <p>Content coming soon...</p>
+                            </div>
+                        </div>
+                        <div class="expandable-item">
+                            <div class="expand-header" onclick="toggleExpand(this)">
+                                <span>What's Included</span>
+                                <i class="fas fa-chevron-down expand-arrow"></i>
+                            </div>
+                            <div class="expand-content">
+                                <p>Content coming soon...</p>
+                            </div>
+                        </div>
+                        <div class="expandable-item">
+                            <div class="expand-header" onclick="toggleExpand(this)">
+                                <span>Rates and Services</span>
+                                <i class="fas fa-chevron-down expand-arrow"></i>
+                            </div>
+                            <div class="expand-content">
+                                <p>Content coming soon...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Creative Strategy Tile -->
+                <div class="service-tile strategy-tile">
+                    <div class="tile-image">
+                        <div class="strategy-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-hashtag"></i>
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="tile-overlay">
+                            <h3 class="tile-title">Creative Strategy</h3>
+                        </div>
+                    </div>
+                    <div class="tile-dropdown">
+                        <div class="expandable-item">
+                            <div class="expand-header" onclick="toggleExpand(this)">
+                                <span>Concept Ideation</span>
+                                <i class="fas fa-chevron-down expand-arrow"></i>
+                            </div>
+                            <div class="expand-content">
+                                <p>Content coming soon...</p>
+                            </div>
+                        </div>
+                        <div class="expandable-item">
+                            <div class="expand-header" onclick="toggleExpand(this)">
+                                <span>Portfolio Creation</span>
+                                <i class="fas fa-chevron-down expand-arrow"></i>
+                            </div>
+                            <div class="expand-content">
+                                <p>Content coming soon...</p>
+                            </div>
+                        </div>
+                        <div class="expandable-item">
+                            <div class="expand-header" onclick="toggleExpand(this)">
+                                <span>Social Media Audit</span>
+                                <i class="fas fa-chevron-down expand-arrow"></i>
+                            </div>
+                            <div class="expand-content">
+                                <p>Content coming soon...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Couple UGC Tile -->
+                <div class="service-tile couple-tile">
+                    <div class="tile-image">
+                        <img src="couple-ugc-tile.jpg" alt="Couple UGC Services" class="tile-bg-image">
+                        <div class="tile-overlay">
+                            <h3 class="tile-title">Couple UGC</h3>
+                        </div>
+                        <div class="coming-soon-overlay">
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -2534,6 +2865,18 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 top: 0,
                 behavior: 'smooth'
             });
+        }
+
+        // Function to toggle expandable content
+        function toggleExpand(header) {
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector('.expand-arrow');
+            
+            // Toggle active class on header
+            header.classList.toggle('active');
+            
+            // Toggle active class on content
+            content.classList.toggle('active');
         }
 
         // Smooth scrolling for navigation links
