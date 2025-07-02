@@ -1597,6 +1597,10 @@
             opacity: 1;
         }
         
+        .strategy-tile:hover .coming-soon-overlay {
+            opacity: 1;
+        }
+        
         .coming-soon-overlay span {
             font-family: 'Fredoka One', Georgia, serif;
             font-size: 2rem;
@@ -1612,6 +1616,7 @@
             gap: 12px;
             width: 100%;
             max-width: 400px;
+            min-height: 200px;
         }
         
         .dropdown-item a, .dropdown-item span {
@@ -1696,16 +1701,49 @@
         }
         
         .expand-content.active {
-            max-height: 200px;
+            max-height: 400px;
             padding: 15px 20px;
         }
         
         .expand-content p {
             margin: 0;
             font-family: 'Nunito', Helvetica, Arial, sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             color: #6c757d;
             line-height: 1.6;
+        }
+        
+        .included-list {
+            margin: 0;
+            padding-left: 20px;
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #6c757d;
+            line-height: 1.8;
+        }
+        
+        .included-list li {
+            margin-bottom: 8px;
+        }
+        
+        .add-ons-note {
+            margin-top: 15px !important;
+            font-style: italic;
+            font-size: 12px !important;
+            color: #9F8AB3 !important;
+        }
+        
+        .rates-statement {
+            text-align: center;
+            padding: 12px 0;
+        }
+        
+        .rates-statement p {
+            margin: 0;
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            color: #7D6A96;
+            font-weight: 800;
         }
         
         /* Footer Styles - Mauve & Gold Theme */
@@ -2642,26 +2680,42 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                                 <i class="fas fa-chevron-down expand-arrow"></i>
                             </div>
                             <div class="expand-content">
-                                <p>Content coming soon...</p>
+                                <p>User Generated Content (UGC) is authentic content created by real people showcasing your brand naturally. Unlike traditional ads, UGC builds genuine trust because it feels like a friend's recommendation, driving higher engagement and conversions.</p>
                             </div>
                         </div>
                         <div class="expandable-item">
                             <div class="expand-header" onclick="toggleExpand(this)">
-                                <span>What's Included</span>
+                                <span>What's Included?</span>
                                 <i class="fas fa-chevron-down expand-arrow"></i>
                             </div>
                             <div class="expand-content">
-                                <p>Content coming soon...</p>
+                                <ul class="included-list">
+                                    <li>Concept Ideation</li>
+                                    <li>Scripting/Script Reads</li>
+                                    <li>Filming</li>
+                                    <li>Retention Editing</li>
+                                    <li>Scroll Stopping Hook</li>
+                                    <li>Strong CTA</li>
+                                    <li>2 Revisions</li>
+                                </ul>
+                                <p class="add-ons-note">*Add Ons - Raw Footage, Hook/CTA Variations, Additional Revisions</p>
                             </div>
                         </div>
                         <div class="expandable-item">
                             <div class="expand-header" onclick="toggleExpand(this)">
-                                <span>Rates and Services</span>
+                                <span>Services</span>
                                 <i class="fas fa-chevron-down expand-arrow"></i>
                             </div>
                             <div class="expand-content">
-                                <p>Content coming soon...</p>
+                                <ul class="included-list">
+                                    <li>1 Video</li>
+                                    <li>3 Video Bundle</li>
+                                    <li>5 Video Bundle</li>
+                                </ul>
                             </div>
+                        </div>
+                        <div class="rates-statement">
+                            <p>Base rates start at $200!</p>
                         </div>
                     </div>
                 </div>
@@ -2673,34 +2727,8 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                         <div class="tile-overlay">
                             <h3 class="tile-title">Creative Strategy</h3>
                         </div>
-                    </div>
-                    <div class="tile-dropdown">
-                        <div class="expandable-item">
-                            <div class="expand-header" onclick="toggleExpand(this)">
-                                <span>Concept Ideation</span>
-                                <i class="fas fa-chevron-down expand-arrow"></i>
-                            </div>
-                            <div class="expand-content">
-                                <p>Content coming soon...</p>
-                            </div>
-                        </div>
-                        <div class="expandable-item">
-                            <div class="expand-header" onclick="toggleExpand(this)">
-                                <span>Portfolio Creation</span>
-                                <i class="fas fa-chevron-down expand-arrow"></i>
-                            </div>
-                            <div class="expand-content">
-                                <p>Content coming soon...</p>
-                            </div>
-                        </div>
-                        <div class="expandable-item">
-                            <div class="expand-header" onclick="toggleExpand(this)">
-                                <span>Social Media Audit</span>
-                                <i class="fas fa-chevron-down expand-arrow"></i>
-                            </div>
-                            <div class="expand-content">
-                                <p>Content coming soon...</p>
-                            </div>
+                        <div class="coming-soon-overlay">
+                            <span>Coming Soon</span>
                         </div>
                     </div>
                 </div>
