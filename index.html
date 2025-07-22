@@ -29,8 +29,19 @@
             box-sizing: border-box;
         }
         
+        html, body {
+            background: #E5DBF0 !important;
+            background-color: #E5DBF0 !important;
+            background-image: none !important;
+            background-attachment: scroll !important;
+            background-repeat: no-repeat !important;
+            background-size: auto !important;
+            background-position: 0 0 !important;
+            filter: none !important;
+            box-shadow: none !important;
+        }
+        
         body {
-            background-color: #f8f9fa;
             color: #212529;
             line-height: 1.6;
             overflow-x: hidden;
@@ -49,13 +60,13 @@
         
         /* Header Styles - Mauve & Gold Theme */
         header {
-            padding: 30px 0;
-            background-color: #9F8AB3; /* Mauve background */
+            padding: 15px 0;
+            background: linear-gradient(135deg, #7D6A96 0%, #B5A5C9 100%);
+            background-attachment: scroll !important;
+            background-image: linear-gradient(135deg, #7D6A96 0%, #B5A5C9 100%) !important;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            position: fixed;
+            position: relative;
             width: 100%;
-            top: 0;
-            z-index: 1000;
         }
         
         nav {
@@ -78,12 +89,12 @@
             object-fit: contain;
             object-position: left;
             filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
-            transform: scale(3.5) translateY(0px);
+            transform: scale(4.0) translateY(5px);
             transform-origin: left center;
         }
         
         .logo:hover img {
-            transform: scale(3.5) translateY(0px);
+            transform: scale(4.0) translateY(5px);
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
         }
         
@@ -95,8 +106,8 @@
         
         .nav-links a {
             text-decoration: none;
-            color: #fff;
-            font-family: 'Fredoka One', Georgia, serif;
+            color: #4A3B5C;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-weight: 400;
             transition: all 0.3s;
             font-size: 16px;
@@ -123,8 +134,8 @@
         
         .dropdown-toggle {
             text-decoration: none;
-            color: #fff;
-            font-family: 'Fredoka One', Georgia, serif;
+            color: #4A3B5C;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-weight: 400;
             transition: all 0.3s;
             font-size: 16px;
@@ -168,7 +179,7 @@
         .dropdown-menu a {
             display: block;
             padding: 12px 20px;
-            color: #fff;
+            color: #4A3B5C;
             text-decoration: none;
             font-size: 14px;
             letter-spacing: 1px;
@@ -199,7 +210,16 @@
             align-items: center;
             justify-content: center;
             padding: 80px 20px 40px 20px;
-            background: #6B4C85;
+            background: #E5DBF0 !important;
+            background-color: #E5DBF0 !important;
+            background-image: none !important;
+            background-attachment: scroll !important;
+            background-repeat: no-repeat !important;
+            background-size: auto !important;
+            background-position: 0 0 !important;
+            background-blend-mode: normal !important;
+            filter: none !important;
+            box-shadow: none !important;
             position: relative;
         }
         
@@ -211,11 +231,13 @@
             width: 100%;
             gap: clamp(30px, 5vw, 60px);
             margin: 0 auto;
+            flex-direction: row-reverse;
         }
         
         .hero-text-content {
             flex: 1;
             max-width: 600px;
+            text-align: right;
         }
         
         .hero-image-content {
@@ -230,8 +252,10 @@
             object-fit: cover;
             object-position: center top;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            margin-top: -20px;
             position: relative;
             z-index: 2;
+            transform: translateY(-30px);
         }
         
         .hero-content h1 {
@@ -286,13 +310,16 @@
         }
         
         .bio-header-svg {
-            height: 35rem;
+            height: 18rem;
             width: auto;
-            margin-top: -140px;
+            margin-top: -160px;
             margin-bottom: 15px;
             display: block;
             margin-left: auto;
             margin-right: auto;
+            transform: translateY(-50px);
+            filter: sepia(100%) hue-rotate(260deg) saturate(300%) brightness(0.4) !important;
+            opacity: 1;
         }
 
 
@@ -304,6 +331,7 @@
             width: 100%;
             text-align: center;
             overflow: hidden;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
         }
 
         .typewriter::after {
@@ -327,17 +355,16 @@
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 16px;
             line-height: 1.6;
-            color: #fff !important;
+            color: #4A3B5C !important;
             margin: 0;
             text-align: left;
         }
         
         .hero-about .star-bullets {
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
-            color: #D4AF37 !important;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6) !important;
+            color: #4A3B5C !important;
             font-weight: 600;
-            margin-top: -120px;
+            margin-top: -80px;
             position: relative;
             z-index: 10;
         }
@@ -346,11 +373,10 @@
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 1.1rem;
             max-width: 600px;
-            margin: -180px auto 15px;
-            color: #fff; /* Bright white text */
+            margin: -120px auto 15px;
+            color: #4A3B5C;
             font-weight: 400;
             line-height: 1.4;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
             text-align: center;
             position: relative;
             z-index: 10;
@@ -455,114 +481,136 @@
         }
         
         .hero-btn {
-            font-family: 'Fredoka One', Georgia, serif;
-            font-size: 20px;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 16px;
             font-weight: 400;
-            padding: 16px 33px;
+            padding: 12px 60px;
             text-decoration: none;
-            border: 3px solid;
-            border-radius: 0;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
-            height: 66px;
-            line-height: 1;
-            box-sizing: border-box;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            background-color: #6B4C85;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
         }
         
-        .primary-btn {
-            background: linear-gradient(45deg, #D4AF37, #FFD700);
-            color: #7D6A96;
-            border-color: #B8941F;
-        }
-        
-        .primary-btn:hover {
-            background: linear-gradient(45deg, #FFD700, #D4AF37);
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px rgba(0,0,0,0.4);
-        }
-        
-        .secondary-btn {
-            background: transparent;
-            color: #D4AF37;
-            border-color: #D4AF37;
-        }
-        
-        .secondary-btn:hover {
-            background: #D4AF37;
-            color: #7D6A96;
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px rgba(0,0,0,0.4);
+        .hero-btn:hover {
+            background-color: #9F8AB3;
         }
         
         .hero-bio {
             margin-top: 25px;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            color: #4A3B5C;
         }
         
-        /* Brand Logos Section - 90s Aesthetic */
+        /* Brand Logos Section */
         .brand-logos-section {
-            background: linear-gradient(135deg, #f0eff3 0%, #e8e6ec 100%);
+            background: #f0eff3;
             padding: 80px 0;
             position: relative;
-            overflow: hidden;
+        }
+
+        .brand-logos-section h2 {
+            color: #4A3B5C;
         }
         
-        .brand-logos-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(45deg, transparent 25%, rgba(212, 175, 55, 0.03) 25%, rgba(212, 175, 55, 0.03) 50%, transparent 50%),
-                linear-gradient(-45deg, transparent 25%, rgba(159, 138, 179, 0.03) 25%, rgba(159, 138, 179, 0.03) 50%, transparent 50%);
-            background-size: 20px 20px;
-            pointer-events: none;
-        }
-        
-        .logos-marquee {
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            margin-top: 50px;
-        }
-        
-        .marquee-track {
-            display: inline-flex;
-            animation: scroll-logos 30s linear infinite;
-            gap: 80px;
-            will-change: transform;
-        }
-        
-        .logo-item {
+        .logos-carousel {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            font-family: 'Fredoka One', Georgia, serif;
-            font-size: 18px;
-            color: #7D6A96;
-            text-shadow: 2px 2px 0px rgba(212, 175, 55, 0.3);
-            letter-spacing: 2px;
-            padding: 15px 25px;
-            background: transparent;
-            white-space: nowrap;
-            transform: skew(-5deg);
-            transition: background-color 0.3s ease, color 0.3s ease;
-            min-width: 200px;
+            position: relative;
+            margin-top: 50px;
+            gap: 30px;
         }
         
-        .logo-item:hover {
-            transform: skew(-5deg);
-            cursor: default;
+        .carousel-container {
+            width: 100%;
+            max-width: 400px;
+            height: 120px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
         }
+        
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .logo-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: rotateY(90deg);
+            transition: all 0.6s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-item.active {
+            opacity: 1;
+            transform: rotateY(0deg);
+        }
+        
+        .logo-item.prev {
+            transform: rotateY(-90deg);
+        }
+        
+        .logo-item.next {
+            transform: rotateY(90deg);
+        }
+
+        .logo-item .logo-image {
+            max-width: 200px;
+            max-height: 80px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .logo-item .logo-text {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            color: #4A3B5C;
+            font-weight: 600;
+            font-size: 16px;
+            margin-left: 15px;
+        }
+        
+        .carousel-arrow {
+            background: #8B7AA0;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            user-select: none;
+        }
+        
+        .carousel-arrow:hover {
+            background: #ffbd59;
+            color: #4A3B5C;
+        }
+        
+        .carousel-arrow:active {
+            transform: scale(0.95);
+        }
+        
         
         /* Specific styling for Calzen logo */
         .logo-item.calzen {
@@ -633,14 +681,6 @@
         }
         
         
-        @keyframes scroll-logos {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
         
         /* 90s Computer Era Elements */
         body {
@@ -655,24 +695,6 @@
             display: none;
         }
         
-        /* Add subtle scanline effect - excludes mobile image area */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(255, 255, 255, 0.03) 2px,
-                rgba(255, 255, 255, 0.03) 4px
-            );
-            pointer-events: none;
-            z-index: 1;
-        }
         
         .hero-mobile-content {
             position: relative;
@@ -708,10 +730,10 @@
         }
         
         .section-header h2 {
-            font-family: 'Fredoka One', Georgia, serif;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 3rem;
             margin-bottom: 15px;
-            color: #7D6A96; /* Darker mauve */
+            color: #4A3B5C; /* Darker mauve */
             letter-spacing: 1px;
             height: 3.6rem;
             display: flex;
@@ -908,7 +930,7 @@
         .current-video-title {
             font-family: 'Comfortaa', Georgia, serif;
             font-size: 24px;
-            color: #7D6A96;
+            color: #4A3B5C;
             margin-bottom: 10px;
             font-weight: 600;
         }
@@ -1021,21 +1043,20 @@
         
         .mini-video-container {
             position: relative;
-            width: 100%;
-            height: 100%;
+            width: clamp(180px, 15vw, 280px);
+            height: clamp(320px, 25vw, 500px);
             overflow: hidden;
+            border: 1px solid rgba(74, 59, 92, 0.1);
+            border-radius: 8px;
+            margin: 0 auto;
         }
         
-        @media (min-width: 769px) {
-            .mini-video-container {
-                height: 100%;
-            }
-        }
         
         .mini-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 8px;
         }
         
         
@@ -1062,10 +1083,10 @@
         }
         
         .mini-app-content {
-            height: calc(100% - 60px);
+            height: 100%;
             overflow: hidden;
             position: relative;
-            top: 30px;
+            top: 0;
         }
         
         .mini-app-footer {
@@ -1099,40 +1120,53 @@
         .phone-label {
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 16px;
-            color: #fff;
+            color: #4A3B5C;
             margin-top: 15px;
             margin-bottom: 25px;
             font-weight: 600;
             text-align: center;
-            background: linear-gradient(135deg, #9F8AB3 0%, #7D6A96 100%);
+            background: #8B7AA0;
             padding: 8px 16px;
             border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(159, 138, 179, 0.3);
-            border: 2px solid #D4AF37;
+            box-shadow: 0 4px 12px rgba(139, 122, 160, 0.3);
+            border: 2px solid #ffbd59;
             letter-spacing: 0.5px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            text-shadow: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .phone-label:hover {
+            background: #ffbd59;
+            color: #4A3B5C;
         }
         
         .concept-type {
             font-family: 'Nunito', Helvetica, Arial, sans-serif;
             font-size: 14px;
-            color: #7D6A96;
+            color: #4A3B5C;
             margin-top: 15px;
             font-weight: 600;
             text-align: center;
-            background: rgba(212, 175, 55, 0.15);
+            background: #ffbd59;
             padding: 8px 16px;
             border-radius: 15px;
-            border: 2px solid #D4AF37;
+            border: 2px solid #8B7AA0;
             letter-spacing: 0.5px;
             text-transform: capitalize;
-            box-shadow: 0 4px 8px rgba(159, 138, 179, 0.2);
+            box-shadow: 0 4px 8px rgba(255, 189, 89, 0.2);
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .concept-type:hover {
+            background: #8B7AA0;
+            color: #4A3B5C;
         }
         
         .phone-niche {
             font-family: 'Nunito', Helvetica, Arial, sans-serif;
             font-size: 12px;
-            color: #7D6A96;
+            color: #4A3B5C;
             margin-top: 8px;
             font-weight: 700;
             text-align: center;
@@ -1336,7 +1370,7 @@
         .service-header h3 {
             font-family: 'Fredoka One', Georgia, serif;
             font-size: 1.8rem;
-            color: #7D6A96;
+            color: #4A3B5C;
             margin-bottom: 10px;
             letter-spacing: 1px;
         }
@@ -1385,7 +1419,7 @@
             border-radius: 10px;
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 14px;
-            color: #7D6A96;
+            color: #4A3B5C;
             font-weight: 500;
             line-height: 1.4;
         }
@@ -1401,7 +1435,7 @@
         .addons-section h3 {
             font-family: 'Fredoka One', Georgia, serif;
             font-size: 2rem;
-            color: #7D6A96;
+            color: #4A3B5C;
             margin-bottom: 40px;
             letter-spacing: 1px;
         }
@@ -1431,7 +1465,7 @@
         .addon-item h4 {
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 1.1rem;
-            color: #7D6A96;
+            color: #4A3B5C;
             margin-bottom: 8px;
             font-weight: 600;
         }
@@ -1477,7 +1511,7 @@
         .cta-button {
             display: inline-block;
             background: #D4AF37;
-            color: #7D6A96;
+            color: #4A3B5C;
             padding: 15px 40px;
             border-radius: 30px;
             text-decoration: none;
@@ -1571,7 +1605,7 @@
         }
         
         .tile-title {
-            font-family: 'Fredoka One', Georgia, serif;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 2.2rem;
             margin: 0;
             text-align: center;
@@ -1602,7 +1636,7 @@
         }
         
         .coming-soon-overlay span {
-            font-family: 'Fredoka One', Georgia, serif;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 2rem;
             color: #D4AF37;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -1622,7 +1656,7 @@
         .dropdown-item a, .dropdown-item span {
             font-family: 'Nunito', Helvetica, Arial, sans-serif;
             font-size: 16px;
-            color: #7D6A96;
+            color: #4A3B5C;
             text-decoration: underline;
             text-decoration-color: #D4AF37;
             text-underline-offset: 4px;
@@ -1667,13 +1701,13 @@
         }
         
         .expand-header:hover .expand-arrow {
-            color: #7D6A96;
+            color: #4A3B5C;
         }
         
         .expand-header span {
             font-family: 'Nunito', Helvetica, Arial, sans-serif;
             font-size: 16px;
-            color: #7D6A96;
+            color: #4A3B5C;
             font-weight: 600;
             text-decoration: none;
             transition: color 0.3s ease;
@@ -1742,14 +1776,14 @@
             margin: 0;
             font-family: 'Nunito', Helvetica, Arial, sans-serif;
             font-size: 20px;
-            color: #7D6A96;
+            color: #4A3B5C;
             font-weight: 800;
         }
         
         /* Footer Styles - Mauve & Gold Theme */
         footer {
-            background-color: #7D6A96; /* Darker mauve */
-            color: white;
+            background-color: #E5DBF0; /* Light purple to match bio */
+            color: #4A3B5C; /* Dark purple text to match bio */
             padding: 60px 0;
             text-align: center;
         }
@@ -1760,7 +1794,7 @@
         }
         
         .footer-content h2 {
-            font-family: 'Fredoka One', Georgia, serif;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 2.2rem;
             margin-bottom: 20px;
             letter-spacing: 1px;
@@ -1774,13 +1808,14 @@
         }
         
         .social-links a {
-            color: #D4AF37; /* Gold icons */
+            color: #7D6A96; /* Dark purple to match header */
             font-size: 48px;
             transition: transform 0.3s;
         }
         
         .social-links a:hover {
             transform: scale(1.2);
+            color: #ffbd59;
         }
         
         /* Custom animations for the rolodex effect */
@@ -1974,7 +2009,7 @@
             }
             
             .hero-mobile-content .star-bullets {
-                color: #D4AF37 !important;
+                color: #fff !important;
             }
             
             .logo {
@@ -2275,10 +2310,9 @@
 •Professional actress, singer, and dancer of 15+ years<br>
 •An "okay" cook (according to my Caribbean mom)</span></p>
 
-                        <!-- CTA Buttons -->
-                        <div class="hero-cta-buttons">
-                            <a href="mailto:brea@breaugc.com" class="hero-btn primary-btn">Let's Create</a>
-                            <a href="#brand-logos" class="hero-btn secondary-btn">Past Work</a>
+                        <!-- Thin CTA Button -->
+                        <div style="text-align: right; margin: 20px 0; padding-right: 80px;">
+                            <a href="mailto:brea@breaugc.com" style="font-family: 'Comfortaa', Helvetica, Arial, sans-serif; font-size: 18px; padding: 6px 120px; text-decoration: none; background-color: #8B7AA0; color: #4A3B5C; border: none; border-radius: 25px; transition: background-color 0.3s ease; cursor: pointer; display: inline-block; transform: translateX(105px); box-shadow: none !important; filter: none !important; background-image: none !important;" onmouseover="this.style.backgroundColor='#ffbd59'" onmouseout="this.style.backgroundColor='#8B7AA0'">LET'S CREATE!</a>
                         </div>
 
                         <p class="hero-bio">As a direct response UGC creator, I combine humor, real-life relatability, and performance-driven creativity to craft scroll-stopping content. My videos are designed to make viewers pause and think, "Wait… are they talking to me?" (Yes. Yes, I am.)<br><br>
@@ -2311,10 +2345,9 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
 •Professional actress, singer, and dancer of 15+ years<br>
 •An "okay" cook (according to my Caribbean mom)</span></p>
 
-                    <!-- CTA Buttons -->
-                    <div class="hero-cta-buttons">
-                        <a href="mailto:brea@breaugc.com" class="hero-btn primary-btn">Let's Create</a>
-                        <a href="#brand-logos" class="hero-btn secondary-btn">Past Work</a>
+                    <!-- Thin CTA Button -->
+                    <div style="text-align: center; margin: 20px 0;">
+                        <a href="mailto:brea@breaugc.com" style="font-family: 'Comfortaa', Helvetica, Arial, sans-serif; font-size: 14px; padding: 8px 80px; text-decoration: none; background-color: #6B4C85; color: #fff; border: none; border-radius: 3px; transition: background-color 0.3s ease; cursor: pointer; display: inline-block;" onmouseover="this.style.backgroundColor='#9F8AB3'" onmouseout="this.style.backgroundColor='#6B4C85'">LET'S CREATE!</a>
                     </div>
 
                     <p class="hero-bio">As a direct response UGC creator, I combine humor, real-life relatability, and performance-driven creativity to craft scroll-stopping content. My videos are designed to make viewers pause and think, "Wait… are they talking to me?" (Yes. Yes, I am.)<br><br>
@@ -2325,6 +2358,42 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
         </div>
     </section>
 
+    <!-- Brand Logos Section -->
+    <section id="brand-logos" class="portfolio-section brand-logos-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Brand Collaborations</h2>
+            </div>
+            
+            <div class="logos-carousel">
+                <button class="carousel-arrow carousel-prev" onclick="moveCarousel(-1)">&lt;</button>
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="logo-item logo-with-image calzen">
+                            <img src="calzen logo.png" alt="Calzen Logo" class="logo-image">
+                            <span class="logo-text">CALZEN</span>
+                        </div>
+                        <div class="logo-item logo-image-only">
+                            <img src="bodyrok-logo.png" alt="BodyRok" class="logo-image">
+                        </div>
+                        <div class="logo-item logo-image-only justin-guitar">
+                            <img src="justin guitar logo.png" alt="Justin Guitar Logo" class="logo-image">
+                        </div>
+                        <div class="logo-item logo-image-only">
+                            <img src="planta-logo.png" alt="Planta" class="logo-image">
+                        </div>
+                        <div class="logo-item logo-image-only temptations">
+                            <img src="temptations-logo.jpg" alt="Temptations" class="logo-image">
+                        </div>
+                        <div class="logo-item logo-image-only raw-actives">
+                            <img src="raw-actives-logo.jpg" alt="Raw Actives" class="logo-image">
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-arrow carousel-next" onclick="moveCarousel(1)">&gt;</button>
+            </div>
+        </div>
+    </section>
 
     <!-- Paid Ads Section -->
     <section id="paid-ads" class="portfolio-section paid-ads-new-section">
@@ -2335,130 +2404,50 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             </div>
             
             <div class="paid-ads-grid">
-                <!-- Phone 1 - Calzen Wellness -->
+                <!-- Video 1 - Calzen Wellness -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Calzen</div>
-                    <div class="mini-phone-frame">
-                        <div class="mini-phone-notch"></div>
-                        <div class="mini-phone-screen">
-                            <div class="mini-app-interface">
-                                <div class="mini-app-header">
-                                    <div class="mini-app-icon"><i class="fas fa-arrow-left"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-share"></i></div>
-                                </div>
-                                <div class="mini-app-content">
-                                    <div class="mini-video-container">
-                                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                                            <source src="videos/calzen paid ad for fiverr.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="mini-app-footer">
-                                    <div class="mini-app-icon"><i class="fas fa-home"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-compass"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-plus-square"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-heart"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-user"></i></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mini-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/calzen paid ad for fiverr.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class="concept-type">Problem/Solution</div>
                 </div>
 
-                <!-- Phone 2 - BodyRok -->
+                <!-- Video 2 - BodyRok -->
                 <div class="mini-phone-container">
                     <div class="phone-label">BODYROK</div>
-                    <div class="mini-phone-frame">
-                        <div class="mini-phone-notch"></div>
-                        <div class="mini-phone-screen">
-                            <div class="mini-app-interface">
-                                <div class="mini-app-header">
-                                    <div class="mini-app-icon"><i class="fas fa-arrow-left"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-share"></i></div>
-                                </div>
-                                <div class="mini-app-content">
-                                    <div class="mini-video-container">
-                                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                                            <source src="videos/bodyrok paid ad (720p for website).mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="mini-app-footer">
-                                    <div class="mini-app-icon"><i class="fas fa-home"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-compass"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-plus-square"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-heart"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-user"></i></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mini-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/bodyrok paid ad (720p for website).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class="concept-type">Testimonial</div>
                 </div>
 
-                <!-- Phone 3 - Justin Guitar -->
+                <!-- Video 3 - Justin Guitar -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Justin Guitar</div>
-                    <div class="mini-phone-frame">
-                        <div class="mini-phone-notch"></div>
-                        <div class="mini-phone-screen">
-                            <div class="mini-app-interface">
-                                <div class="mini-app-header">
-                                    <div class="mini-app-icon"><i class="fas fa-arrow-left"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-share"></i></div>
-                                </div>
-                                <div class="mini-app-content">
-                                    <div class="mini-video-container">
-                                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                                            <source src="videos/JG 3 (720p for website).mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="mini-app-footer">
-                                    <div class="mini-app-icon"><i class="fas fa-home"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-compass"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-plus-square"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-heart"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-user"></i></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mini-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/JG 3 (720p for website).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class="concept-type">Listicle</div>
                 </div>
 
-                <!-- Phone 4 - Raw Actives -->
+                <!-- Video 4 - Raw Actives -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Raw Actives</div>
-                    <div class="mini-phone-frame">
-                        <div class="mini-phone-notch"></div>
-                        <div class="mini-phone-screen">
-                            <div class="mini-app-interface">
-                                <div class="mini-app-header">
-                                    <div class="mini-app-icon"><i class="fas fa-arrow-left"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-share"></i></div>
-                                </div>
-                                <div class="mini-app-content">
-                                    <div class="mini-video-container">
-                                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                                            <source src="videos/Raw Actives (720p for website).mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="mini-app-footer">
-                                    <div class="mini-app-icon"><i class="fas fa-home"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-compass"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-plus-square"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-heart"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-user"></i></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mini-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/Raw Actives (720p for website).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class="concept-type">Product Demo</div>
                 </div>
@@ -2475,130 +2464,50 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             </div>
             
             <div class="paid-ads-grid">
-                <!-- Phone 1 - BODYROK -->
+                <!-- Video 1 - BODYROK -->
                 <div class="mini-phone-container">
                     <div class="phone-label">BODYROK</div>
-                    <div class="mini-phone-frame">
-                        <div class="mini-phone-notch"></div>
-                        <div class="mini-phone-screen">
-                            <div class="mini-app-interface">
-                                <div class="mini-app-header">
-                                    <div class="mini-app-icon"><i class="fas fa-arrow-left"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-share"></i></div>
-                                </div>
-                                <div class="mini-app-content">
-                                    <div class="mini-video-container">
-                                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                                            <source src="videos/bodyrok organic (720p for website).mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="mini-app-footer">
-                                    <div class="mini-app-icon"><i class="fas fa-home"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-compass"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-plus-square"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-heart"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-user"></i></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mini-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/bodyrok organic (720p for website).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class="concept-type">Experience</div>
                 </div>
 
-                <!-- Phone 2 - Calzen -->
+                <!-- Video 2 - Calzen -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Calzen</div>
-                    <div class="mini-phone-frame">
-                        <div class="mini-phone-notch"></div>
-                        <div class="mini-phone-screen">
-                            <div class="mini-app-interface">
-                                <div class="mini-app-header">
-                                    <div class="mini-app-icon"><i class="fas fa-arrow-left"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-share"></i></div>
-                                </div>
-                                <div class="mini-app-content">
-                                    <div class="mini-video-container">
-                                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                                            <source src="videos/calzen organic (720p for website).mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="mini-app-footer">
-                                    <div class="mini-app-icon"><i class="fas fa-home"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-compass"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-plus-square"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-heart"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-user"></i></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mini-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/calzen organic (720p for website).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class="concept-type">P.O.V.</div>
                 </div>
 
-                <!-- Phone 3 - Planta -->
+                <!-- Video 3 - Planta -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Planta</div>
-                    <div class="mini-phone-frame">
-                        <div class="mini-phone-notch"></div>
-                        <div class="mini-phone-screen">
-                            <div class="mini-app-interface">
-                                <div class="mini-app-header">
-                                    <div class="mini-app-icon"><i class="fas fa-arrow-left"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-share"></i></div>
-                                </div>
-                                <div class="mini-app-content">
-                                    <div class="mini-video-container">
-                                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                                            <source src="videos/planta (720p for website).mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="mini-app-footer">
-                                    <div class="mini-app-icon"><i class="fas fa-home"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-compass"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-plus-square"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-heart"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-user"></i></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mini-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/planta (720p for website).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class="concept-type">Trending Audio</div>
                 </div>
 
-                <!-- Phone 4 - Temptations -->
+                <!-- Video 4 - Temptations -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Temptations</div>
-                    <div class="mini-phone-frame">
-                        <div class="mini-phone-notch"></div>
-                        <div class="mini-phone-screen">
-                            <div class="mini-app-interface">
-                                <div class="mini-app-header">
-                                    <div class="mini-app-icon"><i class="fas fa-arrow-left"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-share"></i></div>
-                                </div>
-                                <div class="mini-app-content">
-                                    <div class="mini-video-container">
-                                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                                            <source src="videos/Temptations (720p for website).mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="mini-app-footer">
-                                    <div class="mini-app-icon"><i class="fas fa-home"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-compass"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-plus-square"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-heart"></i></div>
-                                    <div class="mini-app-icon"><i class="fas fa-user"></i></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mini-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/Temptations (720p for website).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class="concept-type">Day-in-the-Life</div>
                 </div>
@@ -2606,59 +2515,6 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
         </div>
     </section>
 
-    <!-- Brand Logos Section -->
-    <section id="brand-logos" class="portfolio-section brand-logos-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Brand Collaborations</h2>
-            </div>
-            
-            <div class="logos-marquee">
-                <div class="marquee-track">
-                    <!-- Actual brand logos -->
-                    <div class="logo-item logo-with-image calzen">
-                        <img src="calzen logo.png" alt="Calzen Logo" class="logo-image">
-                        <span class="logo-text">CALZEN</span>
-                    </div>
-                    <div class="logo-item logo-image-only">
-                        <img src="bodyrok-logo.png" alt="BodyRok" class="logo-image">
-                    </div>
-                    <div class="logo-item logo-image-only justin-guitar">
-                        <img src="justin guitar logo.png" alt="Justin Guitar Logo" class="logo-image">
-                    </div>
-                    <div class="logo-item logo-image-only">
-                        <img src="planta-logo.png" alt="Planta" class="logo-image">
-                    </div>
-                    <div class="logo-item logo-image-only temptations">
-                        <img src="temptations-logo.jpg" alt="Temptations" class="logo-image">
-                    </div>
-                    <div class="logo-item logo-image-only raw-actives">
-                        <img src="raw-actives-logo.jpg" alt="Raw Actives" class="logo-image">
-                    </div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="logo-item logo-with-image calzen">
-                        <img src="calzen logo.png" alt="Calzen Logo" class="logo-image">
-                        <span class="logo-text">CALZEN</span>
-                    </div>
-                    <div class="logo-item logo-image-only">
-                        <img src="bodyrok-logo.png" alt="BodyRok" class="logo-image">
-                    </div>
-                    <div class="logo-item logo-image-only justin-guitar">
-                        <img src="justin guitar logo.png" alt="Justin Guitar Logo" class="logo-image">
-                    </div>
-                    <div class="logo-item logo-image-only">
-                        <img src="planta-logo.png" alt="Planta" class="logo-image">
-                    </div>
-                    <div class="logo-item logo-image-only temptations">
-                        <img src="temptations-logo.jpg" alt="Temptations" class="logo-image">
-                    </div>
-                    <div class="logo-item logo-image-only raw-actives">
-                        <img src="raw-actives-logo.jpg" alt="Raw Actives" class="logo-image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Services Section -->
     <section id="services" class="portfolio-section services-new-section">
@@ -2758,7 +2614,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             <div class="footer-content">
                 <h2>Let's Create Together</h2>
                 <p>Ready to see what happens when performance training meets creative strategy? Reach out today for all your brand and content needs.</p>
-                <p>Email: <a href="mailto:brea@breaugc.com" style="color: #D4AF37; text-decoration: none;">brea@breaugc.com</a></p>
+                <p>Email: <a href="mailto:brea@breaugc.com" style="color: #4A3B5C; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">brea@breaugc.com</a></p>
                 <div class="social-links">
                     <a href="https://instagram.com/itsyagirlbrea" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://tiktok.com/@itsyagirlbrea" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -2777,6 +2633,57 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             const mobileNav = document.getElementById('mobileNav');
             mobileNav.classList.toggle('active');
         }
+
+        // Brand Logos Carousel - Single Logo Display
+        let currentSlide = 0;
+        
+        // Make function globally available
+        window.moveCarousel = function(direction) {
+            console.log('moveCarousel called with direction:', direction); // Debug log
+            const logoItems = document.querySelectorAll('.logo-item');
+            const totalSlides = logoItems.length;
+            
+            console.log('Found logo items:', logoItems.length); // Debug log
+            
+            if (logoItems.length === 0) return; // Safety check
+            
+            // Clear all classes from current slide
+            logoItems[currentSlide].classList.remove('active', 'prev', 'next');
+            
+            // Set exit animation for current slide
+            if (direction > 0) {
+                logoItems[currentSlide].classList.add('prev'); // Rotate left when going forward
+            } else {
+                logoItems[currentSlide].classList.add('next'); // Rotate right when going backward
+            }
+            
+            // Calculate next slide
+            currentSlide += direction;
+            
+            // Loop back to beginning/end
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            
+            console.log('Moving to slide:', currentSlide); // Debug log
+            
+            // Clear all classes from new slide and make it active
+            logoItems[currentSlide].classList.remove('prev', 'next');
+            logoItems[currentSlide].classList.add('active');
+        };
+        
+        // Initialize carousel - show first logo
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing carousel'); // Debug log
+            const logoItems = document.querySelectorAll('.logo-item');
+            console.log('Initial logo items found:', logoItems.length); // Debug log
+            if (logoItems.length > 0) {
+                logoItems[0].classList.add('active');
+                console.log('First logo activated'); // Debug log
+            }
+        });
         
         // Function to play video with audio
         function playVideo(overlay) {
