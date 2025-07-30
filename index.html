@@ -1785,9 +1785,7 @@
         
         .social-links a {
             color: #4A3B5C; /* Dark purple to match "Let's Create Together" */
-            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
-            font-size: 24px;
-            font-weight: 500;
+            font-size: 48px; /* Desktop icon size */
             text-decoration: none;
             transition: all 0.3s ease;
             padding: 0 15px;
@@ -1796,6 +1794,15 @@
         .social-links a:hover {
             color: #ffbd59; /* Gold hover */
             transform: scale(1.1);
+        }
+        
+        /* Desktop: Show icons, hide text */
+        .desktop-icon {
+            display: inline;
+        }
+        
+        .mobile-text {
+            display: none;
         }
         
         .social-links a:hover {
@@ -2463,7 +2470,18 @@
                 text-align: center !important;
             }
             
-            /* Social media text mobile size */
+            /* Mobile: Hide icons, show text */
+            .desktop-icon {
+                display: none;
+            }
+            
+            .mobile-text {
+                display: inline;
+                font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+                font-size: 20px;
+                font-weight: 500;
+            }
+            
             .social-links a {
                 font-size: 20px;
                 padding: 0 10px;
@@ -2852,8 +2870,14 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <p>Ready to see what happens when performance training meets creative strategy? Reach out today for all your brand and content needs.</p>
                 <p>Email: <a href="mailto:brea@breaugc.com" style="color: #4A3B5C; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">brea@breaugc.com</a></p>
                 <div class="social-links">
-                    <a href="https://instagram.com/itsyagirlbrea" target="_blank">Instagram</a>
-                    <a href="https://tiktok.com/@itsyagirlbrea" target="_blank">TikTok</a>
+                    <a href="https://instagram.com/itsyagirlbrea" target="_blank">
+                        <i class="fab fa-instagram desktop-icon"></i>
+                        <span class="mobile-text">Instagram</span>
+                    </a>
+                    <a href="https://tiktok.com/@itsyagirlbrea" target="_blank">
+                        <i class="fab fa-tiktok desktop-icon"></i>
+                        <span class="mobile-text">TikTok</span>
+                    </a>
                 </div>
             </div>
         </div>
