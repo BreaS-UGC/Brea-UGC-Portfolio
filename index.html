@@ -60,7 +60,7 @@
         
         /* Header Styles - Mauve & Gold Theme */
         header {
-            padding: 15px 0;
+            padding: 12px 0;
             background: linear-gradient(135deg, #7D6A96 0%, #B5A5C9 100%);
             background-attachment: scroll !important;
             background-image: linear-gradient(135deg, #7D6A96 0%, #B5A5C9 100%) !important;
@@ -420,7 +420,7 @@
         .hamburger-menu span {
             width: 25px;
             height: 3px;
-            background-color: white;
+            background-color: #4A3B5C;
             margin: 3px 0;
             transition: 0.3s;
         }
@@ -445,27 +445,33 @@
         }
         
         .mobile-nav a {
-            color: white;
+            color: #2F253B !important;
             text-decoration: none;
-            font-family: 'Fredoka One', Georgia, serif;
-            font-size: 24px;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 400;
             padding: 20px;
             text-align: center;
             width: 100%;
-            transition: background 0.3s;
+            transition: all 0.3s;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         
-        .mobile-nav a:hover {
-            background: rgba(212, 175, 55, 0.2);
+        .mobile-nav a:active,
+        .mobile-nav a:focus {
+            color: #B5A5C9 !important;
+        }
+        
+        .mobile-nav-close:hover {
+            color: #B5A5C9 !important;
         }
         
         .mobile-nav-close {
             position: absolute;
             top: 30px;
             right: 30px;
-            color: white;
+            color: #4A3B5C;
             font-size: 30px;
             cursor: pointer;
         }
@@ -508,7 +514,7 @@
         /* Brand Logos Section */
         .brand-logos-section {
             background: #f0eff3;
-            padding: 80px 0;
+            padding: 60px 0;
             position: relative;
         }
 
@@ -516,99 +522,52 @@
             color: #4A3B5C;
         }
         
-        .logos-carousel {
+        .logos-grid {
             display: flex;
-            align-items: center;
             justify-content: center;
-            position: relative;
-            margin-top: 50px;
+            align-items: center;
             gap: 30px;
+            margin-top: 50px;
+            flex-wrap: nowrap;
         }
         
-        .carousel-container {
-            width: 100%;
-            max-width: 400px;
-            height: 120px;
-            position: relative;
+        .logo-circle {
+            width: 155px;
+            height: 155px;
+            border-radius: 50%;
+            background: #E5DBF0;
             display: flex;
             align-items: center;
             justify-content: center;
-            perspective: 1000px;
+            transition: transform 0.3s ease;
+            padding: 25px;
         }
         
-        .carousel-track {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        .logo-circle:hover {
+            transform: translateY(-5px);
         }
         
-        .logo-item {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transform: rotateY(90deg);
-            transition: all 0.6s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .logo-item.active {
-            opacity: 1;
-            transform: rotateY(0deg);
-        }
-        
-        .logo-item.prev {
-            transform: rotateY(-90deg);
-        }
-        
-        .logo-item.next {
-            transform: rotateY(90deg);
-        }
-
-        .logo-item .logo-image {
-            max-width: 200px;
-            max-height: 80px;
+        .circular-logo {
+            max-width: 110px;
+            max-height: 110px;
             width: auto;
             height: auto;
             object-fit: contain;
         }
-
-        .logo-item .logo-text {
-            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
-            color: #4A3B5C;
-            font-weight: 600;
-            font-size: 16px;
-            margin-left: 15px;
+        
+        .calzen-logo {
+            max-width: 80px;
+            max-height: 80px;
         }
         
-        .carousel-arrow {
-            background: #8B7AA0;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            user-select: none;
+        .justin-logo {
+            max-width: 125px;
+            max-height: 125px;
         }
         
-        .carousel-arrow:hover {
-            background: #ffbd59;
-            color: #4A3B5C;
-        }
-        
-        .carousel-arrow:active {
-            transform: scale(0.95);
+        .raw-actives-logo {
+            max-width: 125px;
+            max-height: 125px;
         }
         
         
@@ -720,7 +679,7 @@
         
         /* Portfolio Sections */
         .portfolio-section {
-            padding: 100px 0;
+            padding: 80px 0;
             position: relative;
         }
         
@@ -752,7 +711,7 @@
         /* Paid Ads New Section - 4 Phone Grid */
         .paid-ads-new-section {
             background-color: #f8f8fa;
-            padding: 100px 0;
+            padding: 80px 0;
         }
         
         .paid-ads-grid {
@@ -1046,9 +1005,17 @@
             width: clamp(180px, 15vw, 280px);
             height: clamp(320px, 25vw, 500px);
             overflow: hidden;
-            border: 1px solid rgba(74, 59, 92, 0.1);
             border-radius: 8px;
             margin: 0 auto;
+            padding: 8px 12px 6px 12px;
+        }
+        
+        .mini-video-container.paid-ads-gradient {
+            background: linear-gradient(180deg, #f8f8fa 0%, #E8DDF2 15%, rgba(181, 165, 201, 0.8) 40%, rgba(125, 106, 150, 0.9) 70%, rgba(74, 59, 92, 0.95) 85%, rgba(74, 59, 92, 1) 100%);
+        }
+        
+        .mini-video-container.organic-gradient {
+            background: linear-gradient(180deg, #f0eff3 0%, #E8DDF2 15%, rgba(181, 165, 201, 0.8) 40%, rgba(125, 106, 150, 0.9) 70%, rgba(74, 59, 92, 0.95) 85%, rgba(74, 59, 92, 1) 100%);
         }
         
         
@@ -1056,7 +1023,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 8px;
+            display: block;
+        }
+        
+        .calzen-video-fix {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: fill !important;
+            transform: scale(1.01) !important;
         }
         
         
@@ -1533,7 +1507,7 @@
         /* Services Tiles Section */
         .services-new-section {
             background-color: #f8f8fa;
-            padding: 100px 0;
+            padding: 80px 0;
         }
         
         .services-tiles-grid {
@@ -1700,9 +1674,6 @@
             color: #D4AF37;
         }
         
-        .expand-header:hover .expand-arrow {
-            color: #4A3B5C;
-        }
         
         .expand-header span {
             font-family: 'Nunito', Helvetica, Arial, sans-serif;
@@ -1714,14 +1685,19 @@
         }
         
         .expand-arrow {
-            color: #D4AF37;
+            color: #7D6A96; /* Purple to match theme */
             font-size: 16px;
             transition: all 0.3s ease;
             margin-left: 10px;
         }
         
+        .expand-header:hover .expand-arrow {
+            color: #ffbd59; /* Gold on hover */
+        }
+        
         .expand-header.active .expand-arrow {
             transform: rotate(180deg);
+            color: #ffbd59; /* Gold when expanded */
         }
         
         .expand-content {
@@ -1784,7 +1760,7 @@
         footer {
             background-color: #E5DBF0; /* Light purple to match bio */
             color: #4A3B5C; /* Dark purple text to match bio */
-            padding: 60px 0;
+            padding: 50px 0;
             text-align: center;
         }
         
@@ -1808,9 +1784,18 @@
         }
         
         .social-links a {
-            color: #7D6A96; /* Dark purple to match header */
-            font-size: 48px;
-            transition: transform 0.3s;
+            color: #4A3B5C; /* Dark purple to match "Let's Create Together" */
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0 15px;
+        }
+        
+        .social-links a:hover {
+            color: #ffbd59; /* Gold hover */
+            transform: scale(1.1);
         }
         
         .social-links a:hover {
@@ -1992,7 +1977,7 @@
         @media (max-width: 576px) {
             /* Ultra-small screen header fixes */
             header {
-                padding: 15px 0;
+                padding: 8px 0;
                 box-shadow: none;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
@@ -2012,23 +1997,31 @@
                 color: #fff !important;
             }
             
+            /* EXACT DESKTOP LOGO COPY */
             .logo {
-                font-size: 20px;
-                width: 200px;
-                height: 40px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                width: 100vw;
+                max-width: 300px;
                 overflow: hidden;
-                position: relative;
             }
             
             .logo img {
-                transform: scale(2.5) translateY(-3px);
-                position: absolute;
-                top: 0;
-                left: 0;
+                height: 50px;
+                width: 750px;
+                object-fit: contain;
+                object-position: left;
+                filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+                transform: scale(2.2) translateY(8px);
+                transform-origin: left center;
             }
             
             .logo:hover img {
-                transform: scale(2.5) translateY(-3px);
+                transform: scale(2.2) translateY(8px);
+                filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
             }
             
             .phone-showcase {
@@ -2225,6 +2218,256 @@
             .coming-soon-overlay span {
                 font-size: 1.5rem;
             }
+            
+            /* Brand Collaborations Mobile Layout */
+            .logos-grid {
+                flex-wrap: wrap !important;
+                gap: 20px !important;
+                justify-content: center !important;
+            }
+            
+            .logo-circle {
+                width: 100px !important;
+                height: 100px !important;
+                padding: 15px !important;
+            }
+            
+            .circular-logo {
+                max-width: 70px !important;
+                max-height: 70px !important;
+            }
+            
+            .calzen-logo {
+                max-width: 60px !important;
+                max-height: 60px !important;
+            }
+            
+            .justin-logo {
+                max-width: 75px !important;
+                max-height: 75px !important;
+            }
+            
+            .raw-actives-logo {
+                max-width: 75px !important;
+                max-height: 75px !important;
+            }
+            
+            /* COMPREHENSIVE MOBILE FIXES */
+            
+            /* EXACT DESKTOP NAV COPY FOR HAMBURGER */
+            .hamburger-menu {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 3px !important;
+                cursor: pointer !important;
+                text-decoration: none !important;
+                color: #4A3B5C !important;
+                font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
+                font-weight: 400 !important;
+                transition: all 0.3s !important;
+                font-size: 16px !important;
+                letter-spacing: 1px !important;
+                padding: 8px 16px !important;
+                border-radius: 4px !important;
+                text-transform: uppercase !important;
+                position: relative !important;
+                z-index: 1001 !important;
+                align-items: center !important;
+                justify-content: center !important;
+                background: transparent !important;
+                border: none !important;
+            }
+            
+            .hamburger-menu:hover {
+                color: #D4AF37 !important;
+                background: rgba(212, 175, 55, 0.1) !important;
+            }
+            
+            .hamburger-menu span {
+                width: 20px !important;
+                height: 2px !important;
+                background: #4A3B5C !important;
+                border-radius: 1px !important;
+                transition: all 0.3s !important;
+            }
+            
+            .hamburger-menu:hover span {
+                background: #D4AF37 !important;
+            }
+            
+            /* Fix ALL fonts to match desktop */
+            * {
+                font-family: 'Nunito', Helvetica, Arial, sans-serif !important;
+            }
+            
+            .section-header h2,
+            .brand-logos-section h2,
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
+            }
+            
+            .typewriter {
+                font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
+            }
+            
+            /* Fix bio section to EXACTLY match desktop */
+            .hero {
+                background: #E5DBF0 !important;
+                background-color: #E5DBF0 !important;
+                background-image: none !important;
+                padding: 80px 15px 40px 15px !important;
+            }
+            
+            .hero-mobile-content {
+                text-align: center !important;
+            }
+            
+            .hero-mobile-content h1 {
+                display: none !important;
+            }
+            
+            .bio-header-svg {
+                height: 15rem !important;
+                margin-top: -70px !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .hero-mobile-content .hero-credentials {
+                color: #4A3B5C !important;
+                font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
+                font-weight: 400 !important;
+                font-size: 1.1rem !important;
+                line-height: 1.4 !important;
+                text-align: center !important;
+                margin: -120px auto 15px !important;
+            }
+            
+            .hero-mobile-content .hero-bio {
+                color: #4A3B5C !important;
+                font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
+                font-size: 1rem !important;
+                line-height: 1.5 !important;
+                margin: 25px 0 !important;
+            }
+            
+            .hero-mobile-content .star-bullets {
+                color: #4A3B5C !important;
+                font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
+                font-weight: 600 !important;
+            }
+            
+            .hero-mobile-content p {
+                color: #4A3B5C !important;
+            }
+            
+            /* EXACT DESKTOP LET'S CREATE BUTTON COPY WITH HOVER EVENTS */
+            .hero-mobile-content a[href*="mailto"] {
+                font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
+                font-size: 16px !important;
+                padding: 6px 80px !important;
+                text-decoration: none !important;
+                background-color: #8B7AA0 !important;
+                color: #4A3B5C !important;
+                border: none !important;
+                border-radius: 25px !important;
+                transition: background-color 0.3s ease !important;
+                cursor: pointer !important;
+                display: inline-block !important;
+                box-shadow: none !important;
+                filter: none !important;
+                background-image: none !important;
+                margin: 20px 0 !important;
+            }
+            
+            /* Fix section backgrounds to match desktop */
+            .paid-ads-new-section {
+                background-color: #f8f8fa !important;
+            }
+            
+            .organic-section {
+                background-color: #f0eff3 !important;
+            }
+            
+            /* Fix all section headers with more spacing */
+            .section-header {
+                margin-bottom: 60px !important;
+            }
+            
+            .section-header h2 {
+                font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
+                font-size: 2rem !important;
+                color: #4A3B5C !important;
+                margin-bottom: 20px !important;
+            }
+            
+            .section-header p {
+                color: #6c757d !important;
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+                margin-bottom: 30px !important;
+            }
+            
+            /* COMPLETE MOBILE VIDEO OVERHAUL */
+            .paid-ads-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 35px 15px !important;
+                justify-items: center !important;
+                max-width: 100% !important;
+                margin: 40px auto !important;
+                padding: 0 10px !important;
+            }
+            
+            /* Push organic videos further down from paid ads */
+            .organic-section .paid-ads-grid {
+                margin-top: 80px !important;
+            }
+            
+            .mini-phone-container {
+                width: 100% !important;
+                max-width: 150px !important;
+                margin: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            
+            .phone-label {
+                font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
+                font-size: 0.85rem !important;
+                color: #4A3B5C !important;
+                font-weight: 600 !important;
+                margin-bottom: 8px !important;
+                text-align: center !important;
+            }
+            
+            .mini-video-container {
+                width: 100% !important;
+                height: 260px !important;
+                padding: 4px 6px 3px 6px !important;
+                margin: 0 !important;
+            }
+            
+            .mini-video {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                border-radius: 4px !important;
+            }
+            
+            .concept-type {
+                font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
+                font-size: 0.75rem !important;
+                color: #6c757d !important;
+                margin-top: 6px !important;
+                text-align: center !important;
+            }
+            
+            /* Social media text mobile size */
+            .social-links a {
+                font-size: 20px;
+                padding: 0 10px;
+            }
         }
         
         /* Ultra-wide monitor optimizations */
@@ -2347,7 +2590,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
 
                     <!-- Thin CTA Button -->
                     <div style="text-align: center; margin: 20px 0;">
-                        <a href="mailto:brea@breaugc.com" style="font-family: 'Comfortaa', Helvetica, Arial, sans-serif; font-size: 14px; padding: 8px 80px; text-decoration: none; background-color: #6B4C85; color: #fff; border: none; border-radius: 3px; transition: background-color 0.3s ease; cursor: pointer; display: inline-block;" onmouseover="this.style.backgroundColor='#9F8AB3'" onmouseout="this.style.backgroundColor='#6B4C85'">LET'S CREATE!</a>
+                        <a href="mailto:brea@breaugc.com" style="font-family: 'Comfortaa', Helvetica, Arial, sans-serif; font-size: 16px; padding: 6px 80px; text-decoration: none; background-color: #8B7AA0; color: #4A3B5C; border: none; border-radius: 25px; transition: background-color 0.3s ease; cursor: pointer; display: inline-block; box-shadow: none !important; filter: none !important; background-image: none !important;" onmouseover="this.style.backgroundColor='#ffbd59'" onmouseout="this.style.backgroundColor='#8B7AA0'" ontouchstart="this.style.backgroundColor='#ffbd59'" ontouchend="this.style.backgroundColor='#8B7AA0'">LET'S CREATE!</a>
                     </div>
 
                     <p class="hero-bio">As a direct response UGC creator, I combine humor, real-life relatability, and performance-driven creativity to craft scroll-stopping content. My videos are designed to make viewers pause and think, "Wait… are they talking to me?" (Yes. Yes, I am.)<br><br>
@@ -2365,32 +2608,25 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <h2>Brand Collaborations</h2>
             </div>
             
-            <div class="logos-carousel">
-                <button class="carousel-arrow carousel-prev" onclick="moveCarousel(-1)">&lt;</button>
-                <div class="carousel-container">
-                    <div class="carousel-track">
-                        <div class="logo-item logo-with-image calzen">
-                            <img src="calzen logo.png" alt="Calzen Logo" class="logo-image">
-                            <span class="logo-text">CALZEN</span>
-                        </div>
-                        <div class="logo-item logo-image-only">
-                            <img src="bodyrok-logo.png" alt="BodyRok" class="logo-image">
-                        </div>
-                        <div class="logo-item logo-image-only justin-guitar">
-                            <img src="justin guitar logo.png" alt="Justin Guitar Logo" class="logo-image">
-                        </div>
-                        <div class="logo-item logo-image-only">
-                            <img src="planta-logo.png" alt="Planta" class="logo-image">
-                        </div>
-                        <div class="logo-item logo-image-only temptations">
-                            <img src="temptations-logo.jpg" alt="Temptations" class="logo-image">
-                        </div>
-                        <div class="logo-item logo-image-only raw-actives">
-                            <img src="raw-actives-logo.jpg" alt="Raw Actives" class="logo-image">
-                        </div>
-                    </div>
+            <div class="logos-grid">
+                <div class="logo-circle">
+                    <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
                 </div>
-                <button class="carousel-arrow carousel-next" onclick="moveCarousel(1)">&gt;</button>
+                <div class="logo-circle">
+                    <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="planta-logo.png" alt="Planta" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
+                </div>
             </div>
         </div>
     </section>
@@ -2407,7 +2643,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <!-- Video 1 - Calzen Wellness -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Calzen</div>
-                    <div class="mini-video-container">
+                    <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
                             <source src="videos/calzen paid ad for fiverr.mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -2419,7 +2655,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <!-- Video 2 - BodyRok -->
                 <div class="mini-phone-container">
                     <div class="phone-label">BODYROK</div>
-                    <div class="mini-video-container">
+                    <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
                             <source src="videos/bodyrok paid ad (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -2431,7 +2667,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <!-- Video 3 - Justin Guitar -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Justin Guitar</div>
-                    <div class="mini-video-container">
+                    <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
                             <source src="videos/JG 3 (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -2443,7 +2679,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <!-- Video 4 - Raw Actives -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Raw Actives</div>
-                    <div class="mini-video-container">
+                    <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
                             <source src="videos/Raw Actives (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -2467,7 +2703,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <!-- Video 1 - BODYROK -->
                 <div class="mini-phone-container">
                     <div class="phone-label">BODYROK</div>
-                    <div class="mini-video-container">
+                    <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
                             <source src="videos/bodyrok organic (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -2479,8 +2715,8 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <!-- Video 2 - Calzen -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Calzen</div>
-                    <div class="mini-video-container">
-                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                    <div class="mini-video-container organic-gradient">
+                        <video class="mini-video calzen-video-fix" controls controlsList="nodownload" preload="auto">
                             <source src="videos/calzen organic (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -2491,7 +2727,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <!-- Video 3 - Planta -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Planta</div>
-                    <div class="mini-video-container">
+                    <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
                             <source src="videos/planta (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -2503,7 +2739,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <!-- Video 4 - Temptations -->
                 <div class="mini-phone-container">
                     <div class="phone-label">Temptations</div>
-                    <div class="mini-video-container">
+                    <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
                             <source src="videos/Temptations (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -2536,7 +2772,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                         <div class="expandable-item">
                             <div class="expand-header" onclick="toggleExpand(this)">
                                 <span>What is UGC?</span>
-                                <i class="fas fa-chevron-down expand-arrow"></i>
+                                <span class="expand-arrow">▼</span>
                             </div>
                             <div class="expand-content">
                                 <p>User Generated Content (UGC) is authentic content created by real people showcasing your brand naturally. Unlike traditional ads, UGC builds genuine trust because it feels like a friend's recommendation, driving higher engagement and conversions.</p>
@@ -2545,7 +2781,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                         <div class="expandable-item">
                             <div class="expand-header" onclick="toggleExpand(this)">
                                 <span>What's Included?</span>
-                                <i class="fas fa-chevron-down expand-arrow"></i>
+                                <span class="expand-arrow">▼</span>
                             </div>
                             <div class="expand-content">
                                 <ul class="included-list">
@@ -2563,7 +2799,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                         <div class="expandable-item">
                             <div class="expand-header" onclick="toggleExpand(this)">
                                 <span>Services</span>
-                                <i class="fas fa-chevron-down expand-arrow"></i>
+                                <span class="expand-arrow">▼</span>
                             </div>
                             <div class="expand-content">
                                 <ul class="included-list">
@@ -2616,8 +2852,8 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <p>Ready to see what happens when performance training meets creative strategy? Reach out today for all your brand and content needs.</p>
                 <p>Email: <a href="mailto:brea@breaugc.com" style="color: #4A3B5C; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">brea@breaugc.com</a></p>
                 <div class="social-links">
-                    <a href="https://instagram.com/itsyagirlbrea" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@itsyagirlbrea" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://instagram.com/itsyagirlbrea" target="_blank">Instagram</a>
+                    <a href="https://tiktok.com/@itsyagirlbrea" target="_blank">TikTok</a>
                 </div>
             </div>
         </div>
