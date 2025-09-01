@@ -570,6 +570,55 @@
             max-height: 125px;
         }
         
+        /* Social Proof Section */
+        .social-proof-section {
+            background: #ffffff;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .social-proof-section h2 {
+            color: #4A3B5C;
+            margin-bottom: 20px;
+        }
+
+        .social-proof-section p {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .social-proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .proof-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .proof-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .proof-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        
         
         /* Specific styling for Calzen logo */
         .logo-item.calzen {
@@ -2252,6 +2301,28 @@
                 max-height: 75px !important;
             }
             
+            /* Social Proof Mobile Layout */
+            .social-proof-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+                margin-top: 30px !important;
+            }
+            
+            .proof-item {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            
+            .social-proof-section {
+                padding: 40px 0 !important;
+            }
+            
+            .social-proof-section p {
+                font-size: 16px !important;
+                margin-bottom: 30px !important;
+                padding: 0 20px;
+            }
+            
             /* COMPREHENSIVE MOBILE FIXES */
             
             /* EXACT DESKTOP NAV COPY FOR HAMBURGER */
@@ -2626,6 +2697,27 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 </div>
                 <div class="logo-circle">
                     <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section id="social-proof" class="portfolio-section social-proof-section">
+        <div class="container">
+            <div class="section-header">
+                <p>Real results and authentic testimonials from satisfied clients and brand partners</p>
+            </div>
+            
+            <div class="social-proof-grid">
+                <div class="proof-item">
+                    <img src="IMG_2207.jpg" alt="Client Testimonial Screenshot" class="proof-image">
+                </div>
+                <div class="proof-item">
+                    <img src="IMG_2208.jpg" alt="Brand Partnership Results" class="proof-image">
+                </div>
+                <div class="proof-item">
+                    <img src="IMG_2266.jpg" alt="Social Media Engagement" class="proof-image">
                 </div>
             </div>
         </div>
