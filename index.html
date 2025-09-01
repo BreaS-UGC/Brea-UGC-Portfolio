@@ -591,12 +591,41 @@
         
         .social-proof-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-top: 50px;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
+            align-items: start;
+        }
+        
+        .calzen-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+        
+        .calzen-logo-badge {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        
+        .calzen-logo-badge img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
         }
         
         .proof-item {
@@ -2710,14 +2739,19 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
             </div>
             
             <div class="social-proof-grid">
-                <div class="proof-item">
-                    <img src="IMG_2207.jpg" alt="Client Testimonial Screenshot" class="proof-image">
+                <div class="calzen-column">
+                    <div class="calzen-logo-badge">
+                        <img src="calzen logo.png" alt="Calzen">
+                    </div>
+                    <div class="proof-item">
+                        <img src="IMG_2207.jpg" alt="Calzen Client Testimonial" class="proof-image">
+                    </div>
+                    <div class="proof-item">
+                        <img src="IMG_2208.jpg" alt="Calzen Brand Partnership" class="proof-image">
+                    </div>
                 </div>
                 <div class="proof-item">
-                    <img src="IMG_2208.jpg" alt="Brand Partnership Results" class="proof-image">
-                </div>
-                <div class="proof-item">
-                    <img src="IMG_2266.jpg" alt="Social Media Engagement" class="proof-image">
+                    <img src="Screenshot 2025-08-31 at 23-44-37 Fiverr _ Shopping _ Status of your order No. FO62EEC060248.png" alt="Fiverr Order Success" class="proof-image">
                 </div>
             </div>
         </div>
