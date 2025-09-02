@@ -22,22 +22,22 @@ class DriveVideoManager {
             fallback: 'videos/Calzen paid ad.mov'
         });
         
-        this.videos.set('BODYROK paid ad.mov', {
+        this.videos.set('bodyrok paid ad (720p for website).mp4', {
             driveId: '1Iev7oOqFqFUxI0jKCyVs4QmQq_T0SbiP',
             title: 'BodyRok Experience Ad',
-            fallback: 'videos/BODYROK paid ad.mov'
+            fallback: 'videos/bodyrok paid ad (720p for website).mp4'
         });
         
-        this.videos.set('JG 3.mp4', {
+        this.videos.set('JG 3 (720p for website).mp4', {
             driveId: '1sCWXMhtCH4Ws2-edVWhR5MY7K_NlXfSg',
             title: 'Justin Guitar Ad',
-            fallback: 'videos/JG 3.mp4'
+            fallback: 'videos/JG 3 (720p for website).mp4'
         });
         
-        this.videos.set('Raw actives paid ad.mov', {
-            driveId: '1CMxW7I0LqiJGVhb6Ii22S5FVwh_s39_x',
-            title: 'Raw Actives Hair/Beauty Ad',
-            fallback: 'videos/Raw actives paid ad.mov'
+        this.videos.set('Vanessa Pro (720p for website).mp4', {
+            driveId: '1GdLWpB7MFII8svcy2GbabCXrLed3FsmF',
+            title: 'Vanessa Pro Beauty Ad',
+            fallback: 'videos/Vanessa Pro (720p for website).mp4'
         });
         
         this.videos.set('Youzu foundations live_.mov', {
@@ -86,9 +86,13 @@ class DriveVideoManager {
     initializeVideoElements() {
         const videoElements = document.querySelectorAll('video source');
         
+        console.log('Found', videoElements.length, 'video elements');
+        
         videoElements.forEach(source => {
             const currentSrc = source.getAttribute('src');
             const filename = currentSrc.split('/').pop();
+            
+            console.log('Checking video:', filename, 'Has mapping:', this.videos.has(filename));
             
             if (this.videos.has(filename)) {
                 const videoInfo = this.videos.get(filename);
@@ -148,6 +152,7 @@ class DriveVideoManager {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Drive integration script loaded');
     const driveManager = new DriveVideoManager();
     driveManager.initializeVideoElements();
 });

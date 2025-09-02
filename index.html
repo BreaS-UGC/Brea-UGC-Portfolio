@@ -522,20 +522,64 @@
             color: #4A3B5C;
         }
         
+        .logos-carousel-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .carousel-arrow {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #E5DBF0;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+        
+        .carousel-arrow:hover {
+            background: #E5DBF0;
+            transform: scale(1.1);
+        }
+        
+        .carousel-arrow-left {
+            margin-right: 20px;
+        }
+        
+        .carousel-arrow-right {
+            margin-left: 20px;
+        }
+        
+        .logos-viewport {
+            overflow: hidden;
+            width: 1170px;
+            max-width: 100%;
+        }
+        
         .logos-grid {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             gap: 30px;
-            margin-top: 50px;
             flex-wrap: nowrap;
+            width: 1480px;
+            transition: transform 0.3s ease;
         }
         
         .logo-circle {
             width: 155px;
             height: 155px;
             border-radius: 50%;
-            background: #E5DBF0;
+            background: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -556,8 +600,8 @@
         }
         
         .calzen-logo {
-            max-width: 80px;
-            max-height: 80px;
+            max-width: 100px;
+            max-height: 100px;
         }
         
         .justin-logo {
@@ -568,6 +612,303 @@
         .raw-actives-logo {
             max-width: 125px;
             max-height: 125px;
+        }
+        
+        /* Social Proof Section */
+        .social-proof-section {
+            background: #ffffff;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .social-proof-section h2 {
+            color: #4A3B5C;
+            margin-bottom: 20px;
+        }
+
+        .social-proof-section p {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .social-proof-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: start;
+        }
+        
+        .calzen-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+        
+        .calzen-logo-badge {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        
+        .calzen-logo-badge img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .proof-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .proof-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .proof-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .proof-item-container {
+            position: relative;
+        }
+        
+        /* Recent Collaborations Section */
+        .recent-collaborations {
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .recent-collaborations h3 {
+            color: #4A3B5C;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        
+        .collaboration-layout {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .collaboration-video {
+            flex: 0 0 auto;
+        }
+        
+        .collaboration-review {
+            flex: 1;
+            max-width: 400px;
+            text-align: left;
+        }
+        
+        .review-content {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .review-content p {
+            font-style: italic;
+            color: #4A3B5C;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .review-author {
+            font-weight: 600;
+            color: #8B7AA0;
+            text-align: right;
+        }
+        
+        .collaboration-gradient {
+            background: linear-gradient(135deg, #8B7AA0 0%, #E5DBF0 100%);
+        }
+        
+        /* Compact video styling for social proof */
+        .video-proof-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 15px;
+        }
+        
+        .compact-video-container {
+            text-align: center;
+        }
+        
+        .compact-video-wrapper {
+            background: linear-gradient(135deg, #8B7AA0 0%, #E5DBF0 100%);
+            border-radius: 20px;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        
+        .compact-video {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 15px;
+        }
+        
+        .phone-label-small {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4A3B5C;
+            margin-bottom: 8px;
+        }
+        
+        .concept-type-small {
+            font-size: 12px;
+            color: #8B7AA0;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+        
+        /* Right column content */
+        .right-column-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .recent-collaborations-title {
+            color: #4A3B5C;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 28px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .collaboration-layout-horizontal {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .video-left {
+            flex: 0 0 auto;
+        }
+        
+        .screenshot-right {
+            flex: 0 0 auto;
+            max-width: 550px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 80px;
+            gap: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .screenshot-right {
+                max-width: 400px;
+            }
+        }
+        
+        /* Clean video styling */
+        .simple-video-container {
+            text-align: center;
+        }
+        
+        .brand-name-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4A3B5C;
+            margin-bottom: 15px;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+        }
+        
+        .clean-video {
+            width: 300px;
+            height: 533px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Review screenshot styling */
+        .review-screenshot-section {
+            max-width: 450px;
+        }
+        
+        .review-screenshot {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Social Stats Bottom Section */
+        .social-stats-bottom {
+            margin-top: 60px;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50px;
+        }
+        
+        .stats-grid-bottom {
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Social stats under Fiverr screenshot */
+        .social-stats-under {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .proof-item-small {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .proof-item-small:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .proof-item-container-small {
+            position: relative;
         }
         
         
@@ -2227,10 +2568,34 @@
             }
             
             /* Brand Collaborations Mobile Layout */
+            .logos-carousel-container {
+                display: block !important;
+            }
+            
+            .carousel-arrow {
+                display: none !important;
+            }
+            
+            .logos-viewport {
+                max-width: 100% !important;
+                overflow: visible !important;
+            }
+            
             .logos-grid {
-                flex-wrap: wrap !important;
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
                 gap: 20px !important;
                 justify-content: center !important;
+                justify-items: center !important;
+                width: 100% !important;
+                transform: none !important;
+                transition: none !important;
+                margin: 0 auto !important;
+            }
+            
+            /* Hide duplicate logos on mobile */
+            .logos-grid .logo-circle:nth-child(n+9) {
+                display: none !important;
             }
             
             .logo-circle {
@@ -2257,6 +2622,28 @@
             .raw-actives-logo {
                 max-width: 75px !important;
                 max-height: 75px !important;
+            }
+            
+            /* Social Proof Mobile Layout */
+            .social-proof-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+                margin-top: 30px !important;
+            }
+            
+            .proof-item {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            
+            .social-proof-section {
+                padding: 40px 0 !important;
+            }
+            
+            .social-proof-section p {
+                font-size: 16px !important;
+                margin-bottom: 30px !important;
+                padding: 0 20px;
             }
             
             /* COMPREHENSIVE MOBILE FIXES */
@@ -2619,6 +3006,32 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
         </div>
     </section>
 
+    <!-- Social Proof Section -->
+    <section id="social-proof" class="portfolio-section social-proof-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>See What Brands Are Saying</h2>
+                <p>Real results and authentic testimonials from satisfied clients and brand partners</p>
+            </div>
+            
+            <div class="collaboration-layout-horizontal">
+                <div class="video-left">
+                    <div class="simple-video-container">
+                        <div class="brand-name-label">South Florida Photography</div>
+                        <video class="clean-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/SFP DIgital Guide (720p for website).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                
+                <div class="screenshot-right">
+                    <img src="Screenshot 2025-08-31 at 23-44-37 Fiverr _ Shopping _ Status of your order No. FO62EEC060248.png" alt="Fiverr Order Success" class="review-screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Brand Logos Section -->
     <section id="brand-logos" class="portfolio-section brand-logos-section">
         <div class="container">
@@ -2626,25 +3039,67 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <h2>Brand Collaborations</h2>
             </div>
             
-            <div class="logos-grid">
-                <div class="logo-circle">
-                    <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
+            <div class="logos-carousel-container">
+                <button class="carousel-arrow carousel-arrow-left" id="logoCarouselLeft">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                </button>
+                
+                <div class="logos-viewport">
+                    <div class="logos-grid" id="logosGrid">
+                        <!-- Original logos -->
+                        <div class="logo-circle">
+                            <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="planta-logo.png" alt="Planta" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
+                        </div>
+                        <!-- Duplicate logos for seamless loop -->
+                        <div class="logo-circle">
+                            <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="planta-logo.png" alt="Planta" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
+                        </div>
+                    </div>
                 </div>
-                <div class="logo-circle">
-                    <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
-                </div>
-                <div class="logo-circle">
-                    <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
-                </div>
-                <div class="logo-circle">
-                    <img src="planta-logo.png" alt="Planta" class="circular-logo">
-                </div>
-                <div class="logo-circle">
-                    <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
-                </div>
-                <div class="logo-circle">
-                    <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
-                </div>
+                
+                <button class="carousel-arrow carousel-arrow-right" id="logoCarouselRight">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -2694,12 +3149,12 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                     <div class="concept-type">Listicle</div>
                 </div>
 
-                <!-- Video 4 - Raw Actives -->
+                <!-- Video 4 - Vanessa Pro -->
                 <div class="mini-phone-container">
-                    <div class="phone-label">Raw Actives</div>
+                    <div class="phone-label">Vanessa Pro</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/Raw Actives (720p for website).mp4" type="video/mp4">
+                            <source src="videos/Vanessa Pro (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -2730,16 +3185,16 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                     <div class="concept-type">Experience</div>
                 </div>
 
-                <!-- Video 2 - Calzen -->
+                <!-- Video 2 - Prose -->
                 <div class="mini-phone-container">
-                    <div class="phone-label">Calzen</div>
+                    <div class="phone-label">Prose</div>
                     <div class="mini-video-container organic-gradient">
-                        <video class="mini-video calzen-video-fix" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/calzen organic (720p for website).mp4" type="video/mp4">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/Prose aesthetic (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="concept-type">P.O.V.</div>
+                    <div class="concept-type">Aesthetic</div>
                 </div>
 
                 <!-- Video 3 - Planta -->
@@ -2774,7 +3229,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
     <section id="services" class="portfolio-section services-new-section">
         <div class="container">
             <div class="section-header">
-                <h2>Services & Packages</h2>
+                <h2>Services</h2>
             </div>
             
             <div class="services-tiles-grid">
@@ -2816,7 +3271,7 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                         </div>
                         <div class="expandable-item">
                             <div class="expand-header" onclick="toggleExpand(this)">
-                                <span>Services</span>
+                                <span>Packages</span>
                                 <span class="expand-arrow">▼</span>
                             </div>
                             <div class="expand-content">
@@ -2833,12 +3288,12 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                     </div>
                 </div>
                 
-                <!-- Creative Strategy Tile -->
+                <!-- Pet UGC Tile -->
                 <div class="service-tile strategy-tile">
                     <div class="tile-image">
-                        <img src="creative strategy.png" alt="Creative Strategy" class="tile-bg-image">
+                        <img src="leon and sophie.jpg" alt="Pet UGC" class="tile-bg-image">
                         <div class="tile-overlay">
-                            <h3 class="tile-title">Creative Strategy</h3>
+                            <h3 class="tile-title">Pet UGC</h3>
                         </div>
                         <div class="coming-soon-overlay">
                             <span>Coming Soon</span>
@@ -3207,6 +3662,59 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 typewriterObserver.observe(element);
             });
         });
+
+        // Logo Carousel Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const logosGrid = document.getElementById('logosGrid');
+            const leftArrow = document.getElementById('logoCarouselLeft');
+            const rightArrow = document.getElementById('logoCarouselRight');
+            
+            let currentIndex = 3;
+            const logoWidth = 155;
+            const gap = 30;
+            const totalLogos = 14; // 8 original + 6 duplicates
+            
+            function updateCarousel() {
+                const translateX = -(currentIndex * (logoWidth + gap));
+                logosGrid.style.transform = `translateX(${translateX}px)`;
+                
+                // Seamless loop: when we get past the original 8 logos, reset to beginning without animation
+                if (currentIndex >= 8) {
+                    setTimeout(() => {
+                        logosGrid.style.transition = 'none';
+                        currentIndex = 0;
+                        logosGrid.style.transform = `translateX(0px)`;
+                        setTimeout(() => {
+                            logosGrid.style.transition = 'transform 0.3s ease';
+                        }, 50);
+                    }, 300);
+                }
+                
+                if (currentIndex < 0) {
+                    setTimeout(() => {
+                        logosGrid.style.transition = 'none';
+                        currentIndex = 7;
+                        logosGrid.style.transform = `translateX(-${7 * (logoWidth + gap)}px)`;
+                        setTimeout(() => {
+                            logosGrid.style.transition = 'transform 0.3s ease';
+                        }, 50);
+                    }, 300);
+                }
+            }
+            
+            leftArrow.addEventListener('click', function() {
+                currentIndex--;
+                updateCarousel();
+            });
+            
+            rightArrow.addEventListener('click', function() {
+                currentIndex++;
+                updateCarousel();
+            });
+            
+            updateCarousel();
+        });
+
     </script>
 </body>
 </html>
