@@ -860,6 +860,46 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
+        /* Social proof phone render styling */
+        .social-proof-phone-frame {
+            position: relative;
+            width: 330px;
+            height: 580px;
+            background: #111;
+            border-radius: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            padding: 15px;
+            margin: 0 auto;
+        }
+        
+        .social-proof-phone-screen {
+            background: #fff;
+            border-radius: 25px;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .social-proof-phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 25px;
+            background: #111;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 10;
+        }
+        
+        .clean-video-in-phone {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        
         /* Review screenshot styling */
         .review-screenshot-section {
             max-width: 450px;
@@ -3018,10 +3058,15 @@ Fueled by my ADHD brain that never stops flowing with ideas, I'm ready to collab
                 <div class="video-left">
                     <div class="simple-video-container">
                         <div class="brand-name-label">South Florida Photography</div>
-                        <video class="clean-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/SFP DIgital Guide (720p for website).mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <div class="social-proof-phone-frame">
+                            <div class="social-proof-phone-screen">
+                                <div class="social-proof-phone-notch"></div>
+                                <video class="clean-video-in-phone" controls controlsList="nodownload" preload="auto">
+                                    <source src="videos/SFP DIgital Guide (720p for website).mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
