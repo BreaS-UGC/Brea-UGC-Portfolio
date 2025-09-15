@@ -67,12 +67,28 @@
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             position: relative;
             width: 100%;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100px;
+            width: 300px;
+            height: calc(100% + 4px);
+            background: linear-gradient(135deg, rgba(229, 219, 240, 0.3) 0%, rgba(240, 232, 245, 0.3) 100%);
+            border-radius: 0 0 50px 0;
+            clip-path: ellipse(150px 100px at 50% 0%);
+            z-index: 1;
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
         
         .logo {
@@ -89,12 +105,12 @@
             object-fit: contain;
             object-position: left;
             filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
-            transform: scale(4.0) translateY(5px);
+            transform: scale(3.2) translateY(7px);
             transform-origin: left center;
         }
         
         .logo:hover img {
-            transform: scale(4.0) translateY(5px);
+            transform: scale(3.2) translateY(7px);
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
         }
         
@@ -251,7 +267,7 @@
             height: auto;
             object-fit: cover;
             object-position: center top;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            box-shadow: none;
             margin-top: -20px;
             position: relative;
             z-index: 2;
@@ -1484,42 +1500,42 @@
             margin-bottom: 25px;
             font-weight: 600;
             text-align: center;
-            background: #8B7AA0;
+            background: transparent;
             padding: 8px 16px;
             border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(139, 122, 160, 0.3);
-            border: 2px solid #ffbd59;
+            box-shadow: none;
+            border: 2px solid #4A3B5C;
             letter-spacing: 0.5px;
             text-shadow: none;
             transition: background-color 0.3s ease;
         }
 
         .phone-label:hover {
-            background: #ffbd59;
+            background: rgba(74, 59, 92, 0.1);
             color: #4A3B5C;
         }
         
         .concept-type {
             font-family: 'Nunito', Helvetica, Arial, sans-serif;
             font-size: 14px;
-            color: #4A3B5C;
+            color: white;
             margin-top: 15px;
             font-weight: 600;
             text-align: center;
-            background: #ffbd59;
+            background: #4A3B5C;
             padding: 8px 16px;
             border-radius: 15px;
-            border: 2px solid #8B7AA0;
+            border: 2px solid #4A3B5C;
             letter-spacing: 0.5px;
             text-transform: capitalize;
-            box-shadow: 0 4px 8px rgba(255, 189, 89, 0.2);
+            box-shadow: 0 4px 8px rgba(74, 59, 92, 0.2);
             transition: background-color 0.3s ease;
             cursor: pointer;
         }
 
         .concept-type:hover {
             background: #8B7AA0;
-            color: #4A3B5C;
+            color: white;
         }
         
         .phone-niche {
@@ -2113,12 +2129,13 @@
             padding-left: 20px;
             font-family: 'Nunito', Helvetica, Arial, sans-serif;
             font-size: 16px;
-            color: #6c757d;
+            color: #4A3B5C;
             line-height: 1.8;
+            font-weight: 800;
         }
         
         .included-list li {
-            margin-bottom: 8px;
+            margin-bottom: 20px;
         }
         
         .add-ons-note {
@@ -3387,21 +3404,11 @@
                                 <p class="add-ons-note">*Add Ons - Raw Footage, Hook/CTA Variations, Additional Revisions</p>
                             </div>
                         </div>
-                        <div class="expandable-item">
-                            <div class="expand-header" onclick="toggleExpand(this)">
-                                <span>Packages</span>
-                                <span class="expand-arrow">▼</span>
-                            </div>
-                            <div class="expand-content">
-                                <ul class="included-list">
-                                    <li>1 Video</li>
-                                    <li>3 Video Bundle</li>
-                                    <li>5 Video Bundle</li>
-                                </ul>
-                            </div>
-                        </div>
                         <div class="rates-statement">
-                            <p>Base rates start at $200!</p>
+                            <ul class="included-list">
+                                <li>Base rates start at $150!</li>
+                                <li>Custom bundle packages available to fit your UGC needs!</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
