@@ -2159,6 +2159,94 @@
             font-weight: 800;
         }
         
+        /* My Process Section */
+        .my-process-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .my-process-section .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .my-process-section h2 {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 2.5rem;
+            color: #4A3B5C;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .process-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .process-column {
+            text-align: center;
+        }
+        
+        .process-column h3 {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 1.8rem;
+            color: #9F8AB3;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .process-column .subtitle {
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            color: #6c757d;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .process-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        .process-column li {
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #4A3B5C;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .process-column li:before {
+            content: "•";
+            color: #D4AF37;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .process-text {
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #6c757d;
+            line-height: 1.6;
+            text-align: left;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        .process-text p {
+            margin-bottom: 15px;
+        }
+        
         /* Footer Styles - Mauve & Gold Theme */
         footer {
             background-color: #E5DBF0; /* Light purple to match bio */
@@ -3444,15 +3532,14 @@
                 
                 <!-- Pet UGC Tile -->
                 <div class="service-tile strategy-tile">
-                    <div class="tile-image">
-                        <img src="Leon and Sophie.jpg" alt="Pet UGC" class="tile-bg-image">
-                        <div class="tile-overlay">
-                            <h3 class="tile-title">Pet UGC</h3>
+                    <a href="pet-ugc.html" style="text-decoration: none; color: inherit;">
+                        <div class="tile-image">
+                            <img src="Leon and Sophie.jpg" alt="Pet UGC" class="tile-bg-image">
+                            <div class="tile-overlay">
+                                <h3 class="tile-title">Pet UGC</h3>
+                            </div>
                         </div>
-                        <div class="coming-soon-overlay">
-                            <span>Coming Soon</span>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 
                 <!-- Couple UGC Tile -->
@@ -3465,6 +3552,38 @@
                         <div class="coming-soon-overlay">
                             <span>Coming Soon</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Process Section -->
+    <section class="my-process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Process</h2>
+            </div>
+            
+            <div class="process-columns">
+                <!-- Column 1: Establish Creative Vision -->
+                <div class="process-column">
+                    <h3>Establish Creative Vision</h3>
+                    <p class="subtitle">Quick call or email to discuss</p>
+                    <ul>
+                        <li>Creative brief</li>
+                        <li>Deliverable requirements</li>
+                        <li>Content ideas</li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2: Creative Development -->
+                <div class="process-column">
+                    <h3>Creative Development</h3>
+                    <div class="process-text">
+                        <p>1st draft delivered in 3-5 days</p>
+                        <p>You discuss revision requests, if any</p>
+                        <p>Final videos will be delivered via Google Drive unless requested otherwise</p>
                     </div>
                 </div>
             </div>
