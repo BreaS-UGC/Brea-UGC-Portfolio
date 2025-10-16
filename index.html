@@ -137,6 +137,7 @@
             display: inline-block;
             position: relative;
             z-index: 1001;
+            white-space: nowrap;
         }
         
         .nav-links a:hover {
@@ -2080,7 +2081,7 @@
         
         
         .expand-header span {
-            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 16px;
             color: #4A3B5C;
             font-weight: 600;
@@ -2121,20 +2122,21 @@
         
         .expand-content p {
             margin: 0;
-            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 16px;
-            color: #6c757d;
+            color: #4A3B5C;
             line-height: 1.6;
+            font-weight: 400;
         }
         
         .included-list {
             margin: 0;
             padding-left: 20px;
-            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 16px;
             color: #4A3B5C;
             line-height: 1.8;
-            font-weight: 800;
+            font-weight: 400;
         }
         
         .included-list li {
@@ -2146,6 +2148,8 @@
             font-style: italic;
             font-size: 12px !important;
             color: #9F8AB3 !important;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-weight: 400;
         }
         
         .rates-statement {
@@ -2153,17 +2157,125 @@
             padding: 12px 0;
         }
         
+        .rates-statement .included-list {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-weight: 600;
+        }
+        
         .rates-statement p {
             margin: 0;
-            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 20px;
             color: #4A3B5C;
-            font-weight: 800;
+            font-weight: 600;
+        }
+        
+        /* My Process Section */
+        .my-process-section {
+            background-color: #E5DBF0;
+            padding: 80px 0;
+        }
+        
+        .my-process-section .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .my-process-section h2 {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 2.5rem;
+            color: #4A3B5C;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .process-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .process-column {
+            text-align: center;
+        }
+        
+        .process-column h3 {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 1.8rem;
+            color: #4A3B5C;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        
+        .process-column .subtitle {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            color: #4A3B5C;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        
+        .process-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        .process-column li {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #4A3B5C;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            font-weight: 400;
+        }
+        
+        .process-column li:before {
+            content: "•";
+            color: #D4AF37;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .process-text {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #4A3B5C;
+            line-height: 1.6;
+            text-align: left;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        .process-text p {
+            margin-bottom: 15px;
+        }
+        
+        /* Mobile responsiveness for My Process section */
+        @media (max-width: 768px) {
+            .process-columns {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                max-width: 100%;
+            }
+            
+            .process-column h3 {
+                white-space: normal;
+                font-size: 1.5rem;
+            }
         }
         
         /* Footer Styles - Mauve & Gold Theme */
         footer {
-            background-color: #E5DBF0; /* Light purple to match bio */
+            background-color: white;
             color: #4A3B5C; /* Dark purple text to match bio */
             padding: 50px 0;
             text-align: center;
@@ -3439,15 +3551,14 @@
                 
                 <!-- Pet UGC Tile -->
                 <div class="service-tile strategy-tile">
-                    <div class="tile-image">
-                        <img src="Leon and Sophie.jpg" alt="Pet UGC" class="tile-bg-image">
-                        <div class="tile-overlay">
-                            <h3 class="tile-title">Pet UGC</h3>
+                    <a href="pet-ugc.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                        <div class="tile-image">
+                            <img src="Leon and Sophie.jpg" alt="Pet UGC" class="tile-bg-image">
+                            <div class="tile-overlay">
+                                <h3 class="tile-title">Pet UGC</h3>
+                            </div>
                         </div>
-                        <div class="coming-soon-overlay">
-                            <span>Coming Soon</span>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 
                 <!-- Couple UGC Tile -->
@@ -3461,6 +3572,48 @@
                             <span>Coming Soon</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Process Section -->
+    <section class="my-process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Process</h2>
+            </div>
+            
+            <div class="process-columns">
+                <!-- Column 1: Establish Creative Vision -->
+                <div class="process-column">
+                    <h3>Establish Creative Vision</h3>
+                    <p class="subtitle">Quick call or email to discuss:</p>
+                    <ul>
+                        <li>Creative brief</li>
+                        <li>Deliverable requirements</li>
+                        <li>Content ideas</li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2: Creative Development -->
+                <div class="process-column">
+                    <h3>Creative Development</h3>
+                    <ul>
+                        <li>1st draft delivered in 3-5 days</li>
+                        <li>You discuss revision requests, if any</li>
+                        <li>Final videos will be delivered via Google Drive unless requested otherwise</li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Working Together -->
+                <div class="process-column">
+                    <h3>Working Together</h3>
+                    <ul>
+                        <li>I'm adaptable to your preferred contract structure and can work within your existing vendor agreements.</li>
+                        <li>For clients who need one, I'm happy to provide a professional collaboration contract that outlines deliverables, timelines, and payment terms.</li>
+                        <li>My goal is to make the process as seamless as possible for you.</li>
+                    </ul>
                 </div>
             </div>
         </div>
