@@ -2258,6 +2258,20 @@
             margin-bottom: 15px;
         }
         
+        /* Mobile responsiveness for My Process section */
+        @media (max-width: 768px) {
+            .process-columns {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                max-width: 100%;
+            }
+            
+            .process-column h3 {
+                white-space: normal;
+                font-size: 1.5rem;
+            }
+        }
+        
         /* Footer Styles - Mauve & Gold Theme */
         footer {
             background-color: white;
