@@ -222,36 +222,156 @@
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-size: 3rem;
             color: #4A3B5C;
-            margin-bottom: 30px;
+            margin-bottom: 60px;
             letter-spacing: 1px;
         }
         
-        .main-content p {
-            font-family: 'Nunito', Helvetica, Arial, sans-serif;
-            font-size: 1.2rem;
-            color: #6c757d;
-            max-width: 600px;
+        /* Pet Showcase Styles */
+        .pet-showcase {
+            max-width: 1200px;
             margin: 0 auto;
-            line-height: 1.8;
+            padding: 0 20px;
         }
         
-        /* Mobile Navigation (hidden by default) */
-        .mobile-nav-toggle {
+        .pets-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .pet-card {
+            text-align: center;
+        }
+        
+        .pet-photo {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(74, 59, 92, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 15px;
+        }
+        
+        .pet-photo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(74, 59, 92, 0.2);
+        }
+        
+        .pet-name {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 1.5rem;
+            color: #4A3B5C;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #D4AF37;
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        
+        .pet-description {
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 0.9rem;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+        
+        /* Future Videos Section */
+        .future-videos {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 2px solid #E5DBF0;
+            margin-top: 40px;
+        }
+        
+        .future-videos h2 {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 2rem;
+            color: #4A3B5C;
+            margin-bottom: 20px;
+        }
+        
+        .future-videos p {
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 1.1rem;
+            color: #6c757d;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .pets-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .pet-photo {
+                height: 350px;
+            }
+            
+            .pet-name {
+                font-size: 1.3rem;
+            }
+            
+            .main-content h1 {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .pets-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        /* Back Arrow Styling */
+        .back-arrow {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+        }
+        
+        .back-arrow:hover {
+            color: #D4AF37 !important;
+            background: rgba(212, 175, 55, 0.1) !important;
+        }
+        
+        /* Mobile Back Arrow */
+        .mobile-back-arrow {
             display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            text-decoration: none;
+            color: #4A3B5C;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 16px;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            background: none;
+            border: none;
+            white-space: nowrap;
+        }
+        
+        .mobile-back-arrow:hover {
+            color: #D4AF37;
+            background: rgba(212, 175, 55, 0.1);
         }
         
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-nav-toggle {
-                display: block;
-                background: none;
-                border: none;
-                font-size: 24px;
-                color: #4A3B5C;
-                cursor: pointer;
+            .mobile-back-arrow {
+                display: block !important;
             }
         }
     </style>
@@ -265,34 +385,74 @@
                     <img src="Brea UGC logo.svg" alt="Brea UGC" />
                 </a>
                 
-                <!-- Desktop Navigation -->
+                <!-- Back Arrow -->
                 <div class="nav-links">
-                    <a href="index.html#paid-ads">Paid Ads</a>
-                    <a href="index.html#organic">Organic Concepts</a>
-                    <a href="index.html#services">Services</a>
+                    <a href="index.html" class="back-arrow">← Back</a>
                 </div>
-                
-                <!-- Mobile Navigation Toggle -->
-                <button class="mobile-nav-toggle" onclick="toggleMobileNav()">☰</button>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Back Arrow -->
+    <a href="index.html" class="mobile-back-arrow">← Back</a>
 
     <!-- Main Content -->
     <div class="main-content">
         <div class="container">
             <h1>Meet the Cast</h1>
-            <p>Coming soon! This page will feature our specialized pet-focused User Generated Content services. Stay tuned for updates on our furry friend content creation offerings.</p>
+            
+            <!-- Pet Showcase -->
+            <div class="pet-showcase">
+                <div class="pets-grid">
+                    <!-- Leon -->
+                    <div class="pet-card">
+                        <img src="Leon .JPG" alt="Leon" class="pet-photo">
+                        <h3 class="pet-name">Leon</h3>
+                        <p class="pet-description">
+                            Sweet, affectionate boy cat who is very workable on camera, can speak on command and comes when called.
+                        </p>
+                    </div>
+                    
+                    <!-- Molly -->
+                    <div class="pet-card">
+                        <img src="Molly .jpg" alt="Molly" class="pet-photo">
+                        <h3 class="pet-name">Molly</h3>
+                        <p class="pet-description">
+                            Senior Pit Lab, can do tons of tricks. Recovering from TPLO surgery, plenty of footage and takes supplements for the camera.
+                        </p>
+                    </div>
+                    
+                    <!-- Willow -->
+                    <div class="pet-card">
+                        <img src="Willow .JPG" alt="Willow" class="pet-photo">
+                        <h3 class="pet-name">Willow</h3>
+                        <p class="pet-description">
+                            Sweet when she wants to be otherwise an evil mastermind. Goes full crackhead.
+                        </p>
+                    </div>
+                    
+                    <!-- Sophie -->
+                    <div class="pet-card">
+                        <img src="Soph.jpg" alt="Sophie" class="pet-photo">
+                        <h3 class="pet-name">Sophie</h3>
+                        <p class="pet-description">
+                            Border Collie, high energy, loves being on camera, has hypothyroidism.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Future Videos Section -->
+                <div class="future-videos">
+                    <h2>Pet Videos</h2>
+                    <p>Video showcase coming soon!</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- JavaScript -->
     <script>
-        // Mobile Navigation Toggle
-        function toggleMobileNav() {
-            // This function can be expanded when mobile nav is fully implemented
-            console.log('Mobile nav toggle clicked');
-        }
+        // No mobile navigation needed - just back arrow
     </script>
 </body>
 </html>

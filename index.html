@@ -116,9 +116,9 @@
         
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 15px;
             align-items: center;
-            margin-right: 20px;
+            margin-right: 0px;
         }
         
         .nav-links a {
@@ -127,10 +127,9 @@
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
             font-weight: 400;
             transition: all 0.3s;
-            font-size: 16px;
-            letter-spacing: 1px;
-            padding: 8px 16px;
-            white-space: nowrap;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            padding: 8px 10px;
             border-radius: 4px;
             text-transform: uppercase;
             cursor: pointer;
@@ -3164,6 +3163,7 @@
                     <a href="#paid-ads">Paid Ads</a>
                     <a href="#organic">Organic Concepts</a>
                     <a href="#services">Services</a>
+                    <a href="pet-ugc.html">Pet UGC</a>
                 </div>
                 
                 <!-- Mobile Hamburger Menu -->
@@ -3180,6 +3180,7 @@
                 <a href="#paid-ads" onclick="toggleMobileNav()">Paid Ads</a>
                 <a href="#organic" onclick="toggleMobileNav()">Organic Concepts</a>
                 <a href="#services" onclick="toggleMobileNav()">Services</a>
+                <a href="pet-ugc.html" onclick="toggleMobileNav()">Pet UGC</a>
             </div>
         </div>
     </header>
@@ -3845,7 +3846,7 @@
         console.log('Logo found:', document.querySelector('.logo'));
         
         // Target navigation and CTA buttons for smooth scrolling
-        document.querySelectorAll('.nav-links a, .hero-btn[href^="#"]').forEach((anchor, index) => {
+        document.querySelectorAll('.nav-links a[href^="#"], .hero-btn[href^="#"]').forEach((anchor, index) => {
             console.log(`Setting up navigation ${index}:`, anchor.textContent, anchor.getAttribute('href'));
             anchor.addEventListener('click', function (e) {
                 console.log('Navigation clicked:', this.textContent, this.getAttribute('href'));
