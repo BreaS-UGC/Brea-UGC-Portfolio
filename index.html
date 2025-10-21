@@ -578,6 +578,92 @@
             margin-left: 20px;
         }
         
+        /* Collaboration Carousel */
+        .collaboration-carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .collaboration-video-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Hide mobile nav buttons on desktop */
+        .mobile-nav-buttons {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-arrow {
+                display: none !important;
+            }
+            
+            .social-proof-phone-frame {
+                position: absolute !important;
+                left: 50% !important;
+                top: 10px !important;
+                transform: translateX(-50%) !important;
+                margin: 0 !important;
+            }
+            
+            .brand-name-label {
+                position: absolute !important;
+                top: -30px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+            }
+            
+            .simple-video-container {
+                position: relative !important;
+                height: 600px !important;
+            }
+            
+            .mobile-nav-buttons {
+                display: flex !important;
+                justify-content: space-between;
+                position: absolute;
+                bottom: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 120px;
+            }
+            
+            .mobile-arrow-btn {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background: #9F8AB3;
+                border: 1px solid #9F8AB3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 6px rgba(74, 59, 92, 0.2);
+            }
+            
+            .mobile-arrow-btn:hover {
+                background: #7D6A96;
+                transform: scale(1.1);
+            }
+            
+            .mobile-arrow-btn svg {
+                width: 12px;
+                height: 12px;
+                stroke: white;
+            }
+        }
+        
+        
+        
         .logos-viewport {
             overflow: hidden;
             width: 1170px;
@@ -872,6 +958,7 @@
             color: #4A3B5C;
             margin-bottom: 15px;
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            text-align: center;
         }
         
         .clean-video {
@@ -3283,18 +3370,24 @@
     <section id="social-proof" class="portfolio-section social-proof-section">
         <div class="container">
             <div class="section-header">
-                <h2>See What Brands Are Saying</h2>
+                <h2>Past Favorites</h2>
             </div>
             
-            <div class="collaboration-layout-horizontal">
-                <div class="video-left">
+            <div class="collaboration-carousel-container">
+                <button class="carousel-arrow carousel-arrow-left" id="collaborationCarouselLeft">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                </button>
+                
+                <div class="collaboration-video-container">
                     <div class="simple-video-container">
-                        <div class="brand-name-label">South Florida Photography</div>
+                        <div class="brand-name-label" id="collaborationBrandLabel">CaliSunGlow</div>
                         <div class="social-proof-phone-frame">
                             <div class="social-proof-phone-screen">
                                 <div class="social-proof-phone-notch"></div>
-                                <video class="clean-video-in-phone" controls controlsList="nodownload" preload="auto">
-                                    <source src="videos/SFP DIgital Guide (720p for website).mp4" type="video/mp4">
+                                <video class="clean-video-in-phone" controls controlsList="nodownload" preload="auto" id="collaborationVideo">
+                                    <source src="videos/CaliSunGlow (720p for website).mp4" type="video/mp4" id="collaborationVideoSource">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
@@ -3302,9 +3395,26 @@
                     </div>
                 </div>
                 
-                <div class="screenshot-right">
-                    <img src="Screenshot 2025-08-31 at 23-44-37 Fiverr _ Shopping _ Status of your order No. FO62EEC060248.png" alt="Fiverr Order Success" class="review-screenshot">
+                <button class="carousel-arrow carousel-arrow-right" id="collaborationCarouselRight">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
+                        <polyline points="9,6 15,12 9,18"></polyline>
+                    </svg>
+                </button>
+                
+                <!-- Mobile Navigation Buttons -->
+                <div class="mobile-nav-buttons">
+                    <button class="mobile-arrow-btn" id="mobileCollabLeft">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
+                            <polyline points="15,18 9,12 15,6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="mobile-arrow-btn" id="mobileCollabRight">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
+                            <polyline points="9,6 15,12 9,18"></polyline>
+                        </svg>
+                    </button>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -3350,6 +3460,15 @@
                         <div class="logo-circle">
                             <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
                         </div>
+                        <div class="logo-circle">
+                            <img src="calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
+                        </div>
                         <!-- Duplicate logos for seamless loop -->
                         <div class="logo-circle">
                             <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
@@ -3368,6 +3487,21 @@
                         </div>
                         <div class="logo-circle">
                             <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
+                        </div>
+                        <div class="logo-circle">
+                            <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
                         </div>
                     </div>
                 </div>
@@ -3448,16 +3582,16 @@
             </div>
             
             <div class="paid-ads-grid">
-                <!-- Video 1 - BODYROK -->
+                <!-- Video 1 - Perplexity AI -->
                 <div class="mini-phone-container">
-                    <div class="phone-label">BODYROK</div>
+                    <div class="phone-label">Perplexity AI</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/bodyrok organic (720p for website).mp4" type="video/mp4">
+                            <source src="videos/Perplexity AI (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="concept-type">Experience</div>
+                    <div class="concept-type">Informational</div>
                 </div>
 
                 <!-- Video 2 - Prose -->
@@ -3815,6 +3949,102 @@
             showVideo(0);
         });
 
+        // Collaboration Carousel JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const collaborationVideos = [
+                {
+                    name: "CaliSunGlow",
+                    video: "videos/CaliSunGlow (720p for website).mp4"
+                },
+                {
+                    name: "Too Good To Go",
+                    video: "videos/Too Good To Go (720p for website).mp4"
+                },
+                {
+                    name: "Getaway Cabins Airbnb",
+                    video: "videos/Getaway Cabins Airbnb (720p for website).mp4"
+                },
+                {
+                    name: "South Florida Photography",
+                    video: "videos/SFP DIgital Guide (720p for website).mp4"
+                }
+            ];
+
+            let currentCollabIndex = 0;
+            const brandLabel = document.getElementById('collaborationBrandLabel');
+            const videoElement = document.getElementById('collaborationVideo');
+            const videoSource = document.getElementById('collaborationVideoSource');
+            const leftArrow = document.getElementById('collaborationCarouselLeft');
+            const rightArrow = document.getElementById('collaborationCarouselRight');
+
+            function updateCollaborationVideo(index) {
+                const collaboration = collaborationVideos[index];
+                brandLabel.textContent = collaboration.name;
+                videoSource.src = collaboration.video;
+                
+                videoElement.load(); // Reload video with new source
+            }
+
+            leftArrow.addEventListener('click', function() {
+                currentCollabIndex = (currentCollabIndex - 1 + collaborationVideos.length) % collaborationVideos.length;
+                updateCollaborationVideo(currentCollabIndex);
+            });
+
+            rightArrow.addEventListener('click', function() {
+                currentCollabIndex = (currentCollabIndex + 1) % collaborationVideos.length;
+                updateCollaborationVideo(currentCollabIndex);
+            });
+            
+            // Mobile button event listeners
+            const mobileLeftBtn = document.getElementById('mobileCollabLeft');
+            const mobileRightBtn = document.getElementById('mobileCollabRight');
+            
+            if (mobileLeftBtn) {
+                mobileLeftBtn.addEventListener('click', function() {
+                    currentCollabIndex = (currentCollabIndex - 1 + collaborationVideos.length) % collaborationVideos.length;
+                    updateCollaborationVideo(currentCollabIndex);
+                });
+            }
+            
+            if (mobileRightBtn) {
+                mobileRightBtn.addEventListener('click', function() {
+                    currentCollabIndex = (currentCollabIndex + 1) % collaborationVideos.length;
+                    updateCollaborationVideo(currentCollabIndex);
+                });
+            }
+            
+            // Mobile touch/swipe functionality
+            let startX = 0;
+            let endX = 0;
+            const collaborationContainer = document.querySelector('.collaboration-video-container');
+            
+            collaborationContainer.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+            });
+            
+            collaborationContainer.addEventListener('touchend', function(e) {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe left - next video
+                        currentCollabIndex = (currentCollabIndex + 1) % collaborationVideos.length;
+                        updateCollaborationVideo(currentCollabIndex);
+                    } else {
+                        // Swipe right - previous video
+                        currentCollabIndex = (currentCollabIndex - 1 + collaborationVideos.length) % collaborationVideos.length;
+                        updateCollaborationVideo(currentCollabIndex);
+                    }
+                }
+            }
+        });
+
         // Function to scroll to top
         function scrollToTop(event) {
             event.preventDefault();
@@ -3980,14 +4210,15 @@
             let currentIndex = 3;
             const logoWidth = 155;
             const gap = 30;
-            const totalLogos = 14; // 8 original + 6 duplicates
+            const originalLogos = 11; // Now 11 unique logos (8 original + 3 new)
+            const totalLogos = 22; // 11 original + 11 duplicates
             
             function updateCarousel() {
                 const translateX = -(currentIndex * (logoWidth + gap));
                 logosGrid.style.transform = `translateX(${translateX}px)`;
                 
-                // Seamless loop: when we get past the original 8 logos, reset to beginning without animation
-                if (currentIndex >= 8) {
+                // Seamless loop: when we get past the original 11 logos, reset to beginning without animation
+                if (currentIndex >= originalLogos) {
                     setTimeout(() => {
                         logosGrid.style.transition = 'none';
                         currentIndex = 0;
@@ -4001,8 +4232,8 @@
                 if (currentIndex < 0) {
                     setTimeout(() => {
                         logosGrid.style.transition = 'none';
-                        currentIndex = 7;
-                        logosGrid.style.transform = `translateX(-${7 * (logoWidth + gap)}px)`;
+                        currentIndex = originalLogos - 1;
+                        logosGrid.style.transform = `translateX(-${(originalLogos - 1) * (logoWidth + gap)}px)`;
                         setTimeout(() => {
                             logosGrid.style.transition = 'transform 0.3s ease';
                         }, 50);
