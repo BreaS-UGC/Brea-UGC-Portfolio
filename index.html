@@ -358,16 +358,79 @@
             color: #D4AF37;
             animation: blink 1s infinite;
             font-weight: normal;
+            margin-left: 2px;
         }
 
         .typewriter.typing::after {
-            animation: none;
+            content: '|';
+            color: #D4AF37;
+            animation: blink 1s infinite;
             opacity: 1;
+            font-weight: normal;
+            margin-left: 2px;
         }
 
         @keyframes blink {
             0%, 50% { opacity: 1; }
             51%, 100% { opacity: 0; }
+        }
+        
+        /* Inline typing cursor */
+        .typing-cursor {
+            color: #D4AF37;
+            animation: blink 1s infinite;
+            font-weight: normal;
+            margin-left: 2px;
+        }
+        
+        /* Services Marquee Effect */
+        .services-marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 570px;
+            height: 3.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 0 auto;
+        }
+        
+        .services-marquee-container::before,
+        .services-marquee-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 60px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .services-marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, #f8f8fa, transparent);
+        }
+        
+        .services-marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, #f8f8fa, transparent);
+        }
+        
+        
+        .services-marquee {
+            display: inline-block;
+            animation: aquariumScroll 10s linear infinite;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 2.5rem;
+            color: #4A3B5C;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        
+        @keyframes aquariumScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-285px); }
         }
         
         .hero-about p {
@@ -672,14 +735,13 @@
             max-width: 100%;
         }
         
-        .logos-grid {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
+        .logos-grid-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
             gap: 30px;
-            flex-wrap: nowrap;
-            width: 1480px;
-            transition: transform 0.3s ease;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-items: center;
         }
         
         .logo-circle {
@@ -1454,6 +1516,18 @@
             flex-wrap: wrap;
         }
         
+        .video-tile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 400px;
+            transition: transform 0.3s ease;
+        }
+        
+        .video-tile-container:hover {
+            transform: translateY(-5px);
+        }
+        
         .mini-phone-frame {
             position: relative;
             width: clamp(180px, 15vw, 280px);
@@ -1505,6 +1579,18 @@
         
         .mini-video-container.paid-ads-gradient {
             background: linear-gradient(180deg, #f8f8fa 0%, #E8DDF2 15%, rgba(181, 165, 201, 0.8) 40%, rgba(125, 106, 150, 0.9) 70%, rgba(74, 59, 92, 0.95) 85%, rgba(74, 59, 92, 1) 100%);
+        }
+        
+        .past-favorites-video-container {
+            width: 360px;
+            height: 640px;
+            background: #111;
+            border-radius: 25px;
+            padding: 6px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            margin: 0 auto;
         }
         
         .mini-video-container.organic-gradient {
@@ -3143,7 +3229,7 @@
                 margin-top: 80px !important;
             }
             
-            .mini-phone-container {
+            .video-tile-container {
                 width: 100% !important;
                 max-width: 150px !important;
                 margin: 0 !important;
@@ -3385,14 +3471,11 @@
                 <div class="collaboration-video-container">
                     <div class="simple-video-container">
                         <div class="brand-name-label" id="collaborationBrandLabel">CaliSunGlow</div>
-                        <div class="social-proof-phone-frame">
-                            <div class="social-proof-phone-screen">
-                                <div class="social-proof-phone-notch"></div>
-                                <video class="clean-video-in-phone" controls controlsList="nodownload" preload="auto" id="collaborationVideo">
-                                    <source src="videos/CaliSunGlow (720p for website).mp4" type="video/mp4" id="collaborationVideoSource">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
+                        <div class="past-favorites-video-container">
+                            <video class="mini-video" controls controlsList="nodownload" preload="auto" id="collaborationVideo">
+                                <source src="videos/CaliSunGlow (720p for website).mp4" type="video/mp4" id="collaborationVideoSource">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -3428,91 +3511,43 @@
                 <h2>Brand Collaborations</h2>
             </div>
             
-            <div class="logos-carousel-container">
-                <button class="carousel-arrow carousel-arrow-left" id="logoCarouselLeft">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
-                        <polyline points="15,18 9,12 15,6"></polyline>
-                    </svg>
-                </button>
-                
-                <div class="logos-viewport">
-                    <div class="logos-grid" id="logosGrid">
-                        <!-- Original logos -->
-                        <div class="logo-circle">
-                            <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="planta-logo.png" alt="Planta" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
-                        </div>
-                        <!-- Duplicate logos for seamless loop -->
-                        <div class="logo-circle">
-                            <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="planta-logo.png" alt="Planta" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
-                        </div>
-                    </div>
+            <div class="logos-grid-container">
+                <div class="logo-circle">
+                    <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
                 </div>
-                
-                <button class="carousel-arrow carousel-arrow-right" id="logoCarouselRight">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
-                        <polyline points="9,18 15,12 9,6"></polyline>
-                    </svg>
-                </button>
+                <div class="logo-circle">
+                    <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="planta-logo.png" alt="Planta" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo">
+                </div>
             </div>
         </div>
     </section>
@@ -3521,12 +3556,12 @@
     <section id="paid-ads" class="portfolio-section paid-ads-new-section">
         <div class="container">
             <div class="section-header">
-                <h2>Paid Ads</h2>
+                <h2 class="typewriter" data-text="Paid Ads">Paid Ads</h2>
             </div>
             
             <div class="paid-ads-grid">
                 <!-- Video 1 - Calzen Wellness -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Calzen</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3538,7 +3573,7 @@
                 </div>
 
                 <!-- Video 2 - BodyRok -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">BODYROK</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3550,7 +3585,7 @@
                 </div>
 
                 <!-- Video 3 - Justin Guitar -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Justin Guitar</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3562,7 +3597,7 @@
                 </div>
 
                 <!-- Video 4 - Vanessa Pro -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Vanessa Pro</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3580,12 +3615,12 @@
     <section id="organic" class="portfolio-section organic-section">
         <div class="container">
             <div class="section-header">
-                <h2>Organic Concepts</h2>
+                <h2 class="typewriter" data-text="Organic Concepts">Organic Concepts</h2>
             </div>
             
             <div class="paid-ads-grid">
                 <!-- Video 1 - Perplexity AI -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Perplexity AI</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3597,7 +3632,7 @@
                 </div>
 
                 <!-- Video 2 - Prose -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Prose</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3609,7 +3644,7 @@
                 </div>
 
                 <!-- Video 3 - Planta -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Planta</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3620,16 +3655,16 @@
                     <div class="concept-type">Trending Audio</div>
                 </div>
 
-                <!-- Video 4 - Temptations -->
-                <div class="mini-phone-container">
-                    <div class="phone-label">Temptations</div>
+                <!-- Video 4 - Getaway Cabins -->
+                <div class="video-tile-container">
+                    <div class="phone-label">Getaway Cabins</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/Temptations (720p for website).mp4" type="video/mp4">
+                            <source src="videos/Getaway Cabins Airbnb Organic (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="concept-type">Day-in-the-Life</div>
+                    <div class="concept-type">Travel</div>
                 </div>
             </div>
         </div>
@@ -3640,7 +3675,9 @@
     <section id="services" class="portfolio-section services-new-section">
         <div class="container">
             <div class="section-header">
-                <h2>Services</h2>
+                <div class="services-marquee-container">
+                    <div class="services-marquee">Services • Services • Services • Services • Services • Services</div>
+                </div>
             </div>
             
             <div class="services-tiles-grid">
@@ -4183,12 +4220,57 @@
             type();
         }
 
+        // Modified typewriter for section headers (loops forever with blinking cursor)
+        function sectionHeaderTypeWriter(element, text, speed) {
+            let i = 0;
+            let isTyping = true;
+            
+            function type() {
+                if (isTyping) {
+                    if (i < text.length) {
+                        element.innerHTML = text.substring(0, i + 1) + '<span class="typing-cursor">|</span>';
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        setTimeout(() => {
+                            isTyping = false;
+                            erase();
+                        }, 4000);
+                    }
+                } else {
+                    if (i > 0) {
+                        element.innerHTML = text.substring(0, i - 1) + '<span class="typing-cursor">|</span>';
+                        i--;
+                        setTimeout(type, speed / 2);
+                    } else {
+                        setTimeout(() => {
+                            isTyping = true;
+                            type();
+                        }, 1000);
+                    }
+                }
+            }
+            
+            function erase() {
+                type();
+            }
+            
+            element.innerHTML = '<span class="typing-cursor">|</span>';
+            element.classList.add('typing');
+            type();
+        }
+
         // Intersection Observer for typewriter
         const typewriterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
                     const text = entry.target.dataset.text;
-                    typeWriter(entry.target, text, 100);
+                    // Check if it's a section header (h2) - use persistent typewriter
+                    if (entry.target.tagName.toLowerCase() === 'h2') {
+                        sectionHeaderTypeWriter(entry.target, text, 100);
+                    } else {
+                        typeWriter(entry.target, text, 100);
+                    }
                     entry.target.classList.add('animated');
                 }
             });
