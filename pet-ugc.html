@@ -36,6 +36,8 @@
             background-position: 0 0 !important;
             filter: none !important;
             box-shadow: none !important;
+            max-width: 100% !important;
+            overflow-x: hidden !important;
         }
         
         body {
@@ -330,6 +332,115 @@
             }
         }
         
+        /* Pet Videos Section Styling */
+        .paid-ads-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(20px, 3vw, 60px);
+            margin-top: 30px;
+            justify-items: center;
+            max-width: min(90vw, 1800px);
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+        
+        /* Mobile responsive for pet videos */
+        @media (max-width: 768px) {
+            .paid-ads-grid {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+                max-width: 100% !important;
+                padding: 0 15px !important;
+            }
+            
+            .mini-phone-container {
+                max-width: 350px !important;
+                margin: 0 auto !important;
+            }
+            
+            .mini-video-container {
+                width: 100% !important;
+                max-width: 320px !important;
+                margin: 0 auto !important;
+            }
+        }
+        
+        .mini-phone-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 400px;
+        }
+        
+        .phone-label {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #4A3B5C;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+            background: transparent;
+            padding: 8px 16px;
+            border-radius: 20px;
+            box-shadow: none;
+            border: 2px solid #4A3B5C;
+            letter-spacing: 0.5px;
+            text-shadow: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .phone-label:hover {
+            background: rgba(74, 59, 92, 0.1);
+            color: #4A3B5C;
+        }
+        
+        .mini-video-container {
+            width: 360px;
+            height: 640px;
+            background: #111;
+            border-radius: 25px;
+            padding: 6px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .paid-ads-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        
+        .mini-video {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+        
+        .concept-type {
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: white;
+            margin-top: 15px;
+            font-weight: 600;
+            text-align: center;
+            background: #4A3B5C;
+            padding: 8px 16px;
+            border-radius: 15px;
+            border: 2px solid #4A3B5C;
+            letter-spacing: 0.5px;
+            text-transform: capitalize;
+            box-shadow: 0 4px 8px rgba(74, 59, 92, 0.2);
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .concept-type:hover {
+            background: #8B7AA0;
+            color: white;
+        }
+        
         /* Back Arrow Styling */
         .back-arrow {
             font-size: 16px !important;
@@ -344,7 +455,7 @@
         /* Mobile Back Arrow */
         .mobile-back-arrow {
             display: none;
-            position: fixed;
+            position: absolute;
             top: 20px;
             right: 20px;
             z-index: 9999;
@@ -441,10 +552,29 @@
                     </div>
                 </div>
                 
-                <!-- Future Videos Section -->
-                <div class="future-videos">
-                    <h2>Pet Videos</h2>
-                    <p>Video showcase coming soon!</p>
+                <!-- Pet Videos Section -->
+                <div class="paid-ads-grid">
+                    <!-- Video 1 - Sundays for Dogs -->
+                    <div class="mini-phone-container">
+                        <div class="phone-label">Sundays for Dogs</div>
+                        <div class="mini-video-container paid-ads-gradient">
+                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                                <source src="videos/Sundays for Dogs Spark Ad (720p for website).mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 - Temptations -->
+                    <div class="mini-phone-container">
+                        <div class="phone-label">Temptations</div>
+                        <div class="mini-video-container paid-ads-gradient">
+                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                                <source src="videos/Temptations (720p for website).mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

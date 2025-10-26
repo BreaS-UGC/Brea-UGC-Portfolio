@@ -39,6 +39,8 @@
             background-position: 0 0 !important;
             filter: none !important;
             box-shadow: none !important;
+            max-width: 100% !important;
+            overflow-x: hidden !important;
         }
         
         body {
@@ -358,16 +360,79 @@
             color: #D4AF37;
             animation: blink 1s infinite;
             font-weight: normal;
+            margin-left: 2px;
         }
 
         .typewriter.typing::after {
-            animation: none;
+            content: '|';
+            color: #D4AF37;
+            animation: blink 1s infinite;
             opacity: 1;
+            font-weight: normal;
+            margin-left: 2px;
         }
 
         @keyframes blink {
             0%, 50% { opacity: 1; }
             51%, 100% { opacity: 0; }
+        }
+        
+        /* Inline typing cursor */
+        .typing-cursor {
+            color: #D4AF37;
+            animation: blink 1s infinite;
+            font-weight: normal;
+            margin-left: 2px;
+        }
+        
+        /* Services Marquee Effect */
+        .services-marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 570px;
+            height: 3.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 0 auto;
+        }
+        
+        .services-marquee-container::before,
+        .services-marquee-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 60px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .services-marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, #f8f8fa, transparent);
+        }
+        
+        .services-marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, #f8f8fa, transparent);
+        }
+        
+        
+        .services-marquee {
+            display: inline-block;
+            animation: aquariumScroll 10s linear infinite;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 2.5rem;
+            color: #4A3B5C;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        
+        @keyframes aquariumScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-285px); }
         }
         
         .hero-about p {
@@ -482,17 +547,28 @@
             color: #B5A5C9 !important;
         }
         
-        .mobile-nav-close:hover {
-            color: #B5A5C9 !important;
-        }
-        
         .mobile-nav-close {
             position: absolute;
             top: 30px;
-            right: 30px;
+            right: 20px;
             color: #4A3B5C;
-            font-size: 30px;
+            font-size: 36px;
             cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(74, 59, 92, 0.5);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .mobile-nav-close:hover {
+            color: #D4AF37 !important;
+            background: rgba(212, 175, 55, 0.3);
+            transform: scale(1.1);
         }
         
         /* Hero CTA Buttons - 90s Style */
@@ -552,8 +628,8 @@
         }
         
         .carousel-arrow {
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid #E5DBF0;
+            background: #4A3B5C;
+            border: 2px solid #4A3B5C;
             border-radius: 50%;
             width: 50px;
             height: 50px;
@@ -563,11 +639,17 @@
             cursor: pointer;
             transition: all 0.3s ease;
             z-index: 5;
+            color: white;
         }
         
         .carousel-arrow:hover {
-            background: #E5DBF0;
+            background: #D4AF37;
+            border: 2px solid #D4AF37;
             transform: scale(1.1);
+        }
+        
+        .carousel-arrow svg {
+            stroke: white;
         }
         
         .carousel-arrow-left {
@@ -601,6 +683,11 @@
             display: none;
         }
         
+        /* Hide mobile-only elements on desktop */
+        .mobile-only {
+            display: none;
+        }
+        
         @media (max-width: 768px) {
             .carousel-arrow {
                 display: none !important;
@@ -620,19 +707,20 @@
                 left: 50% !important;
                 transform: translateX(-50%) !important;
                 white-space: nowrap !important;
-                font-size: 14px !important;
+                font-size: 18px !important;
             }
             
             .simple-video-container {
                 position: relative !important;
                 height: 600px !important;
+                padding-bottom: 100px !important;
             }
             
             .mobile-nav-buttons {
                 display: flex !important;
                 justify-content: space-between;
                 position: absolute;
-                bottom: -30px;
+                bottom: -80px;
                 left: 50%;
                 transform: translateX(-50%);
                 width: 120px;
@@ -642,8 +730,8 @@
                 width: 30px;
                 height: 30px;
                 border-radius: 50%;
-                background: #9F8AB3;
-                border: 1px solid #9F8AB3;
+                background: #4A3B5C;
+                border: 1px solid #4A3B5C;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -653,7 +741,8 @@
             }
             
             .mobile-arrow-btn:hover {
-                background: #7D6A96;
+                background: #D4AF37;
+                border: 1px solid #D4AF37;
                 transform: scale(1.1);
             }
             
@@ -672,14 +761,13 @@
             max-width: 100%;
         }
         
-        .logos-grid {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
+        .logos-grid-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
             gap: 30px;
-            flex-wrap: nowrap;
-            width: 1480px;
-            transition: transform 0.3s ease;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-items: center;
         }
         
         .logo-circle {
@@ -704,7 +792,110 @@
             width: auto;
             height: auto;
             object-fit: contain;
-            border-radius: 15px;
+        }
+        
+        /* Desktop Logo Customizations - Match Mobile Exactly */
+        /* Calzen - Zoom in and crop to circular shape with purple border */
+        .logo-circle:has(.calzen-logo) {
+            background: transparent !important;
+            border: 3px solid #4A3B5C !important;
+            overflow: hidden !important;
+        }
+        .calzen-logo {
+            max-width: 140px !important;
+            max-height: 140px !important;
+            object-fit: cover !important;
+            border-radius: 50% !important;
+        }
+        
+        /* BodyRok - Black background with purple border */
+        .logo-circle:has([alt="BodyRok"]) {
+            background: #000000 !important;
+            border: 3px solid #4A3B5C !important;
+        }
+        .circular-logo[alt="BodyRok"] {
+            max-width: 120px !important;
+            max-height: 120px !important;
+            object-fit: cover !important;
+        }
+        
+        /* Justin Guitar - Transparent background with purple border */
+        .logo-circle:has(.justin-logo) {
+            background: transparent !important;
+            border: 3px solid #4A3B5C !important;
+        }
+        
+        /* Planta - Crop to circular shape with purple border, zoom more */
+        .logo-circle:has([alt="Planta"]) {
+            border: 3px solid #4A3B5C !important;
+            overflow: hidden !important;
+        }
+        .circular-logo[alt="Planta"] {
+            max-width: 160px !important;
+            max-height: 160px !important;
+            object-fit: cover !important;
+            border-radius: 50% !important;
+        }
+        
+        /* Temptations - White background with purple border */
+        .logo-circle:has([alt="Temptations"]) {
+            background: #ffffff !important;
+            border: 3px solid #4A3B5C !important;
+        }
+        
+        /* Raw Actives - Transparent background with purple border, circular crop */
+        .logo-circle:has(.raw-actives-logo) {
+            background: transparent !important;
+            border: 3px solid #4A3B5C !important;
+            overflow: hidden !important;
+        }
+        .raw-actives-logo {
+            max-width: 160px !important;
+            max-height: 160px !important;
+            object-fit: cover !important;
+            border-radius: 50% !important;
+        }
+        
+        /* Vanessa Pro - Dark background with purple border */
+        .logo-circle:has([alt="Vanessa Pro"]) {
+            background: #0f0f0f !important;
+            border: 3px solid #4A3B5C !important;
+        }
+        
+        /* Prose - Transparent background with purple border */
+        .logo-circle:has([alt="Prose"]) {
+            background: transparent !important;
+            border: 3px solid #4A3B5C !important;
+        }
+        
+        /* CaliSunGlow - Black background with purple border */
+        .logo-circle:has([alt="CaliSunGlow"]) {
+            background: #000000 !important;
+            border: 3px solid #4A3B5C !important;
+        }
+        
+        /* Too Good To Go - Crop to circular shape with purple border, zoom more */
+        .logo-circle:has([alt="Too Good To Go"]) {
+            border: 3px solid #4A3B5C !important;
+            overflow: hidden !important;
+        }
+        .circular-logo[alt="Too Good To Go"] {
+            max-width: 180px !important;
+            max-height: 180px !important;
+            object-fit: cover !important;
+            border-radius: 50% !important;
+        }
+        
+        /* Getaway Cabins - White background with purple border */
+        .logo-circle:has([alt="Getaway Cabins"]) {
+            background: #ffffff !important;
+            border: 3px solid #4A3B5C !important;
+        }
+        
+        /* Perplexity AI - White background with purple border */
+        .logo-circle:has([alt="Perplexity AI"]) {
+            background: #ffffff !important;
+            border: 3px solid #4A3B5C !important;
         }
         
         .calzen-logo {
@@ -722,19 +913,19 @@
             max-height: 125px;
         }
         
-        /* Social Proof Section */
-        .social-proof-section {
+        /* Past Favorites Section */
+        .past-favorites-section {
             background: #ffffff;
-            padding: 60px 0;
+            padding: 60px 0 110px 0;
             position: relative;
         }
 
-        .social-proof-section h2 {
+        .past-favorites-section h2 {
             color: #4A3B5C;
             margin-bottom: 20px;
         }
 
-        .social-proof-section p {
+        .past-favorites-section p {
             color: #666;
             font-size: 18px;
             margin-bottom: 40px;
@@ -1454,6 +1645,18 @@
             flex-wrap: wrap;
         }
         
+        .video-tile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 400px;
+            transition: transform 0.3s ease;
+        }
+        
+        .video-tile-container:hover {
+            transform: translateY(-5px);
+        }
+        
         .mini-phone-frame {
             position: relative;
             width: clamp(180px, 15vw, 280px);
@@ -1505,6 +1708,18 @@
         
         .mini-video-container.paid-ads-gradient {
             background: linear-gradient(180deg, #f8f8fa 0%, #E8DDF2 15%, rgba(181, 165, 201, 0.8) 40%, rgba(125, 106, 150, 0.9) 70%, rgba(74, 59, 92, 0.95) 85%, rgba(74, 59, 92, 1) 100%);
+        }
+        
+        .past-favorites-video-container {
+            width: 360px;
+            height: 640px;
+            background: #111;
+            border-radius: 25px;
+            padding: 6px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            margin: 0 auto;
         }
         
         .mini-video-container.organic-gradient {
@@ -2873,61 +3088,194 @@
                 font-size: 1.5rem;
             }
             
-            /* Brand Collaborations Mobile Layout */
-            .logos-carousel-container {
-                display: block !important;
+            /* Brand Collaborations Mobile Layout - Single Logo */
+            .brand-logos-section {
+                position: relative !important;
             }
             
-            .carousel-arrow {
+            /* Hide desktop grid on mobile */
+            .logos-grid-container {
                 display: none !important;
             }
             
-            .logos-viewport {
-                max-width: 100% !important;
-                overflow: visible !important;
+            /* Mobile single logo carousel */
+            .mobile-logo-carousel {
+                display: block !important;
+                width: 100% !important;
+                text-align: center !important;
             }
             
-            .logos-grid {
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 20px !important;
-                justify-content: center !important;
-                justify-items: center !important;
-                width: 100% !important;
-                transform: none !important;
-                transition: none !important;
+            .single-logo-container {
+                position: relative !important;
+                width: 180px !important;
+                height: 180px !important;
                 margin: 0 auto !important;
             }
             
-            /* Hide duplicate logos on mobile */
-            .logos-grid .logo-circle:nth-child(n+9) {
-                display: none !important;
+            .mobile-logo-active {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                opacity: 1 !important;
+                z-index: 2 !important;
             }
             
-            .logo-circle {
-                width: 100px !important;
-                height: 100px !important;
-                padding: 15px !important;
+            .mobile-logo-hidden {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                opacity: 0 !important;
+                z-index: 1 !important;
             }
             
-            .circular-logo {
-                max-width: 70px !important;
-                max-height: 70px !important;
+            .brand-logos-section .carousel-nav {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 20px !important;
+                margin: 30px auto 0 auto !important;
+                width: 100% !important;
+                max-width: 300px !important;
+                position: relative !important;
+                left: 0 !important;
+                right: 0 !important;
+            }
+            
+            .carousel-arrow {
+                background: #4A3B5C !important;
+                color: white !important;
+                border: none !important;
+                border-radius: 50% !important;
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 18px !important;
+                cursor: pointer !important;
+                transition: all 0.3s ease !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                box-shadow: 0 4px 10px rgba(74, 59, 92, 0.3) !important;
+            }
+            
+            .carousel-arrow:hover {
+                background: #D4AF37 !important;
+                transform: scale(1.1) !important;
+                box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4) !important;
+            }
+            
+            .carousel-arrow:disabled {
+                background: #ccc !important;
+                cursor: not-allowed !important;
+                transform: none !important;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+            }
+            
+            .mobile-only {
+                display: block !important;
+            }
+            
+            .mobile-logo-carousel .logo-circle {
+                width: 180px !important;
+                height: 180px !important;
+                padding: 20px !important;
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                border-radius: 50% !important;
+                background: #ffffff !important;
+                border: 3px solid #4A3B5C !important;
+                box-shadow: 0 4px 15px rgba(74, 59, 92, 0.2) !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            
+            .mobile-logo-carousel .circular-logo {
+                max-width: 120px !important;
+                max-height: 120px !important;
+                object-fit: contain !important;
+            }
+            
+            /* Calzen - Zoom in and crop to circular shape with purple border */
+            .mobile-logo-carousel .logo-circle:has(.calzen-logo) {
+                background: transparent !important;
+                border: 3px solid #4A3B5C !important;
+                overflow: hidden !important;
+            }
+            .mobile-logo-carousel .calzen-logo {
+                max-width: 170px !important;
+                max-height: 170px !important;
+                object-fit: cover !important;
+                border-radius: 50% !important;
+            }
+            
+            /* BodyRok - Black background, zoom in more */
+            .mobile-logo-carousel .logo-circle:has([alt="BodyRok"]) {
+                background: #000000 !important;
+            }
+            .mobile-logo-carousel .circular-logo[alt="BodyRok"] {
+                max-width: 160px !important;
+                max-height: 160px !important;
+                object-fit: cover !important;
+            }
+            
+            /* Planta - Crop to circular shape with purple border */
+            .mobile-logo-carousel .logo-circle:has([alt="Planta"]) {
+                border: 3px solid #4A3B5C !important;
+                overflow: hidden !important;
+            }
+            .mobile-logo-carousel .circular-logo[alt="Planta"] {
+                max-width: 200px !important;
+                max-height: 200px !important;
+                object-fit: cover !important;
+                border-radius: 50% !important;
+            }
+            
+            /* Raw Actives - Zoom in, remove white background */
+            .mobile-logo-carousel .logo-circle:has(.raw-actives-logo) {
+                background: transparent !important;
+            }
+            .mobile-logo-carousel .raw-actives-logo {
+                max-width: 160px !important;
+                max-height: 160px !important;
+                object-fit: cover !important;
+            }
+            
+            /* Vanessa Pro - One shade darker background */
+            .mobile-logo-carousel .logo-circle:has([alt="Vanessa Pro"]) {
+                background: #0f0f0f !important;
+            }
+            
+            /* CaliSunGlow - Black background */
+            .mobile-logo-carousel .logo-circle:has([alt="CaliSunGlow"]) {
+                background: #000000 !important;
+            }
+            
+            /* Too Good To Go - Crop to circular shape with purple border, zoom in more */
+            .mobile-logo-carousel .logo-circle:has([alt="Too Good To Go"]) {
+                border: 3px solid #4A3B5C !important;
+                overflow: hidden !important;
+            }
+            .mobile-logo-carousel .circular-logo[alt="Too Good To Go"] {
+                max-width: 220px !important;
+                max-height: 220px !important;
+                object-fit: cover !important;
+                border-radius: 50% !important;
             }
             
             .calzen-logo {
-                max-width: 60px !important;
-                max-height: 60px !important;
+                max-width: 100px !important;
+                max-height: 100px !important;
             }
             
             .justin-logo {
-                max-width: 75px !important;
-                max-height: 75px !important;
+                max-width: 125px !important;
+                max-height: 125px !important;
             }
             
             .raw-actives-logo {
-                max-width: 75px !important;
-                max-height: 75px !important;
+                max-width: 125px !important;
+                max-height: 125px !important;
             }
             
             /* Social Proof Mobile Layout */
@@ -2942,11 +3290,11 @@
                 margin: 0 auto;
             }
             
-            .social-proof-section {
-                padding: 40px 0 !important;
+            .past-favorites-section {
+                padding: 40px 0 90px 0 !important;
             }
             
-            .social-proof-section p {
+            .past-favorites-section p {
                 font-size: 16px !important;
                 margin-bottom: 30px !important;
                 padding: 0 20px;
@@ -3036,10 +3384,12 @@
                 color: #4A3B5C !important;
                 font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
                 font-weight: 400 !important;
-                font-size: 1.1rem !important;
-                line-height: 1.4 !important;
+                font-size: 0.8rem !important;
+                line-height: 1.3 !important;
                 text-align: center !important;
-                margin: -120px auto 15px !important;
+                margin: -105px auto 5px !important;
+                white-space: nowrap !important;
+                padding: 0 10px !important;
             }
             
             .hero-mobile-content .hero-bio {
@@ -3143,7 +3493,7 @@
                 margin-top: 80px !important;
             }
             
-            .mini-phone-container {
+            .video-tile-container {
                 width: 100% !important;
                 max-width: 150px !important;
                 margin: 0 !important;
@@ -3154,7 +3504,7 @@
             
             .phone-label {
                 font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
-                font-size: 0.85rem !important;
+                font-size: 0.75rem !important;
                 color: #4A3B5C !important;
                 font-weight: 600 !important;
                 margin-bottom: 8px !important;
@@ -3162,8 +3512,9 @@
                 background: transparent !important;
                 border: 2px solid #4A3B5C !important;
                 border-radius: 20px !important;
-                padding: 8px 16px !important;
+                padding: 6px 12px !important;
                 box-shadow: none !important;
+                white-space: nowrap !important;
             }
             
             .mini-video-container {
@@ -3182,15 +3533,16 @@
             
             .concept-type {
                 font-family: 'Comfortaa', Helvetica, Arial, sans-serif !important;
-                font-size: 0.75rem !important;
+                font-size: 0.65rem !important;
                 color: white !important;
                 margin-top: 6px !important;
                 text-align: center !important;
                 background: #4A3B5C !important;
                 border: 2px solid #4A3B5C !important;
                 border-radius: 15px !important;
-                padding: 8px 16px !important;
+                padding: 6px 12px !important;
                 box-shadow: 0 4px 8px rgba(74, 59, 92, 0.2) !important;
+                white-space: nowrap !important;
             }
             
             /* Mobile: Hide icons, show text */
@@ -3368,8 +3720,8 @@
         </div>
     </section>
 
-    <!-- Social Proof Section -->
-    <section id="social-proof" class="portfolio-section social-proof-section">
+    <!-- Past Favorites Section -->
+    <section id="past-favorites" class="portfolio-section past-favorites-section">
         <div class="container">
             <div class="section-header">
                 <h2>Past Favorites</h2>
@@ -3385,14 +3737,11 @@
                 <div class="collaboration-video-container">
                     <div class="simple-video-container">
                         <div class="brand-name-label" id="collaborationBrandLabel">CaliSunGlow</div>
-                        <div class="social-proof-phone-frame">
-                            <div class="social-proof-phone-screen">
-                                <div class="social-proof-phone-notch"></div>
-                                <video class="clean-video-in-phone" controls controlsList="nodownload" preload="auto" id="collaborationVideo">
-                                    <source src="videos/CaliSunGlow (720p for website).mp4" type="video/mp4" id="collaborationVideoSource">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
+                        <div class="past-favorites-video-container">
+                            <video class="mini-video" controls controlsList="nodownload" preload="auto" id="collaborationVideo">
+                                <source src="videos/CaliSunGlow (720p for website).mp4" type="video/mp4" id="collaborationVideoSource">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -3428,90 +3777,94 @@
                 <h2>Brand Collaborations</h2>
             </div>
             
-            <div class="logos-carousel-container">
-                <button class="carousel-arrow carousel-arrow-left" id="logoCarouselLeft">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
-                        <polyline points="15,18 9,12 15,6"></polyline>
-                    </svg>
-                </button>
-                
-                <div class="logos-viewport">
-                    <div class="logos-grid" id="logosGrid">
-                        <!-- Original logos -->
-                        <div class="logo-circle">
-                            <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="planta-logo.png" alt="Planta" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
-                        </div>
-                        <!-- Duplicate logos for seamless loop -->
-                        <div class="logo-circle">
-                            <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="planta-logo.png" alt="Planta" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
-                        </div>
-                        <div class="logo-circle">
-                            <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
-                        </div>
+            <div class="logos-grid-container">
+                <div class="logo-circle">
+                    <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="planta-logo.png" alt="Planta" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
+                </div>
+            </div>
+            
+            <!-- Mobile Only: Single Logo Carousel -->
+            <div class="mobile-logo-carousel mobile-only">
+                <div class="single-logo-container" id="singleLogoContainer">
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="planta-logo.png" alt="Planta" class="circular-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-active">
+                        <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo">
                     </div>
                 </div>
-                
-                <button class="carousel-arrow carousel-arrow-right" id="logoCarouselRight">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
-                        <polyline points="9,18 15,12 9,6"></polyline>
-                    </svg>
+            </div>
+            
+            <!-- Mobile Carousel Navigation -->
+            <div class="carousel-nav mobile-only">
+                <button class="carousel-arrow" id="prevLogo" aria-label="Previous logo">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow" id="nextLogo" aria-label="Next logo">
+                    <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </div>
@@ -3521,12 +3874,12 @@
     <section id="paid-ads" class="portfolio-section paid-ads-new-section">
         <div class="container">
             <div class="section-header">
-                <h2>Paid Ads</h2>
+                <h2 class="typewriter" data-text="Paid Ads">Paid Ads</h2>
             </div>
             
             <div class="paid-ads-grid">
                 <!-- Video 1 - Calzen Wellness -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Calzen</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3538,7 +3891,7 @@
                 </div>
 
                 <!-- Video 2 - BodyRok -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">BODYROK</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3550,7 +3903,7 @@
                 </div>
 
                 <!-- Video 3 - Justin Guitar -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Justin Guitar</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3562,7 +3915,7 @@
                 </div>
 
                 <!-- Video 4 - Vanessa Pro -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Vanessa Pro</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3580,12 +3933,12 @@
     <section id="organic" class="portfolio-section organic-section">
         <div class="container">
             <div class="section-header">
-                <h2>Organic Concepts</h2>
+                <h2 class="typewriter" data-text="Organic Concepts">Organic Concepts</h2>
             </div>
             
             <div class="paid-ads-grid">
                 <!-- Video 1 - Perplexity AI -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Perplexity AI</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3597,7 +3950,7 @@
                 </div>
 
                 <!-- Video 2 - Prose -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Prose</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3609,7 +3962,7 @@
                 </div>
 
                 <!-- Video 3 - Planta -->
-                <div class="mini-phone-container">
+                <div class="video-tile-container">
                     <div class="phone-label">Planta</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
@@ -3620,16 +3973,16 @@
                     <div class="concept-type">Trending Audio</div>
                 </div>
 
-                <!-- Video 4 - Temptations -->
-                <div class="mini-phone-container">
-                    <div class="phone-label">Temptations</div>
+                <!-- Video 4 - Getaway Cabins -->
+                <div class="video-tile-container">
+                    <div class="phone-label">Getaway Cabins</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/Temptations (720p for website).mp4" type="video/mp4">
+                            <source src="videos/Getaway Cabins Airbnb Organic (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="concept-type">Day-in-the-Life</div>
+                    <div class="concept-type">Travel</div>
                 </div>
             </div>
         </div>
@@ -3640,7 +3993,9 @@
     <section id="services" class="portfolio-section services-new-section">
         <div class="container">
             <div class="section-header">
-                <h2>Services</h2>
+                <div class="services-marquee-container">
+                    <div class="services-marquee">Services • Services • Services • Services • Services • Services</div>
+                </div>
             </div>
             
             <div class="services-tiles-grid">
@@ -3793,56 +4148,75 @@
             mobileNav.classList.toggle('active');
         }
 
-        // Brand Logos Carousel - Single Logo Display
-        let currentSlide = 0;
+        // Brand Logos Mobile Single Carousel
+        let mobileLogoCurrentIndex = 0; // Start at position 0 in our custom order
+        let isAnimating = false; // Prevent rapid clicks
         
-        // Make function globally available
-        window.moveCarousel = function(direction) {
-            console.log('moveCarousel called with direction:', direction); // Debug log
-            const logoItems = document.querySelectorAll('.logo-item');
-            const totalSlides = logoItems.length;
-            
-            console.log('Found logo items:', logoItems.length); // Debug log
-            
-            if (logoItems.length === 0) return; // Safety check
-            
-            // Clear all classes from current slide
-            logoItems[currentSlide].classList.remove('active', 'prev', 'next');
-            
-            // Set exit animation for current slide
-            if (direction > 0) {
-                logoItems[currentSlide].classList.add('prev'); // Rotate left when going forward
-            } else {
-                logoItems[currentSlide].classList.add('next'); // Rotate right when going backward
-            }
-            
-            // Calculate next slide
-            currentSlide += direction;
-            
-            // Loop back to beginning/end
-            if (currentSlide >= totalSlides) {
-                currentSlide = 0;
-            } else if (currentSlide < 0) {
-                currentSlide = totalSlides - 1;
-            }
-            
-            console.log('Moving to slide:', currentSlide); // Debug log
-            
-            // Clear all classes from new slide and make it active
-            logoItems[currentSlide].classList.remove('prev', 'next');
-            logoItems[currentSlide].classList.add('active');
-        };
+        // Custom order starting with Too Good To Go
+        const mobileLogoOrder = [9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8]; // Too Good To Go first, then rest in order
         
-        // Initialize carousel - show first logo
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded, initializing carousel'); // Debug log
-            const logoItems = document.querySelectorAll('.logo-item');
-            console.log('Initial logo items found:', logoItems.length); // Debug log
-            if (logoItems.length > 0) {
-                logoItems[0].classList.add('active');
-                console.log('First logo activated'); // Debug log
+        function initializeMobileLogoCarousel() {
+            const logoContainer = document.getElementById('singleLogoContainer');
+            const logoCircles = document.querySelectorAll('#singleLogoContainer .logo-circle');
+            const prevBtn = document.getElementById('prevLogo');
+            const nextBtn = document.getElementById('nextLogo');
+            
+            if (!logoContainer || logoCircles.length === 0) return;
+            
+            function showLogo(orderIndex) {
+                if (isAnimating) return; // Prevent rapid clicking
+                
+                isAnimating = true;
+                const actualIndex = mobileLogoOrder[orderIndex];
+                
+                logoCircles.forEach((circle, i) => {
+                    circle.classList.remove('mobile-logo-active', 'mobile-logo-hidden');
+                    if (i === actualIndex) {
+                        circle.classList.add('mobile-logo-active');
+                    } else {
+                        circle.classList.add('mobile-logo-hidden');
+                    }
+                });
+                
+                // Buttons are always enabled for infinite loop
+                if (prevBtn && nextBtn) {
+                    prevBtn.disabled = false;
+                    nextBtn.disabled = false;
+                }
+                
+                // Reset animation flag after a short delay
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 200);
             }
-        });
+            
+            function moveToNext() {
+                if (isAnimating) return; // Prevent rapid clicking
+                
+                mobileLogoCurrentIndex++;
+                if (mobileLogoCurrentIndex >= mobileLogoOrder.length) {
+                    mobileLogoCurrentIndex = 0; // Loop back to beginning
+                }
+                showLogo(mobileLogoCurrentIndex);
+            }
+            
+            function moveToPrev() {
+                if (isAnimating) return; // Prevent rapid clicking
+                
+                mobileLogoCurrentIndex--;
+                if (mobileLogoCurrentIndex < 0) {
+                    mobileLogoCurrentIndex = mobileLogoOrder.length - 1; // Loop to end
+                }
+                showLogo(mobileLogoCurrentIndex);
+            }
+            
+            // Add event listeners
+            nextBtn.addEventListener('click', moveToNext);
+            prevBtn.addEventListener('click', moveToPrev);
+            
+            // Initialize with Too Good To Go (index 0 in our custom order)
+            showLogo(mobileLogoCurrentIndex);
+        }
         
         // Function to play video with audio
         function playVideo(overlay) {
@@ -3861,6 +4235,9 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize mobile logo carousel
+            initializeMobileLogoCarousel();
+            
             const videoContainer = document.getElementById('videoContainer');
             const videoCards = Array.from(videoContainer.querySelectorAll('.video-card'));
             const prevBtn = document.getElementById('prevBtn');
@@ -4183,12 +4560,57 @@
             type();
         }
 
+        // Modified typewriter for section headers (loops forever with blinking cursor)
+        function sectionHeaderTypeWriter(element, text, speed) {
+            let i = 0;
+            let isTyping = true;
+            
+            function type() {
+                if (isTyping) {
+                    if (i < text.length) {
+                        element.innerHTML = text.substring(0, i + 1) + '<span class="typing-cursor">|</span>';
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        setTimeout(() => {
+                            isTyping = false;
+                            erase();
+                        }, 4000);
+                    }
+                } else {
+                    if (i > 0) {
+                        element.innerHTML = text.substring(0, i - 1) + '<span class="typing-cursor">|</span>';
+                        i--;
+                        setTimeout(type, speed / 2);
+                    } else {
+                        setTimeout(() => {
+                            isTyping = true;
+                            type();
+                        }, 1000);
+                    }
+                }
+            }
+            
+            function erase() {
+                type();
+            }
+            
+            element.innerHTML = '<span class="typing-cursor">|</span>';
+            element.classList.add('typing');
+            type();
+        }
+
         // Intersection Observer for typewriter
         const typewriterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
                     const text = entry.target.dataset.text;
-                    typeWriter(entry.target, text, 100);
+                    // Check if it's a section header (h2) - use persistent typewriter
+                    if (entry.target.tagName.toLowerCase() === 'h2') {
+                        sectionHeaderTypeWriter(entry.target, text, 100);
+                    } else {
+                        typeWriter(entry.target, text, 100);
+                    }
                     entry.target.classList.add('animated');
                 }
             });
