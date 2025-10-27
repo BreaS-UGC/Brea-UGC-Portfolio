@@ -216,7 +216,7 @@
         
         /* Main Content */
         .main-content {
-            padding: 80px 0;
+            padding: 40px 0 5px 0;
             text-align: center;
         }
         
@@ -254,14 +254,12 @@
             height: 300px;
             object-fit: cover;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(74, 59, 92, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
             margin-bottom: 15px;
         }
         
         .pet-photo:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(74, 59, 92, 0.2);
         }
         
         .pet-name {
@@ -270,19 +268,56 @@
             color: #4A3B5C;
             margin-bottom: 10px;
             letter-spacing: 1px;
-            border-bottom: 3px solid #D4AF37;
-            padding-bottom: 8px;
             display: inline-block;
         }
         
         .pet-description {
-            font-family: 'Nunito', Helvetica, Arial, sans-serif;
-            font-size: 0.9rem;
-            color: #6c757d;
+            position: relative;
+            border: 2px solid #4A3B5C;
+            border-radius: 15px;
+            padding: 10px 15px;
+            margin: 5px 0 5px 0;
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #4A3B5C;
             line-height: 1.6;
-            margin-top: 10px;
+            font-weight: 600;
         }
         
+        /* Pet Videos Section */
+        .pet-videos-section {
+            background: #ffffff;
+            padding: 40px 0 20px 0;
+            margin-top: -10px;
+        }
+        
+        /* Section Header Styling - Match Main Page */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #4A3B5C;
+            letter-spacing: 1px;
+            height: 3.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Mobile responsive for section header */
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 2rem;
+                letter-spacing: 0.5px;
+                height: 2.4rem;
+            }
+        }
+
         /* Future Videos Section */
         .future-videos {
             text-align: center;
@@ -485,6 +520,49 @@
                 display: block !important;
             }
         }
+        
+        /* Title Container */
+        .title-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .title-container h1 {
+            display: inline-block;
+            margin-bottom: 0;
+        }
+        
+        /* Pet Social Media Icons */
+        .pet-social-icons {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+            margin-top: -10px;
+        }
+        
+        .pet-social-icons a {
+            transition: color 0.3s ease;
+        }
+        
+        /* Mobile positioning for pet social icons */
+        @media (max-width: 768px) {
+            .title-container {
+                margin-bottom: 40px;
+            }
+            
+            .pet-social-icons {
+                position: static;
+                transform: none;
+                justify-content: center;
+                margin: 20px auto 0 auto;
+                gap: 30px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -510,7 +588,24 @@
     <!-- Main Content -->
     <div class="main-content">
         <div class="container">
-            <h1>Meet the Cast</h1>
+            <div class="title-container">
+                <h1>The Hill Herd</h1>
+                
+                <!-- Pet Social Media Icons -->
+                <div class="pet-social-icons">
+                    <a href="mailto:brea@breaugc.com" style="color: #4A3B5C; font-size: 48px; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    
+                    <a href="https://instagram.com/thehillherdfamily" target="_blank" style="color: #4A3B5C; font-size: 48px; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    
+                    <a href="https://tiktok.com/@thehillherdfamily" target="_blank" style="color: #4A3B5C; font-size: 48px; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
             
             <!-- Pet Showcase -->
             <div class="pet-showcase">
@@ -551,9 +646,18 @@
                         </p>
                     </div>
                 </div>
-                
-                <!-- Pet Videos Section -->
-                <div class="paid-ads-grid">
+            </div>
+        </div>
+    </div>
+
+    <!-- Pet Videos Section -->
+    <section class="pet-videos-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recent Collaborations</h2>
+            </div>
+            
+            <div class="paid-ads-grid">
                     <!-- Video 1 - Sundays for Dogs -->
                     <div class="mini-phone-container">
                         <div class="phone-label">Sundays for Dogs</div>
@@ -578,7 +682,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- JavaScript -->
     <script>
