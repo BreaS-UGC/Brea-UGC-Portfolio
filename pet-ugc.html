@@ -362,15 +362,25 @@
         
         @media (max-width: 480px) {
             .pets-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .pet-photo {
+                height: 250px;
+            }
+            
+            .pet-description {
+                padding: 6px 10px;
+                margin: 3px 0;
+                font-size: 12px;
             }
         }
         
         /* Pet Videos Section Styling */
         .paid-ads-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: clamp(20px, 3vw, 60px);
             margin-top: 30px;
             justify-items: center;
@@ -380,24 +390,58 @@
             padding: 0 20px;
         }
         
+        /* Center the last two videos (Lambwolf and Temptations) on the bottom row */
+        .paid-ads-grid .mini-phone-container:nth-child(4) {
+            grid-column: 1;
+            transform: translateX(50%);
+        }
+        
+        .paid-ads-grid .mini-phone-container:nth-child(5) {
+            grid-column: 2;
+            transform: translateX(50%);
+        }
+        
         /* Mobile responsive for pet videos */
         @media (max-width: 768px) {
             .paid-ads-grid {
-                grid-template-columns: 1fr !important;
-                gap: 30px !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 20px !important;
                 max-width: 100% !important;
                 padding: 0 15px !important;
             }
             
+            /* Reset desktop positioning on mobile */
+            .paid-ads-grid .mini-phone-container:nth-child(4) {
+                grid-column: auto !important;
+                transform: none !important;
+            }
+            
             .mini-phone-container {
-                max-width: 350px !important;
+                max-width: 180px !important;
                 margin: 0 auto !important;
             }
             
             .mini-video-container {
-                width: 100% !important;
-                max-width: 320px !important;
+                width: 180px !important;
+                height: 320px !important;
                 margin: 0 auto !important;
+            }
+            
+            /* Mobile logo sizing */
+            .phone-label img {
+                max-height: 40px !important;
+                max-width: 160px !important;
+            }
+            
+            /* Reset custom margin overrides on mobile */
+            .mini-phone-container .phone-label {
+                margin-bottom: 25px !important;
+            }
+            
+            /* Center the 5th video (Temptations) on mobile */
+            .paid-ads-grid .mini-phone-container:nth-child(5) {
+                grid-column: 1 !important;
+                transform: translateX(50%) !important;
             }
         }
         
@@ -420,7 +464,7 @@
             padding: 8px 16px;
             border-radius: 20px;
             box-shadow: none;
-            border: 2px solid #4A3B5C;
+            border: none;
             letter-spacing: 0.5px;
             text-shadow: none;
             transition: background-color 0.3s ease;
@@ -429,6 +473,66 @@
         .phone-label:hover {
             background: rgba(74, 59, 92, 0.1);
             color: #4A3B5C;
+        }
+        
+        /* Logo styling within phone labels */
+        .phone-label img {
+            max-height: 80px;
+            max-width: 300px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        /* Specific sizing for Fresh Patch logo */
+        .phone-label img[src="Fresh Patch Logo.png"] {
+            max-height: 100px;
+            max-width: 350px;
+        }
+        
+        /* Move Sundays for Dogs logo down slightly */
+        .phone-label img[src="Sundays For Dogs Logo.png"] {
+            transform: translateY(10px);
+        }
+        
+        /* Specific sizing for Timber Dog logo */
+        .phone-label img[src="Timberdog Logo.jpg"] {
+            max-height: 100px;
+            max-width: 350px;
+        }
+        
+        /* Specific sizing for Lambwolf logo */
+        .phone-label img[src="Lambwolf Logo.png"] {
+            max-height: 140px;
+            max-width: 450px;
+            clip-path: inset(10% 5% 10% 5%);
+        }
+        
+        /* Adjust Fresh Patch container to prevent phone movement */
+        .mini-phone-container:nth-child(2) .phone-label {
+            margin-bottom: 5px;
+        }
+        
+        
+        /* Adjust Timber Dog container to prevent phone movement */
+        .mini-phone-container:nth-child(3) .phone-label {
+            margin-bottom: 5px;
+        }
+        
+        /* Move Lambwolf logo closer to phone */
+        .mini-phone-container:nth-child(4) .phone-label {
+            margin-bottom: 10px;
+        }
+        
+        /* Specific sizing for Temptations logo */
+        .phone-label img[src="temptations-logo.jpg"] {
+            max-height: 140px;
+            max-width: 450px;
+        }
+        
+        /* Move Temptations logo closer to phone */
+        .mini-phone-container:nth-child(5) .phone-label {
+            margin-bottom: 10px;
         }
         
         .mini-video-container {
@@ -660,7 +764,7 @@
             <div class="paid-ads-grid">
                     <!-- Video 1 - Sundays for Dogs -->
                     <div class="mini-phone-container">
-                        <div class="phone-label">Sundays for Dogs</div>
+                        <div class="phone-label"><img src="Sundays For Dogs Logo.png" alt="Sundays for Dogs"></div>
                         <div class="mini-video-container paid-ads-gradient">
                             <video class="mini-video" controls controlsList="nodownload" preload="auto">
                                 <source src="videos/Sundays for Dogs Spark Ad (720p for website).mp4" type="video/mp4">
@@ -669,9 +773,42 @@
                         </div>
                     </div>
 
-                    <!-- Video 2 - Temptations -->
+                    <!-- Video 2 - Fresh Patch -->
                     <div class="mini-phone-container">
-                        <div class="phone-label">Temptations</div>
+                        <div class="phone-label"><img src="Fresh Patch Logo.png" alt="Fresh Patch"></div>
+                        <div class="mini-video-container paid-ads-gradient">
+                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                                <source src="videos/Fresh Patch (720p for website).mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 - Timber Dog -->
+                    <div class="mini-phone-container">
+                        <div class="phone-label"><img src="Timberdog Logo.jpg" alt="Timber Dog"></div>
+                        <div class="mini-video-container paid-ads-gradient">
+                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                                <source src="videos/Timberdog (720p for website).mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <!-- Video 4 - Lambwolf -->
+                    <div class="mini-phone-container">
+                        <div class="phone-label"><img src="Lambwolf Logo.png" alt="Lambwolf"></div>
+                        <div class="mini-video-container paid-ads-gradient">
+                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                                <source src="videos/Lambwolf (720p for website).mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <!-- Video 5 - Temptations -->
+                    <div class="mini-phone-container">
+                        <div class="phone-label"><img src="temptations-logo.jpg" alt="Temptations"></div>
                         <div class="mini-video-container paid-ads-gradient">
                             <video class="mini-video" controls controlsList="nodownload" preload="auto">
                                 <source src="videos/Temptations (720p for website).mp4" type="video/mp4">
