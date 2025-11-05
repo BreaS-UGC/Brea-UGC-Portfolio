@@ -72,18 +72,6 @@
             overflow: hidden;
         }
         
-        header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100px;
-            width: 300px;
-            height: calc(100% + 4px);
-            background: linear-gradient(135deg, rgba(229, 219, 240, 0.3) 0%, rgba(240, 232, 245, 0.3) 100%);
-            border-radius: 0 0 50px 0;
-            clip-path: ellipse(150px 100px at 50% 0%);
-            z-index: 1;
-        }
         
         nav {
             display: flex;
@@ -107,12 +95,12 @@
             object-fit: contain;
             object-position: left;
             filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
-            transform: scale(3.2) translateY(7px);
+            transform: scale(3.2) translate(-15px, -3px);
             transform-origin: left center;
         }
         
         .logo:hover img {
-            transform: scale(3.2) translateY(7px);
+            transform: scale(3.2) translate(-15px, -3px);
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
         }
         
@@ -2534,7 +2522,14 @@
         .my-process-section .section-header {
             text-align: center;
             margin-bottom: 60px;
+            position: relative;
         }
+        
+        .my-process-section .section-header h2 {
+            position: relative;
+            z-index: 2;
+        }
+        
         
         .my-process-section h2 {
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
@@ -2629,6 +2624,7 @@
                 white-space: normal;
                 font-size: 1.5rem;
             }
+            
         }
         
         /* Footer Styles - Mauve & Gold Theme */
@@ -2898,10 +2894,6 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
             
-            /* Move header ellipse to the left on mobile */
-            header::after {
-                left: -175px;
-            }
             
             .container {
                 padding: 0 10px;
@@ -2935,12 +2927,12 @@
                 object-fit: contain;
                 object-position: left;
                 filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
-                transform: scale(2.2) translateY(8px);
+                transform: scale(2.2) translate(-10px, -2px);
                 transform-origin: left center;
             }
             
             .logo:hover img {
-                transform: scale(2.2) translateY(8px);
+                transform: scale(2.2) translate(-10px, -2px);
                 filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
             }
             
@@ -3648,7 +3640,7 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo" onclick="scrollToTop(event)">
-                    <img src="Brea UGC logo.svg" alt="Brea UGC" />
+                    <img src="updated brea ugc logo.svg" alt="Brea UGC" />
                 </a>
                 
                 <!-- Desktop Navigation -->
