@@ -368,26 +368,15 @@
         /* Pet Videos Section Styling */
         .paid-ads-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: clamp(20px, 3vw, 60px);
+            grid-template-columns: 360px 360px 360px;
+            column-gap: 80px;
             margin-top: 30px;
-            justify-items: center;
-            max-width: min(90vw, 1800px);
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 20px;
+            margin: 30px auto 0 auto;
+            padding: 20px;
+            transform: translateX(-20px);
         }
         
-        /* Center the last two videos (Lambwolf and Temptations) on the bottom row */
-        .paid-ads-grid .mini-phone-container:nth-child(4) {
-            grid-column: 1;
-            transform: translateX(50%);
-        }
-        
-        .paid-ads-grid .mini-phone-container:nth-child(5) {
-            grid-column: 2;
-            transform: translateX(50%);
-        }
+        /* 6 videos in 3x2 grid - no special positioning needed */
         
         /* Mobile responsive for pet videos */
         @media (max-width: 768px) {
@@ -395,23 +384,20 @@
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 20px !important;
                 max-width: 100% !important;
-                padding: 0 15px !important;
-            }
-            
-            /* Reset desktop positioning on mobile */
-            .paid-ads-grid .mini-phone-container:nth-child(4) {
-                grid-column: auto !important;
+                padding: 0 20px !important;
+                justify-items: center !important;
                 transform: none !important;
             }
             
+            
             .mini-phone-container {
-                max-width: 180px !important;
+                max-width: 160px !important;
                 margin: 0 auto !important;
             }
             
             .mini-video-container {
-                width: 180px !important;
-                height: 320px !important;
+                width: 160px !important;
+                height: 285px !important;
                 margin: 0 auto !important;
             }
             
@@ -426,11 +412,6 @@
                 margin-bottom: 25px !important;
             }
             
-            /* Center the 5th video (Temptations) on mobile */
-            .paid-ads-grid .mini-phone-container:nth-child(5) {
-                grid-column: 1 !important;
-                transform: translateX(50%) !important;
-            }
         }
         
         .mini-phone-container {
@@ -522,6 +503,21 @@
         .mini-phone-container:nth-child(5) .phone-label {
             margin-bottom: 10px;
         }
+
+        /* Specific sizing for Sy Litter logo */
+        .phone-label img[src="Sustainably-Yours-logo-2429460472.png"] {
+            max-height: 100px;
+            max-width: 320px;
+        }
+
+        /* Move Sy Litter logo closer to phone */
+        .mini-phone-container:nth-child(6) {
+            margin-top: 33px;
+        }
+        
+        .mini-phone-container:nth-child(6) .phone-label {
+            margin-bottom: 16px;
+        }
         
         .mini-video-container {
             width: 360px;
@@ -579,39 +575,6 @@
             background: rgba(212, 175, 55, 0.1) !important;
         }
         
-        /* Mobile Back Arrow */
-        .mobile-back-arrow {
-            display: none;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-            text-decoration: none;
-            color: #4A3B5C;
-            font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
-            font-weight: 500;
-            transition: all 0.3s;
-            font-size: 16px;
-            letter-spacing: 1px;
-            padding: 8px 16px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            cursor: pointer;
-            background: none;
-            border: none;
-            white-space: nowrap;
-        }
-        
-        .mobile-back-arrow:hover {
-            color: #D4AF37;
-            background: rgba(212, 175, 55, 0.1);
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-back-arrow {
-                display: block !important;
-            }
-        }
         
         /* Title Container */
         .title-container {
@@ -655,6 +618,48 @@
                 gap: 30px;
             }
         }
+
+        @media (max-width: 768px) {
+            /* EXACT DESKTOP LOGO COPY */
+            .logo {
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                width: 100vw;
+                max-width: 300px;
+                overflow: hidden;
+            }
+            
+            .logo img {
+                height: 50px;
+                width: 750px;
+                object-fit: contain;
+                object-position: left;
+                filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+                transform: scale(2.2) translate(-10px, -2px);
+                transform-origin: left center;
+            }
+            
+            .logo:hover img {
+                transform: scale(2.2) translate(-10px, -2px);
+                filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+            }
+        }
+
+        @media (max-width: 576px) {
+            /* Ultra-small screen header fixes */
+            header {
+                padding: 8px 0;
+                box-shadow: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -674,8 +679,6 @@
         </div>
     </header>
 
-    <!-- Mobile Back Arrow -->
-    <a href="index.html" class="mobile-back-arrow">← Back</a>
 
     <!-- Main Content -->
     <div class="main-content">
@@ -800,6 +803,17 @@
                         <div class="mini-video-container paid-ads-gradient">
                             <video class="mini-video" controls controlsList="nodownload" preload="auto">
                                 <source src="videos/Temptations (720p for website).mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <!-- Video 6 - Sy Litter -->
+                    <div class="mini-phone-container">
+                        <div class="phone-label"><img src="Sustainably-Yours-logo-2429460472.png" alt="Sy Litter"></div>
+                        <div class="mini-video-container paid-ads-gradient">
+                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                                <source src="videos/Sy Litter (720p for website).mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
