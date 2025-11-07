@@ -2530,6 +2530,28 @@
             z-index: 2;
         }
         
+        /* Brushstroke behind My Process header */
+        .my-process-section .section-header::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url('brushstroke.svg') no-repeat center;
+            background-size: contain;
+            width: 1500px;
+            height: 600px;
+            z-index: 1;
+        }
+        
+        /* Mobile brushstroke sizing */
+        @media (max-width: 768px) {
+            .my-process-section .section-header::before {
+                width: 800px;
+                height: 320px;
+            }
+        }
+        
         
         .my-process-section h2 {
             font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
