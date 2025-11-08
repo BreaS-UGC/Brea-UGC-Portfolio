@@ -54,6 +54,11 @@
         *, *:before, *:after {
         }
         
+        /* Force video metadata preload for mobile thumbnails */
+        video {
+            preload: metadata;
+        }
+        
         .container {
             max-width: 1400px;
             margin: 0 auto;
