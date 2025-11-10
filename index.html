@@ -4303,7 +4303,7 @@
                     videoCard.classList.add('video-playing');
                     overlay.style.display = 'none';
                 }).catch(e => {
-                    console.log('Video play error:', e);
+                    // Video play failed silently
                 });
             }
         }
@@ -4520,42 +4520,28 @@
         }
 
         // Smooth scrolling for navigation links
-        // Debug what elements are being found
-        const navElements = document.querySelectorAll('.nav-links a');
-        console.log('Nav elements found:', navElements);
-        navElements.forEach((el, i) => {
-            console.log(`Nav element ${i}:`, el.textContent, el.getAttribute('href'), el.classList.toString());
-        });
-        console.log('Logo found:', document.querySelector('.logo'));
-        
         // Target navigation and CTA buttons for smooth scrolling
         document.querySelectorAll('.nav-links a[href^="#"], .hero-btn[href^="#"]').forEach((anchor, index) => {
-            console.log(`Setting up navigation ${index}:`, anchor.textContent, anchor.getAttribute('href'));
             anchor.addEventListener('click', function (e) {
-                console.log('Navigation clicked:', this.textContent, this.getAttribute('href'));
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
                 
                 // Skip empty or just # links  
                 if (!targetId || targetId === '#') {
-                    console.log('Skipping empty link');
                     return;
                 }
                 
                 const target = document.querySelector(targetId);
-                console.log('Target element found:', target);
                 
                 if (target) {
                     const headerHeight = 20;
                     const targetPosition = target.offsetTop - headerHeight;
-                    console.log('Scrolling to position:', targetPosition);
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
                     });
                 } else {
-                    console.log('Target not found for:', targetId);
                 }
             });
         });
@@ -4564,7 +4550,6 @@
         const logo = document.querySelector('.logo');
         if (logo) {
             logo.addEventListener('click', function(e) {
-                console.log('Logo clicked');
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
