@@ -86,13 +86,9 @@ class DriveVideoManager {
     initializeVideoElements() {
         const videoElements = document.querySelectorAll('video source');
         
-        console.log('Found', videoElements.length, 'video elements');
-        
         videoElements.forEach(source => {
             const currentSrc = source.getAttribute('src');
             const filename = currentSrc.split('/').pop();
-            
-            console.log('Checking video:', filename, 'Has mapping:', this.videos.has(filename));
             
             if (this.videos.has(filename)) {
                 const videoInfo = this.videos.get(filename);
@@ -122,7 +118,6 @@ class DriveVideoManager {
     handleVideoError(source) {
         const fallbackSrc = source.getAttribute('data-fallback');
         if (fallbackSrc && source.getAttribute('src') !== fallbackSrc) {
-            console.log('Google Drive video failed, using local fallback');
             source.setAttribute('src', fallbackSrc);
         }
     }
@@ -152,7 +147,6 @@ class DriveVideoManager {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Drive integration script loaded');
     const driveManager = new DriveVideoManager();
     driveManager.initializeVideoElements();
 });

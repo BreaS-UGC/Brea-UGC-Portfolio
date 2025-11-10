@@ -51,9 +51,6 @@
             font-weight: 400;
         }
         
-        *, *:before, *:after {
-        }
-        
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -65,13 +62,11 @@
             padding: 12px 0;
             background: linear-gradient(135deg, #7D6A96 0%, #B5A5C9 100%);
             background-attachment: scroll !important;
-            background-image: linear-gradient(135deg, #7D6A96 0%, #B5A5C9 100%) !important;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             position: relative;
             width: 100%;
             overflow: hidden;
         }
-        
         
         nav {
             display: flex;
@@ -4308,7 +4303,7 @@
                     videoCard.classList.add('video-playing');
                     overlay.style.display = 'none';
                 }).catch(e => {
-                    console.log('Video play error:', e);
+                    // Video play failed silently
                 });
             }
         }
@@ -4525,42 +4520,28 @@
         }
 
         // Smooth scrolling for navigation links
-        // Debug what elements are being found
-        const navElements = document.querySelectorAll('.nav-links a');
-        console.log('Nav elements found:', navElements);
-        navElements.forEach((el, i) => {
-            console.log(`Nav element ${i}:`, el.textContent, el.getAttribute('href'), el.classList.toString());
-        });
-        console.log('Logo found:', document.querySelector('.logo'));
-        
         // Target navigation and CTA buttons for smooth scrolling
         document.querySelectorAll('.nav-links a[href^="#"], .hero-btn[href^="#"]').forEach((anchor, index) => {
-            console.log(`Setting up navigation ${index}:`, anchor.textContent, anchor.getAttribute('href'));
             anchor.addEventListener('click', function (e) {
-                console.log('Navigation clicked:', this.textContent, this.getAttribute('href'));
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
                 
                 // Skip empty or just # links  
                 if (!targetId || targetId === '#') {
-                    console.log('Skipping empty link');
                     return;
                 }
                 
                 const target = document.querySelector(targetId);
-                console.log('Target element found:', target);
                 
                 if (target) {
                     const headerHeight = 20;
                     const targetPosition = target.offsetTop - headerHeight;
-                    console.log('Scrolling to position:', targetPosition);
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
                     });
                 } else {
-                    console.log('Target not found for:', targetId);
                 }
             });
         });
@@ -4569,7 +4550,6 @@
         const logo = document.querySelector('.logo');
         if (logo) {
             logo.addEventListener('click', function(e) {
-                console.log('Logo clicked');
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
