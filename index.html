@@ -778,16 +778,13 @@
         }
         
         /* Desktop Logo Customizations - Match Mobile Exactly */
-        /* Calzen - Zoom in and crop to circular shape with purple border */
-        .logo-circle:has(.calzen-logo) {
-            background: transparent !important;
+        /* Zygo - White background with purple border */
+        .logo-circle:has([alt="Zygo"]) {
+            background: #ffffff !important;
             border: 3px solid #4A3B5C !important;
             overflow: hidden !important;
         }
-        .calzen-logo {
-            max-width: 140px !important;
-            max-height: 140px !important;
-            object-fit: cover !important;
+        .logo-circle:has([alt="Zygo"]) img {
             border-radius: 50% !important;
         }
         
@@ -820,23 +817,29 @@
             border-radius: 50% !important;
         }
         
-        /* Temptations - White background with purple border */
-        .logo-circle:has([alt="Temptations"]) {
+        /* Riki Loves Riki - White background with purple border */
+        .logo-circle:has([alt="Riki Loves Riki"]) {
             background: #ffffff !important;
             border: 3px solid #4A3B5C !important;
         }
-        
-        /* Raw Actives - Transparent background with purple border, circular crop */
-        .logo-circle:has(.raw-actives-logo) {
+
+        /* EcoATM - Transparent background with purple border, circular crop */
+        .logo-circle:has([alt="EcoATM"]) {
             background: transparent !important;
             border: 3px solid #4A3B5C !important;
             overflow: hidden !important;
         }
-        .raw-actives-logo {
-            max-width: 160px !important;
-            max-height: 160px !important;
+        .logo-circle:has([alt="EcoATM"]) img {
+            max-width: 130px !important;
+            max-height: 130px !important;
             object-fit: cover !important;
             border-radius: 50% !important;
+        }
+        
+        /* Maelys - Peach background with purple border */
+        .logo-circle:has([alt="Maelys"]) {
+            background: #FF91A4 !important;
+            border: 3px solid #4A3B5C !important;
         }
         
         /* Vanessa Pro - Dark background with purple border */
@@ -875,10 +878,17 @@
             border: 3px solid #4A3B5C !important;
         }
         
-        /* Perplexity AI - White background with purple border */
+        /* Perplexity AI - Transparent background with purple border */
         .logo-circle:has([alt="Perplexity AI"]) {
-            background: #ffffff !important;
+            background: transparent !important;
             border: 3px solid #4A3B5C !important;
+            overflow: hidden !important;
+        }
+        .logo-circle:has([alt="Perplexity AI"]) img {
+            max-width: 160px !important;
+            max-height: 160px !important;
+            object-fit: cover !important;
+            border-radius: 50% !important;
         }
         
         .calzen-logo {
@@ -1681,8 +1691,8 @@
         
         .mini-video-container {
             position: relative;
-            width: clamp(180px, 15vw, 280px);
-            height: clamp(320px, 25vw, 500px);
+            width: clamp(200px, 18vw, 340px);
+            height: clamp(360px, 30vw, 600px);
             overflow: hidden;
             border-radius: 8px;
             margin: 0 auto;
@@ -3708,7 +3718,7 @@
 
                         <div style="position: relative; margin: 30px 0 -40px 0;">
                             <span style="font-family: 'Comfortaa', Helvetica, Arial, sans-serif; font-size: 14px; padding: 8px 16px; background-color: #4A3B5C; color: white; border-radius: 20px; font-weight: 600; display: inline-block; position: absolute; top: -10px; left: 20px; z-index: 10;">Why Work With Me?</span>
-                            <p style="color: #4A3B5C; font-weight: 600; margin: 0; padding: 20px; border: 2px solid #4A3B5C; border-radius: 15px; padding-top: 30px; font-size: 14px;">Living in Huntsville gives me access to stunning outdoor locations and NASA's Space & Rocket Center for unique shoots. With two dogs, two cats, and my husband as my creative partner, pet and couple content are natural parts of my everyday content creation.</p>
+                            <p style="color: #4A3B5C; font-weight: 600; margin: 0; padding: 20px; border: 2px solid #4A3B5C; border-radius: 15px; padding-top: 30px; font-size: 14px;">I've combined my entertainment industry experience with creative strategy to strike the perfect balance between "authentic" UGC and masterfully created content. With two dogs, two cats, and my husband as my creative partner, pet and couple content are natural parts of my everyday content creation.</p>
                         </div>
                         
                         <!-- Social Media Icons -->
@@ -3759,7 +3769,7 @@
 
                     <div style="position: relative; border: 2px solid #4A3B5C; border-radius: 15px; padding: 20px; padding-top: 45px; margin: 50px 0 -40px 0;">
                         <span style="font-family: 'Comfortaa', Helvetica, Arial, sans-serif; font-size: 14px; padding: 8px 16px; background-color: #4A3B5C; color: white; border-radius: 20px; font-weight: 600; display: inline-block; position: absolute; top: -12px; left: 20px; z-index: 10;">Why Work With Me?</span>
-                        <p style="font-size: 14px; font-weight: 600; color: #4A3B5C;"><span class="star-bullets">Living in Huntsville gives me access to stunning outdoor locations and NASA's Space & Rocket Center for unique shoots. With two dogs, two cats, and my husband as my creative partner, pet and couple content are natural parts of my everyday content creation.</span></p>
+                        <p style="font-size: 14px; font-weight: 600; color: #4A3B5C;"><span class="star-bullets">I've combined my entertainment industry experience with creative strategy to strike the perfect balance between "authentic" UGC and masterfully created content. With two dogs, two cats, and my husband as my creative partner, pet and couple content are natural parts of my everyday content creation.</span></p>
                     </div>
                     
                     <!-- Social Media Icons -->
@@ -3785,7 +3795,7 @@
     <section id="past-favorites" class="portfolio-section past-favorites-section">
         <div class="container">
             <div class="section-header">
-                <h2>Past Favorites</h2>
+                <h2>Recent Collabs</h2>
             </div>
             
             <div class="collaboration-carousel-container">
@@ -3797,10 +3807,10 @@
                 
                 <div class="collaboration-video-container">
                     <div class="simple-video-container">
-                        <div class="brand-name-label" id="collaborationBrandLabel">CaliSunGlow</div>
+                        <div class="brand-name-label" id="collaborationBrandLabel">Beauty For Real</div>
                         <div class="past-favorites-video-container">
                             <video class="mini-video" controls controlsList="nodownload" preload="auto" id="collaborationVideo">
-                                <source src="videos/CaliSunGlow (720p for website).mp4" type="video/mp4" id="collaborationVideoSource">
+                                <source src="videos/Beauty For Real (720p for website).mp4" type="video/mp4" id="collaborationVideoSource">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -3840,34 +3850,34 @@
             
             <div class="logos-grid-container">
                 <div class="logo-circle">
-                    <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
-                </div>
-                <div class="logo-circle">
-                    <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
-                </div>
-                <div class="logo-circle">
-                    <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
-                </div>
-                <div class="logo-circle">
-                    <img src="planta-logo.png" alt="Planta" class="circular-logo">
-                </div>
-                <div class="logo-circle">
-                    <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
-                </div>
-                <div class="logo-circle">
-                    <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
-                </div>
-                <div class="logo-circle">
-                    <img src="Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo">
+                    <img src="zygo logo.png" alt="Zygo" class="circular-logo">
                 </div>
                 <div class="logo-circle">
                     <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
                 </div>
                 <div class="logo-circle">
-                    <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
+                    <img src="ecoatm logo.png" alt="EcoATM" class="circular-logo">
                 </div>
                 <div class="logo-circle">
                     <img src="VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="riki loves riki logo.png" alt="Riki Loves Riki" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="maelys logo.png" alt="Maelys" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
+                </div>
+                <div class="logo-circle">
+                    <img src="planta-logo.png" alt="Planta" class="circular-logo">
                 </div>
                 <div class="logo-circle">
                     <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
@@ -3881,25 +3891,25 @@
             <div class="mobile-logo-carousel mobile-only">
                 <div class="single-logo-container" id="singleLogoContainer">
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="calzen logo.png" alt="Calzen" class="circular-logo calzen-logo">
+                        <img src="zygo logo.png" alt="Zygo" class="circular-logo">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
+                        <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="justin guitar logo.png" alt="Justin Guitar" class="circular-logo justin-logo">
-                    </div>
-                    <div class="logo-circle mobile-logo-hidden">
-                        <img src="planta-logo.png" alt="Planta" class="circular-logo">
-                    </div>
-                    <div class="logo-circle mobile-logo-hidden">
-                        <img src="temptations-logo.jpg" alt="Temptations" class="circular-logo">
-                    </div>
-                    <div class="logo-circle mobile-logo-hidden">
-                        <img src="raw-actives-logo.jpg" alt="Raw Actives" class="circular-logo raw-actives-logo">
+                        <img src="ecoatm logo.png" alt="EcoATM" class="circular-logo">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
                         <img src="VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="riki loves riki logo.png" alt="Riki Loves Riki" class="circular-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="maelys logo.png" alt="Maelys" class="circular-logo">
+                    </div>
+                    <div class="logo-circle mobile-logo-hidden">
+                        <img src="planta-logo.png" alt="Planta" class="circular-logo">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
                         <img src="Prose-2004409305.png" alt="Prose" class="circular-logo">
@@ -3908,7 +3918,7 @@
                         <img src="calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
                     </div>
                     <div class="logo-circle mobile-logo-active">
-                        <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
+                        <img src="bodyrok-logo.png" alt="BodyRok" class="circular-logo">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
                         <img src="getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
@@ -3939,48 +3949,48 @@
             </div>
             
             <div class="paid-ads-grid">
-                <!-- Video 1 - Calzen Wellness -->
+                <!-- Video 1 - Maelys -->
                 <div class="video-tile-container">
-                    <div class="phone-label">Calzen</div>
+                    <div class="phone-label">MAËLYS</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/calzen paid ad for fiverr.mp4" type="video/mp4">
+                            <source src="videos/Maelys (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="concept-type">Problem/Solution</div>
                 </div>
 
-                <!-- Video 2 - BodyRok -->
+                <!-- Video 2 - Nucona -->
                 <div class="video-tile-container">
-                    <div class="phone-label">BODYROK</div>
+                    <div class="phone-label">Nucona</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/bodyrok paid ad (720p for website).mp4" type="video/mp4">
+                            <source src="videos/Nucona (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="concept-type">Testimonial</div>
+                    <div class="concept-type">Tips and Tricks</div>
                 </div>
 
-                <!-- Video 3 - Justin Guitar -->
+                <!-- Video 3 - Forbrain -->
                 <div class="video-tile-container">
-                    <div class="phone-label">Justin Guitar</div>
+                    <div class="phone-label">Forbrain</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/JG 3 (720p for website).mp4" type="video/mp4">
+                            <source src="videos/For Brain (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="concept-type">Listicle</div>
+                    <div class="concept-type">Educational</div>
                 </div>
 
-                <!-- Video 4 - Vanessa Pro -->
+                <!-- Video 4 - Texture ID -->
                 <div class="video-tile-container">
-                    <div class="phone-label">Vanessa Pro</div>
+                    <div class="phone-label">Texture ID</div>
                     <div class="mini-video-container paid-ads-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/vanessa pro (720p for website).mp4" type="video/mp4">
+                            <source src="videos/Texture ID (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -4007,31 +4017,31 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="concept-type">Informational</div>
+                    <div class="concept-type">Ugly Ad</div>
                 </div>
 
-                <!-- Video 2 - Prose -->
+                <!-- Video 2 - Riki Loves Riki -->
                 <div class="video-tile-container">
-                    <div class="phone-label">Prose</div>
+                    <div class="phone-label">Riki Loves Riki</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/Prose Aesthetic (720p for website).mp4" type="video/mp4">
+                            <source src="videos/Riki Loves Riki (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="concept-type">Aesthetic</div>
+                    <div class="concept-type">Don't Do That, Do This</div>
                 </div>
 
-                <!-- Video 3 - Planta -->
+                <!-- Video 3 - EcoATM -->
                 <div class="video-tile-container">
-                    <div class="phone-label">Planta</div>
+                    <div class="phone-label">EcoATM</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/planta (720p for website).mp4" type="video/mp4">
+                            <source src="videos/EcoATM (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="concept-type">Trending Audio</div>
+                    <div class="concept-type">Skit</div>
                 </div>
 
                 <!-- Video 4 - Getaway Cabins -->
@@ -4039,7 +4049,7 @@
                     <div class="phone-label">Getaway Cabins</div>
                     <div class="mini-video-container organic-gradient">
                         <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                            <source src="videos/Getaway Cabins Airbnb Organic (720p for website).mp4" type="video/mp4">
+                            <source src="videos/Getaway Cabins Airbnb (720p for website).mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -4092,7 +4102,7 @@
                                     <li>Scroll Stopping Hook</li>
                                     <li>Strong CTA</li>
                                     <li>2 Revisions</li>
-                                    <li>3 Months Paid Ad Usage</li>
+                                    <li>30 Days Paid Ad Usage</li>
                                 </ul>
                                 <p class="add-ons-note">*Add Ons - Raw Footage, Hook/CTA Variations, Additional Revisions</p>
                             </div>
@@ -4406,20 +4416,20 @@
         document.addEventListener('DOMContentLoaded', function() {
             const collaborationVideos = [
                 {
-                    name: "CaliSunGlow",
-                    video: "videos/CaliSunGlow (720p for website).mp4"
+                    name: "Beauty For Real",
+                    video: "videos/Beauty For Real (720p for website).mp4"
                 },
                 {
                     name: "Too Good To Go",
                     video: "videos/Too Good To Go (720p for website).mp4"
                 },
                 {
-                    name: "Getaway Cabins Airbnb",
-                    video: "videos/Getaway Cabins Airbnb (720p for website).mp4"
+                    name: "Zygo",
+                    video: "videos/Zygo Concept 2 (720p for website).mp4"
                 },
                 {
-                    name: "South Florida Photography",
-                    video: "videos/SFP DIgital Guide (720p for website).mp4"
+                    name: "Crown and Paw",
+                    video: "videos/Crown and Paw (720p for website).mp4"
                 }
             ];
 
