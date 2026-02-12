@@ -781,14 +781,16 @@
         }
         
         /* Desktop Logo Customizations - Match Mobile Exactly */
-        /* Zygo - White background with purple border */
-        .logo-circle:has([alt="Zygo"]) {
+        /* Forbrain - White background with purple border */
+        .logo-circle:has([alt="Forbrain"]) {
             background: #ffffff !important;
             border: 3px solid #4A3B5C !important;
             overflow: hidden !important;
         }
-        .logo-circle:has([alt="Zygo"]) img {
-            border-radius: 50% !important;
+        .logo-circle:has([alt="Forbrain"]) img {
+            max-width: 140px !important;
+            max-height: 140px !important;
+            object-fit: contain !important;
         }
         
         /* BodyRok - Black background with purple border */
@@ -863,16 +865,14 @@
             border: 3px solid #4A3B5C !important;
         }
         
-        /* Too Good To Go - Crop to circular shape with purple border, zoom more */
-        .logo-circle:has([alt="Too Good To Go"]) {
+        /* Calzen - Green background with purple border */
+        .logo-circle:has([alt="Calzen"]) {
+            background: #f7feeb !important;
             border: 3px solid #4A3B5C !important;
             overflow: hidden !important;
         }
-        .circular-logo[alt="Too Good To Go"] {
-            max-width: 180px !important;
-            max-height: 180px !important;
-            object-fit: cover !important;
-            border-radius: 50% !important;
+        .logo-circle:has([alt="Calzen"]) img {
+            object-fit: contain !important;
         }
         
         /* Getaway Cabins - White background with purple border */
@@ -992,6 +992,74 @@
             position: relative;
         }
         
+        /* Recent Collabs - 4 phones in a row */
+        .collabs-row {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .collab-phone {
+            text-align: center;
+        }
+
+        .collab-logo {
+            margin-bottom: 11px;
+            height: 65px;
+            width: 230px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .collab-logo:hover {
+            background: rgba(74, 59, 92, 0.1);
+        }
+
+        .collab-logo img {
+            max-height: 65px;
+            max-width: 230px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Too Good To Go - bigger */
+        .collab-logo img[alt="Too Good To Go"] {
+            max-height: 80px;
+        }
+
+        /* Zygo - square with whitespace, zoom in, blend away white bg */
+        .collab-logo img[alt="Zygo"] {
+            max-height: 85px;
+            transform: scale(1.3);
+            mix-blend-mode: multiply;
+        }
+
+        /* Crown and Paw - wide text in square, zoom to text, blend away white bg */
+        .collab-logo img[alt="Crown and Paw"] {
+            max-height: 95px;
+            transform: scale(1.5);
+            mix-blend-mode: multiply;
+        }
+
+        /* Beauty For Real - lots of whitespace, zoom to text */
+        .collab-logo img[alt="Beauty For Real"] {
+            max-height: 120px;
+            transform: scale(2.2);
+        }
+
+        .collab-phone .past-favorites-video-container {
+            width: 230px;
+            height: 410px;
+        }
+
         /* Recent Collaborations Section */
         .recent-collaborations {
             margin-top: 60px;
@@ -2211,7 +2279,7 @@
         /* Services Tiles Section */
         .services-new-section {
             background-color: #f8f8fa;
-            padding: 60px 0;
+            padding: 60px 0 0 0;
         }
         
         .services-tiles-grid {
@@ -2271,7 +2339,7 @@
             color: #D4AF37;
             opacity: 0.8;
         }
-        
+
         .tile-overlay {
             position: absolute;
             bottom: 0;
@@ -2305,12 +2373,25 @@
             transition: opacity 0.3s ease;
         }
         
-        .couple-tile:hover .coming-soon-overlay {
-            opacity: 1;
+        /* Disable tile hover effects on Pet and Jacob tiles */
+        .strategy-tile:hover,
+        .couple-tile:hover {
+            transform: none;
         }
-        
-        .strategy-tile:hover .coming-soon-overlay {
-            opacity: 1;
+
+        /* UGC tile: lift image only on hover to prevent jitter */
+        .ugc-tile:hover {
+            transform: none;
+        }
+
+        .ugc-tile:hover .tile-image {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        .strategy-tile .tile-image:hover,
+        .couple-tile .tile-image:hover {
+            box-shadow: 0 10px 30px rgba(159, 138, 179, 0.2);
         }
         
         .coming-soon-overlay span {
@@ -2355,18 +2436,19 @@
         /* Expandable Items */
         .expandable-item {
             width: 100%;
-            margin-bottom: -10px;
+            margin-bottom: 0px;
         }
         
         .expandable-item:first-child {
             margin-top: 5px;
+            margin-bottom: 8px;
         }
         
         .expand-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 4px 0 8px 0;
             background: transparent;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -2377,7 +2459,7 @@
         .expand-header:hover {
             border-bottom: 1px solid #D4AF37;
         }
-        
+
         .expand-header:hover span {
             color: #D4AF37;
         }
@@ -2402,7 +2484,7 @@
         .expand-header:hover .expand-arrow {
             color: #ffbd59; /* Gold on hover */
         }
-        
+
         .expand-header.active .expand-arrow {
             transform: rotate(180deg);
             color: #ffbd59; /* Gold when expanded */
@@ -2414,7 +2496,7 @@
             transition: max-height 0.3s ease;
             background: rgba(248, 248, 250, 0.8);
             border-radius: 0 0 8px 8px;
-            border: 2px solid #D4AF37;
+            border: 1px solid #D4AF37;
             border-top: none;
         }
         
@@ -2455,17 +2537,17 @@
             font-weight: 400;
         }
         
-        .rates-statement {
+        .tile-description {
             text-align: center;
             padding: 12px 0;
         }
         
-        .rates-statement .included-list {
+        .tile-description .included-list {
             font-family: 'League Spartan', Helvetica, Arial, sans-serif;
             font-weight: 600;
         }
         
-        .rates-statement p {
+        .tile-description p {
             margin: 0;
             font-family: 'League Spartan', Helvetica, Arial, sans-serif;
             font-size: 20px;
@@ -2473,58 +2555,100 @@
             font-weight: 600;
         }
         
-        /* Custom styling for Pet and Couple UGC tile descriptions */
-        .strategy-tile .rates-statement p,
-        .couple-tile .rates-statement p {
+        /* Custom styling for Pet and Jacob UGC tile descriptions */
+        .strategy-tile .tile-description p,
+        .couple-tile .tile-description p {
             font-size: 16px;
             font-weight: 600;
             line-height: 1.6;
         }
         
-        /* Reduce spacing between Pet and Couple photos and text */
+        /* Pet and Jacob tile dropdowns */
         .strategy-tile .tile-dropdown,
         .couple-tile .tile-dropdown {
             margin-top: 14px;
+            gap: 8px;
+        }
+
+        /* Pet and Jacob UGC description: fixed height so gold lines + buttons align */
+        .strategy-tile .tile-description,
+        .couple-tile .tile-description {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #D4AF37;
+            min-height: 110px;
         }
         
-        /* Add gold underline to Pet and Couple UGC descriptions */
-        .strategy-tile .rates-statement,
-        .couple-tile .rates-statement {
-            border-bottom: 2px solid #D4AF37;
-            padding-bottom: 15px;
+        /* Tile buttons below Pet and Jacob tiles */
+        .tile-btn {
+            display: inline-block;
+            text-align: center;
+            background: #7D6A96;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(125, 106, 150, 0.3);
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
         }
-        
+
+        .tile-btn:hover {
+            background: #4A3B5C;
+            box-shadow: 0 8px 25px rgba(74, 59, 92, 0.4);
+        }
+
+        .couple-btn {
+            position: relative;
+        }
+
+        .couple-btn .couple-btn-hover {
+            display: none;
+        }
+
+        .couple-btn:hover .couple-btn-text {
+            display: none;
+        }
+
+        .couple-btn:hover .couple-btn-hover {
+            display: inline;
+        }
+
+        .couple-btn:hover {
+            background: #4A3B5C;
+            color: white;
+            cursor: default;
+            transform: none;
+            box-shadow: 0 4px 15px rgba(74, 59, 92, 0.3);
+        }
+
+        /* UGC tile: move content up and tighten spacing */
+        .ugc-tile .tile-dropdown {
+            margin-top: 28px;
+            gap: 6px;
+        }
+
+        .ugc-tile .tile-btn {
+            margin-top: 11px;
+        }
+
         /* Add gold underline to What's Included expandable content */
         .expand-content-with-border.active {
-            border-bottom: 2px solid #D4AF37;
-            padding-bottom: 5px;
-        }
-        
-        /* Centered base rates section below all tiles */
-        .centered-rates-section {
-            text-align: center;
-            margin-top: 40px;
-            padding: 0 20px;
-        }
-        
-        .centered-rates-section .rates-statement {
-            max-width: 700px;
-            margin: 0 auto;
-            border: 2px solid #4A3B5C;
-            border-radius: 15px;
-            padding: 20px;
-        }
-        
-        .centered-rates-section .rates-statement p {
-            font-size: 22px;
-            font-weight: 600;
-            margin: 10px 0;
+            border-bottom: 1px solid #D4AF37;
+            padding-bottom: 6px;
         }
         
         /* My Process Section */
         .my-process-section {
             background-color: #E5DBF0;
-            padding: 80px 0;
+            padding: 80px 0 30px 0;
         }
         
         .my-process-section .section-header {
@@ -2612,7 +2736,7 @@
         
         .process-column li {
             font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #4A3B5C;
             margin-bottom: 10px;
             padding-left: 20px;
@@ -2630,7 +2754,7 @@
         
         .process-text {
             font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #4A3B5C;
             line-height: 1.6;
             text-align: left;
@@ -3141,7 +3265,7 @@
             /* Services tiles mobile */
             .services-tiles-grid {
                 grid-template-columns: 1fr;
-                gap: 5px;
+                gap: 30px;
                 margin-top: 20px;
             }
 
@@ -3150,19 +3274,24 @@
                 min-height: 120px !important;
             }
 
-            .rates-statement {
+            .tile-description {
                 padding: 5px 0 !important;
             }
 
-            .strategy-tile .rates-statement,
-            .couple-tile .rates-statement {
+            .strategy-tile .tile-description,
+            .couple-tile .tile-description {
                 padding-bottom: 5px !important;
             }
 
-            .centered-rates-section {
-                margin-top: 5px;
+            /* Show Coming Soon instead of Meet Jacob on mobile */
+            .couple-btn .couple-btn-text {
+                display: none;
             }
-            
+
+            .couple-btn .couple-btn-hover {
+                display: inline;
+            }
+
             .tile-image {
                 height: 300px;
             }
@@ -3289,8 +3418,9 @@
             }
             
             /* Calzen - Zoom in and crop to circular shape with purple border */
-            .mobile-logo-carousel .logo-circle:has(.calzen-logo) {
-                background: transparent !important;
+            .mobile-logo-carousel .logo-circle:has(.calzen-logo),
+            .mobile-logo-carousel .logo-circle:has([alt="Calzen"]) {
+                background: #f7feeb !important;
                 border: 3px solid #4A3B5C !important;
                 overflow: hidden !important;
             }
@@ -3389,7 +3519,7 @@
             }
             
             .past-favorites-section {
-                padding: 40px 0 90px 0 !important;
+                padding: 40px 15px 90px 15px !important;
             }
             
             .past-favorites-section p {
@@ -3397,7 +3527,30 @@
                 margin-bottom: 30px !important;
                 padding: 0 20px;
             }
-            
+
+            .collabs-row {
+                display: grid !important;
+                grid-template-columns: 170px 170px !important;
+                gap: 20px 20px !important;
+                justify-content: center !important;
+                margin: 0 auto !important;
+            }
+
+            .collab-phone .past-favorites-video-container {
+                width: 160px;
+                height: 285px;
+            }
+
+            .collab-logo {
+                width: 170px !important;
+                height: 60px !important;
+            }
+
+            .collab-logo img {
+                max-width: 170px !important;
+                max-height: 60px !important;
+            }
+
             /* COMPREHENSIVE MOBILE FIXES */
             
             /* EXACT DESKTOP NAV COPY FOR HAMBURGER */
@@ -3554,11 +3707,15 @@
             }
             
             .paid-ads-new-section {
-                padding: 40px 0 !important;
+                padding: 40px 0 8px 0 !important;
+            }
+
+            .paid-ads-new-section .section-header {
+                margin-bottom: 0 !important;
             }
             
             .organic-section {
-                padding: 40px 0 !important;
+                padding: 40px 0 8px 0 !important;
             }
             
             .section-header h2 {
@@ -3582,13 +3739,17 @@
                 gap: 35px 15px !important;
                 justify-items: center !important;
                 max-width: 100% !important;
-                margin: 40px auto !important;
+                margin: 10px auto !important;
                 padding: 0 10px !important;
             }
             
             /* Push organic videos further down from paid ads */
+            .organic-section .section-header {
+                margin-bottom: 10px !important;
+            }
+
             .organic-section .paid-ads-grid {
-                margin-top: 80px !important;
+                margin-top: 0 !important;
             }
             
             .video-tile-container {
@@ -3777,7 +3938,7 @@
                 <div class="hero-about-top">
                     <img src="meet brea.svg?v=2" alt="Meet Brea" class="bio-header-svg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <h1 class="bio-header" style="display: none;">Meet Brea</h1>
-                    <div class="hero-credentials">UGC Creator | Creative Strategist | Professional Actresses</div>
+                    <div class="hero-credentials">UGC Creator | Creative Strategist | Professional Actress</div>
                 </div>
                 
                 <img src="Portfolio pic.jpg" alt="Brea Profile" class="hero-mobile-image">
@@ -3825,45 +3986,39 @@
                 <h2>Recent Collabs</h2>
             </div>
             
-            <div class="collaboration-carousel-container">
-                <button class="carousel-arrow carousel-arrow-left" id="collaborationCarouselLeft">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
-                        <polyline points="15,18 9,12 15,6"></polyline>
-                    </svg>
-                </button>
-                
-                <div class="collaboration-video-container">
-                    <div class="simple-video-container">
-                        <div class="brand-name-label" id="collaborationBrandLabel">Beauty For Real</div>
-                        <div class="past-favorites-video-container">
-                            <video class="mini-video" controls controlsList="nodownload" preload="auto" id="collaborationVideo">
-                                <source src="videos/Beauty For Real (720p for website).mp4" type="video/mp4" id="collaborationVideoSource">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
+            <div class="collabs-row">
+                <div class="collab-phone">
+                    <div class="collab-logo"><img src="beauty for real  logo.png" alt="Beauty For Real"></div>
+                    <div class="past-favorites-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/Beauty For Real (720p for website).mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
-                
-                <button class="carousel-arrow carousel-arrow-right" id="collaborationCarouselRight">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
-                        <polyline points="9,6 15,12 9,18"></polyline>
-                    </svg>
-                </button>
-                
-                <!-- Mobile Navigation Buttons -->
-                <div class="mobile-nav-buttons">
-                    <button class="mobile-arrow-btn" id="mobileCollabLeft">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
-                            <polyline points="15,18 9,12 15,6"></polyline>
-                        </svg>
-                    </button>
-                    <button class="mobile-arrow-btn" id="mobileCollabRight">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4A3B5C" stroke-width="2">
-                            <polyline points="9,6 15,12 9,18"></polyline>
-                        </svg>
-                    </button>
+                <div class="collab-phone">
+                    <div class="collab-logo"><img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go"></div>
+                    <div class="past-favorites-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/Too Good To Go (720p for website).mp4" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
-                
+                <div class="collab-phone">
+                    <div class="collab-logo"><img src="zygo logo.png" alt="Zygo"></div>
+                    <div class="past-favorites-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/Zygo Concept 2 (720p for website).mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="collab-phone">
+                    <div class="collab-logo"><img src="crown and paw logo.jpg" alt="Crown and Paw"></div>
+                    <div class="past-favorites-video-container">
+                        <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <source src="videos/Crown and Paw (720p for website).mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -3877,10 +4032,10 @@
             
             <div class="logos-grid-container">
                 <div class="logo-circle">
-                    <img src="zygo logo.png" alt="Zygo" class="circular-logo">
+                    <img src="forbrain-logo-299C-1280x216-469214955.png" alt="Forbrain" class="circular-logo">
                 </div>
                 <div class="logo-circle">
-                    <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
+                    <img src="calzen logo.png" alt="Calzen" class="circular-logo">
                 </div>
                 <div class="logo-circle">
                     <img src="ecoatm logo.png" alt="EcoATM" class="circular-logo">
@@ -3918,10 +4073,10 @@
             <div class="mobile-logo-carousel mobile-only">
                 <div class="single-logo-container" id="singleLogoContainer">
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="zygo logo.png" alt="Zygo" class="circular-logo">
+                        <img src="forbrain-logo-299C-1280x216-469214955.png" alt="Forbrain" class="circular-logo">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" class="circular-logo">
+                        <img src="calzen logo.png" alt="Calzen" class="circular-logo">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
                         <img src="ecoatm logo.png" alt="EcoATM" class="circular-logo">
@@ -4134,50 +4289,46 @@
                                 <p class="add-ons-note">*Add Ons - Raw Footage, Hook/CTA Variations, Additional Revisions</p>
                             </div>
                         </div>
+                        <a href="mailto:brea@breaugc.com" class="tile-btn">Book Me</a>
                     </div>
                 </div>
-                
+
                 <!-- Pet UGC Tile -->
                 <div class="service-tile strategy-tile">
-                    <a href="pet-ugc.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                        <div class="tile-image">
-                            <img src="Leon and Sophie.jpg" alt="Pet UGC" class="tile-bg-image">
-                            <div class="tile-overlay">
-                                <h3 class="tile-title">Pet UGC</h3>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="tile-dropdown">
-                        <div class="rates-statement">
-                            <p>Engaging Pet UGC showcasing our goofy and adorable fur family featuring pet products, toys, supplements, services, and more!</p>
+                    <div class="tile-image">
+                        <img src="Leon and Sophie.jpg" alt="Pet UGC" class="tile-bg-image">
+                        <div class="tile-overlay">
+                            <h3 class="tile-title">Pet UGC</h3>
                         </div>
                     </div>
+                    <div class="tile-dropdown">
+                        <div class="tile-description">
+                            <p>Engaging Pet UGC showcasing our goofy and adorable fur family featuring pet products, toys, supplements, services, and more!</p>
+                        </div>
+                        <a href="pet-ugc.html" class="tile-btn">View Pet Portfolio</a>
+                    </div>
                 </div>
-                
-                <!-- Couple UGC Tile -->
+
+                <!-- Jacob UGC Tile -->
                 <div class="service-tile couple-tile">
                     <div class="tile-image">
-                        <img src="couple-ugc-tile.jpg" alt="Couple UGC Services" class="tile-bg-image">
+                        <img src="couple-ugc-tile.jpg" alt="Jacob UGC Services" class="tile-bg-image">
                         <div class="tile-overlay">
-                            <h3 class="tile-title">Couple UGC</h3>
+                            <h3 class="tile-title">Jacob UGC</h3>
                         </div>
                         <div class="coming-soon-overlay">
                             <span>Coming Soon</span>
                         </div>
                     </div>
                     <div class="tile-dropdown">
-                        <div class="rates-statement">
-                            <p>Genuine couple moments capturing real relationships and shared experiences such as Travel, Home/Lifestyle, Health & Wellness, and more!</p>
+                        <div class="tile-description">
+                            <p>Authentic male UGC featuring music gear, male grooming, tech, gaming, and more!</p>
+                        </div>
+                        <div class="tile-btn couple-btn">
+                            <span class="couple-btn-text">Meet Jacob</span>
+                            <span class="couple-btn-hover">Coming Soon</span>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Centered Base Rates Section -->
-            <div class="centered-rates-section">
-                <div class="rates-statement">
-                    <p>Base rates start at $250!</p>
-                    <p>Custom bundle packages available to fit your UGC needs!</p>
                 </div>
             </div>
         </div>
