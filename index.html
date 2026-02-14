@@ -13,9 +13,7 @@
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Load Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=League+Spartan:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=League+Spartan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Load FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -265,7 +263,7 @@
         }
         
         .hero-content h1 {
-            font-family: 'Fredoka One', Georgia, serif;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
             font-size: 4.5rem;
             margin-bottom: 20px;
             color: #D4AF37; /* Gold text */
@@ -410,7 +408,8 @@
             display: inline-block;
             animation: aquariumScroll 10s linear infinite;
             font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 700;
             color: #4A3B5C;
             letter-spacing: 1px;
             white-space: nowrap;
@@ -1609,7 +1608,7 @@
         
         .video-overlay h3 {
             margin-bottom: 5px;
-            font-family: 'League Spartan', Georgia, serif;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
             font-size: 20px;
             letter-spacing: 1px;
             font-weight: 600;
@@ -1634,7 +1633,7 @@
         }
 
         .current-video-title {
-            font-family: 'League Spartan', Georgia, serif;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
             font-size: 24px;
             color: #4A3B5C;
             margin-bottom: 10px;
@@ -2114,7 +2113,7 @@
         }
         
         .service-header h3 {
-            font-family: 'Fredoka One', Georgia, serif;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
             font-size: 1.8rem;
             color: #4A3B5C;
             margin-bottom: 10px;
@@ -2179,7 +2178,7 @@
         }
         
         .addons-section h3 {
-            font-family: 'Fredoka One', Georgia, serif;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
             font-size: 2rem;
             color: #4A3B5C;
             margin-bottom: 40px;
@@ -2241,7 +2240,7 @@
         }
         
         .services-cta h3 {
-            font-family: 'Fredoka One', Georgia, serif;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
             font-size: 2.2rem;
             margin-bottom: 15px;
             letter-spacing: 1px;
@@ -2379,14 +2378,9 @@
             transform: none;
         }
 
-        /* UGC tile: lift image only on hover to prevent jitter */
+        /* Disable UGC tile hover effects */
         .ugc-tile:hover {
             transform: none;
-        }
-
-        .ugc-tile:hover .tile-image {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
         }
 
         .strategy-tile .tile-image:hover,
@@ -2448,12 +2442,15 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            width: 100%;
             padding: 4px 0 8px 0;
             background: transparent;
             cursor: pointer;
             transition: all 0.3s ease;
             border: none;
             border-bottom: 1px solid transparent;
+            position: relative;
+            z-index: 2;
         }
         
         .expand-header:hover {
@@ -2493,13 +2490,14 @@
         .expand-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s ease, padding 0.3s ease;
             background: rgba(248, 248, 250, 0.8);
             border-radius: 0 0 8px 8px;
             border: 1px solid #D4AF37;
             border-top: none;
+            padding: 0 20px;
         }
-        
+
         .expand-content.active {
             max-height: 470px;
             padding: 15px 20px;
@@ -2645,6 +2643,17 @@
             padding-bottom: 6px;
         }
         
+        /* Fade-up reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* My Process Section */
         .my-process-section {
             background-color: #E5DBF0;
@@ -2795,10 +2804,29 @@
         }
         
         .footer-content h2 {
-            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-            font-size: 2.2rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            font-weight: 600;
             margin-bottom: 20px;
             letter-spacing: 1px;
+            background: linear-gradient(90deg, #4A3B5C 100%, transparent 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: none;
+        }
+
+        .footer-content h2.sketch-in {
+            opacity: 1;
+            animation: sketchIn 3.5s ease forwards;
+        }
+
+        @keyframes sketchIn {
+            0% { background-size: 0% 100%; }
+            100% { background-size: 100% 100%; }
         }
         
         .social-links {
@@ -3204,7 +3232,23 @@
             }
             
             .footer-content h2 {
-                font-size: 1.8rem;
+                font-family: 'Dancing Script', cursive !important;
+                font-size: 2.2rem;
+            }
+
+            .services-marquee {
+                font-size: 1.8rem !important;
+            }
+
+            .reveal {
+                opacity: 0 !important;
+                transform: translateY(30px) !important;
+                transition: opacity 0.6s ease, transform 0.6s ease !important;
+            }
+
+            .reveal.visible {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
             }
             
             .social-links a {
@@ -3608,6 +3652,10 @@
             .typewriter {
                 font-family: 'League Spartan', Helvetica, Arial, sans-serif !important;
             }
+
+            .footer-content h2 {
+                font-family: 'Dancing Script', cursive !important;
+            }
             
             /* Fix bio section to EXACTLY match desktop */
             .hero {
@@ -3804,21 +3852,9 @@
                 white-space: nowrap !important;
             }
             
-            /* Mobile: Hide icons, show text */
-            .desktop-icon {
-                display: none;
-            }
-            
-            .mobile-text {
-                display: inline;
-                font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-                font-size: 20px;
-                font-weight: 500;
-            }
-            
             .social-links a {
-                font-size: 20px;
-                padding: 0 10px;
+                font-size: 36px;
+                padding: 0 15px;
             }
         }
         
@@ -3983,7 +4019,7 @@
     <section id="past-favorites" class="portfolio-section past-favorites-section">
         <div class="container">
             <div class="section-header">
-                <h2>Recent Collabs</h2>
+                <h2 class="reveal">Recent Collabs</h2>
             </div>
             
             <div class="collabs-row">
@@ -4027,7 +4063,7 @@
     <section id="brand-logos" class="portfolio-section brand-logos-section">
         <div class="container">
             <div class="section-header">
-                <h2>Trusted By 50+ Brands</h2>
+                <h2 class="reveal">Trusted By 50+ Brands</h2>
             </div>
             
             <div class="logos-grid-container">
@@ -4262,7 +4298,7 @@
                     </div>
                     <div class="tile-dropdown">
                         <div class="expandable-item">
-                            <div class="expand-header" onclick="toggleExpand(this)">
+                            <div class="expand-header">
                                 <span>What is UGC?</span>
                                 <span class="expand-arrow">▼</span>
                             </div>
@@ -4271,7 +4307,7 @@
                             </div>
                         </div>
                         <div class="expandable-item">
-                            <div class="expand-header" onclick="toggleExpand(this)">
+                            <div class="expand-header">
                                 <span>What's Included?</span>
                                 <span class="expand-arrow">▼</span>
                             </div>
@@ -4383,16 +4419,13 @@
                 <h2 id="contact-heading">Let's Create Together</h2>
                 <div class="social-links">
                     <a href="mailto:brea@breaugc.com" target="_blank">
-                        <i class="fas fa-envelope desktop-icon"></i>
-                        <span class="mobile-text">Email</span>
+                        <i class="fas fa-envelope"></i>
                     </a>
                     <a href="https://instagram.com/itsyagirlbrea" target="_blank">
-                        <i class="fab fa-instagram desktop-icon"></i>
-                        <span class="mobile-text">Instagram</span>
+                        <i class="fab fa-instagram"></i>
                     </a>
                     <a href="https://tiktok.com/@itsyagirlbrea" target="_blank">
-                        <i class="fab fa-tiktok desktop-icon"></i>
-                        <span class="mobile-text">TikTok</span>
+                        <i class="fab fa-tiktok"></i>
                     </a>
                 </div>
             </div>
@@ -4712,17 +4745,39 @@
             });
         }
 
-        // Function to toggle expandable content
-        function toggleExpand(header) {
-            const content = header.nextElementSibling;
-            const arrow = header.querySelector('.expand-arrow');
-            
-            // Toggle active class on header
-            header.classList.toggle('active');
-            
-            // Toggle active class on content
-            content.classList.toggle('active');
-        }
+        // Expandable buttons - click anywhere on the header row
+        document.querySelectorAll('.expand-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                this.classList.toggle('active');
+                content.classList.toggle('active');
+            });
+        });
+
+        // Reveal animation observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Sketch-in animation for footer heading
+        const sketchObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('sketch-in');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const contactHeading = document.getElementById('contact-heading');
+        if (contactHeading) sketchObserver.observe(contactHeading);
 
         // Smooth scrolling for navigation links
         // Target navigation and CTA buttons for smooth scrolling
