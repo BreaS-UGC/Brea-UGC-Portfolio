@@ -3885,6 +3885,34 @@
                 gap: 60px;
             }
         }
+
+        /* Photo Collage Strip */
+        .photo-collage {
+            width: 100%;
+            overflow: hidden;
+            background: #E5DBF0;
+            margin-top: 40px;
+        }
+
+        .photo-collage-row {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+        }
+
+        .photo-collage-row img {
+            flex: 1 1 0;
+            min-width: 0;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .photo-collage-row img {
+                aspect-ratio: 1 / 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -4014,6 +4042,21 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Photo Collage Strip -->
+    <section class="photo-collage">
+        <div class="photo-collage-row">
+            <img src="Collage for Header/IMG_5024.jpg" alt="">
+            <img src="Collage for Header/IMG_5027.jpg" alt="">
+            <img src="Collage for Header/IMG_4820.JPG" alt="">
+            <img src="Collage for Header/IMG_5020.jpg" alt="">
+            <img src="Collage for Header/copy_885305DD-2DCF-4496-9C6D-8C9EA892F153.jpg" alt="">
+            <img src="Collage for Header/IMG_5017.jpg" alt="">
+            <img src="Collage for Header/IMG_5022.jpg" alt="">
+            <img src="Collage for Header/IMG_8077.JPG" alt="">
+            <img src="Collage for Header/IMG_5025.jpg" alt="">
         </div>
     </section>
 
