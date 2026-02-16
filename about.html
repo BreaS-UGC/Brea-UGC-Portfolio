@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>About - Brea UGC</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=britney@300,400,700&f[]=zodiak@400,700,900&f[]=general-sans@400,500,600,700,900&display=swap" rel="stylesheet">
+
+    <!-- Load FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            background: #E5DBF0 !important;
+            background-color: #E5DBF0 !important;
+            background-image: none !important;
+            background-attachment: scroll !important;
+            background-repeat: no-repeat !important;
+            background-size: auto !important;
+            background-position: 0 0 !important;
+            filter: none !important;
+            box-shadow: none !important;
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+        }
+
+        body {
+            color: #212529;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles - Mauve & Gold Theme */
+        header {
+            padding: 12px 0;
+            background: linear-gradient(135deg, #7D6A96 0%, #B5A5C9 100%);
+            background-attachment: scroll !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: 750px;
+            object-fit: contain;
+            object-position: left;
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+            transform: scale(3.2) translate(-15px, -3px);
+            transform-origin: left center;
+        }
+
+        .logo:hover img {
+            transform: scale(3.2) translate(-15px, -3px);
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-right: 0px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4A3B5C;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            transition: all 0.3s;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            padding: 8px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            z-index: 1001;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: #D4AF37;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Mobile Navigation */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger-menu span {
+            width: 25px;
+            height: 3px;
+            background-color: #4A3B5C;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(125, 106, 150, 0.95);
+            z-index: 9999;
+            padding-top: 100px;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .mobile-nav a {
+            color: #2F253B !important;
+            text-decoration: none;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mobile-nav a:active,
+        .mobile-nav a:focus {
+            color: #B5A5C9 !important;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            color: #4A3B5C;
+            font-size: 36px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(74, 59, 92, 0.5);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-nav-close:hover {
+            color: #D4AF37 !important;
+            background: rgba(212, 175, 55, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* ===== ABOUT PAGE — Bio Section ===== */
+        .bio-section {
+            padding: 70px 0 60px 0;
+        }
+
+        .bio-header {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .bio-heading {
+            font-family: 'Zodiak', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #4A3B5C;
+            margin-bottom: 6px;
+            line-height: 1.1;
+        }
+
+        .bio-credentials {
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #7D6A96;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .bio-divider {
+            width: 80px;
+            height: 3px;
+            background: #D4AF37;
+            margin: 0 auto 20px auto;
+            border-radius: 2px;
+        }
+
+        .bio-socials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 90px;
+            padding-bottom: 30px;
+        }
+
+        .bio-socials a {
+            color: #4A3B5C;
+            font-size: 82px;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .bio-socials a:hover {
+            color: #ffbd59;
+        }
+
+        .bio-layout {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+            max-width: 1100px;
+            margin: 0;
+        }
+
+        .bio-text {
+            flex: 1;
+        }
+
+        .bio-text p {
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.85;
+            color: #4A3B5C;
+            margin-bottom: 22px;
+        }
+
+        .bio-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .bio-brands {
+            font-weight: 600;
+        }
+
+        .bio-photos {
+            flex-shrink: 0;
+            position: relative;
+            width: 380px;
+            height: 520px;
+            margin-top: -120px;
+            margin-right: -60px;
+        }
+
+        .polaroid {
+            position: absolute;
+            background: white;
+            padding: 12px 12px 40px 12px;
+            box-shadow: 0 4px 20px rgba(74, 59, 92, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .polaroid:hover {
+            z-index: 10;
+            box-shadow: 0 8px 30px rgba(74, 59, 92, 0.35);
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .polaroid-1 {
+            width: 240px;
+            height: 280px;
+            top: 0;
+            left: 0;
+            transform: rotate(-4deg);
+            z-index: 3;
+        }
+
+        .polaroid-1:hover {
+            transform: rotate(-4deg) scale(1.03);
+        }
+
+        .polaroid-2 {
+            width: 220px;
+            height: 260px;
+            top: 30px;
+            right: 0;
+            transform: rotate(5deg);
+            z-index: 2;
+        }
+
+        .polaroid-2:hover {
+            transform: rotate(5deg) scale(1.03);
+        }
+
+        .polaroid-3 {
+            width: 210px;
+            height: 250px;
+            bottom: 0;
+            left: 60px;
+            transform: rotate(-2deg);
+            z-index: 1;
+        }
+
+        .polaroid-3:hover {
+            transform: rotate(-2deg) scale(1.03);
+        }
+
+        /* ===== Inquiry Form Section ===== */
+        .inquiry-section {
+            background: #E5DBF0;
+            padding: 60px 0 40px 0;
+        }
+
+        .inquiry-container {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .inquiry-heading {
+            font-family: 'Britney', cursive;
+            font-size: 3rem;
+            font-weight: 300;
+            color: #4A3B5C;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            background: linear-gradient(90deg, #4A3B5C 100%, transparent 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: none;
+        }
+
+        .inquiry-heading.sketch-in {
+            opacity: 1;
+            animation: sketchIn 3.5s ease forwards;
+        }
+
+        @keyframes sketchIn {
+            0% { background-size: 0% 100%; }
+            100% { background-size: 100% 100%; }
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #4A3B5C;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #B5A5C9;
+            border-radius: 12px;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #4A3B5C;
+            background: white;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #4A3B5C;
+            font-weight: 400;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #7D6A96;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            text-align: center;
+            background: #7D6A96;
+            color: white;
+            padding: 14px 50px;
+            border-radius: 30px;
+            border: none;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(125, 106, 150, 0.3);
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #4A3B5C;
+            box-shadow: 0 8px 25px rgba(74, 59, 92, 0.4);
+        }
+
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .logo {
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                width: 100vw;
+                max-width: 300px;
+                overflow: hidden;
+            }
+
+            .logo img {
+                height: 50px;
+                width: 750px;
+                object-fit: contain;
+                object-position: left;
+                filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+                transform: scale(2.2) translate(-10px, -2px);
+                transform-origin: left center;
+            }
+
+            .logo:hover img {
+                transform: scale(2.2) translate(-10px, -2px);
+                filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+            }
+
+            .hamburger-menu {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 4px !important;
+                cursor: pointer !important;
+                z-index: 9999;
+                position: absolute;
+                right: -5px;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 10px !important;
+                background: transparent !important;
+                border: none !important;
+            }
+
+            .hamburger-menu span {
+                width: 28px !important;
+                height: 3px !important;
+                background: #4A3B5C !important;
+                border-radius: 1px !important;
+                margin: 0 !important;
+            }
+
+            .hamburger-menu:hover span {
+                background: #D4AF37 !important;
+            }
+
+            .bio-section {
+                padding: 50px 0 40px 0;
+                position: relative;
+            }
+
+            .bio-header {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+
+            .bio-heading {
+                font-size: 1.5rem;
+                max-width: 55%;
+            }
+
+            /* Move photos next to heading on mobile */
+            .bio-layout {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .bio-text {
+                padding-right: 0;
+            }
+
+            .bio-text p:first-child {
+                max-width: 55%;
+            }
+
+            .bio-layout .bio-photos {
+                position: absolute;
+                top: 40px;
+                right: 10px;
+                width: 160px;
+                height: 380px;
+                margin-top: 0;
+                margin-right: 0;
+            }
+
+            .polaroid-1 {
+                width: 120px;
+                height: 140px;
+                top: -15px;
+                left: 0;
+            }
+
+            .polaroid-2 {
+                width: 110px;
+                height: 130px;
+                top: 120px;
+                right: 0;
+                left: auto;
+            }
+
+            .polaroid-3 {
+                width: 105px;
+                height: 125px;
+                top: 210px;
+                left: -5px;
+                z-index: 3;
+            }
+
+            .bio-socials a {
+                font-size: 36px;
+            }
+
+            .bio-text p {
+                font-size: 16px;
+            }
+
+            .inquiry-section {
+                padding: 40px 0 60px 0;
+            }
+
+            .inquiry-heading {
+                font-size: 2.2rem;
+            }
+
+            .inquiry-container {
+                padding: 0 20px;
+            }
+
+            .checkbox-group {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 8px 0;
+                box-shadow: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="updated brea ugc logo.svg" alt="Brea UGC" />
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="pet-ugc.html">Pet UGC</a>
+                </div>
+
+                <!-- Mobile Hamburger Menu -->
+                <div class="hamburger-menu" onclick="toggleMobileNav()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav" id="mobileNav">
+                <div class="mobile-nav-close" onclick="toggleMobileNav()">&times;</div>
+                <a href="index.html" onclick="toggleMobileNav()">Home</a>
+                <a href="index.html#services" onclick="toggleMobileNav()">Services</a>
+                <a href="pet-ugc.html" onclick="toggleMobileNav()">Pet UGC</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bio Section -->
+    <section class="bio-section">
+        <div class="container">
+            <div class="bio-header">
+                <h1 class="bio-heading">About Brea UGC</h1>
+            </div>
+
+            <div class="bio-layout">
+                <div class="bio-text">
+                    <p>With 15+ years of professional experience across acting, singing, and dance — including a specialty in commercial and comedic performance — Brea brings a performance background to UGC that most creators simply don't have. What started as a love for being on camera became a creative outlet that naturally merged her training with the world of digital advertising.</p>
+
+                    <p>Beyond performing, Brea is a vocal coach of six years. That training directly translates to her content — natural pacing, clean delivery, and on-camera presence that holds attention.</p>
+
+                    <p>Brea's approach combines direct-response marketing strategy with real on-camera skill. Her work covers concept ideation, scriptwriting, filming, retention editing, and creative strategy. Every deliverable is built with audience psychology and conversion in mind — content that's designed to perform, not just look good.</p>
+
+                    <p>Her range covers lifestyle, pet, wellness, beauty, tech, and couple-oriented content, making her a solid fit for brands that need versatile output from a single creator.</p>
+
+                    <p><span class="bio-brands">Notable brand collaborations include MAELYS, Perplexity AI, Forbrain, Fresh Patch, EcoATM, and Too Good To Go — with multiple return clients speaking to the quality and consistency of her work.</span></p>
+
+                    <p>Brea's goal is to build lasting brand partnerships around high-converting UGC, delivering content that pairs trained performance with strategic creative direction.</p>
+                </div>
+
+                <div class="bio-photos">
+                    <div class="polaroid polaroid-1">
+                        <img src="Rate Card Photo.jpg" alt="Brea">
+                    </div>
+                    <div class="polaroid polaroid-2">
+                        <img src="About Me Pic 2 (1).JPG" alt="Brea">
+                    </div>
+                    <div class="polaroid polaroid-3">
+                        <img src="About Me Pic 2 (2).JPG" alt="Brea">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="border: none; border-top: 2px solid #D4AF37; max-width: 1100px; margin: 0 auto;">
+
+    <!-- Inquiry Form Section -->
+    <section class="inquiry-section" id="inquiry">
+        <div class="container">
+            <div class="inquiry-container">
+                <h2 class="inquiry-heading" id="inquiry-heading">Let's Create Together</h2>
+                <form id="inquiryForm" action="https://formsubmit.co/brea@breaugc.com" method="POST">
+                    <!-- Formsubmit config -->
+                    <input type="hidden" name="_subject" value="New UGC Inquiry">
+                    <input type="hidden" name="_next" value="https://brea-ugc-portfolio-idtuy8pld-brea-sands-projects.vercel.app/about.html?submitted=true">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="text" name="_honey" style="display:none">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Content Type</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="content_type" value="UGC Ads">
+                                UGC Ads
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="content_type" value="Organic Content">
+                                Organic Content
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="content_type" value="Pet UGC">
+                                Pet UGC
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget</label>
+                        <input type="text" id="budget" name="budget" placeholder="e.g. $500 - $1,000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                </form>
+
+                <div class="bio-socials">
+                    <a href="mailto:brea@breaugc.com" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://instagram.com/itsyagirlbrea" target="_blank" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com/@itsyagirlbrea" target="_blank" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Navigation Toggle
+        function toggleMobileNav() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        // Sketch-in animation for inquiry heading
+        const sketchObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('sketch-in');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const inquiryHeading = document.getElementById('inquiry-heading');
+        if (inquiryHeading) sketchObserver.observe(inquiryHeading);
+
+        // Show thank-you message if redirected back after form submission
+        if (window.location.search.includes('submitted=true')) {
+            var form = document.getElementById('inquiryForm');
+            if (form) {
+                form.innerHTML = '<div style="text-align:center; padding: 40px 0;"><h3 style="font-family: League Spartan, Helvetica, Arial, sans-serif; font-size: 2rem; color: #4A3B5C; font-weight: 300; margin-bottom: 10px;">Thank you!</h3><p style="font-size: 17px; color: #7D6A96;">Your inquiry has been sent. Brea will be in touch soon.</p></div>';
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -701,6 +701,117 @@
             }
         }
 
+        /* Mobile Navigation */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger-menu span {
+            width: 25px;
+            height: 3px;
+            background-color: #4A3B5C;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(125, 106, 150, 0.95);
+            z-index: 9999;
+            padding-top: 100px;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .mobile-nav a {
+            color: #2F253B !important;
+            text-decoration: none;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mobile-nav a:active,
+        .mobile-nav a:focus {
+            color: #B5A5C9 !important;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            color: #4A3B5C;
+            font-size: 36px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(74, 59, 92, 0.5);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-nav-close:hover {
+            color: #D4AF37 !important;
+            background: rgba(212, 175, 55, 0.3);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 4px !important;
+                cursor: pointer !important;
+                z-index: 9999;
+                position: absolute;
+                right: -5px;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 10px !important;
+                background: transparent !important;
+                border: none !important;
+            }
+
+            .hamburger-menu span {
+                width: 28px !important;
+                height: 3px !important;
+                background: #4A3B5C !important;
+                border-radius: 1px !important;
+                margin: 0 !important;
+            }
+
+            .hamburger-menu:hover span {
+                background: #D4AF37 !important;
+            }
+        }
+
         @media (max-width: 768px) {
             /* EXACT DESKTOP LOGO COPY */
             .logo {
@@ -767,11 +878,27 @@
                     <img src="updated brea ugc logo.svg" alt="Brea UGC" />
                 </a>
                 
-                <!-- Back Arrow -->
                 <div class="nav-links">
-                    <a href="index.html" class="back-arrow">← Back</a>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="about.html">About</a>
+                </div>
+
+                <!-- Mobile Hamburger Menu -->
+                <div class="hamburger-menu" onclick="toggleMobileNav()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </nav>
+
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav" id="mobileNav">
+                <div class="mobile-nav-close" onclick="toggleMobileNav()">&times;</div>
+                <a href="index.html" onclick="toggleMobileNav()">Home</a>
+                <a href="index.html#services" onclick="toggleMobileNav()">Services</a>
+                <a href="about.html" onclick="toggleMobileNav()">About</a>
+            </div>
         </div>
     </header>
 
@@ -922,6 +1049,11 @@
     </footer>
 
     <script>
+        function toggleMobileNav() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
         const sketchObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
