@@ -3599,43 +3599,29 @@
 
             /* COMPREHENSIVE MOBILE FIXES */
             
-            /* EXACT DESKTOP NAV COPY FOR HAMBURGER */
             .hamburger-menu {
                 display: flex !important;
                 flex-direction: column !important;
-                gap: 3px !important;
+                gap: 4px !important;
                 cursor: pointer !important;
-                text-decoration: none !important;
-                color: #4A3B5C !important;
-                font-family: 'League Spartan', Helvetica, Arial, sans-serif !important;
-                font-weight: 400 !important;
-                transition: all 0.3s !important;
-                font-size: 16px !important;
-                letter-spacing: 1px !important;
-                padding: 8px 16px !important;
-                border-radius: 4px !important;
-                text-transform: uppercase !important;
-                position: relative !important;
-                z-index: 1001 !important;
-                align-items: center !important;
-                justify-content: center !important;
+                z-index: 9999;
+                position: absolute;
+                right: -5px;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 10px !important;
                 background: transparent !important;
                 border: none !important;
             }
-            
-            .hamburger-menu:hover {
-                color: #D4AF37 !important;
-                background: rgba(212, 175, 55, 0.1) !important;
-            }
-            
+
             .hamburger-menu span {
-                width: 20px !important;
-                height: 2px !important;
+                width: 28px !important;
+                height: 3px !important;
                 background: #4A3B5C !important;
                 border-radius: 1px !important;
-                transition: all 0.3s !important;
+                margin: 0 !important;
             }
-            
+
             .hamburger-menu:hover span {
                 background: #D4AF37 !important;
             }
@@ -3929,10 +3915,9 @@
                 
                 <!-- Desktop Navigation -->
                 <div class="nav-links">
-                    <a href="#paid-ads">Paid Ads</a>
-                    <a href="#organic">Organic Concepts</a>
                     <a href="#services">Services</a>
                     <a href="pet-ugc.html">Pet UGC</a>
+                    <a href="about.html">About</a>
                 </div>
                 
                 <!-- Mobile Hamburger Menu -->
@@ -3946,10 +3931,9 @@
             <!-- Mobile Navigation Menu -->
             <div class="mobile-nav" id="mobileNav">
                 <div class="mobile-nav-close" onclick="toggleMobileNav()">&times;</div>
-                <a href="#paid-ads" onclick="toggleMobileNav()">Paid Ads</a>
-                <a href="#organic" onclick="toggleMobileNav()">Organic Concepts</a>
                 <a href="#services" onclick="toggleMobileNav()">Services</a>
                 <a href="pet-ugc.html" onclick="toggleMobileNav()">Pet UGC</a>
+                <a href="about.html" onclick="toggleMobileNav()">About</a>
             </div>
         </div>
     </header>
@@ -4373,7 +4357,7 @@
                                 <p class="add-ons-note">*Add Ons - Raw Footage, Hook/CTA Variations, Additional Revisions</p>
                             </div>
                         </div>
-                        <a href="mailto:brea@breaugc.com" class="tile-btn">Book Me</a>
+                        <a href="about.html" class="tile-btn">Book Me</a>
                     </div>
                 </div>
 
