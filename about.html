@@ -371,7 +371,7 @@
 
         .inquiry-heading {
             font-family: 'Britney', cursive;
-            font-size: 3rem;
+            font-size: 4.5rem;
             font-weight: 300;
             color: #4A3B5C;
             text-align: center;
@@ -399,94 +399,117 @@
         }
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .form-group label {
             display: block;
             font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
             color: #4A3B5C;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group textarea {
             width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #B5A5C9;
-            border-radius: 12px;
+            padding: 10px 0;
+            border: none;
+            border-bottom: 2px solid #B5A5C9;
+            border-radius: 0;
             font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #4A3B5C;
-            background: white;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: transparent;
+            transition: border-color 0.3s ease, background 0.3s ease;
             outline: none;
+        }
+
+        .form-group input[type="text"]:hover,
+        .form-group input[type="email"]:hover,
+        .form-group textarea:hover {
+            background: rgba(74, 59, 92, 0.08);
         }
 
         .form-group input[type="text"]:focus,
         .form-group input[type="email"]:focus,
         .form-group textarea:focus {
-            border-color: #D4AF37;
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+            border-bottom-color: #4A3B5C;
+            background: rgba(74, 59, 92, 0.08);
         }
 
+        /* Different field sizes */
+        .form-group input[type="text"]#name { width: 60%; }
+        .form-group input[type="email"] { width: 75%; }
+        .form-group input[type="text"]#budget { width: 40%; }
+
         .form-group textarea {
-            min-height: 140px;
+            min-height: 120px;
             resize: vertical;
+            width: 100%;
         }
 
         .checkbox-group {
             display: flex;
-            gap: 24px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
         .checkbox-label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            display: block;
             cursor: pointer;
             font-family: 'League Spartan', Helvetica, Arial, sans-serif;
             font-size: 16px;
             color: #4A3B5C;
-            font-weight: 400;
+            font-weight: 500;
+            padding: 10px 22px;
+            border: 1.5px solid #B5A5C9;
+            border-radius: 30px;
+            transition: all 0.25s ease;
+            user-select: none;
+        }
+
+        .checkbox-label:hover {
+            background: rgba(74, 59, 92, 0.08);
+        }
+
+        .checkbox-label.selected {
+            background: #4A3B5C;
+            color: white;
+            border-color: #4A3B5C;
         }
 
         .checkbox-label input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: #7D6A96;
-            cursor: pointer;
+            display: none;
         }
 
         .submit-btn {
             display: inline-block;
             text-align: center;
-            background: #7D6A96;
+            background: #4A3B5C;
             color: white;
             padding: 14px 50px;
             border-radius: 30px;
-            border: none;
+            border: 1.5px solid #4A3B5C;
             font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 500;
+            font-size: 16px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(125, 106, 150, 0.3);
+            transition: all 0.25s ease;
             cursor: pointer;
             width: 100%;
             margin-top: 10px;
         }
 
         .submit-btn:hover {
-            background: #4A3B5C;
-            box-shadow: 0 8px 25px rgba(74, 59, 92, 0.4);
+            background: #ffbd59;
+            color: #4A3B5C;
+            border-color: #ffbd59;
         }
 
 
@@ -664,7 +687,6 @@
                 <!-- Desktop Navigation -->
                 <div class="nav-links">
                     <a href="index.html">Home</a>
-                    <a href="index.html#services">Services</a>
                     <a href="pet-ugc.html">Pet UGC</a>
                 </div>
 
@@ -680,7 +702,6 @@
             <div class="mobile-nav" id="mobileNav">
                 <div class="mobile-nav-close" onclick="toggleMobileNav()">&times;</div>
                 <a href="index.html" onclick="toggleMobileNav()">Home</a>
-                <a href="index.html#services" onclick="toggleMobileNav()">Services</a>
                 <a href="pet-ugc.html" onclick="toggleMobileNav()">Pet UGC</a>
             </div>
         </div>
@@ -730,29 +751,25 @@
         <div class="container">
             <div class="inquiry-container">
                 <h2 class="inquiry-heading" id="inquiry-heading">Let's Create Together</h2>
-                <form id="inquiryForm" action="https://formsubmit.co/brea@breaugc.com" method="POST">
-                    <!-- Formsubmit config -->
+                <form id="inquiryForm" action="https://formspree.io/f/xzdavbdj" method="POST">
                     <input type="hidden" name="_subject" value="New UGC Inquiry">
-                    <input type="hidden" name="_next" value="https://brea-ugc-portfolio-idtuy8pld-brea-sands-projects.vercel.app/about.html?submitted=true">
-                    <input type="hidden" name="_captcha" value="true">
-                    <input type="text" name="_honey" style="display:none">
 
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your name">
+                        <input type="text" id="name" name="name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        <input type="email" id="email" name="email" required>
                     </div>
 
                     <div class="form-group">
                         <label>Content Type</label>
                         <div class="checkbox-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" name="content_type" value="UGC Ads">
-                                UGC Ads
+                                <input type="checkbox" name="content_type" value="UGC">
+                                UGC
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="content_type" value="Organic Content">
@@ -762,20 +779,32 @@
                                 <input type="checkbox" name="content_type" value="Pet UGC">
                                 Pet UGC
                             </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="content_type" value="Spokesperson">
+                                Spokesperson
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="content_type" value="Creative Strategy">
+                                Creative Strategy
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="content_type" value="Other">
+                                Other
+                            </label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="budget">Budget</label>
-                        <input type="text" id="budget" name="budget" placeholder="e.g. $500 - $1,000">
+                        <input type="text" id="budget" name="budget">
                     </div>
 
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+                        <textarea id="message" name="message" required></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                    <button type="submit" class="submit-btn">Submit</button>
                 </form>
 
                 <div class="bio-socials">
@@ -794,6 +823,16 @@
     </section>
 
     <script>
+        // Toggle content type buttons
+        document.querySelectorAll('.checkbox-label').forEach(function(label) {
+            label.addEventListener('click', function(e) {
+                e.preventDefault();
+                var cb = this.querySelector('input[type="checkbox"]');
+                cb.checked = !cb.checked;
+                this.classList.toggle('selected', cb.checked);
+            });
+        });
+
         // Mobile Navigation Toggle
         function toggleMobileNav() {
             const mobileNav = document.getElementById('mobileNav');

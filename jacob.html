@@ -31,13 +31,13 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Space Grotesk', sans-serif;
             color: var(--ink);
-            background: var(--cream);
-            overflow-x: hidden;
+            background: var(--ink);
+            overflow: hidden;
+            height: 100vh;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -55,17 +55,6 @@
         }
 
         /* ============================================
-           SCROLL REVEAL
-        ============================================ */
-        .r { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-        .r.v { opacity: 1; transform: translateY(0); }
-        .r-d1 { transition-delay: 0.08s; }
-        .r-d2 { transition-delay: 0.16s; }
-        .r-d3 { transition-delay: 0.24s; }
-        .r-d4 { transition-delay: 0.32s; }
-        .r-d5 { transition-delay: 0.40s; }
-
-        /* ============================================
            HEADER — thin editorial bar
         ============================================ */
         .hdr {
@@ -74,12 +63,9 @@
             left: 0;
             right: 0;
             z-index: 100;
-            transition: all 0.4s;
-        }
-        .hdr.stuck {
-            background: rgba(250,247,242,0.9);
+            background: rgba(26,18,21,0.6);
             backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--faint);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         .hdr-inner {
             max-width: 1400px;
@@ -92,7 +78,7 @@
         .hdr-logo {
             font-family: 'Didact Gothic', sans-serif;
             font-size: 1.3rem;
-            color: var(--ink);
+            color: var(--parchment);
             text-decoration: none;
             letter-spacing: -0.3px;
         }
@@ -103,33 +89,26 @@
             font-weight: 500;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--smoke);
+            color: var(--ash);
             text-decoration: none;
             padding: 8px 14px;
             border-radius: 4px;
             transition: all 0.25s;
         }
-        .hdr-nav a:hover { color: var(--ink); background: rgba(0,0,0,0.03); }
-        .hdr-nav .cta {
-            color: var(--paper);
-            background: var(--ink);
-            border-radius: 100px;
-            padding: 8px 20px;
-        }
-        .hdr-nav .cta:hover { background: var(--tobacco); }
+        .hdr-nav a:hover { color: var(--parchment); background: rgba(255,255,255,0.05); }
 
         /* Hamburger */
         .hdr-ham { display: none; cursor: pointer; padding: 8px; }
         .hdr-ham span {
             display: block; width: 20px; height: 1.5px;
-            background: var(--ink); margin: 4px 0; transition: 0.3s;
+            background: var(--parchment); margin: 4px 0; transition: 0.3s;
         }
         .hdr-ham.on span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
         .hdr-ham.on span:nth-child(2) { opacity: 0; }
         .hdr-ham.on span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
 
         .mob-nav {
-            position: fixed; inset: 0; background: var(--cream);
+            position: fixed; inset: 0; background: var(--ink);
             z-index: 99; display: flex; flex-direction: column;
             align-items: center; justify-content: center; gap: 8px;
             opacity: 0; pointer-events: none; transition: 0.3s;
@@ -137,27 +116,79 @@
         .mob-nav.on { opacity: 1; pointer-events: all; }
         .mob-nav a {
             font-family: 'Didact Gothic', sans-serif;
-            font-size: 2rem; color: var(--ink);
+            font-size: 2rem; color: var(--parchment);
             text-decoration: none; padding: 10px 20px;
         }
 
         /* ============================================
-           HERO — editorial asymmetric
+           SLIDESHOW
         ============================================ */
-        .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            position: relative;
+        .slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .hero-left {
+        .slide {
+            position: absolute;
+            width: 90vw;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            background: var(--cream);
+            border-radius: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding: 48px 52px;
+            pointer-events: none;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.5s ease,
+                        box-shadow 0.5s ease;
+            transform-origin: center center;
+        }
+
+        /* Active card — front of the stack */
+        .slide.active {
+            pointer-events: all;
+            opacity: 1;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        /* Cards already passed — hidden off to the left */
+        .slide.past {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Custom scrollbar inside cards */
+        .slide::-webkit-scrollbar { width: 4px; }
+        .slide::-webkit-scrollbar-track { background: transparent; }
+        .slide::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 4px; }
+
+        /* Unique base rotations per card */
+        .slide:nth-child(1) { --rot: -2deg; }
+        .slide:nth-child(2) { --rot: 1.5deg; }
+        .slide:nth-child(3) { --rot: -1deg; }
+        .slide:nth-child(4) { --rot: 2deg; }
+        .slide:nth-child(5) { --rot: -1.5deg; }
+
+        /* ============================================
+           SLIDE 1: HERO
+        ============================================ */
+        .card-hero {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 140px 60px 80px 60px;
-            max-width: 700px;
-            margin-left: auto;
+            gap: 40px;
+            align-items: center;
+        }
+        .card-hero-left { flex: 1; }
+        .card-hero-right {
+            display: flex;
+            gap: 14px;
+            flex-shrink: 0;
         }
 
         .hero-tag {
@@ -166,7 +197,7 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--bourbon);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -180,10 +211,10 @@
 
         .hero-name {
             font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(3.5rem, 7vw, 5.5rem);
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
             line-height: 0.85;
             color: var(--ink);
-            margin-bottom: 28px;
+            margin-bottom: 20px;
             letter-spacing: -2px;
         }
         .hero-name em {
@@ -192,27 +223,26 @@
         }
 
         .hero-desc {
-            font-size: 1rem;
+            font-size: 0.92rem;
             line-height: 1.8;
             color: var(--smoke);
-            max-width: 420px;
-            margin-bottom: 40px;
+            max-width: 400px;
+            margin-bottom: 28px;
         }
         .hero-desc strong { color: var(--tobacco); font-weight: 600; }
 
-        /* Quick facts — horizontal */
         .hero-facts {
             display: flex;
-            gap: 24px;
-            margin-bottom: 40px;
+            gap: 18px;
+            margin-bottom: 28px;
             flex-wrap: wrap;
         }
         .hero-fact {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--ash);
-            padding: 6px 0;
+            padding: 5px 0;
             border-bottom: 1px solid var(--faint);
             font-weight: 500;
         }
@@ -222,13 +252,13 @@
             gap: 10px;
         }
         .hero-socials a {
-            width: 40px; height: 40px;
+            width: 36px; height: 36px;
             border: 1px solid var(--faint);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             color: var(--smoke);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: all 0.3s;
         }
         .hero-socials a:hover {
@@ -237,21 +267,11 @@
             transform: translateY(-2px);
         }
 
-        /* Right panel — two photos side by side */
-        .hero-right {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            padding: 140px 40px 80px 0;
-        }
         .hero-photo {
-            flex: 1;
-            max-width: 260px;
+            width: 140px;
             aspect-ratio: 5/7;
-            border-radius: 14px;
+            border-radius: 12px;
             overflow: hidden;
-            position: relative;
         }
         .hero-photo-fill {
             width: 100%;
@@ -260,7 +280,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 8px;
         }
         .hero-photo-fill.fill-a {
             background: linear-gradient(170deg, #3D2B1F 0%, #5A3E2E 40%, #2A1A10 100%);
@@ -274,77 +294,20 @@
             object-fit: cover;
         }
         .hero-photo-fill i {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: rgba(255,255,255,0.1);
         }
         .hero-photo-fill span {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: rgba(255,255,255,0.15);
         }
 
         /* ============================================
-           MARQUEE — brand logos
+           SLIDE 2: WORK
         ============================================ */
-        .marquee-section {
-            padding: 40px 0;
-            background: var(--paper);
-            border-top: 1px solid var(--faint);
-            border-bottom: 1px solid var(--faint);
-            overflow: hidden;
-        }
-        .marquee-track {
-            display: flex;
-            gap: 60px;
-            animation: scroll-marquee 25s linear infinite;
-            width: max-content;
-        }
-        .marquee-item {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.1rem;
-            color: var(--ash);
-            white-space: nowrap;
-            opacity: 0.5;
-            letter-spacing: 1px;
-        }
-        .marquee-item .dot {
-            display: inline-block;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--wheat);
-            margin: 0 28px;
-            vertical-align: middle;
-        }
-        @keyframes scroll-marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* ============================================
-           PORTFOLIO — staggered grid
-        ============================================ */
-        .work {
-            padding: 120px 0;
-        }
-        .work.alt { background: var(--parchment); }
-        .work-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        .work-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 60px;
-            gap: 20px;
-        }
-
-        .work-header-left {}
-        .work-label {
+        .card-section-label {
             font-size: 0.65rem;
             font-weight: 600;
             letter-spacing: 3px;
@@ -352,11 +315,20 @@
             color: var(--bourbon);
             margin-bottom: 8px;
         }
-        .work-title {
+        .card-section-title {
             font-family: 'Instrument Serif', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
             color: var(--ink);
             letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 28px;
+            gap: 12px;
         }
         .work-count {
             font-size: 0.72rem;
@@ -365,29 +337,32 @@
             text-transform: uppercase;
         }
 
-        /* Staggered video grid */
+        .work-divider {
+            width: 100%;
+            height: 1px;
+            background: var(--faint);
+            margin: 32px 0;
+        }
+
         .vid-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 14px;
         }
-        .vid-grid .vid-cell:nth-child(2) { transform: translateY(30px); }
-        .vid-grid .vid-cell:nth-child(4) { transform: translateY(30px); }
-
-        .vid-cell { display: flex; flex-direction: column; gap: 12px; }
+        .vid-cell { display: flex; flex-direction: column; gap: 8px; }
 
         .vid-frame {
             width: 100%;
             aspect-ratio: 9/16;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             position: relative;
             cursor: pointer;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
         }
         .vid-frame:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 24px 48px rgba(26,18,21,0.15);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(26,18,21,0.12);
         }
 
         .vid-fill {
@@ -403,35 +378,33 @@
             object-fit: cover;
         }
 
-        /* Placeholder fills */
         .fill-warm { background: linear-gradient(170deg, #5A3E2E 0%, #3D2B1F 100%); }
         .fill-cool { background: linear-gradient(170deg, #2A3040 0%, #1A1E28 100%); }
         .fill-earth { background: linear-gradient(170deg, #4A5540 0%, #2B3328 100%); }
         .fill-rust { background: linear-gradient(170deg, #6B3A2A 0%, #3D2015 100%); }
 
         .vid-fill i {
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             color: rgba(255,255,255,0.08);
         }
 
-        /* Play button overlay */
         .vid-frame::after {
             content: '▶';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: rgba(255,255,255,0);
-            width: 44px;
-            height: 44px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: 1.5px solid transparent;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
-            padding-left: 3px;
+            padding-left: 2px;
         }
         .vid-frame:hover::after {
             color: rgba(255,255,255,0.8);
@@ -440,79 +413,62 @@
             backdrop-filter: blur(4px);
         }
 
-        .vid-meta {
-            padding: 0 4px;
-        }
+        .vid-meta { padding: 0 2px; }
         .vid-brand {
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             font-weight: 600;
             color: var(--ink);
             display: block;
         }
         .vid-type {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: var(--ash);
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         /* ============================================
-           SERVICES — editorial cards
+           SLIDE 3: SERVICES
         ============================================ */
-        .svc {
-            padding: 120px 0;
-            background: var(--paper);
-        }
-        .svc-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        .svc-header {
-            margin-bottom: 60px;
-        }
-
         .svc-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2px;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
+            margin-bottom: 2px;
         }
 
         .svc-card {
-            background: var(--cream);
-            padding: 40px 32px;
-            position: relative;
+            background: var(--parchment);
+            padding: 28px 24px;
             transition: background 0.3s;
         }
-        .svc-card:hover { background: var(--parchment); }
+        .svc-card:hover { background: var(--faint); }
 
         .svc-card-num {
             font-family: 'Instrument Serif', serif;
-            font-size: 4rem;
+            font-size: 3rem;
             color: var(--faint);
             line-height: 1;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
 
         .svc-card h3 {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.6rem;
+            font-size: 1.35rem;
             color: var(--ink);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             letter-spacing: -0.3px;
         }
 
         .svc-card p {
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             color: var(--smoke);
             line-height: 1.7;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
-        /* Expandables inside service cards */
         .svc-expand {
             border-top: 1px solid var(--faint);
         }
@@ -520,18 +476,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 0;
+            padding: 12px 0;
             cursor: pointer;
             transition: color 0.25s;
         }
         .svc-exp-trigger:hover { color: var(--bourbon); }
         .svc-exp-trigger span {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 600;
             letter-spacing: 0.3px;
         }
         .svc-exp-trigger .arr {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             transition: transform 0.3s;
             color: var(--bourbon);
         }
@@ -546,12 +502,12 @@
 
         .svc-exp-body ul {
             list-style: none;
-            padding: 0 0 12px 0;
+            padding: 0 0 10px 0;
         }
         .svc-exp-body li {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             color: var(--smoke);
-            padding: 4px 0 4px 16px;
+            padding: 3px 0 3px 16px;
             position: relative;
         }
         .svc-exp-body li::before {
@@ -559,61 +515,48 @@
             position: absolute;
             left: 0;
             color: var(--wheat);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
         }
         .svc-exp-body em {
             display: block;
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             color: var(--ash);
-            margin-top: 8px;
-            padding-bottom: 8px;
+            margin-top: 6px;
+            padding-bottom: 6px;
         }
 
-        /* Rates bar */
         .rates-bar {
-            margin-top: 2px;
             background: var(--ink);
-            border-radius: 0 0 16px 16px;
-            padding: 28px 32px;
+            border-radius: 0 0 12px 12px;
+            padding: 20px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
         .rates-bar p {
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             color: rgba(255,255,255,0.7);
         }
         .rates-bar strong {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--wheat);
             letter-spacing: -0.5px;
         }
 
         /* ============================================
-           PROCESS — numbered horizontal
+           SLIDE 4: PROCESS
         ============================================ */
-        .proc {
-            padding: 120px 0;
-            background: var(--cream);
-        }
-        .proc-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-        .proc-header { margin-bottom: 60px; }
-
         .proc-steps {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 0;
             position: relative;
+            margin-top: 32px;
         }
 
-        /* Connecting line */
         .proc-steps::before {
             content: '';
             position: absolute;
@@ -626,7 +569,7 @@
 
         .proc-step {
             text-align: center;
-            padding: 0 20px;
+            padding: 0 16px;
             position: relative;
         }
 
@@ -639,7 +582,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
+            margin: 0 auto 20px;
             font-family: 'Instrument Serif', serif;
             font-size: 1.1rem;
             color: var(--bourbon);
@@ -655,22 +598,22 @@
 
         .proc-step h3 {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--ink);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .proc-step ul {
             list-style: none;
             padding: 0;
             text-align: left;
-            max-width: 280px;
+            max-width: 240px;
             margin: 0 auto;
         }
         .proc-step li {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--smoke);
-            padding: 5px 0;
+            padding: 4px 0;
             line-height: 1.6;
         }
         .proc-step li::before {
@@ -680,58 +623,50 @@
         }
 
         .proc-step .proc-sub {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             color: var(--ash);
             font-style: italic;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
-        /* ============================================
-           ABOUT CARD — pull-quote style
-        ============================================ */
+        /* About pull-quote inside process card */
         .about-band {
-            padding: 100px 0;
+            margin-top: 40px;
+            padding: 32px;
             background: var(--ink);
+            border-radius: 12px;
             position: relative;
             overflow: hidden;
         }
         .about-band::before {
             content: '"';
             position: absolute;
-            top: -40px;
+            top: -20px;
             left: 5%;
             font-family: 'Instrument Serif', serif;
-            font-size: 20rem;
-            color: rgba(255,255,255,0.02);
+            font-size: 10rem;
+            color: rgba(255,255,255,0.03);
             line-height: 1;
             pointer-events: none;
         }
-
-        .about-inner {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0 32px;
-            text-align: center;
-        }
-
         .about-quote {
             font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            font-size: 1rem;
             color: rgba(255,255,255,0.85);
             line-height: 1.7;
-            margin-bottom: 32px;
+            margin-bottom: 16px;
             font-style: italic;
+            text-align: center;
         }
-
         .about-attr {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
+            gap: 12px;
             flex-wrap: wrap;
         }
         .about-attr span {
-            font-size: 0.68rem;
+            font-size: 0.62rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: rgba(255,255,255,0.3);
@@ -739,23 +674,16 @@
         .about-attr span.gold { color: var(--wheat); }
 
         /* ============================================
-           FOOTER
+           SLIDE 5: CONTACT
         ============================================ */
-        .ftr {
-            padding: 80px 0 40px;
-            background: var(--cream);
-            border-top: 1px solid var(--faint);
-        }
-        .ftr-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 32px;
+        .card-contact {
             text-align: center;
+            padding: 20px 0;
         }
 
         .ftr-cta {
             font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
             color: var(--ink);
             line-height: 1.1;
             margin-bottom: 12px;
@@ -764,16 +692,16 @@
         .ftr-cta em { font-style: italic; color: var(--rust); }
 
         .ftr-sub {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--smoke);
-            margin-bottom: 36px;
+            margin-bottom: 32px;
         }
 
         .ftr-links {
             display: flex;
             gap: 12px;
             justify-content: center;
-            margin-bottom: 60px;
+            margin-bottom: 48px;
         }
         .ftr-links a {
             width: 48px; height: 48px;
@@ -796,9 +724,83 @@
             color: var(--ash);
             letter-spacing: 1px;
             text-transform: uppercase;
-            padding-top: 32px;
+            padding-top: 24px;
             border-top: 1px solid var(--faint);
         }
+
+        /* ============================================
+           NAVIGATION
+        ============================================ */
+        .slide-nav {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 50;
+        }
+
+        .slide-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+            color: var(--parchment);
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(8px);
+        }
+        .slide-arrow:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.3);
+            transform: scale(1.08);
+        }
+        .slide-arrow:disabled {
+            opacity: 0.2;
+            cursor: default;
+            transform: none;
+        }
+
+        .slide-dots {
+            display: flex;
+            gap: 8px;
+        }
+        .slide-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        .slide-dot.active {
+            background: var(--wheat);
+            transform: scale(1.3);
+        }
+        .slide-dot:hover:not(.active) {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Slide counter */
+        .slide-counter {
+            position: fixed;
+            bottom: 36px;
+            right: 32px;
+            font-family: 'Instrument Serif', serif;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.2);
+            z-index: 50;
+            letter-spacing: 1px;
+        }
+        .slide-counter .current { color: var(--wheat); }
 
         /* ============================================
            RESPONSIVE
@@ -807,56 +809,79 @@
             .hdr-nav { display: none; }
             .hdr-ham { display: block; }
 
-            .hero {
-                grid-template-columns: 1fr;
-                min-height: auto;
+            .slide {
+                width: 95vw;
+                max-height: 82vh;
+                padding: 36px 32px;
             }
-            .hero-left {
-                padding: 120px 32px 60px;
-                max-width: 100%;
-                margin: 0;
+
+            .slide:nth-child(1) { --rot: -1deg; }
+            .slide:nth-child(2) { --rot: 1deg; }
+            .slide:nth-child(3) { --rot: -0.5deg; }
+            .slide:nth-child(4) { --rot: 1deg; }
+            .slide:nth-child(5) { --rot: -0.8deg; }
+
+            .card-hero {
+                flex-direction: column;
+                gap: 28px;
             }
-            .hero-right {
-                padding: 0 32px 60px;
+            .card-hero-right {
                 justify-content: center;
             }
-            .hero-photo {
-                max-width: 220px;
-            }
+            .hero-photo { width: 120px; }
 
             .vid-grid { grid-template-columns: repeat(2, 1fr); }
-            .vid-grid .vid-cell:nth-child(2),
-            .vid-grid .vid-cell:nth-child(4) { transform: translateY(20px); }
 
             .svc-grid { grid-template-columns: 1fr; }
-            .rates-bar { border-radius: 0 0 16px 16px; }
 
-            .proc-steps { grid-template-columns: 1fr; gap: 40px; }
+            .proc-steps {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
             .proc-steps::before { display: none; }
-            .proc-step { text-align: left; padding: 0; display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start; }
+            .proc-step {
+                text-align: left;
+                padding: 0;
+                display: grid;
+                grid-template-columns: 48px 1fr;
+                gap: 12px;
+                align-items: start;
+            }
             .proc-dot { margin: 0; }
             .proc-step ul { margin: 0; }
         }
 
         @media (max-width: 576px) {
             .hdr-inner { padding: 14px 20px; }
-            .hero-left { padding: 100px 20px 40px; }
-            .hero-name { font-size: 2.8rem; letter-spacing: -1px; }
-            .hero-facts { gap: 12px; }
-            .hero-right { padding: 0 20px 40px; gap: 12px; }
-            .hero-photo { max-width: 160px; }
 
-            .work, .svc, .proc { padding: 80px 0; }
-            .work-inner, .svc-inner, .proc-inner { padding: 0 20px; }
-            .vid-grid { gap: 12px; }
-            .vid-grid .vid-cell:nth-child(2),
-            .vid-grid .vid-cell:nth-child(4) { transform: translateY(12px); }
+            .slide {
+                padding: 28px 20px;
+                max-height: 78vh;
+            }
 
-            .svc-card { padding: 28px 20px; }
-            .rates-bar { padding: 20px; flex-direction: column; text-align: center; }
+            .slide:nth-child(1),
+            .slide:nth-child(2),
+            .slide:nth-child(3),
+            .slide:nth-child(4),
+            .slide:nth-child(5) { --rot: 0deg; }
 
-            .ftr-cta { font-size: 2.2rem; }
-            .about-quote { font-size: 1.2rem; }
+            .hero-name { font-size: 2.4rem; letter-spacing: -1px; }
+            .hero-facts { gap: 10px; }
+            .hero-photo { width: 100px; }
+
+            .vid-grid { gap: 8px; }
+            .vid-brand { font-size: 0.65rem; }
+            .vid-type { font-size: 0.55rem; }
+
+            .svc-card { padding: 20px 16px; }
+            .rates-bar { padding: 16px; flex-direction: column; text-align: center; }
+
+            .ftr-cta { font-size: 2rem; }
+            .about-quote { font-size: 0.88rem; }
+
+            .slide-nav { bottom: 20px; gap: 14px; }
+            .slide-arrow { width: 38px; height: 38px; font-size: 0.7rem; }
+            .slide-counter { bottom: 24px; right: 20px; font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -865,78 +890,73 @@
     <!-- HEADER -->
     <header class="hdr" id="hdr">
         <div class="hdr-inner">
-            <a href="#" class="hdr-logo" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">Jacob Hill</a>
+            <a href="#" class="hdr-logo" onclick="event.preventDefault();goTo(0)">Jacob Hill</a>
             <nav class="hdr-nav">
                 <a href="index.html">Brea UGC</a>
-                <a href="#services">Services</a>
+                <a href="#" onclick="event.preventDefault();goTo(2)">Services</a>
             </nav>
             <div class="hdr-ham" id="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
         </div>
     </header>
     <div class="mob-nav" id="mob">
         <a href="index.html" onclick="toggleNav()">Brea UGC</a>
-        <a href="#services" onclick="toggleNav()">Services</a>
+        <a href="#" onclick="event.preventDefault();toggleNav();goTo(2)">Services</a>
     </div>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-left">
-            <span class="hero-tag r">Huntsville, AL</span>
-            <h1 class="hero-name r r-d1">Jacob<br><span style="color:#652622; padding-left:1.8em; display:inline-block; margin-top:-0.2em">Hill</span></h1>
-            <p class="hero-desc r r-d2">I make <strong>UGC that doesn't feel like UGC</strong>. Authentic content for brands who want real people, real moments, and ads their audience actually watches.</p>
+    <!-- SLIDESHOW -->
+    <div class="slideshow">
 
-            <div class="hero-facts r r-d3">
-                <span class="hero-fact">Portfolio Dev</span>
-                <span class="hero-fact">Lifestyle</span>
-                <span class="hero-fact">Music Background</span>
-            </div>
+        <!-- SLIDE 1: HERO -->
+        <div class="slide">
+            <div class="card-hero">
+                <div class="card-hero-left">
+                    <span class="hero-tag">Huntsville, AL</span>
+                    <h1 class="hero-name">Jacob<br><span style="color:#652622; padding-left:1.8em; display:inline-block; margin-top:-0.2em">Hill</span></h1>
+                    <p class="hero-desc">I make <strong>UGC that doesn't feel like UGC</strong>. Authentic content for brands who want real people, real moments, and ads their audience actually watches.</p>
 
-            <div class="hero-socials r r-d4">
-                <a href="mailto:#" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            </div>
-        </div>
+                    <div class="hero-facts">
+                        <span class="hero-fact">Portfolio Dev</span>
+                        <span class="hero-fact">Lifestyle</span>
+                        <span class="hero-fact">Music Background</span>
+                    </div>
 
-        <div class="hero-right">
-            <div class="hero-photo r r-d3">
-                <div class="hero-photo-fill fill-a">
-                    <!-- Replace with: <img src="photo-1.jpg" alt="Jacob Hill"> -->
-                    <i class="fas fa-camera"></i>
-                    <span>Photo 1</span>
+                    <div class="hero-socials">
+                        <a href="mailto:#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="card-hero-right">
+                    <div class="hero-photo">
+                        <div class="hero-photo-fill fill-a">
+                            <i class="fas fa-camera"></i>
+                            <span>Photo 1</span>
+                        </div>
+                    </div>
+                    <div class="hero-photo">
+                        <div class="hero-photo-fill fill-b">
+                            <i class="fas fa-camera"></i>
+                            <span>Photo 2</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-photo r r-d4">
-                <div class="hero-photo-fill fill-b">
-                    <!-- Replace with: <img src="photo-2.jpg" alt="Jacob Hill"> -->
-                    <i class="fas fa-camera"></i>
-                    <span>Photo 2</span>
-                </div>
-            </div>
         </div>
-    </section>
 
-    <!-- MARQUEE — brand logos placeholder -->
-    <section class="marquee-section">
-        <div class="marquee-track">
-            <span class="marquee-item">Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner</span>
-            <span class="marquee-item">Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner <span class="dot"></span> Brand Partner</span>
-        </div>
-    </section>
-
-    <!-- PAID ADS -->
-    <section id="work" class="work">
-        <div class="work-inner">
-            <div class="work-header r">
-                <div class="work-header-left">
-                    <div class="work-label">Portfolio</div>
-                    <h2 class="work-title">Paid Ad Concepts</h2>
+        <!-- SLIDE 2: WORK -->
+        <div class="slide">
+            <!-- Paid Ads -->
+            <div class="work-header">
+                <div>
+                    <div class="card-section-label">Portfolio</div>
+                    <h2 class="card-section-title">Paid Ad Concepts</h2>
                 </div>
                 <span class="work-count">04 Videos</span>
             </div>
 
             <div class="vid-grid">
-                <div class="vid-cell r r-d1">
+                <div class="vid-cell">
                     <div class="vid-frame">
                         <div class="vid-fill fill-warm"><i class="fas fa-play"></i></div>
                     </div>
@@ -945,7 +965,7 @@
                         <span class="vid-type">Testimonial</span>
                     </div>
                 </div>
-                <div class="vid-cell r r-d2">
+                <div class="vid-cell">
                     <div class="vid-frame">
                         <div class="vid-fill fill-cool"><i class="fas fa-play"></i></div>
                     </div>
@@ -954,7 +974,7 @@
                         <span class="vid-type">Demo · Voiceover</span>
                     </div>
                 </div>
-                <div class="vid-cell r r-d3">
+                <div class="vid-cell">
                     <div class="vid-frame">
                         <div class="vid-fill fill-earth"><i class="fas fa-play"></i></div>
                     </div>
@@ -963,7 +983,7 @@
                         <span class="vid-type">Green Screen</span>
                     </div>
                 </div>
-                <div class="vid-cell r r-d4">
+                <div class="vid-cell">
                     <div class="vid-frame">
                         <div class="vid-fill fill-rust"><i class="fas fa-play"></i></div>
                     </div>
@@ -973,22 +993,20 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ORGANIC -->
-    <section class="work alt">
-        <div class="work-inner">
-            <div class="work-header r">
-                <div class="work-header-left">
-                    <div class="work-label">Portfolio</div>
-                    <h2 class="work-title">Organic Concepts</h2>
+            <div class="work-divider"></div>
+
+            <!-- Organic -->
+            <div class="work-header">
+                <div>
+                    <div class="card-section-label">Portfolio</div>
+                    <h2 class="card-section-title">Organic Concepts</h2>
                 </div>
                 <span class="work-count">04 Videos</span>
             </div>
 
             <div class="vid-grid">
-                <div class="vid-cell r r-d1">
+                <div class="vid-cell">
                     <div class="vid-frame">
                         <div class="vid-fill fill-earth"><i class="fas fa-play"></i></div>
                     </div>
@@ -997,7 +1015,7 @@
                         <span class="vid-type">Lifestyle</span>
                     </div>
                 </div>
-                <div class="vid-cell r r-d2">
+                <div class="vid-cell">
                     <div class="vid-frame">
                         <div class="vid-fill fill-warm"><i class="fas fa-play"></i></div>
                     </div>
@@ -1006,7 +1024,7 @@
                         <span class="vid-type">GRWM</span>
                     </div>
                 </div>
-                <div class="vid-cell r r-d3">
+                <div class="vid-cell">
                     <div class="vid-frame">
                         <div class="vid-fill fill-rust"><i class="fas fa-play"></i></div>
                     </div>
@@ -1015,7 +1033,7 @@
                         <span class="vid-type">Unboxing</span>
                     </div>
                 </div>
-                <div class="vid-cell r r-d4">
+                <div class="vid-cell">
                     <div class="vid-frame">
                         <div class="vid-fill fill-cool"><i class="fas fa-play"></i></div>
                     </div>
@@ -1026,34 +1044,16 @@
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- ABOUT PULL-QUOTE -->
-    <section class="about-band r">
-        <div class="about-inner">
-            <p class="about-quote">"Living in Huntsville gives me access to stunning outdoor locations. With two dogs, two cats, and my wife as my creative partner, pet and couple content are natural parts of my everyday life. My background in music brings a unique creative perspective to every project."</p>
-            <div class="about-attr">
-                <span class="gold">Jacob Hill</span>
-                <span>·</span>
-                <span>29</span>
-                <span>·</span>
-                <span>Huntsville, AL</span>
-                <span>·</span>
-                <span>Guitar & Bass</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="svc">
-        <div class="svc-inner">
-            <div class="svc-header r">
-                <div class="work-label">What I Offer</div>
-                <h2 class="work-title">Services</h2>
+        <!-- SLIDE 3: SERVICES -->
+        <div class="slide">
+            <div style="margin-bottom: 28px;">
+                <div class="card-section-label">What I Offer</div>
+                <h2 class="card-section-title">Services</h2>
             </div>
 
             <div class="svc-grid">
-                <div class="svc-card r r-d1">
+                <div class="svc-card">
                     <div class="svc-card-num">01</div>
                     <h3>UGC</h3>
                     <p>Authentic ad-ready content using the AIDA direct-response framework. Hooks that stop the scroll, stories that hold attention, CTAs that convert.</p>
@@ -1079,7 +1079,7 @@
                     </div>
                 </div>
 
-                <div class="svc-card r r-d2">
+                <div class="svc-card">
                     <div class="svc-card-num">02</div>
                     <h3>Portfolio Development</h3>
                     <p>Custom UGC portfolio websites for creators — designed, built, and deployed so you can showcase your work and land more brand deals.</p>
@@ -1103,24 +1103,22 @@
                 </div>
             </div>
 
-            <div class="rates-bar r">
+            <div class="rates-bar">
                 <p>Base rates start at</p>
                 <strong>$250 / video</strong>
                 <p>Custom bundles available</p>
             </div>
         </div>
-    </section>
 
-    <!-- PROCESS -->
-    <section id="process" class="proc">
-        <div class="proc-inner">
-            <div class="proc-header r">
-                <div class="work-label">How It Works</div>
-                <h2 class="work-title">My Process</h2>
+        <!-- SLIDE 4: PROCESS -->
+        <div class="slide">
+            <div style="margin-bottom: 0;">
+                <div class="card-section-label">How It Works</div>
+                <h2 class="card-section-title">My Process</h2>
             </div>
 
             <div class="proc-steps">
-                <div class="proc-step r r-d1">
+                <div class="proc-step">
                     <div class="proc-dot">1</div>
                     <div>
                         <h3>Creative Vision</h3>
@@ -1133,7 +1131,7 @@
                     </div>
                 </div>
 
-                <div class="proc-step r r-d2">
+                <div class="proc-step">
                     <div class="proc-dot">2</div>
                     <div>
                         <h3>Development</h3>
@@ -1145,7 +1143,7 @@
                     </div>
                 </div>
 
-                <div class="proc-step r r-d3">
+                <div class="proc-step">
                     <div class="proc-dot">3</div>
                     <div>
                         <h3>Working Together</h3>
@@ -1157,64 +1155,155 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer id="contact" class="ftr">
-        <div class="ftr-inner">
-            <h2 class="ftr-cta r">Let's <em>create</em><br>together</h2>
-            <p class="ftr-sub r r-d1">Ready to make content that actually converts?</p>
-
-            <div class="ftr-links r r-d2">
-                <a href="mailto:#" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <!-- About pull-quote -->
+            <div class="about-band">
+                <p class="about-quote">"Living in Huntsville gives me access to stunning outdoor locations. With two dogs, two cats, and my wife as my creative partner, pet and couple content are natural parts of my everyday life. My background in music brings a unique creative perspective to every project."</p>
+                <div class="about-attr">
+                    <span class="gold">Jacob Hill</span>
+                    <span>·</span>
+                    <span>29</span>
+                    <span>·</span>
+                    <span>Huntsville, AL</span>
+                    <span>·</span>
+                    <span>Guitar & Bass</span>
+                </div>
             </div>
-
-            <div class="ftr-bottom r r-d3">&copy; 2026 Jacob Hill &middot; All Rights Reserved</div>
         </div>
-    </footer>
+
+        <!-- SLIDE 5: CONTACT -->
+        <div class="slide">
+            <div class="card-contact">
+                <h2 class="ftr-cta">Let's <em>create</em><br>together</h2>
+                <p class="ftr-sub">Ready to make content that actually converts?</p>
+
+                <div class="ftr-links">
+                    <a href="mailto:#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+
+                <div class="ftr-bottom">&copy; 2026 Jacob Hill &middot; All Rights Reserved</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SLIDE NAVIGATION -->
+    <div class="slide-nav">
+        <button class="slide-arrow" id="prevBtn" onclick="prevSlide()" disabled>
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="slide-dots" id="dots"></div>
+        <button class="slide-arrow" id="nextBtn" onclick="nextSlide()">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <div class="slide-counter">
+        <span class="current" id="counterCurrent">1</span> / <span id="counterTotal">5</span>
+    </div>
 
     <script>
-        // Header
-        const h = document.getElementById('hdr');
-        window.addEventListener('scroll', () => h.classList.toggle('stuck', scrollY > 50));
-
         // Mobile nav
         function toggleNav() {
             document.getElementById('ham').classList.toggle('on');
             document.getElementById('mob').classList.toggle('on');
-            document.body.style.overflow = document.getElementById('mob').classList.contains('on') ? 'hidden' : '';
         }
 
-        // Scroll reveal
-        const obs = new IntersectionObserver(es => {
-            es.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
-        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-        document.querySelectorAll('.r').forEach(el => obs.observe(el));
+        // Slideshow — fanned stack
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let current = 0;
+        let transitioning = false;
+
+        // Build dots
+        const dotsContainer = document.getElementById('dots');
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        // Position all cards in a fanned stack
+        function layoutStack() {
+            slides.forEach((s, i) => {
+                const offset = i - current;
+                s.classList.remove('active', 'past');
+
+                if (offset < 0) {
+                    // Already passed — hidden off to the left
+                    s.classList.add('past');
+                    s.style.zIndex = 0;
+                    s.style.transform = 'translateX(-120%) rotate(-8deg) scale(0.9)';
+                    s.style.opacity = '0';
+                } else if (offset === 0) {
+                    // Active — front of stack
+                    s.classList.add('active');
+                    s.style.zIndex = totalSlides + 1;
+                    s.style.transform = 'translate(0, 0) rotate(var(--rot)) scale(1)';
+                    s.style.opacity = '1';
+                } else {
+                    // Behind — fanned out to the right/down
+                    // Each card peeks out a bit more, with diminishing opacity
+                    const x = offset * 18;
+                    const y = offset * 10;
+                    const scale = 1 - (offset * 0.03);
+                    const opacity = 1;
+                    s.style.zIndex = totalSlides - offset;
+                    s.style.transform = `translate(${x}px, ${y}px) rotate(var(--rot)) scale(${scale})`;
+                    s.style.opacity = String(opacity);
+                }
+            });
+
+            dotsContainer.querySelectorAll('.slide-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === current);
+            });
+            document.getElementById('prevBtn').disabled = current === 0;
+            document.getElementById('nextBtn').disabled = current === totalSlides - 1;
+            document.getElementById('counterCurrent').textContent = current + 1;
+        }
+
+        // Initial layout
+        layoutStack();
+
+        function goTo(index) {
+            if (transitioning || index === current || index < 0 || index >= totalSlides) return;
+            transitioning = true;
+            current = index;
+            layoutStack();
+            setTimeout(() => { transitioning = false; }, 500);
+        }
+
+        function nextSlide() {
+            if (current < totalSlides - 1) goTo(current + 1);
+        }
+
+        function prevSlide() {
+            if (current > 0) goTo(current - 1);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
 
         // Service expandables
         function togSvc(t) {
             const b = t.nextElementSibling;
             const open = t.classList.contains('on');
-            // close all in same card
             const card = t.closest('.svc-card');
             card.querySelectorAll('.svc-exp-trigger').forEach(x => x.classList.remove('on'));
             card.querySelectorAll('.svc-exp-body').forEach(x => x.classList.remove('on'));
             if (!open) { t.classList.add('on'); b.classList.add('on'); }
         }
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', function(e) {
-                const id = this.getAttribute('href');
-                if (id === '#') return;
-                const t = document.querySelector(id);
-                if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 70, behavior: 'smooth' }); }
-            });
-        });
     </script>
 </body>
 </html>
-
