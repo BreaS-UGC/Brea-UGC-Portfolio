@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Instrument+Serif:ital@0;1&family=Josefin+Slab:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -35,7 +35,8 @@
         body {
             font-family: 'Space Grotesk', sans-serif;
             color: var(--ink);
-            background: var(--ink);
+            background: url('Jacob ugc background black.svg') center center / cover no-repeat fixed;
+            background-color: var(--ink);
             overflow: hidden;
             height: 100vh;
             -webkit-font-smoothing: antialiased;
@@ -63,9 +64,8 @@
             left: 0;
             right: 0;
             z-index: 100;
-            background: rgba(26,18,21,0.6);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: transparent;
+            border-bottom: none;
         }
         .hdr-inner {
             max-width: 1400px;
@@ -140,7 +140,8 @@
             max-width: 900px;
             max-height: 85vh;
             overflow-y: auto;
-            background: var(--cream);
+            background: url('jacob ugc parchment.svg') center center / cover no-repeat;
+            background-color: var(--cream);
             border-radius: 0;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             padding: 48px 52px;
@@ -168,6 +169,9 @@
         .slide::-webkit-scrollbar { width: 4px; }
         .slide::-webkit-scrollbar-track { background: transparent; }
         .slide::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 4px; }
+
+        /* Hero card taller */
+        .slide:nth-child(1) { min-height: 70vh; }
 
         /* Unique base rotations per card */
         .slide:nth-child(1) { --rot: -2deg; }
@@ -215,7 +219,7 @@
             line-height: 0.85;
             color: var(--ink);
             margin-bottom: 20px;
-            letter-spacing: -2px;
+            letter-spacing: 0.5px;
         }
         .hero-name em {
             font-style: italic;
@@ -890,7 +894,7 @@
     <!-- HEADER -->
     <header class="hdr" id="hdr">
         <div class="hdr-inner">
-            <a href="#" class="hdr-logo" onclick="event.preventDefault();goTo(0)">Jacob Hill</a>
+            <a href="#" class="hdr-logo" onclick="event.preventDefault();goTo(0)" style="visibility:hidden">.</a>
             <nav class="hdr-nav">
                 <a href="index.html">Brea UGC</a>
                 <a href="#" onclick="event.preventDefault();goTo(2)">Services</a>
@@ -910,15 +914,14 @@
         <div class="slide">
             <div class="card-hero">
                 <div class="card-hero-left">
-                    <span class="hero-tag">Huntsville, AL</span>
-                    <h1 class="hero-name">Jacob<br><span style="color:#652622; padding-left:1.8em; display:inline-block; margin-top:-0.2em">Hill</span></h1>
-                    <p class="hero-desc">I make <strong>UGC that doesn't feel like UGC</strong>. Authentic content for brands who want real people, real moments, and ads their audience actually watches.</p>
-
+                    <h1 class="hero-name">Jacob Hill</h1>
                     <div class="hero-facts">
+                        <span class="hero-fact">UGC Creator</span>
                         <span class="hero-fact">Portfolio Dev</span>
-                        <span class="hero-fact">Lifestyle</span>
-                        <span class="hero-fact">Music Background</span>
+                        <span class="hero-fact">Musician</span>
                     </div>
+
+                    <p class="hero-desc">I create couple and male UGC for brands with a focus on pet content, build portfolio sites for creators, and play guitar/bass/sing. Based in Huntsville, AL with my wife, two dogs, and two cats.</p>
 
                     <div class="hero-socials">
                         <a href="mailto:#" aria-label="Email"><i class="fas fa-envelope"></i></a>

@@ -104,6 +104,13 @@
             margin-right: 0px;
         }
 
+        .nav-divider {
+            width: 1px;
+            background: rgba(74, 59, 92, 0.3);
+            align-self: stretch;
+            margin: -12px 0;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: #4A3B5C;
@@ -112,11 +119,14 @@
             transition: all 0.3s;
             font-size: 15px;
             letter-spacing: 0.5px;
-            padding: 8px 10px;
-            border-radius: 4px;
+            padding: 12px 10px;
+            margin: -12px 0;
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            border-radius: 0;
             text-transform: uppercase;
             cursor: pointer;
-            display: inline-block;
             position: relative;
             z-index: 1001;
             white-space: nowrap;
@@ -124,7 +134,7 @@
 
         .nav-links a:hover {
             color: #D4AF37;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.15);
         }
 
         /* Mobile Navigation */
@@ -687,6 +697,7 @@
                 <!-- Desktop Navigation -->
                 <div class="nav-links">
                     <a href="index.html">Home</a>
+                    <span class="nav-divider"></span>
                     <a href="pet-ugc.html">Pet UGC</a>
                 </div>
 
