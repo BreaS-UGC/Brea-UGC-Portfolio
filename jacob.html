@@ -170,8 +170,10 @@
         .slide::-webkit-scrollbar-track { background: transparent; }
         .slide::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 4px; }
 
-        /* Hero card taller */
-        .slide:nth-child(1) { min-height: 70vh; }
+        /* Hero card */
+        .slide:nth-child(1) { max-height: none; overflow: hidden; padding-bottom: 30px; padding-top: 30px; }
+        /* Work card */
+        .slide:nth-child(2) { padding-top: 24px; }
 
         /* Unique base rotations per card */
         .slide:nth-child(1) { --rot: -2deg; }
@@ -188,11 +190,43 @@
             gap: 40px;
             align-items: center;
         }
-        .card-hero-left { flex: 1; }
+        .card-hero-left { flex: 1; min-width: 0; }
         .card-hero-right {
             display: flex;
-            gap: 14px;
+            flex-direction: column;
+            gap: 12px;
             flex-shrink: 0;
+            align-self: flex-start;
+            align-items: center;
+        }
+        .card-hero-photos {
+            display: flex;
+            gap: 14px;
+        }
+        .pet-btn {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--bourbon);
+            border: 1px solid var(--bourbon);
+            padding: 12px 24px;
+            text-decoration: none;
+            transition: all 0.3s;
+            text-align: center;
+            width: 100%;
+            margin-top: 14px;
+        }
+        .pet-btn:hover {
+            background: var(--bourbon);
+            color: var(--parchment);
+        }
+        .guitar-svg {
+            transition: filter 0.3s ease;
+            cursor: pointer;
+        }
+        .guitar-svg.hovered {
+            filter: brightness(0) saturate(100%) invert(16%) sepia(64%) saturate(800%) hue-rotate(335deg) brightness(90%);
         }
 
         .hero-tag {
@@ -227,11 +261,13 @@
         }
 
         .hero-desc {
-            font-size: 0.92rem;
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 1.05rem;
             line-height: 1.8;
             color: var(--smoke);
             max-width: 400px;
-            margin-bottom: 28px;
+            margin-bottom: 0;
+            margin-top: -25px;
         }
         .hero-desc strong { color: var(--tobacco); font-weight: 600; }
 
@@ -242,13 +278,14 @@
             flex-wrap: wrap;
         }
         .hero-fact {
+            font-family: 'Didact Gothic', sans-serif;
             font-size: 0.68rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--ash);
+            color: var(--bourbon);
             padding: 5px 0;
             border-bottom: 1px solid var(--faint);
-            font-weight: 500;
+            font-weight: 700;
         }
 
         .hero-socials {
@@ -272,7 +309,7 @@
         }
 
         .hero-photo {
-            width: 140px;
+            width: 200px;
             aspect-ratio: 5/7;
             border-radius: 12px;
             overflow: hidden;
@@ -415,6 +452,29 @@
             border-color: rgba(255,255,255,0.3);
             background: rgba(0,0,0,0.2);
             backdrop-filter: blur(4px);
+        }
+        .vid-frame.playing::after { display: none; }
+
+        .vid-logo {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        .vid-logo img {
+            max-height: 50px;
+            max-width: 160px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+        .vid-logo-text {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--ash);
         }
 
         .vid-meta { padding: 0 2px; }
@@ -737,39 +797,37 @@
         ============================================ */
         .slide-nav {
             position: fixed;
-            bottom: 32px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 50%;
+            right: 24px;
+            transform: translateY(-50%);
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 8px;
             z-index: 50;
         }
 
         .slide-arrow {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.15);
-            background: rgba(255,255,255,0.05);
-            color: var(--parchment);
+            padding: 10px 20px;
+            margin: -1px 0;
+            border-radius: 4px;
+            border: 2px solid var(--wheat);
+            background: transparent;
+            color: var(--wheat);
             font-size: 0.8rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
-            backdrop-filter: blur(8px);
+            font-family: 'Didact Gothic', sans-serif;
         }
         .slide-arrow:hover {
-            background: rgba(255,255,255,0.12);
-            border-color: rgba(255,255,255,0.3);
-            transform: scale(1.08);
+            background: var(--wheat);
+            color: var(--ink);
         }
         .slide-arrow:disabled {
-            opacity: 0.2;
+            opacity: 0.3;
             cursor: default;
-            transform: none;
         }
 
         .slide-dots {
@@ -786,7 +844,7 @@
             border: none;
         }
         .slide-dot.active {
-            background: var(--wheat);
+            background: var(--bourbon);
             transform: scale(1.3);
         }
         .slide-dot:hover:not(.active) {
@@ -832,7 +890,7 @@
             .card-hero-right {
                 justify-content: center;
             }
-            .hero-photo { width: 120px; }
+            .hero-photo { width: 170px; }
 
             .vid-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -871,7 +929,7 @@
 
             .hero-name { font-size: 2.4rem; letter-spacing: -1px; }
             .hero-facts { gap: 10px; }
-            .hero-photo { width: 100px; }
+            .hero-photo { width: 140px; }
 
             .vid-grid { gap: 8px; }
             .vid-brand { font-size: 0.65rem; }
@@ -921,69 +979,78 @@
                         <span class="hero-fact">Musician</span>
                     </div>
 
-                    <p class="hero-desc">I create couple and male UGC for brands with a focus on pet content, build portfolio sites for creators, and play guitar/bass/sing. Based in Huntsville, AL with my wife, two dogs, and two cats.</p>
+                    <p class="hero-desc">I create couple and male UGC for brands with a focus on pet content. I also build portfolio sites for creators, and play guitar/bass/sing. Based in Huntsville, AL with my wife, two dogs, and two cats.</p>
+                    <a href="https://drive.google.com/file/d/1bpmAjvE-Ax_NqsvUkNfx2RXzkSQXzNF8/view?usp=drive_link" target="_blank">
+                        <img src="guitar for jacobs site.png" alt="Guitar" class="guitar-svg" style="width: 100%; display: block; margin-top: -140px; margin-bottom: -120px; transform: rotate(7deg) translateX(-20px);">
+                    </a>
 
-                    <div class="hero-socials">
-                        <a href="mailto:#" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    </div>
                 </div>
 
                 <div class="card-hero-right">
-                    <div class="hero-photo">
-                        <div class="hero-photo-fill fill-a">
-                            <i class="fas fa-camera"></i>
-                            <span>Photo 1</span>
+                    <div class="card-hero-photos">
+                        <div class="hero-photo">
+                            <div class="hero-photo-fill">
+                                <img src="Jacob Pic fo Portfolio.JPG" alt="Jacob Hill">
+                            </div>
+                        </div>
+                        <div class="hero-photo">
+                            <div class="hero-photo-fill">
+                                <img src="Pic for Jacob portfolio.jpg" alt="Jacob Hill">
+                            </div>
                         </div>
                     </div>
-                    <div class="hero-photo">
-                        <div class="hero-photo-fill fill-b">
-                            <i class="fas fa-camera"></i>
-                            <span>Photo 2</span>
-                        </div>
-                    </div>
+                    <a href="pet-ugc.html" class="pet-btn">View Pet Portfolio</a>
                 </div>
             </div>
         </div>
 
         <!-- SLIDE 2: WORK -->
         <div class="slide">
-            <!-- Paid Ads -->
+            <!-- Recent Projects -->
             <div class="work-header">
                 <div>
-                    <div class="card-section-label">Portfolio</div>
-                    <h2 class="card-section-title">Paid Ad Concepts</h2>
+                    <h2 class="card-section-title">Recent Projects</h2>
                 </div>
-                <span class="work-count">04 Videos</span>
             </div>
 
             <div class="vid-grid">
                 <div class="vid-cell">
+                    <div class="vid-logo"><img src="Logos/doggo sessions.webp" alt="Doggo Sessions"></div>
                     <div class="vid-frame">
-                        <div class="vid-fill fill-warm"><i class="fas fa-play"></i></div>
+                        <div class="vid-fill">
+                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                                <source src="videos/Doggo Sessions (720p for website).mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                     <div class="vid-meta">
-                        <span class="vid-brand">Coming Soon</span>
-                        <span class="vid-type">Testimonial</span>
+                        <span class="vid-type">Problem / Solution</span>
                     </div>
                 </div>
                 <div class="vid-cell">
+                    <div class="vid-logo"><img src="Logos/ibiyaya logo.png" alt="Ibiyaya"></div>
                     <div class="vid-frame">
-                        <div class="vid-fill fill-cool"><i class="fas fa-play"></i></div>
+                        <div class="vid-fill">
+                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                                <source src="videos/Ibiyaya (720p for website).mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                     <div class="vid-meta">
-                        <span class="vid-brand">Coming Soon</span>
-                        <span class="vid-type">Demo · Voiceover</span>
+                        <span class="vid-type">Product Demonstration</span>
                     </div>
                 </div>
                 <div class="vid-cell">
+                    <div class="vid-logo"><img src="Logos/Fresh Patch Logo.png" alt="Fresh Patch"></div>
                     <div class="vid-frame">
-                        <div class="vid-fill fill-earth"><i class="fas fa-play"></i></div>
+                        <div class="vid-fill">
+                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                                <source src="videos/fresh patch jacob site (720p for website).mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                     <div class="vid-meta">
-                        <span class="vid-brand">Coming Soon</span>
-                        <span class="vid-type">Green Screen</span>
+                        <span class="vid-type">Comedy / Male POV</span>
                     </div>
                 </div>
                 <div class="vid-cell">
@@ -1106,11 +1173,6 @@
                 </div>
             </div>
 
-            <div class="rates-bar">
-                <p>Base rates start at</p>
-                <strong>$250 / video</strong>
-                <p>Custom bundles available</p>
-            </div>
         </div>
 
         <!-- SLIDE 4: PROCESS -->
@@ -1195,11 +1257,10 @@
     <!-- SLIDE NAVIGATION -->
     <div class="slide-nav">
         <button class="slide-arrow" id="prevBtn" onclick="prevSlide()" disabled>
-            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-chevron-left"></i>
         </button>
-        <div class="slide-dots" id="dots"></div>
         <button class="slide-arrow" id="nextBtn" onclick="nextSlide()">
-            <i class="fas fa-arrow-right"></i>
+            <i class="fas fa-chevron-right"></i>
         </button>
     </div>
 
@@ -1220,14 +1281,6 @@
         let current = 0;
         let transitioning = false;
 
-        // Build dots
-        const dotsContainer = document.getElementById('dots');
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('button');
-            dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
-            dot.addEventListener('click', () => goTo(i));
-            dotsContainer.appendChild(dot);
-        }
 
         // Position all cards in a fanned stack
         function layoutStack() {
@@ -1260,9 +1313,6 @@
                 }
             });
 
-            dotsContainer.querySelectorAll('.slide-dot').forEach((d, i) => {
-                d.classList.toggle('active', i === current);
-            });
             document.getElementById('prevBtn').disabled = current === 0;
             document.getElementById('nextBtn').disabled = current === totalSlides - 1;
             document.getElementById('counterCurrent').textContent = current + 1;
@@ -1296,6 +1346,24 @@
                 e.preventDefault();
                 prevSlide();
             }
+        });
+
+
+        // Guitar hover — bottom 60% only
+        const guitarImg = document.querySelector('.guitar-svg');
+        guitarImg.addEventListener('mousemove', (e) => {
+            const rect = guitarImg.getBoundingClientRect();
+            const relY = (e.clientY - rect.top) / rect.height;
+            guitarImg.classList.toggle('hovered', relY > 0.4);
+        });
+        guitarImg.addEventListener('mouseleave', () => guitarImg.classList.remove('hovered'));
+
+        // Hide play overlay while video is playing
+        document.querySelectorAll('.vid-frame video').forEach(video => {
+            const frame = video.closest('.vid-frame');
+            video.addEventListener('play', () => frame.classList.add('playing'));
+            video.addEventListener('pause', () => frame.classList.remove('playing'));
+            video.addEventListener('ended', () => frame.classList.remove('playing'));
         });
 
         // Service expandables
