@@ -171,9 +171,16 @@
         .slide::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 4px; }
 
         /* Hero card */
-        .slide:nth-child(1) { max-height: none; overflow: hidden; padding-bottom: 30px; padding-top: 30px; }
+        .slide:nth-child(1) { max-height: none; overflow: hidden; padding-bottom: 42px; padding-top: 24px; }
+        /* Hero card: bigger overall */
+        .slide:nth-child(1) { width: 95vw; max-width: 980px; }
+        .slide:nth-child(1) .hero-photo { width: 230px; }
+        .slide:nth-child(1) .hero-desc { margin-top: 30px; }
         /* Work card */
-        .slide:nth-child(2) { padding-top: 24px; }
+        .slide:nth-child(2) { padding-top: 8px; padding-bottom: 16px; --y-offset: 20; }
+        .slide:nth-child(2) .work-header:first-child { margin-top: 24px; margin-bottom: 12px; }
+        /* Services card */
+        .slide:nth-child(3) { padding-top: 24px; }
 
         /* Unique base rotations per card */
         .slide:nth-child(1) { --rot: -2deg; }
@@ -188,7 +195,7 @@
         .card-hero {
             display: flex;
             gap: 40px;
-            align-items: center;
+            align-items: flex-start;
         }
         .card-hero-left { flex: 1; min-width: 0; }
         .card-hero-right {
@@ -252,7 +259,7 @@
             font-size: clamp(2.8rem, 5vw, 4.2rem);
             line-height: 0.85;
             color: var(--ink);
-            margin-bottom: 20px;
+            margin-bottom: 6px;
             letter-spacing: 0.5px;
         }
         .hero-name em {
@@ -262,7 +269,7 @@
 
         .hero-desc {
             font-family: 'Didact Gothic', sans-serif;
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             line-height: 1.8;
             color: var(--smoke);
             max-width: 400px;
@@ -333,6 +340,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+        .hero-photo:last-child .hero-photo-fill img {
+            transform: scaleX(-1);
         }
         .hero-photo-fill i {
             font-size: 1.5rem;
@@ -429,31 +439,40 @@
             color: rgba(255,255,255,0.08);
         }
 
-        .vid-frame::after {
-            content: '▶';
+        .play-overlay {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 1.5px solid transparent;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
-            padding-left: 2px;
+            cursor: pointer;
+            pointer-events: auto;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-        .vid-frame:hover::after {
+        .play-overlay::after {
+            content: '▶';
+            font-size: 0.7rem;
             color: rgba(255,255,255,0.8);
-            border-color: rgba(255,255,255,0.3);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: rgba(0,0,0,0.2);
             backdrop-filter: blur(4px);
+            padding-left: 2px;
         }
-        .vid-frame.playing::after { display: none; }
+        .vid-frame:hover .play-overlay {
+            opacity: 1;
+        }
+        .vid-frame.playing .play-overlay {
+            pointer-events: none;
+            opacity: 0;
+        }
 
         .vid-logo {
             height: 50px;
@@ -505,17 +524,26 @@
 
         .svc-card {
             background: var(--parchment);
-            padding: 28px 24px;
+            padding: 0;
+            overflow: hidden;
             transition: background 0.3s;
         }
         .svc-card:hover { background: var(--faint); }
 
+        .svc-card-header {
+            background: var(--bourbon);
+            padding: 14px 24px 10px;
+        }
+
         .svc-card-num {
             font-family: 'Instrument Serif', serif;
             font-size: 3rem;
-            color: var(--faint);
+            color: rgba(255,255,255,0.35);
             line-height: 1;
-            margin-bottom: 14px;
+        }
+
+        .svc-card-body {
+            padding: 20px 24px 28px;
         }
 
         .svc-card h3 {
@@ -533,46 +561,59 @@
             margin-bottom: 16px;
         }
 
-        .svc-expand {
+        .svc-expandable {
             border-top: 1px solid var(--faint);
         }
-        .svc-exp-trigger {
+        .svc-exp-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
+            padding: 10px 0 10px;
             cursor: pointer;
-            transition: color 0.25s;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.25s, color 0.25s;
         }
-        .svc-exp-trigger:hover { color: var(--bourbon); }
-        .svc-exp-trigger span {
+        .svc-exp-header:hover {
+            border-bottom-color: var(--bourbon);
+            color: var(--bourbon);
+        }
+        .svc-exp-header span {
             font-size: 0.78rem;
             font-weight: 600;
             letter-spacing: 0.3px;
+            transition: color 0.25s;
         }
-        .svc-exp-trigger .arr {
+        .svc-exp-header .arr {
             font-size: 0.55rem;
-            transition: transform 0.3s;
             color: var(--bourbon);
+            transition: transform 0.3s;
         }
-        .svc-exp-trigger.on .arr { transform: rotate(180deg); }
+        .svc-exp-header.active .arr { transform: rotate(180deg); }
 
         .svc-exp-body {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            border: 1px solid var(--faint);
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            padding: 0 14px;
         }
-        .svc-exp-body.on { max-height: 350px; }
-
+        .svc-exp-body.active {
+            max-height: 400px;
+            padding: 12px 14px;
+        }
         .svc-exp-body ul {
             list-style: none;
-            padding: 0 0 10px 0;
+            padding: 0;
+            margin: 0;
         }
         .svc-exp-body li {
             font-size: 0.78rem;
             color: var(--smoke);
             padding: 3px 0 3px 16px;
             position: relative;
+            margin-bottom: 2px;
         }
         .svc-exp-body li::before {
             content: '—';
@@ -581,12 +622,18 @@
             color: var(--wheat);
             font-size: 0.65rem;
         }
+        .svc-exp-body p {
+            font-size: 0.78rem;
+            color: var(--smoke);
+            line-height: 1.7;
+            margin: 0;
+        }
         .svc-exp-body em {
             display: block;
             font-size: 0.72rem;
             color: var(--ash);
-            margin-top: 6px;
-            padding-bottom: 6px;
+            font-style: italic;
+            margin-top: 8px;
         }
 
         .rates-bar {
@@ -981,7 +1028,7 @@
 
                     <p class="hero-desc">I create couple and male UGC for brands with a focus on pet content. I also build portfolio sites for creators, and play guitar/bass/sing. Based in Huntsville, AL with my wife, two dogs, and two cats.</p>
                     <a href="https://drive.google.com/file/d/1bpmAjvE-Ax_NqsvUkNfx2RXzkSQXzNF8/view?usp=drive_link" target="_blank">
-                        <img src="guitar for jacobs site.png" alt="Guitar" class="guitar-svg" style="width: 100%; display: block; margin-top: -140px; margin-bottom: -120px; transform: rotate(7deg) translateX(-20px);">
+                        <img src="guitar for jacobs site.png" alt="Guitar" class="guitar-svg" style="width: 100%; display: block; margin-top: -100px; margin-bottom: -175px; transform: rotate(7deg) translateX(-20px);">
                     </a>
 
                 </div>
@@ -1017,6 +1064,7 @@
                 <div class="vid-cell">
                     <div class="vid-logo"><img src="Logos/doggo sessions.webp" alt="Doggo Sessions"></div>
                     <div class="vid-frame">
+                        <div class="play-overlay"></div>
                         <div class="vid-fill">
                             <video class="mini-video" controls controlsList="nodownload" preload="auto">
                                 <source src="videos/Doggo Sessions (720p for website).mp4" type="video/mp4">
@@ -1030,6 +1078,7 @@
                 <div class="vid-cell">
                     <div class="vid-logo"><img src="Logos/ibiyaya logo.png" alt="Ibiyaya"></div>
                     <div class="vid-frame">
+                        <div class="play-overlay"></div>
                         <div class="vid-fill">
                             <video class="mini-video" controls controlsList="nodownload" preload="auto">
                                 <source src="videos/Ibiyaya (720p for website).mp4" type="video/mp4">
@@ -1043,6 +1092,7 @@
                 <div class="vid-cell">
                     <div class="vid-logo"><img src="Logos/Fresh Patch Logo.png" alt="Fresh Patch"></div>
                     <div class="vid-frame">
+                        <div class="play-overlay"></div>
                         <div class="vid-fill">
                             <video class="mini-video" controls controlsList="nodownload" preload="auto">
                                 <source src="videos/fresh patch jacob site (720p for website).mp4" type="video/mp4">
@@ -1064,72 +1114,26 @@
                 </div>
             </div>
 
-            <div class="work-divider"></div>
-
-            <!-- Organic -->
-            <div class="work-header">
-                <div>
-                    <div class="card-section-label">Portfolio</div>
-                    <h2 class="card-section-title">Organic Concepts</h2>
-                </div>
-                <span class="work-count">04 Videos</span>
-            </div>
-
-            <div class="vid-grid">
-                <div class="vid-cell">
-                    <div class="vid-frame">
-                        <div class="vid-fill fill-earth"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="vid-meta">
-                        <span class="vid-brand">Coming Soon</span>
-                        <span class="vid-type">Lifestyle</span>
-                    </div>
-                </div>
-                <div class="vid-cell">
-                    <div class="vid-frame">
-                        <div class="vid-fill fill-warm"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="vid-meta">
-                        <span class="vid-brand">Coming Soon</span>
-                        <span class="vid-type">GRWM</span>
-                    </div>
-                </div>
-                <div class="vid-cell">
-                    <div class="vid-frame">
-                        <div class="vid-fill fill-rust"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="vid-meta">
-                        <span class="vid-brand">Coming Soon</span>
-                        <span class="vid-type">Unboxing</span>
-                    </div>
-                </div>
-                <div class="vid-cell">
-                    <div class="vid-frame">
-                        <div class="vid-fill fill-cool"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="vid-meta">
-                        <span class="vid-brand">Coming Soon</span>
-                        <span class="vid-type">Day In My Life</span>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- SLIDE 3: SERVICES -->
         <div class="slide">
             <div style="margin-bottom: 28px;">
-                <div class="card-section-label">What I Offer</div>
                 <h2 class="card-section-title">Services</h2>
+                <div class="card-section-label">What I Offer</div>
             </div>
 
             <div class="svc-grid">
                 <div class="svc-card">
-                    <div class="svc-card-num">01</div>
+                    <div class="svc-card-header">
+                        <div class="svc-card-num">01</div>
+                    </div>
+                    <div class="svc-card-body">
                     <h3>UGC</h3>
-                    <p>Authentic ad-ready content using the AIDA direct-response framework. Hooks that stop the scroll, stories that hold attention, CTAs that convert.</p>
+                    <p>Ad-ready videos created using a combination of retention editing, strong visuals, and expert knowledge of the entertainment industry to produce striking content that showcases your product(s) in a relatable way. Unlike traditional ads, UGC builds genuine trust, driving higher engagement and real conversions.</p>
 
-                    <div class="svc-expand">
-                        <div class="svc-exp-trigger" onclick="togSvc(this)">
+                    <div class="svc-expandable">
+                        <div class="svc-exp-header">
                             <span>What's Included</span>
                             <i class="fas fa-chevron-down arr"></i>
                         </div>
@@ -1147,15 +1151,19 @@
                             <em>Add-ons: Raw footage, hook/CTA variations, additional revisions</em>
                         </div>
                     </div>
+                    </div>
                 </div>
 
                 <div class="svc-card">
-                    <div class="svc-card-num">02</div>
+                    <div class="svc-card-header">
+                        <div class="svc-card-num">02</div>
+                    </div>
+                    <div class="svc-card-body">
                     <h3>Portfolio Development</h3>
                     <p>Custom UGC portfolio websites for creators — designed, built, and deployed so you can showcase your work and land more brand deals.</p>
 
-                    <div class="svc-expand">
-                        <div class="svc-exp-trigger" onclick="togSvc(this)">
+                    <div class="svc-expandable">
+                        <div class="svc-exp-header">
                             <span>What's Included</span>
                             <i class="fas fa-chevron-down arr"></i>
                         </div>
@@ -1170,6 +1178,7 @@
                             </ul>
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
 
@@ -1178,7 +1187,6 @@
         <!-- SLIDE 4: PROCESS -->
         <div class="slide">
             <div style="margin-bottom: 0;">
-                <div class="card-section-label">How It Works</div>
                 <h2 class="card-section-title">My Process</h2>
             </div>
 
@@ -1221,34 +1229,18 @@
                 </div>
             </div>
 
-            <!-- About pull-quote -->
-            <div class="about-band">
-                <p class="about-quote">"Living in Huntsville gives me access to stunning outdoor locations. With two dogs, two cats, and my wife as my creative partner, pet and couple content are natural parts of my everyday life. My background in music brings a unique creative perspective to every project."</p>
-                <div class="about-attr">
-                    <span class="gold">Jacob Hill</span>
-                    <span>·</span>
-                    <span>29</span>
-                    <span>·</span>
-                    <span>Huntsville, AL</span>
-                    <span>·</span>
-                    <span>Guitar & Bass</span>
-                </div>
-            </div>
         </div>
 
         <!-- SLIDE 5: CONTACT -->
         <div class="slide">
             <div class="card-contact">
                 <h2 class="ftr-cta">Let's <em>create</em><br>together</h2>
-                <p class="ftr-sub">Ready to make content that actually converts?</p>
 
                 <div class="ftr-links">
                     <a href="mailto:#" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
-
-                <div class="ftr-bottom">&copy; 2026 Jacob Hill &middot; All Rights Reserved</div>
             </div>
         </div>
 
@@ -1298,7 +1290,8 @@
                     // Active — front of stack
                     s.classList.add('active');
                     s.style.zIndex = totalSlides + 1;
-                    s.style.transform = 'translate(0, 0) rotate(var(--rot)) scale(1)';
+                    const yOff = parseInt(getComputedStyle(s).getPropertyValue('--y-offset')) || 0;
+                    s.style.transform = `translate(0, ${yOff}px) rotate(var(--rot)) scale(1)`;
                     s.style.opacity = '1';
                 } else {
                     // Behind — fanned out to the right/down
@@ -1358,23 +1351,25 @@
         });
         guitarImg.addEventListener('mouseleave', () => guitarImg.classList.remove('hovered'));
 
-        // Hide play overlay while video is playing
-        document.querySelectorAll('.vid-frame video').forEach(video => {
-            const frame = video.closest('.vid-frame');
+        // Play overlay click handler
+        document.querySelectorAll('.vid-frame').forEach(frame => {
+            const video = frame.querySelector('video');
+            const overlay = frame.querySelector('.play-overlay');
+            if (!video || !overlay) return;
+            overlay.addEventListener('click', () => video.play());
             video.addEventListener('play', () => frame.classList.add('playing'));
             video.addEventListener('pause', () => frame.classList.remove('playing'));
             video.addEventListener('ended', () => frame.classList.remove('playing'));
         });
 
         // Service expandables
-        function togSvc(t) {
-            const b = t.nextElementSibling;
-            const open = t.classList.contains('on');
-            const card = t.closest('.svc-card');
-            card.querySelectorAll('.svc-exp-trigger').forEach(x => x.classList.remove('on'));
-            card.querySelectorAll('.svc-exp-body').forEach(x => x.classList.remove('on'));
-            if (!open) { t.classList.add('on'); b.classList.add('on'); }
-        }
+        document.querySelectorAll('.svc-exp-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const body = this.nextElementSibling;
+                this.classList.toggle('active');
+                body.classList.toggle('active');
+            });
+        });
     </script>
 </body>
 </html>
