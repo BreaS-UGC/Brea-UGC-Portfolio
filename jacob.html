@@ -1130,11 +1130,20 @@
                     </div>
                     <div class="svc-card-body">
                     <h3>UGC</h3>
-                    <p>Ad-ready videos created using a combination of retention editing, strong visuals, and expert knowledge of the entertainment industry to produce striking content that showcases your product(s) in a relatable way. Unlike traditional ads, UGC builds genuine trust, driving higher engagement and real conversions.</p>
 
                     <div class="svc-expandable">
                         <div class="svc-exp-header">
-                            <span>What's Included</span>
+                            <span>What is UGC? & How Mine Is Better?</span>
+                            <i class="fas fa-chevron-down arr"></i>
+                        </div>
+                        <div class="svc-exp-body">
+                            <p>Ad-ready videos created using a combination of retention editing, strong visuals, and expert knowledge of the entertainment industry to produce striking content that showcases your product(s) in a relatable way. Unlike traditional ads, UGC builds genuine trust, driving higher engagement and real conversions.</p>
+                        </div>
+                    </div>
+
+                    <div class="svc-expandable">
+                        <div class="svc-exp-header">
+                            <span>What's Included?</span>
                             <i class="fas fa-chevron-down arr"></i>
                         </div>
                         <div class="svc-exp-body">
@@ -1146,7 +1155,7 @@
                                 <li>Scroll-Stopping Hook</li>
                                 <li>Strong CTA</li>
                                 <li>2 Revisions</li>
-                                <li>3 Months Paid Ad Usage</li>
+                                <li>30 Days Paid Ad Usage</li>
                             </ul>
                             <em>Add-ons: Raw footage, hook/CTA variations, additional revisions</em>
                         </div>
@@ -1164,7 +1173,7 @@
 
                     <div class="svc-expandable">
                         <div class="svc-exp-header">
-                            <span>What's Included</span>
+                            <span>What's Included?</span>
                             <i class="fas fa-chevron-down arr"></i>
                         </div>
                         <div class="svc-exp-body">
@@ -1340,6 +1349,17 @@
                 prevSlide();
             }
         });
+
+        // Scroll navigation
+        let scrollCooldown = false;
+        document.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            if (scrollCooldown) return;
+            scrollCooldown = true;
+            if (e.deltaY > 0) nextSlide();
+            else prevSlide();
+            setTimeout(() => { scrollCooldown = false; }, 700);
+        }, { passive: false });
 
 
         // Guitar hover — bottom 60% only
