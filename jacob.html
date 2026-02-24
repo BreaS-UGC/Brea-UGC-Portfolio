@@ -82,8 +82,59 @@
             text-decoration: none;
             letter-spacing: -0.3px;
         }
-        .hdr-nav { display: flex; gap: 6px; align-items: center; }
+        .hdr-nav {
+            position: fixed;
+            top: 18px;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: flex-end;
+            z-index: 101;
+        }
         .hdr-nav a {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--wheat);
+            text-decoration: none;
+            padding: 8px 18px 8px 14px;
+            border-radius: 4px 0 0 4px;
+            transition: all 0.25s;
+        }
+        .hdr-nav a:hover { color: var(--ink); background: var(--wheat); }
+
+        /* Services dropdown */
+        .nav-dropdown { position: relative; }
+        .nav-dropdown > a::after {
+            content: ' ▾';
+            font-size: 0.75em;
+        }
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--ink);
+            border: 1px solid rgba(212, 168, 84, 0.3);
+            min-width: 190px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+            display: none;
+            flex-direction: column;
+            z-index: 9999;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+        .nav-dropdown-menu a {
+            display: block;
+            margin: 0;
+            border-radius: 0;
+            padding: 12px 18px;
+            white-space: nowrap;
+        }
+
+        /* Pet UGC logo-adjacent button */
+        .logo-pet-btn {
             font-family: 'Didact Gothic', sans-serif;
             font-size: 0.72rem;
             font-weight: 500;
@@ -94,8 +145,9 @@
             padding: 8px 14px;
             border-radius: 4px;
             transition: all 0.25s;
+            white-space: nowrap;
         }
-        .hdr-nav a:hover { color: var(--ink); background: var(--wheat); }
+        .logo-pet-btn:hover { color: var(--ink); background: var(--wheat); }
 
         /* Hamburger */
         .hdr-ham { display: none; cursor: pointer; padding: 8px; }
@@ -180,7 +232,7 @@
         .slide:nth-child(2) { padding-top: 8px; padding-bottom: 16px; --y-offset: 20; }
         .slide:nth-child(2) .work-header:first-child { margin-top: 24px; margin-bottom: 12px; }
         /* Services card */
-        .slide:nth-child(3) { padding-top: 24px; }
+        .slide:nth-child(3) { padding-top: 24px; height: 68vh; max-height: 68vh; }
 
         /* Unique base rotations per card */
         .slide:nth-child(1) { --rot: -2deg; }
@@ -215,7 +267,8 @@
             font-size: 0.82rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--bourbon);
+            color: var(--parchment);
+            background: var(--bourbon);
             border: 1px solid var(--bourbon);
             border-radius: 8px;
             padding: 14px 24px;
@@ -226,8 +279,9 @@
             transform: translateY(15px);
         }
         .pet-btn:hover {
-            background: var(--bourbon);
-            color: var(--parchment);
+            background: var(--wheat);
+            color: var(--ink);
+            border-color: var(--wheat);
         }
         .guitar-svg {
             transition: filter 0.3s ease;
@@ -404,7 +458,7 @@
         .vid-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
+            gap: 18px;
         }
         .vid-cell { display: flex; flex-direction: column; gap: 8px; }
 
@@ -494,6 +548,9 @@
             height: auto;
             object-fit: contain;
         }
+        .vid-logo img[alt="Crown and Paw"] {
+            mix-blend-mode: multiply;
+        }
         .vid-logo-text {
             font-family: 'Didact Gothic', sans-serif;
             font-size: 0.65rem;
@@ -537,7 +594,7 @@
         .svc-card:hover { background: var(--faint); }
 
         .svc-card-header {
-            background: var(--ink);
+            background: var(--bourbon);
             padding: 14px 24px 10px;
         }
 
@@ -694,23 +751,23 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: var(--paper);
-            border: 2px solid var(--faint);
+            background: var(--bourbon);
+            border: 2px solid var(--bourbon);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
             font-family: 'Instrument Serif', serif;
             font-size: 1.1rem;
-            color: var(--bourbon);
+            color: #fff;
             position: relative;
             z-index: 2;
             transition: all 0.3s;
         }
         .proc-step:hover .proc-dot {
-            border-color: var(--bourbon);
-            background: var(--bourbon);
-            color: var(--paper);
+            border-color: var(--wheat);
+            background: var(--wheat);
+            color: var(--ink);
         }
 
         .proc-step h3 {
@@ -740,9 +797,9 @@
         }
 
         .proc-step .proc-sub {
-            font-size: 0.9rem;
-            color: var(--ash);
-            font-style: italic;
+            font-size: 0.8rem;
+            color: var(--smoke);
+            line-height: 1.65;
             margin-bottom: 10px;
         }
 
@@ -873,7 +930,13 @@
             color: var(--ink);
             background: transparent;
             outline: none;
-            transition: border-color 0.3s;
+            transition: border-bottom-color 0.3s, background 0.3s;
+        }
+        .contact-form input[type="text"]:hover,
+        .contact-form input[type="email"]:hover,
+        .contact-form textarea:hover {
+            border-bottom-color: var(--ash);
+            background: rgba(212, 168, 84, 0.1);
         }
         .contact-form input[type="text"]:focus,
         .contact-form input[type="email"]:focus,
@@ -897,17 +960,18 @@
             font-family: 'Didact Gothic', sans-serif;
             font-size: 0.72rem;
             letter-spacing: 0.5px;
-            color: var(--smoke);
+            color: #fff !important;
+            background: var(--bourbon);
             padding: 6px 14px;
-            border: 1.5px solid var(--faint);
+            border: 1.5px solid var(--bourbon);
             border-radius: 30px;
             transition: all 0.2s;
             user-select: none;
         }
-        .contact-form .checkbox-label:hover { border-color: var(--wheat); color: var(--ink); }
-        .contact-form .checkbox-label.selected { background: var(--bourbon); color: var(--parchment); border-color: var(--bourbon); }
+        .contact-form .checkbox-label:hover { background: var(--wheat); color: var(--ink) !important; border-color: var(--wheat); }
+        .contact-form .checkbox-label.selected { background: var(--wheat); color: var(--ink) !important; border-color: var(--wheat); }
         .contact-form .checkbox-label input[type="checkbox"] { display: none; }
-        .contact-form .submit-btn {
+        .contact-form .submit-btn, .submit-btn {
             display: block;
             width: 100%;
             margin-top: 16px;
@@ -923,7 +987,7 @@
             cursor: pointer;
             transition: all 0.25s;
         }
-        .contact-form .submit-btn:hover { background: var(--wheat); color: var(--ink); }
+        .contact-form .submit-btn:hover, .submit-btn:hover { background: var(--wheat); color: var(--ink); }
 
         /* ============================================
            NAVIGATION
@@ -1017,6 +1081,7 @@
         ============================================ */
         @media (max-width: 1024px) {
             .hdr-nav { display: none; }
+            .logo-pet-btn { display: none; }
             .hdr-ham { display: block; }
 
             .slide {
@@ -1103,14 +1168,18 @@
             <a href="#" class="hdr-logo" onclick="event.preventDefault();goTo(0)" style="visibility:hidden">.</a>
             <nav class="hdr-nav">
                 <a href="index.html">Brea UGC</a>
+                <a href="pet-ugc.html">Pet UGC</a>
                 <a href="#" onclick="event.preventDefault();goTo(2)">Services</a>
+                <a href="#" onclick="event.preventDefault();goTo(totalSlides - 1)">Book Me</a>
             </nav>
             <div class="hdr-ham" id="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
         </div>
     </header>
     <div class="mob-nav" id="mob">
         <a href="index.html" onclick="toggleNav()">Brea UGC</a>
-        <a href="#" onclick="event.preventDefault();toggleNav();goTo(2)">Services</a>
+        <a href="pet-ugc.html" onclick="toggleNav()">Pet UGC</a>
+        <a href="#" onclick="event.preventDefault();toggleNav();goTo(2)">UGC</a>
+        <a href="#" onclick="event.preventDefault();toggleNav();goTo(2)">Portfolio Development</a>
     </div>
 
     <!-- SLIDESHOW -->
@@ -1168,7 +1237,7 @@
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
                                 <source src="videos/Doggo Sessions (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1182,13 +1251,13 @@
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
                                 <source src="videos/Ibiyaya (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
                     <div class="vid-meta">
-                        <span class="vid-type">Product Demonstration</span>
+                        <span class="vid-type">Product Demo</span>
                     </div>
                 </div>
                 <div class="vid-cell">
@@ -1196,8 +1265,8 @@
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
-                                <source src="videos/fresh patch jacob site (720p for website).mp4" type="video/mp4">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
+                                <source src="videos/Fresh Patch with better CTA (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -1206,12 +1275,17 @@
                     </div>
                 </div>
                 <div class="vid-cell">
+                    <div class="vid-logo"><img src="Logos/crown and paw logo.jpg" alt="Crown and Paw"></div>
                     <div class="vid-frame">
-                        <div class="vid-fill fill-rust"><i class="fas fa-play"></i></div>
+                        <div class="play-overlay"></div>
+                        <div class="vid-fill">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
+                                <source src="videos/Crown and Paw (720p for website).mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                     <div class="vid-meta">
-                        <span class="vid-brand">Coming Soon</span>
-                        <span class="vid-type">Problem · Solution</span>
+                        <span class="vid-type">Reaction / Unboxing</span>
                     </div>
                 </div>
             </div>
@@ -1232,16 +1306,7 @@
                     </div>
                     <div class="svc-card-body">
                     <h3>UGC</h3>
-
-                    <div class="svc-expandable">
-                        <div class="svc-exp-header">
-                            <span>What is UGC? & How Mine Is Better?</span>
-                            <i class="fas fa-chevron-down arr"></i>
-                        </div>
-                        <div class="svc-exp-body">
-                            <p>Ad-ready videos created using a combination of retention editing, strong visuals, and expert knowledge of the entertainment industry to produce striking content that showcases your product(s) in a relatable way. Unlike traditional ads, UGC builds genuine trust, driving higher engagement and real conversions.</p>
-                        </div>
-                    </div>
+                    <p>Ad-ready videos created using a combination of retention editing, strong visuals, and expert knowledge of the entertainment industry to produce striking content that showcases your product(s) in a relatable way. Unlike traditional ads, UGC builds genuine trust, driving higher engagement and real conversions.</p>
 
                     <div class="svc-expandable">
                         <div class="svc-exp-header">
@@ -1259,20 +1324,7 @@
                                 <li>2 Revisions</li>
                                 <li>30 Days Paid Ad Usage</li>
                             </ul>
-                        </div>
-                    </div>
-
-                    <div class="svc-expandable">
-                        <div class="svc-exp-header">
-                            <span>Add-Ons</span>
-                            <i class="fas fa-chevron-down arr"></i>
-                        </div>
-                        <div class="svc-exp-body">
-                            <ul>
-                                <li>Raw Footage</li>
-                                <li>Hook / CTA Variations</li>
-                                <li>Additional Revisions</li>
-                            </ul>
+                            <p style="font-size: 0.72rem; color: var(--ash); margin-top: 10px; letter-spacing: 0.5px;">Add-Ons: Raw Footage &nbsp;·&nbsp; Hook / CTA Variations &nbsp;·&nbsp; Additional Revisions</p>
                         </div>
                     </div>
                     </div>
@@ -1284,7 +1336,7 @@
                     </div>
                     <div class="svc-card-body">
                     <h3>Portfolio Development</h3>
-                    <p>Custom UGC portfolio websites for creators — designed, built, and deployed so you can showcase your work and land more brand deals.</p>
+                    <p>Custom UGC portfolio websites for creators — designed and built to help you look professional, pitch with confidence, and land brand deals.</p>
 
                     <div class="svc-expandable">
                         <div class="svc-exp-header">
@@ -1294,14 +1346,41 @@
                         <div class="svc-exp-body">
                             <ul>
                                 <li>Custom design tailored to your brand</li>
-                                <li>Fully responsive layout</li>
-                                <li>Video portfolio showcase</li>
-                                <li>Contact / inquiry integration</li>
-                                <li>Deployment & hosting setup</li>
-                                <li>1 round of revisions</li>
+                                <li>Mobile-friendly responsive layout</li>
+                                <li>Video portfolio sections organized by niche/content type</li>
+                                <li>Contact and booking integration</li>
+                                <li>Domain setup and hosting</li>
+                                <li>2 rounds of revisions</li>
                             </ul>
+                            <p style="font-size: 0.72rem; color: var(--ash); margin-top: 10px; letter-spacing: 0.5px;">Add-Ons: Extra Pages &nbsp;·&nbsp; Custom Animations &nbsp;·&nbsp; Logo Design &nbsp;·&nbsp; Content Updates</p>
                         </div>
                     </div>
+                    <button class="submit-btn" style="margin-top: 28px; background: transparent; color: var(--bourbon); border: 1px solid var(--bourbon);" onmouseover="this.style.background='var(--bourbon)';this.style.color='var(--parchment)';" onmouseout="this.style.background='transparent';this.style.color='var(--bourbon)';" onclick="window.location.href='dev-site.html'">Build Your Portfolio</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--faint);">
+                <div style="margin-bottom: 0;">
+                    <h2 class="card-section-title">How It Works</h2>
+                    <div class="card-section-label">The Process</div>
+                </div>
+
+                <div class="proc-steps">
+                    <div class="proc-step">
+                        <div class="proc-dot">01</div>
+                        <h3>Creative Brief</h3>
+                        <p class="proc-sub">Quick email to go over your product, deliverables, and content direction</p>
+                    </div>
+                    <div class="proc-step">
+                        <div class="proc-dot">02</div>
+                        <h3>Development</h3>
+                        <p class="proc-sub">First draft in 5–7 business days, revisions discussed, finals delivered via Google Drive</p>
+                    </div>
+                    <div class="proc-step">
+                        <div class="proc-dot">03</div>
+                        <h3>Working Together</h3>
+                        <p class="proc-sub">Flexible contract setup — I can provide one covering deliverables, timelines, and payment terms</p>
                     </div>
                 </div>
             </div>
@@ -1312,8 +1391,9 @@
         <div class="slide">
             <h2 class="card-section-title">Ready to Get Started?</h2>
 
-            <form class="contact-form" action="https://formspree.io/f/xzdavbdj" method="POST">
+            <form class="contact-form" action="https://formspree.io/f/xdalpvve" method="POST">
                 <input type="hidden" name="_subject" value="New Jacob UGC Inquiry">
+                <input type="hidden" name="_next" value="https://breaugc.com/jacob.html?submitted=true">
 
                 <div class="form-group">
                     <label for="j-name">Name</label>
@@ -1361,7 +1441,7 @@
             </button>
         </div>
         <div class="slide-arrow-group">
-            <span class="slide-arrow-label">Next</span>
+            <span class="slide-arrow-label" id="nextLabel">Next</span>
             <button class="slide-arrow" id="nextBtn" onclick="nextSlide()">
                 <i class="fas fa-chevron-right"></i>
             </button>
@@ -1382,6 +1462,14 @@
                 this.classList.toggle('selected', cb.checked);
             });
         });
+
+        // Show thank-you message if redirected back after form submission
+        if (window.location.search.includes('submitted=true')) {
+            var form = document.querySelector('.contact-form');
+            if (form) {
+                form.innerHTML = '<div style="text-align:center; padding: 40px 0;"><h3 style="font-family: \'Didact Gothic\', sans-serif; font-size: 1.4rem; color: var(--bourbon); font-weight: 400; letter-spacing: 1px; margin-bottom: 10px;">Thank you!</h3><p style="font-size: 0.9rem; color: var(--smoke);">Your inquiry has been sent. Jacob will be in touch soon.</p></div>';
+            }
+        }
 
         // Mobile nav
         function toggleNav() {
@@ -1419,7 +1507,7 @@
                 } else {
                     // Behind — fanned out like cards on a table
                     const x = i === 3 ? -95 : i === 2 ? -75 : offset * -55;
-                    const y = i === 3 ? -50 : i === 2 ? -82 : offset === 1 ? -12 : offset * -48;
+                    const y = i === 3 ? -50 : i === 2 ? -72 : offset === 1 ? -12 : offset * -48;
                     const scale = 1 - (offset * 0.04);
                     const extraRot = i === 3 ? -2.5 : i === 2 ? -0.5 : offset * -3;
                     s.style.zIndex = totalSlides - offset;
@@ -1429,15 +1517,24 @@
             });
 
             document.getElementById('prevBtn').disabled = current === 0;
-            document.getElementById('nextBtn').disabled = current === totalSlides - 1;
+            document.getElementById('nextBtn').disabled = false;
+            document.getElementById('nextLabel').textContent = current === totalSlides - 1 ? 'Home' : 'Next';
             document.getElementById('counterCurrent').textContent = current + 1;
         }
 
         // Initial layout
         layoutStack();
 
+        // Reset scroll on all cards on page load
+        slides.forEach(function(s) { s.scrollTop = 0; });
+
+        function pauseAllVideos() {
+            document.querySelectorAll('.mini-video').forEach(v => { v.pause(); });
+        }
+
         function goTo(index) {
             if (transitioning || index === current || index < 0 || index >= totalSlides) return;
+            pauseAllVideos();
             transitioning = true;
             const leaving = (index > current) ? current : -1;
             current = index;
@@ -1449,12 +1546,17 @@
         }
 
         function nextSlide() {
-            if (current < totalSlides - 1) goTo(current + 1);
+            goTo(current < totalSlides - 1 ? current + 1 : 0);
         }
 
         function prevSlide() {
             if (current > 0) goTo(current - 1);
         }
+
+        // Pause videos on any visibility change (hide or return)
+        document.addEventListener('visibilitychange', () => {
+            pauseAllVideos();
+        });
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
@@ -1479,6 +1581,19 @@
             video.addEventListener('play', () => frame.classList.add('playing'));
             video.addEventListener('pause', () => frame.classList.remove('playing'));
             video.addEventListener('ended', () => frame.classList.remove('playing'));
+        });
+
+        // Pause all videos on page show or tab re-focus
+        function pauseAllVideos() {
+            document.querySelectorAll('.mini-video').forEach(function(v) {
+                v.pause();
+                var frame = v.closest('.vid-frame');
+                if (frame) frame.classList.remove('playing');
+            });
+        }
+        window.addEventListener('pageshow', pauseAllVideos);
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) pauseAllVideos();
         });
 
         // Service expandables
