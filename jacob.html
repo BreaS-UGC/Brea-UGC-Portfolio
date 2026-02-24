@@ -153,7 +153,7 @@
         .hdr-ham { display: none; cursor: pointer; padding: 8px; }
         .hdr-ham span {
             display: block; width: 20px; height: 1.5px;
-            background: var(--parchment); margin: 4px 0; transition: 0.3s;
+            background: var(--wheat); margin: 4px 0; transition: 0.3s;
         }
         .hdr-ham.on span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
         .hdr-ham.on span:nth-child(2) { opacity: 0; }
@@ -168,9 +168,17 @@
         .mob-nav.on { opacity: 1; pointer-events: all; }
         .mob-nav a {
             font-family: 'Didact Gothic', sans-serif;
-            font-size: 2rem; color: var(--parchment);
-            text-decoration: none; padding: 10px 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--wheat);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: all 0.25s;
         }
+        .mob-nav a:hover { color: var(--ink); background: var(--wheat); }
 
         /* ============================================
            SLIDESHOW
@@ -1085,25 +1093,27 @@
             .hdr-ham { display: block; }
 
             .slide {
-                width: 95vw;
-                max-height: 82vh;
-                padding: 36px 32px;
+                width: 88vw;
+                left: 6vw;
+                max-height: 72vh;
+                padding: 24px 20px;
             }
 
-            .slide:nth-child(1) { --rot: -1deg; }
-            .slide:nth-child(2) { --rot: 1deg; }
-            .slide:nth-child(3) { --rot: -0.5deg; }
+            .slide:nth-child(1) { --rot: -1deg; overflow-y: auto; }
+            .slide:nth-child(2) { --rot: -1deg; --y-offset: 0; top: 14vh; left: 4vw; width: 92vw; height: auto; max-height: none; overflow-y: visible; }
+            .slide:nth-child(3) { --rot: -0.5deg; height: auto; max-height: 72vh; }
             .slide:nth-child(4) { --rot: 1deg; }
-            .slide:nth-child(5) { --rot: -0.8deg; }
 
-            .card-hero {
-                flex-direction: column;
-                gap: 28px;
-            }
-            .card-hero-right {
-                justify-content: center;
-            }
-            .hero-photo { width: 170px; }
+            .guitar-svg { display: none; }
+
+            .card-hero { flex-direction: column; gap: 14px; align-items: stretch; }
+            .card-hero-left { width: 100%; align-items: center; text-align: center; }
+            .card-hero-right { width: 100%; align-items: center; justify-content: center; }
+            .card-hero-photos { justify-content: center; }
+            .pet-btn { display: block; text-align: center; margin: 0 auto; }
+            .hero-facts { justify-content: center; flex-wrap: wrap; }
+            .hero-desc { transform: none; text-align: center; font-size: 0.95rem; max-width: 100%; }
+            .hero-photo { width: 130px; }
 
             .vid-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -1111,15 +1121,15 @@
 
             .proc-steps {
                 grid-template-columns: 1fr;
-                gap: 28px;
+                gap: 20px;
             }
             .proc-steps::before { display: none; }
             .proc-step {
                 text-align: left;
                 padding: 0;
                 display: grid;
-                grid-template-columns: 48px 1fr;
-                gap: 12px;
+                grid-template-columns: 40px 1fr;
+                gap: 10px;
                 align-items: start;
             }
             .proc-dot { margin: 0; }
@@ -1127,36 +1137,59 @@
         }
 
         @media (max-width: 576px) {
-            .hdr-inner { padding: 14px 20px; }
+            .hdr-inner { padding: 12px 16px; }
 
             .slide {
-                padding: 28px 20px;
-                max-height: 78vh;
+                width: 88vw;
+                padding: 20px 16px;
+                max-height: 68vh;
             }
 
-            .slide:nth-child(1),
+            .slide:nth-child(1) { --rot: 1deg; --y-offset: -50; left: 4vw; width: 92vw; max-height: 92vh; }
             .slide:nth-child(2),
             .slide:nth-child(3),
-            .slide:nth-child(4),
-            .slide:nth-child(5) { --rot: 0deg; }
+            .slide:nth-child(4) { --rot: 0deg; }
+            .slide:nth-child(2) { height: auto; max-height: none; overflow-y: visible; }
 
+            /* Hero */
             .hero-name { font-size: 2.4rem; letter-spacing: -1px; }
-            .hero-facts { gap: 10px; }
-            .hero-photo { width: 140px; }
+            .hero-facts { gap: 6px; flex-wrap: wrap; font-size: 0.85rem; }
+            .hero-photo { width: 80px; }
+            .slide:nth-child(1) .hero-photo { width: 160px; }
+            .hero-desc { font-size: 1.05rem; line-height: 1.5; max-width: 100%; }
+            .slide:nth-child(1) .hero-desc { margin-top: 8px; }
+            .pet-btn { font-size: 0.85rem; padding: 20px 18px; margin-bottom: 20px; }
 
-            .vid-grid { gap: 8px; }
-            .vid-brand { font-size: 0.65rem; }
-            .vid-type { font-size: 0.55rem; }
+            /* Work */
+            .card-section-title { font-size: 1.2rem; }
+            .vid-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .vid-frame { aspect-ratio: unset; height: 200px; }
+            .slide:nth-child(2) .vid-grid { grid-template-columns: repeat(2, 110px); justify-content: center; gap: 28px; }
+            .slide:nth-child(2) .vid-cell { align-items: center; }
+            .slide:nth-child(2) .vid-meta { text-align: center; width: 110px; }
+            .slide:nth-child(2) .vid-frame { aspect-ratio: 9/16; height: auto; width: 110px; }
+            .vid-logo { height: 28px; }
+            .vid-logo img { max-height: 28px; max-width: 100px; }
+            .vid-brand { font-size: 0.65rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .vid-type { font-size: 0.55rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-            .svc-card { padding: 20px 16px; }
-            .rates-bar { padding: 16px; flex-direction: column; text-align: center; }
+            /* Services */
+            .slide:nth-child(3) { height: auto; max-height: 68vh; top: 17vh; }
+            .svc-card-header { padding: 8px 14px; }
+            .svc-card-body { padding: 14px; }
+            .svc-card-num { font-size: 2rem; }
+            .proc-section { display: none; }
 
-            .ftr-cta { font-size: 2rem; }
-            .about-quote { font-size: 0.88rem; }
+            /* Contact */
+            .slide:nth-child(4) { top: 21vh; left: 5vw; }
+            .ftr-cta { font-size: 1.6rem; }
+            .form-group { margin-bottom: 12px; }
+            .checkbox-label { font-size: 0.65rem; padding: 5px 10px; }
 
-            .slide-nav { bottom: 20px; gap: 14px; }
+            /* Nav arrows — centered at bottom */
+            .slide-nav { right: auto; left: 50%; transform: translateX(-50%); bottom: 14px; }
             .slide-arrow { width: 38px; height: 38px; font-size: 0.7rem; }
-            .slide-counter { bottom: 24px; right: 20px; font-size: 0.75rem; }
+            .slide-counter { display: none; }
         }
     </style>
 </head>
@@ -1178,8 +1211,8 @@
     <div class="mob-nav" id="mob">
         <a href="index.html" onclick="toggleNav()">Brea UGC</a>
         <a href="pet-ugc.html" onclick="toggleNav()">Pet UGC</a>
-        <a href="#" onclick="event.preventDefault();toggleNav();goTo(2)">UGC</a>
-        <a href="#" onclick="event.preventDefault();toggleNav();goTo(2)">Portfolio Development</a>
+        <a href="#" onclick="event.preventDefault();toggleNav();goTo(2)">Services</a>
+        <a href="#" onclick="event.preventDefault();toggleNav();goTo(3)">Book Me</a>
     </div>
 
     <!-- SLIDESHOW -->
@@ -1199,9 +1232,6 @@
                     </div>
 
                     <p class="hero-desc">I create couple and male UGC for brands with a focus on pet content. I also build portfolio sites for creators, and play guitar/bass/sing. Based in Huntsville, AL with my wife, two dogs, and two cats.</p>
-                    <a href="https://drive.google.com/file/d/1bpmAjvE-Ax_NqsvUkNfx2RXzkSQXzNF8/view?usp=drive_link" target="_blank">
-                        <img src="guitar for jacobs site.png" alt="Guitar" class="guitar-svg" style="width: 310px; display: block; margin-top: -113px; margin-bottom: -155px; transform: rotate(7deg) translate(5px, -45px);">
-                    </a>
                 </div>
 
                 <div class="card-hero-right">
@@ -1360,7 +1390,7 @@
                 </div>
             </div>
 
-            <div style="margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--faint);">
+            <div class="proc-section" style="margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--faint);">
                 <div style="margin-bottom: 0;">
                     <h2 class="card-section-title">How It Works</h2>
                     <div class="card-section-label">The Process</div>
@@ -1486,6 +1516,7 @@
 
         // Position all cards in a fanned stack
         function layoutStack(leavingCard = -1) {
+            const mobile = window.innerWidth <= 1024;
             slides.forEach((s, i) => {
                 const offset = i - current;
                 s.classList.remove('active', 'past');
@@ -1502,14 +1533,23 @@
                     s.classList.add('active');
                     s.style.zIndex = totalSlides + 1;
                     const yOff = parseInt(getComputedStyle(s).getPropertyValue('--y-offset')) || 0;
-                    s.style.transform = `translate(0, ${yOff}px) rotate(var(--rot)) scale(1.08)`;
+                    const activeScale = mobile ? 1.0 : 1.08;
+                    s.style.transform = `translate(0, ${yOff}px) rotate(var(--rot)) scale(${activeScale})`;
                     s.style.opacity = '1';
                 } else {
-                    // Behind — fanned out like cards on a table
-                    const x = i === 3 ? -95 : i === 2 ? -75 : offset * -55;
-                    const y = i === 3 ? -50 : i === 2 ? -72 : offset === 1 ? -12 : offset * -48;
-                    const scale = 1 - (offset * 0.04);
-                    const extraRot = i === 3 ? -2.5 : i === 2 ? -0.5 : offset * -3;
+                    // Behind — fanned stack
+                    let x, y, scale, extraRot;
+                    if (mobile) {
+                        x = 0;
+                        y = offset * -65;
+                        scale = 1 - (offset * 0.04);
+                        extraRot = i === 2 ? -2 : i === 3 ? -3 : 0;
+                    } else {
+                        x = i === 3 ? -95 : i === 2 ? -75 : offset * -55;
+                        y = i === 3 ? -50 : i === 2 ? -72 : offset === 1 ? -12 : offset * -48;
+                        scale = 1 - (offset * 0.04);
+                        extraRot = i === 3 ? -2.5 : i === 2 ? -0.5 : offset * -3;
+                    }
                     s.style.zIndex = totalSlides - offset;
                     s.style.transform = `translate(${x}px, ${y}px) rotate(calc(var(--rot) + ${extraRot}deg)) scale(${scale})`;
                     s.style.opacity = '1';
@@ -1520,6 +1560,11 @@
             document.getElementById('nextBtn').disabled = false;
             document.getElementById('nextLabel').textContent = current === totalSlides - 1 ? 'Home' : 'Next';
             document.getElementById('counterCurrent').textContent = current + 1;
+
+            if (mobile) {
+                const slideNav = document.querySelector('.slide-nav');
+                slideNav.style.bottom = current === 0 ? '80px' : '';
+            }
         }
 
         // Initial layout
