@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Instrument+Serif:ital@0;1&family=Josefin+Slab:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -33,7 +33,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Didact Gothic', sans-serif;
             color: var(--ink);
             background: url('Jacob ugc background black.svg') center center / cover no-repeat fixed;
             background-color: var(--ink);
@@ -89,13 +89,13 @@
             font-weight: 500;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--ash);
+            color: var(--wheat);
             text-decoration: none;
             padding: 8px 14px;
             border-radius: 4px;
             transition: all 0.25s;
         }
-        .hdr-nav a:hover { color: var(--parchment); background: rgba(255,255,255,0.05); }
+        .hdr-nav a:hover { color: var(--ink); background: var(--wheat); }
 
         /* Hamburger */
         .hdr-ham { display: none; cursor: pointer; padding: 8px; }
@@ -136,15 +136,15 @@
 
         .slide {
             position: absolute;
-            width: 90vw;
-            max-width: 900px;
-            max-height: 85vh;
+            width: 72vw;
+            max-width: 760px;
+            max-height: 87vh;
             overflow-y: auto;
             background: url('jacob ugc parchment.svg') center center / cover no-repeat;
             background-color: var(--cream);
             border-radius: 0;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            padding: 48px 52px;
+            padding: 24px;
             pointer-events: none;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
                         opacity 0.5s ease,
@@ -171,10 +171,10 @@
         .slide::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 4px; }
 
         /* Hero card */
-        .slide:nth-child(1) { max-height: none; overflow: hidden; padding-bottom: 42px; padding-top: 24px; }
+        .slide:nth-child(1) { height: auto; max-height: 88vh; overflow: hidden; padding-bottom: 24px; padding-top: 24px; padding-right: 24px; padding-left: 24px; }
         /* Hero card: bigger overall */
-        .slide:nth-child(1) { width: 95vw; max-width: 980px; }
-        .slide:nth-child(1) .hero-photo { width: 230px; }
+        .slide:nth-child(1) { width: 72vw; max-width: 760px; }
+        .slide:nth-child(1) .hero-photo { width: 190px; }
         .slide:nth-child(1) .hero-desc { margin-top: 30px; }
         /* Work card */
         .slide:nth-child(2) { padding-top: 8px; padding-bottom: 16px; --y-offset: 20; }
@@ -186,7 +186,7 @@
         .slide:nth-child(1) { --rot: -2deg; }
         .slide:nth-child(2) { --rot: 1.5deg; }
         .slide:nth-child(3) { --rot: -1deg; }
-        .slide:nth-child(4) { --rot: 2deg; }
+        .slide:nth-child(4) { --rot: 0deg; }
         .slide:nth-child(5) { --rot: -1.5deg; }
 
         /* ============================================
@@ -194,10 +194,10 @@
         ============================================ */
         .card-hero {
             display: flex;
-            gap: 40px;
+            gap: 64px;
             align-items: flex-start;
         }
-        .card-hero-left { flex: 1; min-width: 0; }
+        .card-hero-left { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0; }
         .card-hero-right {
             display: flex;
             flex-direction: column;
@@ -212,17 +212,18 @@
         }
         .pet-btn {
             font-family: 'Didact Gothic', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.82rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--bourbon);
             border: 1px solid var(--bourbon);
-            padding: 12px 24px;
+            border-radius: 8px;
+            padding: 14px 24px;
             text-decoration: none;
             transition: all 0.3s;
             text-align: center;
             width: 100%;
-            margin-top: 14px;
+            transform: translateY(15px);
         }
         .pet-btn:hover {
             background: var(--bourbon);
@@ -269,30 +270,35 @@
 
         .hero-desc {
             font-family: 'Didact Gothic', sans-serif;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: var(--smoke);
+            font-size: 1.18rem;
+            line-height: 1.7;
+            color: var(--ink);
             max-width: 400px;
             margin-bottom: 0;
-            margin-top: -25px;
+            margin-top: 0;
+            transform: translateY(-20px) scale(0.9);
+            transform-origin: left top;
         }
         .hero-desc strong { color: var(--tobacco); font-weight: 600; }
 
         .hero-facts {
             display: flex;
-            gap: 18px;
-            margin-bottom: 28px;
-            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 8px;
+            margin-bottom: 0;
+            margin-top: 6px;
+            flex-wrap: nowrap;
+            transform: translateX(-1px);
         }
         .hero-fact {
             font-family: 'Didact Gothic', sans-serif;
-            font-size: 0.68rem;
-            letter-spacing: 1.5px;
+            font-size: 0.55rem;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
             color: var(--bourbon);
             padding: 5px 0;
-            border-bottom: 1px solid var(--faint);
             font-weight: 700;
+            white-space: nowrap;
         }
 
         .hero-socials {
@@ -317,7 +323,7 @@
 
         .hero-photo {
             width: 200px;
-            aspect-ratio: 5/7;
+            aspect-ratio: 5/8;
             border-radius: 12px;
             overflow: hidden;
         }
@@ -531,7 +537,7 @@
         .svc-card:hover { background: var(--faint); }
 
         .svc-card-header {
-            background: var(--bourbon);
+            background: var(--ink);
             padding: 14px 24px 10px;
         }
 
@@ -709,7 +715,7 @@
 
         .proc-step h3 {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.15rem;
+            font-size: 1.4rem;
             color: var(--ink);
             margin-bottom: 12px;
         }
@@ -722,7 +728,7 @@
             margin: 0 auto;
         }
         .proc-step li {
-            font-size: 0.82rem;
+            font-size: 0.95rem;
             color: var(--smoke);
             padding: 4px 0;
             line-height: 1.6;
@@ -734,7 +740,7 @@
         }
 
         .proc-step .proc-sub {
-            font-size: 0.78rem;
+            font-size: 0.9rem;
             color: var(--ash);
             font-style: italic;
             margin-bottom: 10px;
@@ -840,18 +846,112 @@
         }
 
         /* ============================================
+           CONTACT FORM
+        ============================================ */
+        .contact-form { margin-top: 20px; }
+        .contact-form .form-group { margin-bottom: 20px; }
+        .contact-form .form-group label {
+            display: block;
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--smoke);
+            margin-bottom: 4px;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 8px 0;
+            border: none;
+            border-bottom: 1.5px solid var(--faint);
+            border-radius: 0;
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 0.9rem;
+            color: var(--ink);
+            background: transparent;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            border-bottom-color: var(--wheat);
+        }
+        .contact-form input[type="text"]#j-name { width: 60%; }
+        .contact-form input[type="email"]#j-email { width: 75%; }
+        .contact-form input[type="text"]#j-budget { width: 40%; }
+        .contact-form textarea {
+            min-height: 70px;
+            resize: vertical;
+        }
+        .contact-form .checkbox-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .contact-form .checkbox-label {
+            cursor: pointer;
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.5px;
+            color: var(--smoke);
+            padding: 6px 14px;
+            border: 1.5px solid var(--faint);
+            border-radius: 30px;
+            transition: all 0.2s;
+            user-select: none;
+        }
+        .contact-form .checkbox-label:hover { border-color: var(--wheat); color: var(--ink); }
+        .contact-form .checkbox-label.selected { background: var(--bourbon); color: var(--parchment); border-color: var(--bourbon); }
+        .contact-form .checkbox-label input[type="checkbox"] { display: none; }
+        .contact-form .submit-btn {
+            display: block;
+            width: 100%;
+            margin-top: 16px;
+            padding: 12px;
+            background: var(--bourbon);
+            color: var(--parchment);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .contact-form .submit-btn:hover { background: var(--wheat); color: var(--ink); }
+
+        /* ============================================
            NAVIGATION
         ============================================ */
         .slide-nav {
             position: fixed;
-            top: 50%;
-            right: 24px;
-            transform: translateY(-50%);
+            bottom: 32px;
+            right: 32px;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             gap: 8px;
             z-index: 50;
         }
+        .slide-arrow-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .slide-arrow-label {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--wheat);
+            transition: opacity 0.3s;
+        }
+        .slide-arrow-group:has(button:disabled) .slide-arrow-label { opacity: 0.3; }
 
         .slide-arrow {
             padding: 10px 20px;
@@ -900,6 +1000,7 @@
 
         /* Slide counter */
         .slide-counter {
+            display: none;
             position: fixed;
             bottom: 36px;
             right: 32px;
@@ -1022,15 +1123,16 @@
                     <h1 class="hero-name">Jacob Hill</h1>
                     <div class="hero-facts">
                         <span class="hero-fact">UGC Creator</span>
+                        <span class="hero-fact" >|</span>
                         <span class="hero-fact">Portfolio Dev</span>
+                        <span class="hero-fact" >|</span>
                         <span class="hero-fact">Musician</span>
                     </div>
 
                     <p class="hero-desc">I create couple and male UGC for brands with a focus on pet content. I also build portfolio sites for creators, and play guitar/bass/sing. Based in Huntsville, AL with my wife, two dogs, and two cats.</p>
                     <a href="https://drive.google.com/file/d/1bpmAjvE-Ax_NqsvUkNfx2RXzkSQXzNF8/view?usp=drive_link" target="_blank">
-                        <img src="guitar for jacobs site.png" alt="Guitar" class="guitar-svg" style="width: 100%; display: block; margin-top: -100px; margin-bottom: -175px; transform: rotate(7deg) translateX(-20px);">
+                        <img src="guitar for jacobs site.png" alt="Guitar" class="guitar-svg" style="width: 310px; display: block; margin-top: -113px; margin-bottom: -155px; transform: rotate(7deg) translate(5px, -45px);">
                     </a>
-
                 </div>
 
                 <div class="card-hero-right">
@@ -1157,7 +1259,20 @@
                                 <li>2 Revisions</li>
                                 <li>30 Days Paid Ad Usage</li>
                             </ul>
-                            <em>Add-ons: Raw footage, hook/CTA variations, additional revisions</em>
+                        </div>
+                    </div>
+
+                    <div class="svc-expandable">
+                        <div class="svc-exp-header">
+                            <span>Add-Ons</span>
+                            <i class="fas fa-chevron-down arr"></i>
+                        </div>
+                        <div class="svc-exp-body">
+                            <ul>
+                                <li>Raw Footage</li>
+                                <li>Hook / CTA Variations</li>
+                                <li>Additional Revisions</li>
+                            </ul>
                         </div>
                     </div>
                     </div>
@@ -1193,83 +1308,81 @@
 
         </div>
 
-        <!-- SLIDE 4: PROCESS -->
+        <!-- SLIDE 4: CONTACT -->
         <div class="slide">
-            <div style="margin-bottom: 0;">
-                <h2 class="card-section-title">My Process</h2>
-            </div>
+            <h2 class="card-section-title">Ready to Get Started?</h2>
 
-            <div class="proc-steps">
-                <div class="proc-step">
-                    <div class="proc-dot">1</div>
-                    <div>
-                        <h3>Creative Vision</h3>
-                        <p class="proc-sub">Quick call or email to discuss:</p>
-                        <ul>
-                            <li>Creative brief</li>
-                            <li>Deliverable requirements</li>
-                            <li>Content ideas</li>
-                        </ul>
+            <form class="contact-form" action="https://formspree.io/f/xzdavbdj" method="POST">
+                <input type="hidden" name="_subject" value="New Jacob UGC Inquiry">
+
+                <div class="form-group">
+                    <label for="j-name">Name</label>
+                    <input type="text" id="j-name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="j-email">Email</label>
+                    <input type="email" id="j-email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Content Type</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox" name="content_type" value="UGC"> UGC</label>
+                        <label class="checkbox-label"><input type="checkbox" name="content_type" value="Pet UGC"> Pet UGC</label>
+                        <label class="checkbox-label"><input type="checkbox" name="content_type" value="Organic Content"> Organic Content</label>
+                        <label class="checkbox-label"><input type="checkbox" name="content_type" value="Couple Content"> Couple Content</label>
+                        <label class="checkbox-label"><input type="checkbox" name="content_type" value="Other"> Other</label>
                     </div>
                 </div>
 
-                <div class="proc-step">
-                    <div class="proc-dot">2</div>
-                    <div>
-                        <h3>Development</h3>
-                        <ul>
-                            <li>1st draft in 3–5 days</li>
-                            <li>Review & revision discussion</li>
-                            <li>Finals via Google Drive</li>
-                        </ul>
-                    </div>
+                <div class="form-group">
+                    <label for="j-budget">Budget</label>
+                    <input type="text" id="j-budget" name="budget">
                 </div>
 
-                <div class="proc-step">
-                    <div class="proc-dot">3</div>
-                    <div>
-                        <h3>Working Together</h3>
-                        <ul>
-                            <li>Adaptable to your contract structure</li>
-                            <li>Professional collab contract available</li>
-                            <li>Seamless process, start to finish</li>
-                        </ul>
-                    </div>
+                <div class="form-group">
+                    <label for="j-message">Message</label>
+                    <textarea id="j-message" name="message" required></textarea>
                 </div>
-            </div>
 
-        </div>
-
-        <!-- SLIDE 5: CONTACT -->
-        <div class="slide">
-            <div class="card-contact">
-                <h2 class="ftr-cta">Let's <em>create</em><br>together</h2>
-
-                <div class="ftr-links">
-                    <a href="mailto:#" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
         </div>
 
     </div>
 
     <!-- SLIDE NAVIGATION -->
     <div class="slide-nav">
-        <button class="slide-arrow" id="prevBtn" onclick="prevSlide()" disabled>
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="slide-arrow" id="nextBtn" onclick="nextSlide()">
-            <i class="fas fa-chevron-right"></i>
-        </button>
+        <div class="slide-arrow-group">
+            <span class="slide-arrow-label">Back</span>
+            <button class="slide-arrow" id="prevBtn" onclick="prevSlide()" disabled>
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <div class="slide-arrow-group">
+            <span class="slide-arrow-label">Next</span>
+            <button class="slide-arrow" id="nextBtn" onclick="nextSlide()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
     </div>
 
     <div class="slide-counter">
-        <span class="current" id="counterCurrent">1</span> / <span id="counterTotal">5</span>
+        <span class="current" id="counterCurrent">1</span> / <span id="counterTotal">4</span>
     </div>
 
     <script>
+        // Checkbox pill toggle
+        document.querySelectorAll('.contact-form .checkbox-label').forEach(function(label) {
+            label.addEventListener('click', function(e) {
+                e.preventDefault();
+                var cb = this.querySelector('input[type="checkbox"]');
+                cb.checked = !cb.checked;
+                this.classList.toggle('selected', cb.checked);
+            });
+        });
+
         // Mobile nav
         function toggleNav() {
             document.getElementById('ham').classList.toggle('on');
@@ -1284,7 +1397,7 @@
 
 
         // Position all cards in a fanned stack
-        function layoutStack() {
+        function layoutStack(leavingCard = -1) {
             slides.forEach((s, i) => {
                 const offset = i - current;
                 s.classList.remove('active', 'past');
@@ -1292,7 +1405,8 @@
                 if (offset < 0) {
                     // Already passed — hidden off to the left
                     s.classList.add('past');
-                    s.style.zIndex = 0;
+                    // Keep the leaving card on top during its exit animation
+                    s.style.zIndex = (i === leavingCard) ? totalSlides + 2 : 0;
                     s.style.transform = 'translateX(-120%) rotate(-8deg) scale(0.9)';
                     s.style.opacity = '0';
                 } else if (offset === 0) {
@@ -1300,18 +1414,17 @@
                     s.classList.add('active');
                     s.style.zIndex = totalSlides + 1;
                     const yOff = parseInt(getComputedStyle(s).getPropertyValue('--y-offset')) || 0;
-                    s.style.transform = `translate(0, ${yOff}px) rotate(var(--rot)) scale(1)`;
+                    s.style.transform = `translate(0, ${yOff}px) rotate(var(--rot)) scale(1.08)`;
                     s.style.opacity = '1';
                 } else {
-                    // Behind — fanned out to the right/down
-                    // Each card peeks out a bit more, with diminishing opacity
-                    const x = offset * 18;
-                    const y = offset * 10;
-                    const scale = 1 - (offset * 0.03);
-                    const opacity = 1;
+                    // Behind — fanned out like cards on a table
+                    const x = i === 3 ? -95 : i === 2 ? -75 : offset * -55;
+                    const y = i === 3 ? -50 : i === 2 ? -82 : offset === 1 ? -12 : offset * -48;
+                    const scale = 1 - (offset * 0.04);
+                    const extraRot = i === 3 ? -2.5 : i === 2 ? -0.5 : offset * -3;
                     s.style.zIndex = totalSlides - offset;
-                    s.style.transform = `translate(${x}px, ${y}px) rotate(var(--rot)) scale(${scale})`;
-                    s.style.opacity = String(opacity);
+                    s.style.transform = `translate(${x}px, ${y}px) rotate(calc(var(--rot) + ${extraRot}deg)) scale(${scale})`;
+                    s.style.opacity = '1';
                 }
             });
 
@@ -1326,9 +1439,13 @@
         function goTo(index) {
             if (transitioning || index === current || index < 0 || index >= totalSlides) return;
             transitioning = true;
+            const leaving = (index > current) ? current : -1;
             current = index;
-            layoutStack();
-            setTimeout(() => { transitioning = false; }, 500);
+            layoutStack(leaving);
+            setTimeout(() => {
+                transitioning = false;
+                if (leaving >= 0) slides[leaving].style.zIndex = 0;
+            }, 500);
         }
 
         function nextSlide() {
@@ -1351,27 +1468,9 @@
         });
 
         // Scroll navigation
-        let scrollCooldown = false;
-        document.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            if (scrollCooldown) return;
-            scrollCooldown = true;
-            if (e.deltaY > 0) nextSlide();
-            else prevSlide();
-            setTimeout(() => { scrollCooldown = false; }, 700);
-        }, { passive: false });
 
 
-        // Guitar hover — bottom 60% only
-        const guitarImg = document.querySelector('.guitar-svg');
-        guitarImg.addEventListener('mousemove', (e) => {
-            const rect = guitarImg.getBoundingClientRect();
-            const relY = (e.clientY - rect.top) / rect.height;
-            guitarImg.classList.toggle('hovered', relY > 0.4);
-        });
-        guitarImg.addEventListener('mouseleave', () => guitarImg.classList.remove('hovered'));
-
-        // Play overlay click handler
+// Play overlay click handler
         document.querySelectorAll('.vid-frame').forEach(frame => {
             const video = frame.querySelector('video');
             const overlay = frame.querySelector('.play-overlay');
@@ -1390,6 +1489,15 @@
                 body.classList.toggle('active');
             });
         });
+
+        // Guitar hover — bottom 60% only
+        const guitarImg = document.querySelector('.guitar-svg');
+        guitarImg.addEventListener('mousemove', (e) => {
+            const rect = guitarImg.getBoundingClientRect();
+            const relY = (e.clientY - rect.top) / rect.height;
+            guitarImg.classList.toggle('hovered', relY > 0.4);
+        });
+        guitarImg.addEventListener('mouseleave', () => guitarImg.classList.remove('hovered'));
     </script>
 </body>
 </html>
