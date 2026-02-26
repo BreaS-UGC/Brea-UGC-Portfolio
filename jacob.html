@@ -1079,7 +1079,7 @@
         .swipe-hint {
             display: none;
             position: fixed;
-            bottom: calc(100vh - 100svh - 50px);
+            bottom: calc(100vh - 100svh - 45px);
             left: 50%;
             transform: translateX(-50%);
             width: 55px;
@@ -1739,7 +1739,7 @@
                     s.classList.add('active');
                     s.style.zIndex = totalSlides + 1;
                     if (mobile) {
-                        s.style.top = i === 0 ? 'calc(22% - 25px)' : (i === 1 ? '5%' : '22%');
+                        s.style.top = i === 0 ? 'calc(22% - 55px)' : (i === 1 ? '5%' : '22%');
                         s.style.transform = `rotate(var(--rot)) scale(1)`;
                     } else {
                         s.style.top = '';
