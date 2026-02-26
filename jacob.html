@@ -196,9 +196,9 @@
 
         .slide {
             position: absolute;
-            width: 72vw;
-            max-width: 760px;
-            max-height: 87vh;
+            width: 85vw;
+            max-width: 960px;
+            max-height: 90vh;
             overflow-y: auto;
             background: url('jacob ugc parchment.svg') center center / cover no-repeat;
             background-color: var(--cream);
@@ -231,23 +231,21 @@
         .slide::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 4px; }
 
         /* Hero card */
-        .slide:nth-child(1) { height: auto; max-height: 88vh; overflow: hidden; padding-bottom: 24px; padding-top: 24px; padding-right: 24px; padding-left: 24px; }
-        /* Hero card: bigger overall */
-        .slide:nth-child(1) { width: 72vw; max-width: 760px; }
+        .slide:nth-child(1) { height: auto; max-height: 92vh; overflow-y: auto; padding: 14px 24px 24px 24px; }
         .slide:nth-child(1) .hero-photo { width: 190px; }
         .slide:nth-child(1) .hero-desc { margin-top: 30px; }
-        /* Work card */
-        .slide:nth-child(2) { padding-top: 8px; padding-bottom: 16px; --y-offset: 20; }
-        .slide:nth-child(2) .work-header:first-child { margin-top: 24px; margin-bottom: 12px; }
+        /* Recent Projects card */
+        .slide:nth-child(2) { padding-top: 8px; padding-bottom: 16px; }
         /* Services card */
-        .slide:nth-child(3) { padding-top: 24px; height: 68vh; max-height: 68vh; }
+        .slide:nth-child(3) { padding-top: 24px; max-height: 88vh; overflow-y: auto; }
+        /* Contact card */
+        .slide:nth-child(4) { padding-top: 24px; }
 
         /* Unique base rotations per card */
-        .slide:nth-child(1) { --rot: -2deg; }
+        .slide:nth-child(1) { --rot: 0deg; }
         .slide:nth-child(2) { --rot: 1.5deg; }
         .slide:nth-child(3) { --rot: -1deg; }
-        .slide:nth-child(4) { --rot: 0deg; }
-        .slide:nth-child(5) { --rot: -1.5deg; }
+        .slide:nth-child(4) { --rot: 0.5deg; }
 
         /* ============================================
            SLIDE 1: HERO
@@ -335,13 +333,15 @@
             font-size: 1.18rem;
             line-height: 1.7;
             color: var(--ink);
+            list-style: none;
+            padding-left: 0;
             max-width: 400px;
             margin-bottom: 0;
             margin-top: 0;
-            transform: translateY(-20px) scale(0.9);
-            transform-origin: left top;
         }
         .hero-desc strong { color: var(--tobacco); font-weight: 600; }
+        .hero-desc li::before { content: '—'; color: var(--bourbon); margin-right: 10px; }
+        .hero-desc li { margin-bottom: 2px; }
 
         .hero-facts {
             display: flex;
@@ -1191,6 +1191,109 @@
             .slide-arrow { width: 38px; height: 38px; font-size: 0.7rem; }
             .slide-counter { display: none; }
         }
+
+        /* ============================================
+           DESKTOP: SCROLLING PAGE LAYOUT
+        ============================================ */
+        @media (min-width: 1025px) {
+            body {
+                overflow: auto !important;
+                height: auto !important;
+            }
+
+            .slideshow {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0 100px;
+                gap: 10px;
+            }
+
+            .slide,
+            .slide.past,
+            .slide.active,
+            .slide:nth-child(1),
+            .slide:nth-child(2),
+            .slide:nth-child(3),
+            .slide:nth-child(4) {
+                position: relative !important;
+                max-height: none !important;
+                height: auto !important;
+                overflow: visible !important;
+                overflow-y: visible !important;
+                opacity: 1 !important;
+                transform: none !important;
+                pointer-events: all !important;
+                z-index: auto !important;
+                width: 83vw !important;
+                max-width: 1026px !important;
+            }
+
+            .slide-nav,
+            .slide-counter { display: none !important; }
+
+            /* Card 1 — bigger hero on desktop */
+            .slide:nth-child(1) {
+                padding: 48px 56px 56px 56px !important;
+            }
+            .slide:nth-child(1) .card-hero-left {
+                margin-top: -60px;
+                transform: translateY(70px);
+            }
+            .slide:nth-child(1) .hero-name {
+                font-size: 4.5rem;
+                white-space: nowrap;
+                margin-bottom: 16px;
+                transform: translate(8px, -6px);
+            }
+            .slide:nth-child(1) .hero-desc {
+                font-size: 1.15rem;
+                line-height: 1.7;
+                max-width: 560px;
+                text-align: left;
+                transform: translateY(-20px);
+                font-weight: 600;
+            }
+            .slide:nth-child(1) .hero-facts {
+                gap: 12px;
+                margin-top: 12px;
+                margin-bottom: 12px;
+                transform: translate(-20px, -12px);
+            }
+            .slide:nth-child(1) .hero-fact {
+                font-size: 0.8rem;
+            }
+            .slide:nth-child(1) .hero-photo {
+                width: 280px !important;
+            }
+            .slide:nth-child(1) .card-hero {
+                gap: 80px;
+                align-items: center;
+            }
+            .slide:nth-child(1) .hero-socials {
+                gap: 14px;
+                margin-top: 16px;
+            }
+            .slide:nth-child(1) .hero-socials a {
+                width: 48px;
+                height: 48px;
+                font-size: 1rem;
+            }
+            .slide:nth-child(1) .pet-btn {
+                font-size: 1rem;
+                padding: 18px 32px;
+                margin-top: 16px;
+            }
+            .guitar-svg {
+                width: 500px;
+                display: block;
+                max-width: 100%;
+                transform: translateY(-60px) scale(1.3);
+                margin-bottom: -60px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1212,7 +1315,7 @@
         <a href="index.html" onclick="toggleNav()">Brea UGC</a>
         <a href="pet-ugc.html" onclick="toggleNav()">Pet UGC</a>
         <a href="#" onclick="event.preventDefault();toggleNav();goTo(2)">Services</a>
-        <a href="#" onclick="event.preventDefault();toggleNav();goTo(3)">Book Me</a>
+        <a href="#" onclick="event.preventDefault();toggleNav();goTo(totalSlides - 1)">Book Me</a>
     </div>
 
     <!-- SLIDESHOW -->
@@ -1231,7 +1334,15 @@
                         <span class="hero-fact">Musician</span>
                     </div>
 
-                    <p class="hero-desc">I create couple and male UGC for brands with a focus on pet content. I also build portfolio sites for creators, and play guitar/bass/sing. Based in Huntsville, AL with my wife, two dogs, and two cats.</p>
+                    <ul class="hero-desc">
+                        <li>Couple & male UGC creator</li>
+                        <li>Specialty in pet content</li>
+                        <li>Portfolio site builder for creators</li>
+                        <li>Guitarist / bassist / vocalist</li>
+                        <li>Based in Huntsville, AL</li>
+                        <li>Husband, dog dad × 2, cat dad × 2</li>
+                    </ul>
+                    <img src="guitar for jacobs site.png" class="guitar-svg" alt="bass guitar">
                 </div>
 
                 <div class="card-hero-right">
@@ -1247,27 +1358,24 @@
                             </div>
                         </div>
                     </div>
-                    <a href="pet-ugc.html" class="pet-btn">View Pet Portfolio</a>
+                    <a href="#" class="pet-btn" onclick="event.preventDefault(); goTo(totalSlides - 1)">Book Me</a>
                 </div>
             </div>
+
         </div>
 
-        <!-- SLIDE 2: WORK -->
+        <!-- SLIDE 2: RECENT PROJECTS -->
         <div class="slide">
-            <!-- Recent Projects -->
             <div class="work-header">
-                <div>
-                    <h2 class="card-section-title">Recent Projects</h2>
-                </div>
+                <h2 class="card-section-title">Recent Projects</h2>
             </div>
-
             <div class="vid-grid">
                 <div class="vid-cell">
                     <div class="vid-logo"><img src="Logos/doggo sessions.webp" alt="Doggo Sessions"></div>
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Doggo Sessions (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1281,7 +1389,7 @@
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Ibiyaya (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1295,7 +1403,7 @@
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Fresh Patch with better CTA (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1309,7 +1417,7 @@
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Crown and Paw (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1319,7 +1427,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- SLIDE 3: SERVICES -->
@@ -1517,6 +1624,18 @@
         // Position all cards in a fanned stack
         function layoutStack(leavingCard = -1) {
             const mobile = window.innerWidth <= 1024;
+
+            // Desktop: scrolling page — let CSS handle layout, reset any inline styles
+            if (!mobile) {
+                slides.forEach(s => {
+                    s.style.transform = '';
+                    s.style.opacity = '';
+                    s.style.zIndex = '';
+                    s.classList.remove('past');
+                    s.classList.add('active');
+                });
+                return;
+            }
             slides.forEach((s, i) => {
                 const offset = i - current;
                 s.classList.remove('active', 'past');
@@ -1545,10 +1664,10 @@
                         scale = 1 - (offset * 0.04);
                         extraRot = i === 2 ? -2 : i === 3 ? -3 : 0;
                     } else {
-                        x = i === 3 ? -95 : i === 2 ? -75 : offset * -55;
-                        y = i === 3 ? -50 : i === 2 ? -72 : offset === 1 ? -12 : offset * -48;
+                        x = i === 2 ? -75 : offset * -55;
+                        y = i === 2 ? -50 : offset === 1 ? -12 : offset * -48;
                         scale = 1 - (offset * 0.04);
-                        extraRot = i === 3 ? -2.5 : i === 2 ? -0.5 : offset * -3;
+                        extraRot = i === 2 ? -2.5 : offset * -3;
                     }
                     s.style.zIndex = totalSlides - offset;
                     s.style.transform = `translate(${x}px, ${y}px) rotate(calc(var(--rot) + ${extraRot}deg)) scale(${scale})`;
@@ -1605,6 +1724,7 @@
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
+            if (window.innerWidth > 1024) return;
             if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
                 e.preventDefault();
                 nextSlide();
