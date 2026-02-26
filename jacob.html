@@ -522,6 +522,7 @@
             pointer-events: auto;
             opacity: 0;
             transition: opacity 0.3s;
+            touch-action: manipulation;
         }
         .play-overlay::after {
             content: '▶';
@@ -1892,6 +1893,7 @@
             const overlay = frame.querySelector('.play-overlay');
             if (!video || !overlay) return;
             overlay.addEventListener('click', () => video.play());
+            overlay.addEventListener('touchend', (e) => { e.preventDefault(); video.play(); }, { passive: false });
             video.addEventListener('play', () => frame.classList.add('playing'));
             video.addEventListener('pause', () => frame.classList.remove('playing'));
             video.addEventListener('ended', () => frame.classList.remove('playing'));
