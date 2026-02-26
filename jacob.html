@@ -1207,7 +1207,7 @@
                 height: auto !important;
                 flex-direction: column;
                 align-items: center;
-                padding: 30px 0 100px;
+                padding: 10px 0 100px;
                 gap: 10px;
             }
 
@@ -1234,13 +1234,50 @@
             .slide-nav,
             .slide-counter { display: none !important; }
 
+            /* Card 2 — Recent Projects desktop */
+            .slide:nth-child(2) {
+                min-height: 600px;
+                padding: 48px 56px 56px 56px !important;
+            }
+            .slide:nth-child(2) .card-section-title { font-size: 3rem; }
+            .slide:nth-child(2) .vid-type { font-size: 0.9rem; text-align: center; font-weight: 600; color: var(--bourbon); }
+            .slide:nth-child(2) .vid-meta { text-align: center; }
+
+            /* Card 3 — Services desktop */
+            .slide:nth-child(3) {
+                padding: 48px 56px 56px 56px !important;
+            }
+            .slide:nth-child(3) .card-section-title {
+                font-size: 3rem;
+            }
+            .slide:nth-child(3) .svc-card p { font-size: 1rem; }
+            .slide:nth-child(3) .svc-exp-body li,
+            .slide:nth-child(3) .svc-exp-body p { font-size: 1rem; }
+            .slide:nth-child(3) .svc-exp-header span { font-size: 1rem; }
+            .slide:nth-child(3) .proc-sub { font-size: 1rem; }
+
+            /* Card 4 — Contact desktop */
+            .slide:nth-child(4) {
+                padding: 48px 56px 56px 56px !important;
+            }
+            .slide:nth-child(4) .card-section-title,
+            .slide:nth-child(4) .ftr-cta {
+                font-size: 3rem;
+            }
+            .slide:nth-child(4) .submit-btn { font-size: 1rem; margin-top: 40px; }
+            .slide:nth-child(4) .contact-form .form-group label { font-size: 0.9rem; color: var(--bourbon); }
+            .slide:nth-child(4) .contact-form .checkbox-group { margin-top: 10px; }
+            .slide:nth-child(2) .card-section-title {
+                font-size: 3rem;
+            }
+
             /* Card 1 — bigger hero on desktop */
             .slide:nth-child(1) {
                 padding: 48px 56px 56px 56px !important;
             }
             .slide:nth-child(1) .card-hero-left {
                 margin-top: -60px;
-                transform: translateY(70px);
+                transform: translateY(30px);
             }
             .slide:nth-child(1) .hero-name {
                 font-size: 4.5rem;
@@ -1291,7 +1328,7 @@
                 display: block;
                 max-width: 100%;
                 transform: translateY(-60px) scale(1.3);
-                margin-bottom: -60px;
+                margin-bottom: -180px;
             }
         }
     </style>
@@ -1340,7 +1377,7 @@
                         <li>Portfolio site builder for creators</li>
                         <li>Guitarist / bassist / vocalist</li>
                         <li>Based in Huntsville, AL</li>
-                        <li>Husband, dog dad × 2, cat dad × 2</li>
+                        <li>Own 2 large dogs and 2 cats</li>
                     </ul>
                     <img src="guitar for jacobs site.png" class="guitar-svg" alt="bass guitar">
                 </div>
