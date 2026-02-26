@@ -32,6 +32,8 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { overflow: hidden; height: 100%; }
+
         body {
             font-family: 'Didact Gothic', sans-serif;
             color: var(--ink);
@@ -39,6 +41,7 @@
             background-color: var(--ink);
             overflow: hidden;
             height: 100vh;
+            overscroll-behavior: none;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -1076,7 +1079,7 @@
         .swipe-hint {
             display: none;
             position: fixed;
-            bottom: -25px;
+            bottom: 5px;
             left: 50%;
             transform: translateX(-50%);
             width: 200px;
@@ -1123,7 +1126,7 @@
 
             .slide-nav { display: none; }
 
-            .slide:nth-child(1) { --rot: -1deg; overflow-y: auto; padding-top: 36px; }
+            .slide:nth-child(1) { --rot: -1deg; overflow-y: auto; padding-top: 36px; max-height: 65vh; }
             .slide:nth-child(2) { --rot: -1deg; --y-offset: 0; left: 4vw; width: 92vw; }
             .slide:nth-child(3) { --rot: -0.5deg; height: auto; max-height: 72vh; }
             .slide:nth-child(4) { --rot: 1deg; }
@@ -1169,7 +1172,7 @@
                 max-height: 68vh;
             }
 
-            .slide:nth-child(1) { --rot: 1deg; --y-offset: -50; left: 4vw; width: 92vw; max-height: 92vh; }
+            .slide:nth-child(1) { --rot: 1deg; --y-offset: -50; left: 4vw; width: 92vw; max-height: 65vh; }
             .slide:nth-child(2),
             .slide:nth-child(3),
             .slide:nth-child(4) { --rot: 0deg; }
