@@ -1736,7 +1736,7 @@
                     s.classList.add('active');
                     s.style.zIndex = totalSlides + 1;
                     if (mobile) {
-                        s.style.top = i === 0 ? '22%' : '22%';
+                        s.style.top = i === 0 ? 'calc(22% - 25px)' : (i === 1 ? '10%' : '22%');
                         s.style.transform = `rotate(var(--rot)) scale(1)`;
                     } else {
                         s.style.top = '';
