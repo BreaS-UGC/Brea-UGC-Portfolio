@@ -971,7 +971,7 @@
                     <div class="mini-phone-container">
                         <div class="phone-label"><img src="Logos/Sundays For Dogs Logo.png" alt="Sundays for Dogs"></div>
                         <div class="mini-video-container paid-ads-gradient">
-                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Sundays for Dogs Spark Ad (720p for website).mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -982,7 +982,7 @@
                     <div class="mini-phone-container">
                         <div class="phone-label"><img src="Logos/Fresh Patch Logo.png" alt="Fresh Patch"></div>
                         <div class="mini-video-container paid-ads-gradient">
-                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Fresh Patch (720p for website).mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -993,7 +993,7 @@
                     <div class="mini-phone-container">
                         <div class="phone-label"><img src="Logos/Timberdog Logo.jpg" alt="Timber Dog"></div>
                         <div class="mini-video-container paid-ads-gradient">
-                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Timberdog (720p for website).mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -1004,7 +1004,7 @@
                     <div class="mini-phone-container">
                         <div class="phone-label"><img src="Logos/Lambwolf Logo.png" alt="Lambwolf"></div>
                         <div class="mini-video-container paid-ads-gradient">
-                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Lambwolf (720p for website).mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -1015,7 +1015,7 @@
                     <div class="mini-phone-container">
                         <div class="phone-label"><img src="Logos/ibiyaya logo.png" alt="Ibiyaya"></div>
                         <div class="mini-video-container paid-ads-gradient">
-                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Ibiyaya (720p for website).mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -1026,7 +1026,7 @@
                     <div class="mini-phone-container">
                         <div class="phone-label"><img src="Logos/Sustainably-Yours-logo-2429460472.png" alt="Sy Litter"></div>
                         <div class="mini-video-container paid-ads-gradient">
-                            <video class="mini-video" controls controlsList="nodownload" preload="auto">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Sy Litter (720p for website).mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -1073,6 +1073,15 @@
 
         const contactHeading = document.getElementById('contact-heading');
         if (contactHeading) sketchObserver.observe(contactHeading);
+    </script>
+
+    <script>
+        if (window.innerWidth <= 1024) {
+            document.querySelectorAll('.mini-video').forEach(function(v) {
+                v.addEventListener('loadedmetadata', function() { v.currentTime = 0.1; });
+                v.load();
+            });
+        }
     </script>
 
 </body>
