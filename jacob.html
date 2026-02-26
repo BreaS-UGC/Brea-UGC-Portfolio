@@ -20,8 +20,8 @@
             --ink: #1A1215;
             --tobacco: #3D2B1F;
             --rust: #8B4513;
-            --bourbon: #652622;
-            --wheat: #D4A854;
+            --bourbon: #200934;
+            --wheat: #3f407e;
             --parchment: #F2EADD;
             --cream: #FAF7F2;
             --paper: #FFFDF9;
@@ -32,6 +32,8 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { overflow: hidden; height: 100%; }
+
         body {
             font-family: 'Didact Gothic', sans-serif;
             color: var(--ink);
@@ -39,6 +41,7 @@
             background-color: var(--ink);
             overflow: hidden;
             height: 100vh;
+            overscroll-behavior: none;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -98,13 +101,14 @@
             font-weight: 500;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--wheat);
+            color: #fff;
+            background: var(--bourbon);
             text-decoration: none;
             padding: 8px 18px 8px 14px;
             border-radius: 4px 0 0 4px;
             transition: all 0.25s;
         }
-        .hdr-nav a:hover { color: var(--ink); background: var(--wheat); }
+        .hdr-nav a:hover { color: #000; background: var(--wheat); }
 
         /* Services dropdown */
         .nav-dropdown { position: relative; }
@@ -196,9 +200,9 @@
 
         .slide {
             position: absolute;
-            width: 72vw;
-            max-width: 760px;
-            max-height: 87vh;
+            width: 85vw;
+            max-width: 960px;
+            max-height: 90vh;
             overflow-y: auto;
             background: url('jacob ugc parchment.svg') center center / cover no-repeat;
             background-color: var(--cream);
@@ -231,23 +235,21 @@
         .slide::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 4px; }
 
         /* Hero card */
-        .slide:nth-child(1) { height: auto; max-height: 88vh; overflow: hidden; padding-bottom: 24px; padding-top: 24px; padding-right: 24px; padding-left: 24px; }
-        /* Hero card: bigger overall */
-        .slide:nth-child(1) { width: 72vw; max-width: 760px; }
+        .slide:nth-child(1) { height: auto; max-height: 92vh; overflow-y: auto; padding: 14px 24px 24px 24px; }
         .slide:nth-child(1) .hero-photo { width: 190px; }
         .slide:nth-child(1) .hero-desc { margin-top: 30px; }
-        /* Work card */
-        .slide:nth-child(2) { padding-top: 8px; padding-bottom: 16px; --y-offset: 20; }
-        .slide:nth-child(2) .work-header:first-child { margin-top: 24px; margin-bottom: 12px; }
+        /* Recent Projects card */
+        .slide:nth-child(2) { padding-top: 8px; padding-bottom: 16px; }
         /* Services card */
-        .slide:nth-child(3) { padding-top: 24px; height: 68vh; max-height: 68vh; }
+        .slide:nth-child(3) { padding-top: 24px; max-height: 88vh; overflow-y: auto; }
+        /* Contact card */
+        .slide:nth-child(4) { padding-top: 24px; }
 
         /* Unique base rotations per card */
-        .slide:nth-child(1) { --rot: -2deg; }
+        .slide:nth-child(1) { --rot: 0deg; }
         .slide:nth-child(2) { --rot: 1.5deg; }
         .slide:nth-child(3) { --rot: -1deg; }
-        .slide:nth-child(4) { --rot: 0deg; }
-        .slide:nth-child(5) { --rot: -1.5deg; }
+        .slide:nth-child(4) { --rot: 0.5deg; }
 
         /* ============================================
            SLIDE 1: HERO
@@ -296,7 +298,7 @@
             cursor: pointer;
         }
         .guitar-svg.hovered {
-            filter: brightness(0) saturate(100%) invert(16%) sepia(64%) saturate(800%) hue-rotate(335deg) brightness(90%);
+            filter: brightness(0) saturate(100%) invert(11%) sepia(100%) saturate(1200%) hue-rotate(232deg) brightness(90%);
         }
 
         .hero-tag {
@@ -335,13 +337,15 @@
             font-size: 1.18rem;
             line-height: 1.7;
             color: var(--ink);
+            list-style: none;
+            padding-left: 0;
             max-width: 400px;
             margin-bottom: 0;
             margin-top: 0;
-            transform: translateY(-20px) scale(0.9);
-            transform-origin: left top;
         }
         .hero-desc strong { color: var(--tobacco); font-weight: 600; }
+        .hero-desc li::before { content: '•'; color: var(--bourbon); margin-right: 8px; }
+        .hero-desc li { margin-bottom: 2px; }
 
         .hero-facts {
             display: flex;
@@ -357,7 +361,7 @@
             font-size: 0.55rem;
             letter-spacing: 0.8px;
             text-transform: uppercase;
-            color: var(--bourbon);
+            color: var(--wheat);
             padding: 5px 0;
             font-weight: 700;
             white-space: nowrap;
@@ -576,9 +580,10 @@
         }
         .vid-type {
             font-size: 0.6rem;
-            color: var(--ash);
+            color: var(--bourbon);
             letter-spacing: 1px;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
         /* ============================================
@@ -1070,6 +1075,26 @@
             background: rgba(255,255,255,0.3);
         }
 
+        /* Swipe hint */
+        .swipe-hint {
+            display: none;
+            position: fixed;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            z-index: 60;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .swipe-hint.visible {
+            opacity: 1;
+        }
+        @media (max-width: 1024px) {
+            .swipe-hint { display: block; }
+        }
+
         /* Slide counter */
         .slide-counter {
             display: none;
@@ -1099,8 +1124,10 @@
                 padding: 24px 20px;
             }
 
-            .slide:nth-child(1) { --rot: -1deg; overflow-y: auto; --y-offset: -25; }
-            .slide:nth-child(2) { --rot: -1deg; --y-offset: 0; top: 3vh; left: 4vw; width: 92vw; height: auto; max-height: none; overflow-y: visible; }
+            .slide-nav { display: none; }
+
+            .slide:nth-child(1) { --rot: -1deg; overflow-y: auto; padding-top: 36px; }
+            .slide:nth-child(2) { --rot: -1deg; --y-offset: 0; left: 4vw; width: 92vw; }
             .slide:nth-child(3) { --rot: -0.5deg; height: auto; max-height: 72vh; }
             .slide:nth-child(4) { --rot: 1deg; }
 
@@ -1112,7 +1139,7 @@
             .card-hero-photos { justify-content: center; }
             .pet-btn { display: block; text-align: center; margin: 0 auto; }
             .hero-facts { justify-content: center; flex-wrap: wrap; }
-            .hero-desc { transform: none; text-align: center; font-size: 0.95rem; max-width: 100%; }
+            .hero-desc { transform: none; text-align: left; font-size: 0.72rem; font-weight: 500; max-width: 100%; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(3, auto); }
             .hero-photo { width: 130px; }
 
             .vid-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1145,7 +1172,7 @@
                 max-height: 68vh;
             }
 
-            .slide:nth-child(1) { --rot: 1deg; --y-offset: -75; left: 4vw; width: 92vw; max-height: 92vh; }
+            .slide:nth-child(1) { --rot: 1deg; --y-offset: -50; left: 4vw; width: 92vw; max-height: 92vh; }
             .slide:nth-child(2),
             .slide:nth-child(3),
             .slide:nth-child(4) { --rot: 0deg; }
@@ -1153,11 +1180,10 @@
 
             /* Hero */
             .hero-name { font-size: 2.4rem; letter-spacing: -1px; }
-            .hero-facts { gap: 4px; flex-wrap: wrap; font-size: 0.85rem; }
-            .hero-fact { font-size: 0.47rem; }
+            .hero-facts { gap: 6px; flex-wrap: wrap; font-size: 0.85rem; }
             .hero-photo { width: 80px; }
             .slide:nth-child(1) .hero-photo { width: 160px; }
-            .hero-desc { font-size: 1.05rem; line-height: 1.5; max-width: 100%; }
+            .hero-desc { font-size: 0.82rem; line-height: 1.5; max-width: 100%; text-align: left; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(3, auto); }
             .slide:nth-child(1) .hero-desc { margin-top: 8px; }
             .pet-btn { font-size: 0.85rem; padding: 20px 18px; margin-bottom: 20px; }
 
@@ -1175,14 +1201,31 @@
             .vid-type { font-size: 0.55rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
             /* Services */
-            .slide:nth-child(3) { height: auto; max-height: 68vh; top: 17vh; }
+            .slide:nth-child(3) { height: auto; max-height: 68vh; }
             .svc-card-header { padding: 8px 14px; }
             .svc-card-body { padding: 14px; }
             .svc-card-num { font-size: 2rem; }
-            .proc-section { display: none; }
+            .proc-section { display: block; }
+            .proc-steps {
+                display: flex !important;
+                flex-direction: row !important;
+                grid-template-columns: unset !important;
+                gap: 8px !important;
+            }
+            .proc-steps::before { display: block !important; top: 16px; left: 5%; right: 5%; }
+            .proc-step {
+                flex: 1 !important;
+                display: block !important;
+                grid-template-columns: unset !important;
+                text-align: center !important;
+                padding: 0 4px !important;
+            }
+            .proc-step h3 { font-size: 0.9rem; margin-bottom: 6px; }
+            .proc-step .proc-sub { font-size: 0.65rem; }
+            .proc-dot { width: 32px; height: 32px; font-size: 0.75rem; margin: 0 auto 10px; }
 
             /* Contact */
-            .slide:nth-child(4) { top: 21vh; left: 5vw; }
+            .slide:nth-child(4) { left: 5vw; }
             .ftr-cta { font-size: 1.6rem; }
             .form-group { margin-bottom: 12px; }
             .checkbox-label { font-size: 0.65rem; padding: 5px 10px; }
@@ -1191,6 +1234,148 @@
             .slide-nav { right: auto; left: 50%; transform: translateX(-50%); bottom: 14px; }
             .slide-arrow { width: 38px; height: 38px; font-size: 0.7rem; }
             .slide-counter { display: none; }
+        }
+
+        /* ============================================
+           DESKTOP: SCROLLING PAGE LAYOUT
+        ============================================ */
+        @media (min-width: 1025px) {
+            body {
+                overflow: auto !important;
+                height: auto !important;
+            }
+
+            .slideshow {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0 100px;
+                gap: 10px;
+            }
+
+            .slide,
+            .slide.past,
+            .slide.active,
+            .slide:nth-child(1),
+            .slide:nth-child(2),
+            .slide:nth-child(3),
+            .slide:nth-child(4) {
+                position: relative !important;
+                max-height: none !important;
+                height: auto !important;
+                overflow: visible !important;
+                overflow-y: visible !important;
+                opacity: 1 !important;
+                transform: none !important;
+                pointer-events: all !important;
+                z-index: auto !important;
+                width: 83vw !important;
+                max-width: 1026px !important;
+            }
+
+            .slide-nav,
+            .slide-counter { display: none !important; }
+
+            /* Card 2 — Recent Projects desktop */
+            .slide:nth-child(2) {
+                min-height: 600px;
+                padding: 48px 56px 56px 56px !important;
+            }
+            .slide:nth-child(2) .card-section-title { font-size: 3rem; }
+            .slide:nth-child(2) .work-header { margin-bottom: 0px !important; }
+            .slide:nth-child(2) .vid-grid { gap: 60px !important; }
+            .slide:nth-child(2) .vid-type { font-size: 0.9rem; text-align: center; font-weight: 600; color: var(--bourbon); }
+            .slide:nth-child(2) .vid-meta { text-align: center; }
+
+            /* Card 3 — Services desktop */
+            .slide:nth-child(3) {
+                padding: 48px 56px 56px 56px !important;
+            }
+            .slide:nth-child(3) .card-section-title {
+                font-size: 3rem;
+            }
+            .slide:nth-child(3) .svc-card p { font-size: 1rem; }
+            .slide:nth-child(3) .svc-exp-body li,
+            .slide:nth-child(3) .svc-exp-body p { font-size: 1rem; }
+            .slide:nth-child(3) .svc-exp-header span { font-size: 1rem; }
+            .slide:nth-child(3) .proc-sub { font-size: 1rem; }
+
+            /* Card 4 — Contact desktop */
+            .slide:nth-child(4) {
+                padding: 48px 56px 56px 56px !important;
+            }
+            .slide:nth-child(4) .card-section-title,
+            .slide:nth-child(4) .ftr-cta {
+                font-size: 3rem;
+            }
+            .slide:nth-child(4) .submit-btn { font-size: 1rem; margin-top: 40px; }
+            .slide:nth-child(4) .contact-form .form-group label { font-size: 0.9rem; color: var(--bourbon); }
+            .slide:nth-child(4) .contact-form .checkbox-group { margin-top: 10px; }
+            .slide:nth-child(2) .card-section-title {
+                font-size: 3rem;
+            }
+
+            /* Card 1 — bigger hero on desktop */
+            .slide:nth-child(1) {
+                padding: 48px 56px 56px 56px !important;
+            }
+            .slide:nth-child(1) .card-hero-left {
+                margin-top: -60px;
+                transform: translateY(30px);
+            }
+            .slide:nth-child(1) .hero-name {
+                font-size: 4.5rem;
+                white-space: nowrap;
+                margin-bottom: 16px;
+                transform: translate(8px, -6px);
+            }
+            .slide:nth-child(1) .hero-desc {
+                font-size: 1.15rem;
+                line-height: 1.7;
+                max-width: 560px;
+                text-align: left;
+                transform: translateY(-20px);
+                font-weight: 600;
+            }
+            .slide:nth-child(1) .hero-facts {
+                gap: 12px;
+                margin-top: 12px;
+                margin-bottom: 12px;
+                transform: translate(-20px, -12px);
+            }
+            .slide:nth-child(1) .hero-fact {
+                font-size: 0.8rem;
+            }
+            .slide:nth-child(1) .hero-photo {
+                width: 280px !important;
+            }
+            .slide:nth-child(1) .card-hero {
+                gap: 80px;
+                align-items: center;
+            }
+            .slide:nth-child(1) .hero-socials {
+                gap: 14px;
+                margin-top: 16px;
+            }
+            .slide:nth-child(1) .hero-socials a {
+                width: 48px;
+                height: 48px;
+                font-size: 1rem;
+            }
+            .slide:nth-child(1) .pet-btn {
+                font-size: 1rem;
+                padding: 18px 32px;
+                margin-top: 16px;
+            }
+            .guitar-svg {
+                width: 500px;
+                display: block;
+                max-width: 100%;
+                transform: translateY(-60px) scale(1.3);
+                margin-bottom: -180px;
+            }
         }
     </style>
 </head>
@@ -1203,8 +1388,8 @@
             <nav class="hdr-nav">
                 <a href="index.html">Brea UGC</a>
                 <a href="pet-ugc.html">Pet UGC</a>
-                <a href="#" onclick="event.preventDefault();goTo(2)">Services</a>
-                <a href="#" onclick="event.preventDefault();goTo(totalSlides - 1)">Book Me</a>
+                <a href="#" onclick="event.preventDefault();navTo(2)">Services</a>
+                <a href="#" onclick="event.preventDefault();navTo(totalSlides - 1)">Book Me</a>
             </nav>
             <div class="hdr-ham" id="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
         </div>
@@ -1212,8 +1397,8 @@
     <div class="mob-nav" id="mob">
         <a href="index.html" onclick="toggleNav()">Brea UGC</a>
         <a href="pet-ugc.html" onclick="toggleNav()">Pet UGC</a>
-        <a href="#" onclick="event.preventDefault();toggleNav();goTo(2)">Services</a>
-        <a href="#" onclick="event.preventDefault();toggleNav();goTo(3)">Book Me</a>
+        <a href="#" onclick="event.preventDefault();toggleNav();navTo(2)">Services</a>
+        <a href="#" onclick="event.preventDefault();toggleNav();navTo(totalSlides - 1)">Book Me</a>
     </div>
 
     <!-- SLIDESHOW -->
@@ -1229,10 +1414,18 @@
                         <span class="hero-fact" >|</span>
                         <span class="hero-fact">Portfolio Dev</span>
                         <span class="hero-fact" >|</span>
-                        <span class="hero-fact">Guitarist / Bassist / Vocalist</span>
+                        <span class="hero-fact">Musician</span>
                     </div>
 
-                    <p class="hero-desc">I create couple and male UGC for brands with a focus on pet content. I also build portfolio sites for creators, and play guitar/bass/sing. Based in Huntsville, AL with my wife, two dogs, and two cats.</p>
+                    <ul class="hero-desc">
+                        <li>29 years old</li>
+                        <li>I make UGC with my wife</li>
+                        <li>Specialty in pet content</li>
+                        <li>Guitarist / bassist / vocalist</li>
+                        <li>Based in Huntsville, AL</li>
+                        <li>Video game and anime lover</li>
+                    </ul>
+                    <img src="guitar for jacobs site.png" class="guitar-svg" alt="bass guitar">
                 </div>
 
                 <div class="card-hero-right">
@@ -1248,55 +1441,24 @@
                             </div>
                         </div>
                     </div>
-                    <a href="pet-ugc.html" class="pet-btn">View Pet Portfolio</a>
+                    <a href="#" class="pet-btn" onclick="event.preventDefault(); navTo(totalSlides - 1)">Book Me</a>
                 </div>
             </div>
+
         </div>
 
-        <!-- SLIDE 2: WORK -->
+        <!-- SLIDE 2: RECENT PROJECTS -->
         <div class="slide">
-            <!-- Recent Projects -->
-            <div class="work-header">
-                <div>
-                    <h2 class="card-section-title">Recent Projects</h2>
-                </div>
+            <div class="work-header" style="margin-bottom: 0px; margin-top: 10px; margin-left: 20px;">
+                <h2 class="card-section-title" style="font-size: 2rem;">Recent Projects</h2>
             </div>
-
-            <div class="vid-grid">
-                <div class="vid-cell">
-                    <div class="vid-logo"><img src="Logos/doggo sessions.webp" alt="Doggo Sessions"></div>
-                    <div class="vid-frame">
-                        <div class="play-overlay"></div>
-                        <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
-                                <source src="videos/Doggo Sessions (720p for website).mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <div class="vid-meta">
-                        <span class="vid-type">Problem / Solution</span>
-                    </div>
-                </div>
-                <div class="vid-cell">
-                    <div class="vid-logo"><img src="Logos/ibiyaya logo.png" alt="Ibiyaya"></div>
-                    <div class="vid-frame">
-                        <div class="play-overlay"></div>
-                        <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
-                                <source src="videos/Ibiyaya (720p for website).mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <div class="vid-meta">
-                        <span class="vid-type">Product Demo</span>
-                    </div>
-                </div>
+            <div class="vid-grid" style="gap: 45px; margin-top: 6px;">
                 <div class="vid-cell">
                     <div class="vid-logo"><img src="Logos/Fresh Patch Logo.png" alt="Fresh Patch"></div>
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Fresh Patch with better CTA (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1306,11 +1468,39 @@
                     </div>
                 </div>
                 <div class="vid-cell">
+                    <div class="vid-logo"><img src="Logos/ibiyaya logo.png" alt="Ibiyaya"></div>
+                    <div class="vid-frame">
+                        <div class="play-overlay"></div>
+                        <div class="vid-fill">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
+                                <source src="videos/Ibiyaya (720p for website).mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="vid-meta">
+                        <span class="vid-type">Product Demo</span>
+                    </div>
+                </div>
+                <div class="vid-cell">
+                    <div class="vid-logo"><img src="Logos/doggo sessions.webp" alt="Doggo Sessions"></div>
+                    <div class="vid-frame">
+                        <div class="play-overlay"></div>
+                        <div class="vid-fill">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
+                                <source src="videos/Doggo Sessions (720p for website).mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="vid-meta">
+                        <span class="vid-type">Problem / Solution</span>
+                    </div>
+                </div>
+                <div class="vid-cell">
                     <div class="vid-logo"><img src="Logos/crown and paw logo.jpg" alt="Crown and Paw"></div>
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata">
+                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
                                 <source src="videos/Crown and Paw (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1320,13 +1510,12 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- SLIDE 3: SERVICES -->
         <div class="slide">
             <div style="margin-bottom: 28px;">
-                <h2 class="card-section-title">Services</h2>
+                <h2 class="card-section-title" style="font-size: 2rem;">Services</h2>
                 <div class="card-section-label">What I Offer</div>
             </div>
 
@@ -1386,14 +1575,14 @@
                             <p style="font-size: 0.72rem; color: var(--ash); margin-top: 10px; letter-spacing: 0.5px;">Add-Ons: Extra Pages &nbsp;·&nbsp; Custom Animations &nbsp;·&nbsp; Logo Design &nbsp;·&nbsp; Content Updates</p>
                         </div>
                     </div>
-                    <button class="submit-btn" style="margin-top: 28px; background: transparent; color: var(--bourbon); border: 1px solid var(--bourbon);" onmouseover="this.style.background='var(--bourbon)';this.style.color='var(--parchment)';" onmouseout="this.style.background='transparent';this.style.color='var(--bourbon)';" onclick="window.location.href='dev-site.html'">Build Your Portfolio</button>
+                    <button class="submit-btn" style="margin-top: 28px; background: transparent; color: var(--bourbon); border: 1px solid var(--bourbon); cursor: default;" onmouseover="this.style.background='var(--bourbon)';this.style.color='var(--parchment)';" onmouseout="this.style.background='transparent';this.style.color='var(--bourbon)';">Coming Soon</button>
                     </div>
                 </div>
             </div>
 
             <div class="proc-section" style="margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--faint);">
                 <div style="margin-bottom: 0;">
-                    <h2 class="card-section-title">How It Works</h2>
+                    <h2 class="card-section-title" style="font-size: 2rem;">How It Works</h2>
                     <div class="card-section-label">The Process</div>
                 </div>
 
@@ -1420,7 +1609,7 @@
 
         <!-- SLIDE 4: CONTACT -->
         <div class="slide">
-            <h2 class="card-section-title">Ready to Get Started?</h2>
+            <h2 class="card-section-title" style="font-size: 2rem;">Ready to Get Started?</h2>
 
             <form class="contact-form" action="https://formspree.io/f/xdalpvve" method="POST">
                 <input type="hidden" name="_subject" value="New Jacob UGC Inquiry">
@@ -1457,11 +1646,14 @@
                     <textarea id="j-message" name="message" required></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Submit</button>
+                <button type="submit" class="submit-btn" style="padding: 18px 32px;">Submit</button>
             </form>
         </div>
 
     </div>
+
+    <!-- SWIPE HINT -->
+    <img src="swipe arrow for jacobs site 2.png" class="swipe-hint" alt="swipe">
 
     <!-- SLIDE NAVIGATION -->
     <div class="slide-nav">
@@ -1518,6 +1710,18 @@
         // Position all cards in a fanned stack
         function layoutStack(leavingCard = -1) {
             const mobile = window.innerWidth <= 1024;
+
+            // Desktop: scrolling page — let CSS handle layout, reset any inline styles
+            if (!mobile) {
+                slides.forEach(s => {
+                    s.style.transform = '';
+                    s.style.opacity = '';
+                    s.style.zIndex = '';
+                    s.classList.remove('past');
+                    s.classList.add('active');
+                });
+                return;
+            }
             slides.forEach((s, i) => {
                 const offset = i - current;
                 s.classList.remove('active', 'past');
@@ -1525,6 +1729,7 @@
                 if (offset < 0) {
                     // Already passed — hidden off to the left
                     s.classList.add('past');
+                    s.style.top = '';
                     // Keep the leaving card on top during its exit animation
                     s.style.zIndex = (i === leavingCard) ? totalSlides + 2 : 0;
                     s.style.transform = 'translateX(-120%) rotate(-8deg) scale(0.9)';
@@ -1533,23 +1738,30 @@
                     // Active — front of stack
                     s.classList.add('active');
                     s.style.zIndex = totalSlides + 1;
-                    const yOff = parseInt(getComputedStyle(s).getPropertyValue('--y-offset')) || 0;
-                    const activeScale = mobile ? 1.0 : 1.08;
-                    s.style.transform = `translate(0, ${yOff}px) rotate(var(--rot)) scale(${activeScale})`;
+                    if (mobile) {
+                        s.style.top = i === 0 ? 'calc(22% - 25px)' : (i === 1 ? '5%' : '22%');
+                        s.style.transform = `rotate(var(--rot)) scale(1)`;
+                    } else {
+                        s.style.top = '';
+                        const yOff = parseInt(getComputedStyle(s).getPropertyValue('--y-offset')) || 0;
+                        s.style.transform = `translate(0, ${yOff}px) rotate(var(--rot)) scale(1.08)`;
+                    }
                     s.style.opacity = '1';
                 } else {
                     // Behind — fanned stack
                     let x, y, scale, extraRot;
                     if (mobile) {
+                        s.style.top = '';
                         x = 0;
-                        y = offset * -65;
+                        y = offset * -65 + 50;
                         scale = 1 - (offset * 0.04);
                         extraRot = i === 2 ? -2 : i === 3 ? -3 : 0;
                     } else {
-                        x = i === 3 ? -95 : i === 2 ? -75 : offset * -55;
-                        y = i === 3 ? -50 : i === 2 ? -72 : offset === 1 ? -12 : offset * -48;
+                        s.style.top = '';
+                        x = i === 2 ? -75 : offset * -55;
+                        y = i === 2 ? -50 : offset === 1 ? -12 : offset * -48;
                         scale = 1 - (offset * 0.04);
-                        extraRot = i === 3 ? -2.5 : i === 2 ? -0.5 : offset * -3;
+                        extraRot = i === 2 ? -2.5 : offset * -3;
                     }
                     s.style.zIndex = totalSlides - offset;
                     s.style.transform = `translate(${x}px, ${y}px) rotate(calc(var(--rot) + ${extraRot}deg)) scale(${scale})`;
@@ -1561,6 +1773,8 @@
             document.getElementById('nextBtn').disabled = false;
             document.getElementById('nextLabel').textContent = current === totalSlides - 1 ? 'Home' : 'Next';
             document.getElementById('counterCurrent').textContent = current + 1;
+            const swipeHint = document.querySelector('.swipe-hint');
+            if (swipeHint) swipeHint.classList.toggle('visible', current === 0);
 
             if (mobile) {
                 const slideNav = document.querySelector('.slide-nav');
@@ -1570,12 +1784,22 @@
 
         // Initial layout
         layoutStack();
+        const swipeHintEl = document.querySelector('.swipe-hint');
+        if (swipeHintEl && window.innerWidth <= 1024) swipeHintEl.classList.add('visible');
 
         // Reset scroll on all cards on page load
         slides.forEach(function(s) { s.scrollTop = 0; });
 
         function pauseAllVideos() {
             document.querySelectorAll('.mini-video').forEach(v => { v.pause(); });
+        }
+
+        function navTo(index) {
+            if (window.innerWidth > 1024) {
+                document.querySelectorAll('.slide')[index].scrollIntoView({behavior: 'smooth'});
+            } else {
+                goTo(index);
+            }
         }
 
         function goTo(index) {
@@ -1606,12 +1830,56 @@
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
+            if (window.innerWidth > 1024) return;
             if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
                 e.preventDefault();
                 nextSlide();
             } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
                 e.preventDefault();
                 prevSlide();
+            }
+        });
+
+        // Swipe-to-navigate
+        let touchStartX = 0, touchStartY = 0, isDragging = false;
+
+        document.querySelector('.slideshow').addEventListener('touchstart', e => {
+            if (window.innerWidth > 1024) return;
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            isDragging = false;
+        }, { passive: true });
+
+        document.querySelector('.slideshow').addEventListener('touchmove', e => {
+            if (window.innerWidth > 1024) return;
+            const dx = e.touches[0].clientX - touchStartX;
+            const dy = e.touches[0].clientY - touchStartY;
+            if (!isDragging && Math.abs(dx) < Math.abs(dy)) return;
+            isDragging = true;
+            e.preventDefault();
+            const active = document.querySelector('.slide.active');
+            if (!active) return;
+            const rot = dx * 0.05;
+            active.style.transition = 'none';
+            active.style.transform = `translateX(${dx}px) rotate(${rot}deg) scale(1)`;
+        }, { passive: false });
+
+        document.querySelector('.slideshow').addEventListener('touchend', e => {
+            if (window.innerWidth > 1024 || !isDragging) return;
+            isDragging = false;
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const active = document.querySelector('.slide.active');
+            if (!active) return;
+            active.style.transition = '';
+            const threshold = 80;
+            if (dx < -threshold) {
+                active.style.transform = `translateX(-130vw) rotate(-15deg) scale(0.9)`;
+                setTimeout(() => nextSlide(), 250);
+            } else if (dx > threshold && current > 0) {
+                active.style.transform = `translateX(130vw) rotate(15deg) scale(0.9)`;
+                setTimeout(() => prevSlide(), 250);
+            } else {
+                layoutStack();
             }
         });
 
@@ -1650,6 +1918,14 @@
                 body.classList.toggle('active');
             });
         });
+
+        // Mobile video thumbnails
+        if (window.innerWidth <= 1024) {
+            document.querySelectorAll('.mini-video').forEach(function(v) {
+                v.addEventListener('loadedmetadata', function() { v.currentTime = 0.1; });
+                v.load();
+            });
+        }
 
         // Guitar hover — bottom 60% only
         const guitarImg = document.querySelector('.guitar-svg');
