@@ -20,8 +20,8 @@
             --ink: #1A1215;
             --tobacco: #3D2B1F;
             --rust: #8B4513;
-            --bourbon: #652622;
-            --wheat: #D4A854;
+            --bourbon: #200934;
+            --wheat: #3f407e;
             --parchment: #F2EADD;
             --cream: #FAF7F2;
             --paper: #FFFDF9;
@@ -98,13 +98,14 @@
             font-weight: 500;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--wheat);
+            color: #fff;
+            background: var(--bourbon);
             text-decoration: none;
             padding: 8px 18px 8px 14px;
             border-radius: 4px 0 0 4px;
             transition: all 0.25s;
         }
-        .hdr-nav a:hover { color: var(--ink); background: var(--wheat); }
+        .hdr-nav a:hover { color: #000; background: var(--wheat); }
 
         /* Services dropdown */
         .nav-dropdown { position: relative; }
@@ -294,7 +295,7 @@
             cursor: pointer;
         }
         .guitar-svg.hovered {
-            filter: brightness(0) saturate(100%) invert(16%) sepia(64%) saturate(800%) hue-rotate(335deg) brightness(90%);
+            filter: brightness(0) saturate(100%) invert(11%) sepia(100%) saturate(1200%) hue-rotate(232deg) brightness(90%);
         }
 
         .hero-tag {
@@ -357,7 +358,7 @@
             font-size: 0.55rem;
             letter-spacing: 0.8px;
             text-transform: uppercase;
-            color: var(--bourbon);
+            color: var(--wheat);
             padding: 5px 0;
             font-weight: 700;
             white-space: nowrap;
@@ -1071,6 +1072,26 @@
             background: rgba(255,255,255,0.3);
         }
 
+        /* Swipe hint */
+        .swipe-hint {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            z-index: 60;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .swipe-hint.visible {
+            opacity: 1;
+        }
+        @media (max-width: 1024px) {
+            .swipe-hint { display: block; }
+        }
+
         /* Slide counter */
         .slide-counter {
             display: none;
@@ -1100,8 +1121,10 @@
                 padding: 24px 20px;
             }
 
+            .slide-nav { display: none; }
+
             .slide:nth-child(1) { --rot: -1deg; overflow-y: auto; padding-top: 36px; }
-            .slide:nth-child(2) { --rot: -1deg; --y-offset: 0; top: 14vh; left: 4vw; width: 92vw; height: auto; max-height: none; overflow-y: visible; }
+            .slide:nth-child(2) { --rot: -1deg; --y-offset: 0; left: 4vw; width: 92vw; }
             .slide:nth-child(3) { --rot: -0.5deg; height: auto; max-height: 72vh; }
             .slide:nth-child(4) { --rot: 1deg; }
 
@@ -1175,7 +1198,7 @@
             .vid-type { font-size: 0.55rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
             /* Services */
-            .slide:nth-child(3) { height: auto; max-height: 68vh; top: 17vh; }
+            .slide:nth-child(3) { height: auto; max-height: 68vh; }
             .svc-card-header { padding: 8px 14px; }
             .svc-card-body { padding: 14px; }
             .svc-card-num { font-size: 2rem; }
@@ -1199,7 +1222,7 @@
             .proc-dot { width: 32px; height: 32px; font-size: 0.75rem; margin: 0 auto 10px; }
 
             /* Contact */
-            .slide:nth-child(4) { top: 21vh; left: 5vw; }
+            .slide:nth-child(4) { left: 5vw; }
             .ftr-cta { font-size: 1.6rem; }
             .form-group { margin-bottom: 12px; }
             .checkbox-label { font-size: 0.65rem; padding: 5px 10px; }
@@ -1362,8 +1385,8 @@
             <nav class="hdr-nav">
                 <a href="index.html">Brea UGC</a>
                 <a href="pet-ugc.html">Pet UGC</a>
-                <a href="#" onclick="event.preventDefault();goTo(2)">Services</a>
-                <a href="#" onclick="event.preventDefault();goTo(totalSlides - 1)">Book Me</a>
+                <a href="#" onclick="event.preventDefault();navTo(2)">Services</a>
+                <a href="#" onclick="event.preventDefault();navTo(totalSlides - 1)">Book Me</a>
             </nav>
             <div class="hdr-ham" id="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
         </div>
@@ -1371,8 +1394,8 @@
     <div class="mob-nav" id="mob">
         <a href="index.html" onclick="toggleNav()">Brea UGC</a>
         <a href="pet-ugc.html" onclick="toggleNav()">Pet UGC</a>
-        <a href="#" onclick="event.preventDefault();toggleNav();goTo(2)">Services</a>
-        <a href="#" onclick="event.preventDefault();toggleNav();goTo(totalSlides - 1)">Book Me</a>
+        <a href="#" onclick="event.preventDefault();toggleNav();navTo(2)">Services</a>
+        <a href="#" onclick="event.preventDefault();toggleNav();navTo(totalSlides - 1)">Book Me</a>
     </div>
 
     <!-- SLIDESHOW -->
@@ -1415,7 +1438,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="pet-btn" onclick="event.preventDefault(); goTo(totalSlides - 1)">Book Me</a>
+                    <a href="#" class="pet-btn" onclick="event.preventDefault(); navTo(totalSlides - 1)">Book Me</a>
                 </div>
             </div>
 
@@ -1423,10 +1446,10 @@
 
         <!-- SLIDE 2: RECENT PROJECTS -->
         <div class="slide">
-            <div class="work-header" style="margin-bottom: 0px; margin-top: 25px; margin-left: 20px;">
+            <div class="work-header" style="margin-bottom: 0px; margin-top: 10px; margin-left: 20px;">
                 <h2 class="card-section-title" style="font-size: 2rem;">Recent Projects</h2>
             </div>
-            <div class="vid-grid" style="gap: 45px; margin-top: 20px;">
+            <div class="vid-grid" style="gap: 45px; margin-top: 6px;">
                 <div class="vid-cell">
                     <div class="vid-logo"><img src="Logos/Fresh Patch Logo.png" alt="Fresh Patch"></div>
                     <div class="vid-frame">
@@ -1626,6 +1649,9 @@
 
     </div>
 
+    <!-- SWIPE HINT -->
+    <img src="swipe arrow for jacobs site 2.png" class="swipe-hint" alt="swipe">
+
     <!-- SLIDE NAVIGATION -->
     <div class="slide-nav">
         <div class="slide-arrow-group">
@@ -1700,6 +1726,7 @@
                 if (offset < 0) {
                     // Already passed — hidden off to the left
                     s.classList.add('past');
+                    s.style.top = '';
                     // Keep the leaving card on top during its exit animation
                     s.style.zIndex = (i === leavingCard) ? totalSlides + 2 : 0;
                     s.style.transform = 'translateX(-120%) rotate(-8deg) scale(0.9)';
@@ -1708,19 +1735,26 @@
                     // Active — front of stack
                     s.classList.add('active');
                     s.style.zIndex = totalSlides + 1;
-                    const yOff = parseInt(getComputedStyle(s).getPropertyValue('--y-offset')) || 0;
-                    const activeScale = mobile ? 1.0 : 1.08;
-                    s.style.transform = `translate(0, ${yOff}px) rotate(var(--rot)) scale(${activeScale})`;
+                    if (mobile) {
+                        s.style.top = i === 0 ? '22%' : '22%';
+                        s.style.transform = `rotate(var(--rot)) scale(1)`;
+                    } else {
+                        s.style.top = '';
+                        const yOff = parseInt(getComputedStyle(s).getPropertyValue('--y-offset')) || 0;
+                        s.style.transform = `translate(0, ${yOff}px) rotate(var(--rot)) scale(1.08)`;
+                    }
                     s.style.opacity = '1';
                 } else {
                     // Behind — fanned stack
                     let x, y, scale, extraRot;
                     if (mobile) {
+                        s.style.top = '';
                         x = 0;
-                        y = offset * -65;
+                        y = offset * -65 + 50;
                         scale = 1 - (offset * 0.04);
                         extraRot = i === 2 ? -2 : i === 3 ? -3 : 0;
                     } else {
+                        s.style.top = '';
                         x = i === 2 ? -75 : offset * -55;
                         y = i === 2 ? -50 : offset === 1 ? -12 : offset * -48;
                         scale = 1 - (offset * 0.04);
@@ -1736,6 +1770,8 @@
             document.getElementById('nextBtn').disabled = false;
             document.getElementById('nextLabel').textContent = current === totalSlides - 1 ? 'Home' : 'Next';
             document.getElementById('counterCurrent').textContent = current + 1;
+            const swipeHint = document.querySelector('.swipe-hint');
+            if (swipeHint) swipeHint.classList.toggle('visible', current === 0);
 
             if (mobile) {
                 const slideNav = document.querySelector('.slide-nav');
@@ -1745,12 +1781,22 @@
 
         // Initial layout
         layoutStack();
+        const swipeHintEl = document.querySelector('.swipe-hint');
+        if (swipeHintEl && window.innerWidth <= 1024) swipeHintEl.classList.add('visible');
 
         // Reset scroll on all cards on page load
         slides.forEach(function(s) { s.scrollTop = 0; });
 
         function pauseAllVideos() {
             document.querySelectorAll('.mini-video').forEach(v => { v.pause(); });
+        }
+
+        function navTo(index) {
+            if (window.innerWidth > 1024) {
+                document.querySelectorAll('.slide')[index].scrollIntoView({behavior: 'smooth'});
+            } else {
+                goTo(index);
+            }
         }
 
         function goTo(index) {
@@ -1788,6 +1834,49 @@
             } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
                 e.preventDefault();
                 prevSlide();
+            }
+        });
+
+        // Swipe-to-navigate
+        let touchStartX = 0, touchStartY = 0, isDragging = false;
+
+        document.querySelector('.slideshow').addEventListener('touchstart', e => {
+            if (window.innerWidth > 1024) return;
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            isDragging = false;
+        }, { passive: true });
+
+        document.querySelector('.slideshow').addEventListener('touchmove', e => {
+            if (window.innerWidth > 1024) return;
+            const dx = e.touches[0].clientX - touchStartX;
+            const dy = e.touches[0].clientY - touchStartY;
+            if (!isDragging && Math.abs(dx) < Math.abs(dy)) return;
+            isDragging = true;
+            e.preventDefault();
+            const active = document.querySelector('.slide.active');
+            if (!active) return;
+            const rot = dx * 0.05;
+            active.style.transition = 'none';
+            active.style.transform = `translateX(${dx}px) rotate(${rot}deg) scale(1)`;
+        }, { passive: false });
+
+        document.querySelector('.slideshow').addEventListener('touchend', e => {
+            if (window.innerWidth > 1024 || !isDragging) return;
+            isDragging = false;
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const active = document.querySelector('.slide.active');
+            if (!active) return;
+            active.style.transition = '';
+            const threshold = 80;
+            if (dx < -threshold) {
+                active.style.transform = `translateX(-130vw) rotate(-15deg) scale(0.9)`;
+                setTimeout(() => nextSlide(), 250);
+            } else if (dx > threshold && current > 0) {
+                active.style.transform = `translateX(130vw) rotate(15deg) scale(0.9)`;
+                setTimeout(() => prevSlide(), 250);
+            } else {
+                layoutStack();
             }
         });
 
