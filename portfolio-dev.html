@@ -15,8 +15,8 @@
             --ink: #1A1215;
             --tobacco: #3D2B1F;
             --rust: #8B4513;
-            --bourbon: #652622;
-            --wheat: #D4A854;
+            --bourbon: #200934;
+            --wheat: #3f407e;
             --parchment: #F2EADD;
             --cream: #FAF7F2;
             --paper: #FFFDF9;
@@ -87,14 +87,14 @@
             font-weight: 500;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--wheat);
+            color: #fff;
+            background: var(--bourbon);
             text-decoration: none;
             padding: 8px 18px 8px 14px;
             border-radius: 4px 0 0 4px;
             transition: all 0.25s;
         }
-        .hdr-nav a:hover { color: var(--ink); background: var(--wheat); }
-        .hdr-nav a.active { color: var(--parchment); }
+        .hdr-nav a:hover { color: #000; background: var(--wheat); }
 
         .hdr-ham { display: none; cursor: pointer; padding: 8px; }
         .hdr-ham span {
@@ -162,10 +162,10 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--wheat);
-            background: rgba(212, 168, 84, 0.08);
+            background: rgba(63, 64, 126, 0.12);
             padding: 6px 16px;
             border-radius: 30px;
-            border: 1px solid rgba(212, 168, 84, 0.25);
+            border: 1px solid rgba(63, 64, 126, 0.3);
         }
         .hero-fact.sep { background: none; border: none; color: var(--smoke); padding: 6px 4px; }
 
@@ -173,13 +173,13 @@
            PRICING
         ============================================ */
         .pricing-section {
-            max-width: 860px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 32px 80px;
         }
         .pricing-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
         .tier-card {
@@ -197,10 +197,10 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--wheat);
-            background: rgba(212, 168, 84, 0.12);
+            background: rgba(63, 64, 126, 0.1);
             padding: 4px 10px;
             border-radius: 30px;
-            border: 1px solid rgba(212, 168, 84, 0.3);
+            border: 1px solid rgba(63, 64, 126, 0.3);
         }
         .tier-label {
             font-size: 0.6rem;
@@ -260,8 +260,10 @@
             border-radius: 4px;
             transition: all 0.25s;
             cursor: pointer;
+            border: none;
+            width: 100%;
         }
-        .tier-cta:hover { background: var(--wheat); color: var(--ink); }
+        .tier-cta:hover { background: var(--wheat); color: #000; }
 
         /* ============================================
            PROCESS
@@ -285,7 +287,7 @@
             left: 10%;
             right: 10%;
             height: 1px;
-            background: rgba(212,168,84,0.25);
+            background: rgba(63, 64, 126, 0.25);
         }
         .proc-step {
             text-align: center;
@@ -397,7 +399,6 @@
             line-height: 1.6;
         }
 
-        .contact-form { margin-top: 0; }
         .contact-form .form-group { margin-bottom: 20px; }
         .contact-form .form-group label {
             display: block;
@@ -424,11 +425,9 @@
             outline: none;
             transition: border-bottom-color 0.3s, background 0.3s;
         }
-        .contact-form input[type="text"]:hover,
-        .contact-form input[type="email"]:hover,
-        .contact-form textarea:hover { border-bottom-color: var(--ash); background: rgba(212,168,84,0.06); }
-        .contact-form input[type="text"]:focus,
-        .contact-form input[type="email"]:focus,
+        .contact-form input:hover,
+        .contact-form textarea:hover { border-bottom-color: var(--ash); background: rgba(63,64,126,0.06); }
+        .contact-form input:focus,
         .contact-form textarea:focus { border-bottom-color: var(--wheat); }
         .contact-form textarea { min-height: 80px; resize: vertical; }
         .contact-form .checkbox-group { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -445,8 +444,8 @@
             transition: all 0.2s;
             user-select: none;
         }
-        .contact-form .checkbox-label:hover { background: var(--wheat); color: var(--ink); border-color: var(--wheat); }
-        .contact-form .checkbox-label.selected { background: var(--wheat); color: var(--ink); border-color: var(--wheat); }
+        .contact-form .checkbox-label:hover { background: var(--wheat); color: #000; border-color: var(--wheat); }
+        .contact-form .checkbox-label.selected { background: var(--wheat); color: #000; border-color: var(--wheat); }
         .contact-form .checkbox-label input[type="checkbox"] { display: none; }
         .contact-form .submit-btn {
             display: block;
@@ -464,7 +463,7 @@
             cursor: pointer;
             transition: all 0.25s;
         }
-        .contact-form .submit-btn:hover { background: var(--wheat); color: var(--ink); }
+        .contact-form .submit-btn:hover { background: var(--wheat); color: #000; }
 
         .thank-you {
             text-align: center;
@@ -478,11 +477,12 @@
         /* ============================================
            MOBILE
         ============================================ */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .pricing-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
             .includes-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 576px) {
             .hdr-nav { display: none; }
             .hdr-ham { display: block; }
@@ -517,7 +517,7 @@
                 <a href="index.html">Brea UGC</a>
                 <a href="pet-ugc.html">Pet UGC</a>
                 <a href="jacob.html">Jacob UGC</a>
-                <a href="portfolio-dev.html" class="active">Portfolios</a>
+                <a href="portfolio-dev.html">Portfolios</a>
             </nav>
             <div class="hdr-ham" id="ham" onclick="toggleNav()">
                 <span></span><span></span><span></span>
@@ -551,35 +551,56 @@
 
             <div class="tier-card">
                 <p class="tier-label">Tier 01</p>
-                <h2 class="tier-name">Template</h2>
-                <div class="tier-price">$700 <sub>one-time</sub></div>
+                <h2 class="tier-name">Revamp</h2>
+                <div class="tier-price">$350 <sub>one-time</sub></div>
                 <ul class="tier-features">
-                    <li>Choose from pre-built templates</li>
-                    <li>Your content, your branding</li>
+                    <li>Refresh your existing portfolio site</li>
+                    <li>Updated layout, colors, and branding</li>
+                    <li>New video sections added or reorganized</li>
                     <li>Mobile-friendly responsive layout</li>
-                    <li>Video portfolio sections organized by niche/content type</li>
                     <li>Contact and booking integration</li>
-                    <li>Domain setup and hosting</li>
                     <li>2 rounds of revisions</li>
                     <li>5–7 business day delivery</li>
                 </ul>
-                <a href="#inquiry" class="tier-cta" data-tier="Template">Get Started</a>
+                <button class="tier-cta" data-tier="Revamp — $350">Get Started</button>
+            </div>
+
+            <div class="tier-card">
+                <p class="tier-label">Tier 02</p>
+                <h2 class="tier-name">Squarespace</h2>
+                <div class="tier-price">$500 <sub>one-time</sub></div>
+                <ul class="tier-features">
+                    <li>Built from scratch on Squarespace</li>
+                    <li>Custom design tailored to your brand</li>
+                    <li>Easy to update yourself after delivery</li>
+                    <li>Mobile-friendly responsive layout</li>
+                    <li>Video portfolio sections by niche</li>
+                    <li>Contact and booking integration</li>
+                    <li>Domain setup and hosting guidance</li>
+                    <li>2 rounds of revisions</li>
+                    <li>5–7 business day delivery</li>
+                </ul>
+                <button class="tier-cta" data-tier="Squarespace — $500">Get Started</button>
             </div>
 
             <div class="tier-card featured">
-                <p class="tier-label">Tier 02</p>
-                <h2 class="tier-name">Custom</h2>
-                <div class="tier-price">$1,250 <sub>one-time</sub></div>
+                <span class="tier-badge">Most Custom</span>
+                <p class="tier-label">Tier 03</p>
+                <h2 class="tier-name">Custom Code</h2>
+                <div class="tier-price">$1,000 <sub>one-time</sub></div>
                 <ul class="tier-features">
-                    <li>Fully custom design tailored to your brand</li>
+                    <li>Fully custom hand-coded site</li>
+                    <li>One-of-a-kind design — no templates</li>
+                    <li>Animations and interactive elements</li>
                     <li>Mobile-friendly responsive layout</li>
-                    <li>Video portfolio sections organized by niche/content type</li>
+                    <li>Video portfolio sections by niche</li>
                     <li>Contact and booking integration</li>
-                    <li>Domain setup and hosting</li>
+                    <li>Domain setup and hosting included</li>
+                    <li>You own the full source code</li>
                     <li>2 rounds of revisions</li>
                     <li>5–7 business day delivery</li>
                 </ul>
-                <a href="#inquiry" class="tier-cta" data-tier="Custom">Get Started</a>
+                <button class="tier-cta" data-tier="Custom Code — $1,000">Get Started</button>
             </div>
 
         </div>
@@ -602,7 +623,7 @@
             <div class="proc-step">
                 <div class="proc-dot">03</div>
                 <h3>Working Together</h3>
-                <p class="proc-sub">I'm flexible with your contract setup and can provide one covering deliverables, timelines, and payment terms.</p>
+                <p class="proc-sub">Flexible contract setup — I can provide one covering deliverables, timelines, and payment terms.</p>
             </div>
         </div>
     </div>
@@ -667,12 +688,9 @@
                 <div class="form-group">
                     <label>Tier</label>
                     <div class="checkbox-group">
-                        <label class="checkbox-label" id="label-template">
-                            <input type="checkbox" name="tier" value="Template"> Template — $700
-                        </label>
-                        <label class="checkbox-label" id="label-custom">
-                            <input type="checkbox" name="tier" value="Custom"> Custom — $1,250
-                        </label>
+                        <label class="checkbox-label"><input type="checkbox" name="tier" value="Revamp — $350"> Revamp — $350</label>
+                        <label class="checkbox-label"><input type="checkbox" name="tier" value="Squarespace — $500"> Squarespace — $500</label>
+                        <label class="checkbox-label"><input type="checkbox" name="tier" value="Custom Code — $1,000"> Custom — $1,000</label>
                     </div>
                 </div>
 
@@ -696,13 +714,11 @@
     </div>
 
     <script>
-        // Nav toggle
         function toggleNav() {
             document.getElementById('ham').classList.toggle('on');
             document.getElementById('mob').classList.toggle('on');
         }
 
-        // Checkbox toggle
         document.querySelectorAll('.checkbox-label').forEach(function(label) {
             label.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -712,7 +728,6 @@
             });
         });
 
-        // Pre-select tier from CTA button
         document.querySelectorAll('.tier-cta').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 var tier = this.getAttribute('data-tier');
@@ -722,10 +737,10 @@
                     cb.checked = match;
                     l.classList.toggle('selected', match);
                 });
+                document.getElementById('inquiry').scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Thank you message on ?submitted=true
         if (window.location.search.includes('submitted=true')) {
             document.getElementById('portfolioForm').style.display = 'none';
             document.getElementById('thank-you').style.display = 'block';

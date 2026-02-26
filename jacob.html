@@ -32,7 +32,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { overflow: hidden; height: 100%; }
+        html { height: 100%; }
 
         body {
             font-family: 'Didact Gothic', sans-serif;
@@ -1079,7 +1079,7 @@
         .swipe-hint {
             display: none;
             position: fixed;
-            bottom: -20px;
+            bottom: calc(100vh - 100svh + 20px);
             left: 50%;
             transform: translateX(-50%);
             width: 200px;
@@ -1183,7 +1183,7 @@
             .hero-facts { gap: 6px; flex-wrap: wrap; font-size: 0.85rem; }
             .hero-photo { width: 80px; }
             .slide:nth-child(1) .hero-photo { width: 160px; }
-            .hero-desc { font-size: 0.82rem; line-height: 1.5; max-width: 100%; text-align: left; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(3, auto); }
+            .hero-desc { font-size: 0.74rem; line-height: 1.5; max-width: 100%; text-align: left; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(3, auto); }
             .slide:nth-child(1) .hero-desc { margin-top: 8px; }
             .pet-btn { font-size: 0.85rem; padding: 20px 18px; margin-bottom: 20px; }
 
