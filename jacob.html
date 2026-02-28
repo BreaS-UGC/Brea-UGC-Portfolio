@@ -294,11 +294,13 @@
             border-color: var(--wheat);
         }
         .guitar-svg {
-            transition: filter 0.3s ease;
+            filter: brightness(0) saturate(100%) invert(6%) sepia(90%) saturate(3500%) hue-rotate(272deg) brightness(55%);
+            transition: filter 0.3s ease, transform 0.3s ease;
             cursor: pointer;
         }
-        .guitar-svg.hovered {
-            filter: brightness(0) saturate(100%) invert(11%) sepia(100%) saturate(1200%) hue-rotate(232deg) brightness(90%);
+        .guitar-svg:hover {
+            filter: brightness(0) saturate(100%) invert(23%) sepia(45%) saturate(650%) hue-rotate(215deg) brightness(88%);
+            transform: scale(1.1);
         }
 
         .hero-tag {
@@ -367,24 +369,21 @@
             white-space: nowrap;
         }
 
+        .mobile-socials-card2 { display: none; }
         .hero-socials {
             display: flex;
-            gap: 10px;
+            gap: 24px;
         }
         .hero-socials a {
-            width: 36px; height: 36px;
-            border: 1px solid var(--faint);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--smoke);
+            color: var(--bourbon);
             text-decoration: none;
-            font-size: 0.8rem;
-            transition: all 0.3s;
+            font-size: 2.8rem;
+            line-height: 1;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
         .hero-socials a:hover {
-            border-color: var(--bourbon);
-            color: var(--bourbon);
-            transform: translateY(-2px);
+            color: var(--wheat);
+            transform: scale(1.1);
         }
 
         .hero-photo {
@@ -1133,6 +1132,31 @@
             .slide:nth-child(4) { --rot: 1deg; }
 
             .guitar-svg { display: none; }
+            .hero-socials { display: none; }
+            .mobile-socials-card2 {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                position: absolute;
+                top: 28px;
+                right: 55px;
+                z-index: 10;
+            }
+            .mobile-socials-card2 a {
+                color: var(--bourbon) !important;
+                text-decoration: none;
+                font-size: 1.8rem;
+                line-height: 1;
+            }
+            .mobile-socials-card2 a:nth-child(2) {
+                transform: translateX(4px);
+            }
+            .guitar-svg-mobile {
+                height: 52px;
+                width: auto;
+                transform: translateX(-10px);
+                filter: brightness(0) saturate(100%) invert(6%) sepia(90%) saturate(3500%) hue-rotate(272deg) brightness(55%);
+            }
 
             .card-hero { flex-direction: column; gap: 14px; align-items: stretch; }
             .card-hero-left { width: 100%; align-items: center; text-align: center; }
@@ -1324,7 +1348,7 @@
             }
             .slide:nth-child(1) .card-hero-left {
                 margin-top: -60px;
-                transform: translateY(30px);
+                transform: translateY(64px);
             }
             .slide:nth-child(1) .hero-name {
                 font-size: 4.5rem;
@@ -1333,12 +1357,15 @@
                 transform: translate(8px, -6px);
             }
             .slide:nth-child(1) .hero-desc {
-                font-size: 1.15rem;
+                font-size: 1.1rem;
                 line-height: 1.7;
                 max-width: 560px;
                 text-align: left;
                 transform: translateY(-20px);
                 font-weight: 600;
+                background: #E4D9C8;
+                border-radius: 10px;
+                padding: 14px 20px;
             }
             .slide:nth-child(1) .hero-facts {
                 gap: 12px;
@@ -1357,25 +1384,25 @@
                 align-items: center;
             }
             .slide:nth-child(1) .hero-socials {
-                gap: 14px;
-                margin-top: 16px;
+                gap: 28px;
+                transform: translate(0px, -10px);
+                align-items: center;
+            }
+            .slide:nth-child(1) .guitar-svg {
+                height: 180px;
+                width: auto;
+                transform: translateX(-32px);
+            }
+            .slide:nth-child(1) .guitar-svg:hover {
+                transform: translateX(-32px) scale(1.1);
             }
             .slide:nth-child(1) .hero-socials a {
-                width: 48px;
-                height: 48px;
-                font-size: 1rem;
+                font-size: 4rem;
             }
             .slide:nth-child(1) .pet-btn {
                 font-size: 1rem;
                 padding: 18px 32px;
                 margin-top: 16px;
-            }
-            .guitar-svg {
-                width: 500px;
-                display: block;
-                max-width: 100%;
-                transform: translateY(-60px) scale(1.3);
-                margin-bottom: -180px;
             }
         }
     </style>
@@ -1426,7 +1453,17 @@
                         <li>Based in Huntsville, AL</li>
                         <li>Video game and anime lover</li>
                     </ul>
-                    <img src="guitar for jacobs site.png" class="guitar-svg" alt="bass guitar">
+                    <div class="hero-socials">
+                        <a href="https://instagram.com/thehillherdfamily" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://tiktok.com/@thehillherdfamily" target="_blank" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1bpmAjvE-Ax_NqsvUkNfx2RXzkSQXzNF8/view?usp=drive_link" target="_blank" aria-label="Bass playing">
+                            <img src="guitar for jacobs site.png" class="guitar-svg" alt="bass guitar">
+                        </a>
+                    </div>
                 </div>
 
                 <div class="card-hero-right">
@@ -1450,6 +1487,10 @@
 
         <!-- SLIDE 2: RECENT PROJECTS -->
         <div class="slide">
+            <div class="mobile-socials-card2">
+                <a href="https://instagram.com/thehillherdfamily" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@thehillherdfamily" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
             <div class="work-header" style="margin-bottom: 0px; margin-top: 10px; margin-left: 20px;">
                 <h2 class="card-section-title" style="font-size: 2rem;">Recent Projects</h2>
             </div>
@@ -1459,7 +1500,7 @@
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
+                            <video class="mini-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/Fresh Patch with better CTA (720p for website) Thumbnail.png">
                                 <source src="videos/Fresh Patch with better CTA (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1473,7 +1514,7 @@
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
+                            <video class="mini-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/Ibiyaya (720p for website) Thumbnail.png">
                                 <source src="videos/Ibiyaya (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1487,7 +1528,7 @@
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
+                            <video class="mini-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/Doggo Sessions (720p for website) Thumbnail.png">
                                 <source src="videos/Doggo Sessions (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1501,7 +1542,7 @@
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="metadata" playsinline>
+                            <video class="mini-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/Crown and Paw (720p for website) Thumbnail.png">
                                 <source src="videos/Crown and Paw (720p for website).mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1921,22 +1962,7 @@
             });
         });
 
-        // Mobile video thumbnails
-        if (window.innerWidth <= 1024) {
-            document.querySelectorAll('.mini-video').forEach(function(v) {
-                v.addEventListener('loadedmetadata', function() { v.currentTime = 0.1; });
-                v.load();
-            });
-        }
 
-        // Guitar hover — bottom 60% only
-        const guitarImg = document.querySelector('.guitar-svg');
-        guitarImg.addEventListener('mousemove', (e) => {
-            const rect = guitarImg.getBoundingClientRect();
-            const relY = (e.clientY - rect.top) / rect.height;
-            guitarImg.classList.toggle('hovered', relY > 0.4);
-        });
-        guitarImg.addEventListener('mouseleave', () => guitarImg.classList.remove('hovered'));
     </script>
 </body>
 </html>
