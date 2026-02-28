@@ -369,6 +369,7 @@
             white-space: nowrap;
         }
 
+        .mobile-socials-card2 { display: none; }
         .hero-socials {
             display: flex;
             gap: 24px;
@@ -1132,6 +1133,30 @@
 
             .guitar-svg { display: none; }
             .hero-socials { display: none; }
+            .mobile-socials-card2 {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                position: absolute;
+                top: 28px;
+                right: 55px;
+                z-index: 10;
+            }
+            .mobile-socials-card2 a {
+                color: var(--bourbon) !important;
+                text-decoration: none;
+                font-size: 1.8rem;
+                line-height: 1;
+            }
+            .mobile-socials-card2 a:nth-child(2) {
+                transform: translateX(4px);
+            }
+            .guitar-svg-mobile {
+                height: 52px;
+                width: auto;
+                transform: translateX(-10px);
+                filter: brightness(0) saturate(100%) invert(6%) sepia(90%) saturate(3500%) hue-rotate(272deg) brightness(55%);
+            }
 
             .card-hero { flex-direction: column; gap: 14px; align-items: stretch; }
             .card-hero-left { width: 100%; align-items: center; text-align: center; }
@@ -1462,6 +1487,10 @@
 
         <!-- SLIDE 2: RECENT PROJECTS -->
         <div class="slide">
+            <div class="mobile-socials-card2">
+                <a href="https://instagram.com/thehillherdfamily" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@thehillherdfamily" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
             <div class="work-header" style="margin-bottom: 0px; margin-top: 10px; margin-left: 20px;">
                 <h2 class="card-section-title" style="font-size: 2rem;">Recent Projects</h2>
             </div>
