@@ -364,14 +364,6 @@
             margin-left: 2px;
         }
 
-        .typewriter.typing::after {
-            content: '|';
-            color: #D4AF37;
-            animation: blink 1s infinite;
-            opacity: 1;
-            font-weight: normal;
-            margin-left: 2px;
-        }
 
         @keyframes blink {
             0%, 50% { opacity: 1; }
@@ -454,7 +446,15 @@
             position: relative;
             z-index: 10;
         }
-        
+
+        .social-icon {
+            color: #4A3B5C;
+            transition: color 0.3s ease;
+        }
+        .social-icon:hover {
+            color: #ffbd59;
+        }
+
         .hero-credentials {
             font-family: 'League Spartan', Helvetica, Arial, sans-serif;
             font-size: 1.1rem;
@@ -1333,76 +1333,8 @@
             position: relative;
         }
         
-        
-        /* Specific styling for Calzen logo */
-        .logo-item.calzen {
-            background: #8FBC8F;
-            color: #2D5A2D;
-        }
-        
-        .logo-item.calzen:hover {
-            background: #8FBC8F;
-            color: #2D5A2D;
-        }
-        
-        /* Increase Calzen logo size */
-        .logo-item.calzen .logo-image {
-            height: 80px;
-        }
-        
-        /* Specific styling for Justin Guitar logo */
-        .logo-item.justin-guitar {
-            background: transparent;
-            color: #333;
-        }
-        
-        .logo-item.justin-guitar:hover {
-            background: transparent;
-            color: #333;
-        }
-        
-        /* Make Justin Guitar logo much bigger - with higher specificity */
-        .logo-item.justin-guitar .logo-image {
-            height: 180px !important;
-            object-fit: contain;
-            object-position: center;
-        }
-        
-        /* Increase Planta logo size */
-        .logo-image-only .logo-image {
-            height: 85px;
-        }
-        
-        /* Ensure other logos don't get overridden by general rules */
-        .logo-image-only:not(.justin-guitar) .logo-image {
-            height: 85px;
-        }
-        
-        .logo-image {
-            height: 40px;
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
-        }
-        
-        .logo-with-image .logo-image {
-            height: 60px;
-        }
-        
-        .logo-image-only {
-            padding: 20px 30px;
-        }
-        
-        .logo-image-only .logo-image {
-            height: 75px;
-        }
-        
-        .logo-text {
-            font-weight: 400;
-            text-transform: uppercase;
-        }
-        
-        
+
+
         
         /* 90s Computer Era Elements */
         body {
@@ -3990,15 +3922,15 @@
                         
                         <!-- Social Media Icons -->
                         <div style="position: absolute; display: flex; align-items: center; gap: 34px; top: 493px; right: 700px; z-index: 15;">
-                            <a href="mailto:brea@breaugc.com" class="social-icon" style="color: #4A3B5C; font-size: 56px; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                            <a href="mailto:brea@breaugc.com" class="social-icon" style="font-size: 56px;">
                                 <i class="fas fa-envelope"></i>
                             </a>
 
-                            <a href="https://instagram.com/itsyagirlbrea" target="_blank" style="color: #4A3B5C; font-size: 56px; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                            <a href="https://instagram.com/itsyagirlbrea" target="_blank" class="social-icon" style="font-size: 56px;">
                                 <i class="fab fa-instagram"></i>
                             </a>
 
-                            <a href="https://tiktok.com/@itsyagirlbrea" target="_blank" style="color: #4A3B5C; font-size: 56px; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                            <a href="https://tiktok.com/@itsyagirlbrea" target="_blank" class="social-icon" style="font-size: 56px;">
                                 <i class="fab fa-tiktok"></i>
                             </a>
                         </div>
@@ -4041,15 +3973,15 @@
                     
                     <!-- Social Media Icons -->
                     <div style="display: flex; align-items: center; justify-content: center; gap: 32px; margin: 40px 0 10px 0; transform: translateY(44px);">
-                        <a href="mailto:brea@breaugc.com" class="social-icon" style="color: #4A3B5C; font-size: 58px; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                        <a href="mailto:brea@breaugc.com" class="social-icon" style="font-size: 58px;">
                             <i class="fas fa-envelope"></i>
                         </a>
 
-                        <a href="https://instagram.com/itsyagirlbrea" target="_blank" style="color: #4A3B5C; font-size: 58px; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                        <a href="https://instagram.com/itsyagirlbrea" target="_blank" class="social-icon" style="font-size: 58px;">
                             <i class="fab fa-instagram"></i>
                         </a>
 
-                        <a href="https://tiktok.com/@itsyagirlbrea" target="_blank" style="color: #4A3B5C; font-size: 58px; transition: color 0.3s ease;" onmouseover="this.style.color='#ffbd59'" onmouseout="this.style.color='#4A3B5C'">
+                        <a href="https://tiktok.com/@itsyagirlbrea" target="_blank" class="social-icon" style="font-size: 58px;">
                             <i class="fab fa-tiktok"></i>
                         </a>
                     </div>
@@ -4061,15 +3993,15 @@
     <!-- Photo Collage Strip -->
     <section class="photo-collage">
         <div class="photo-collage-row">
-            <img src="Collage for Header/IMG_5024.jpg" alt="">
-            <img src="Collage for Header/IMG_5027.jpg" alt="">
-            <img src="Collage for Header/IMG_4820.JPG" alt="">
-            <img src="Collage for Header/IMG_5020.jpg" alt="">
-            <img src="Collage for Header/copy_885305DD-2DCF-4496-9C6D-8C9EA892F153.jpg" alt="">
-            <img src="Collage for Header/IMG_5017.jpg" alt="">
-            <img src="Collage for Header/IMG_5022.jpg" alt="">
-            <img src="Collage for Header/IMG_8077.JPG" alt="">
-            <img src="Collage for Header/IMG_5025.jpg" alt="">
+            <img src="Collage for Header/IMG_5024.jpg" alt="" loading="lazy">
+            <img src="Collage for Header/IMG_5027.jpg" alt="" loading="lazy">
+            <img src="Collage for Header/IMG_4820.JPG" alt="" loading="lazy">
+            <img src="Collage for Header/IMG_5020.jpg" alt="" loading="lazy">
+            <img src="Collage for Header/copy_885305DD-2DCF-4496-9C6D-8C9EA892F153.jpg" alt="" loading="lazy">
+            <img src="Collage for Header/IMG_5017.jpg" alt="" loading="lazy">
+            <img src="Collage for Header/IMG_5022.jpg" alt="" loading="lazy">
+            <img src="Collage for Header/IMG_8077.JPG" alt="" loading="lazy">
+            <img src="Collage for Header/IMG_5025.jpg" alt="" loading="lazy">
         </div>
     </section>
 
@@ -4082,7 +4014,7 @@
             
             <div class="collabs-row">
                 <div class="collab-phone">
-                    <div class="collab-logo"><img src="Logos/beauty for real  logo.png" alt="Beauty For Real"></div>
+                    <div class="collab-logo"><img src="Logos/beauty for real  logo.png" alt="Beauty For Real" loading="lazy"></div>
                     <div class="past-favorites-video-container">
                         <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Beauty For Real (720p for website) Thumbnail.png">
                             <source src="videos/Beauty For Real (720p for website).mp4" type="video/mp4">
@@ -4090,7 +4022,7 @@
                     </div>
                 </div>
                 <div class="collab-phone">
-                    <div class="collab-logo"><img src="Logos/TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go"></div>
+                    <div class="collab-logo"><img src="Logos/TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" loading="lazy"></div>
                     <div class="past-favorites-video-container">
                         <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Too Good To Go (720p for website) Thumbnail.png">
                             <source src="videos/Too Good To Go (720p for website).mp4" type="video/mp4">
@@ -4098,7 +4030,7 @@
                     </div>
                 </div>
                 <div class="collab-phone">
-                    <div class="collab-logo"><img src="Logos/zygo logo.png" alt="Zygo"></div>
+                    <div class="collab-logo"><img src="Logos/zygo logo.png" alt="Zygo" loading="lazy"></div>
                     <div class="past-favorites-video-container">
                         <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Zygo Concept 2 (720p for website) Thumbnail.png">
                             <source src="videos/Zygo Concept 2 (720p for website).mp4" type="video/mp4">
@@ -4106,7 +4038,7 @@
                     </div>
                 </div>
                 <div class="collab-phone">
-                    <div class="collab-logo"><img src="Logos/crown and paw logo.jpg" alt="Crown and Paw"></div>
+                    <div class="collab-logo"><img src="Logos/crown and paw logo.jpg" alt="Crown and Paw" loading="lazy"></div>
                     <div class="past-favorites-video-container">
                         <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Crown and Paw (720p for website) Thumbnail.png">
                             <source src="videos/Crown and Paw (720p for website).mp4" type="video/mp4">
@@ -4126,40 +4058,40 @@
             
             <div class="logos-grid-container">
                 <div class="logo-circle">
-                    <img src="Logos/forbrain-logo-299C-1280x216-469214955.png" alt="Forbrain" class="circular-logo">
+                    <img src="Logos/forbrain-logo-299C-1280x216-469214955.png" alt="Forbrain" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/calzen logo.png" alt="Calzen" class="circular-logo">
+                    <img src="Logos/calzen logo.png" alt="Calzen" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/ecoatm logo.png" alt="EcoATM" class="circular-logo">
+                    <img src="Logos/ecoatm logo.png" alt="EcoATM" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
+                    <img src="Logos/VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/riki loves riki logo.png" alt="Riki Loves Riki" class="circular-logo">
+                    <img src="Logos/riki loves riki logo.png" alt="Riki Loves Riki" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/maelys logo.png" alt="Maelys" class="circular-logo">
+                    <img src="Logos/maelys logo.png" alt="Maelys" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo">
+                    <img src="Logos/Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/bodyrok-logo.png" alt="BodyRok" class="circular-logo">
+                    <img src="Logos/bodyrok-logo.png" alt="BodyRok" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
+                    <img src="Logos/getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/planta-logo.png" alt="Planta" class="circular-logo">
+                    <img src="Logos/planta-logo.png" alt="Planta" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/Prose-2004409305.png" alt="Prose" class="circular-logo">
+                    <img src="Logos/Prose-2004409305.png" alt="Prose" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
+                    <img src="Logos/calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo" loading="lazy">
                 </div>
             </div>
             
@@ -4167,40 +4099,40 @@
             <div class="mobile-logo-carousel mobile-only">
                 <div class="single-logo-container" id="singleLogoContainer">
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/forbrain-logo-299C-1280x216-469214955.png" alt="Forbrain" class="circular-logo">
+                        <img src="Logos/forbrain-logo-299C-1280x216-469214955.png" alt="Forbrain" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/calzen logo.png" alt="Calzen" class="circular-logo">
+                        <img src="Logos/calzen logo.png" alt="Calzen" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/ecoatm logo.png" alt="EcoATM" class="circular-logo">
+                        <img src="Logos/ecoatm logo.png" alt="EcoATM" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo">
+                        <img src="Logos/VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/riki loves riki logo.png" alt="Riki Loves Riki" class="circular-logo">
+                        <img src="Logos/riki loves riki logo.png" alt="Riki Loves Riki" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/maelys logo.png" alt="Maelys" class="circular-logo">
+                        <img src="Logos/maelys logo.png" alt="Maelys" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/planta-logo.png" alt="Planta" class="circular-logo">
+                        <img src="Logos/planta-logo.png" alt="Planta" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/Prose-2004409305.png" alt="Prose" class="circular-logo">
+                        <img src="Logos/Prose-2004409305.png" alt="Prose" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo">
+                        <img src="Logos/calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/bodyrok-logo.png" alt="BodyRok" class="circular-logo">
+                        <img src="Logos/bodyrok-logo.png" alt="BodyRok" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo">
+                        <img src="Logos/getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo">
+                        <img src="Logos/Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -4349,7 +4281,7 @@
                 <!-- UGC Tile -->
                 <div class="service-tile ugc-tile">
                     <div class="tile-image">
-                        <img src="ugc-tile.jpg" alt="UGC Services" class="tile-bg-image">
+                        <img src="ugc-tile.jpg" alt="UGC Services" class="tile-bg-image" loading="lazy">
                         <div class="tile-overlay">
                             <h3 class="tile-title">UGC</h3>
                         </div>
@@ -4390,7 +4322,7 @@
                 <!-- Pet UGC Tile -->
                 <div class="service-tile strategy-tile">
                     <div class="tile-image">
-                        <img src="Leon and Sophie (Pitching).jpg" alt="Pet UGC" class="tile-bg-image">
+                        <img src="Leon and Sophie (Pitching).jpg" alt="Pet UGC" class="tile-bg-image" loading="lazy">
                         <div class="tile-overlay">
                             <h3 class="tile-title">Pet UGC</h3>
                         </div>
@@ -4406,7 +4338,7 @@
                 <!-- Jacob UGC Tile -->
                 <div class="service-tile couple-tile">
                     <div class="tile-image">
-                        <img src="Jacob Pic fo Portfolio.JPG" alt="Jacob UGC Services" class="tile-bg-image">
+                        <img src="Jacob Pic fo Portfolio.JPG" alt="Jacob UGC Services" class="tile-bg-image" loading="lazy">
                         <div class="tile-overlay">
                             <h3 class="tile-title">Male UGC</h3>
                         </div>
@@ -4601,192 +4533,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize mobile logo carousel
             initializeMobileLogoCarousel();
-            
-            const videoContainer = document.getElementById('videoContainer');
-            const videoCards = Array.from(videoContainer.querySelectorAll('.video-card'));
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const videoTitle = document.querySelector('.current-video-title');
-            let currentIndex = 0;
-
-            // Video information array
-            const videoInfo = [
-                {
-                    title: "Calzen Wellness Ad",
-                    description: "This changed my wellness routine completely! 🌱 #CalzenPartner #wellness"
-                },
-                {
-                    title: "Raw Actives Skincare Ad", 
-                    description: "Clean ingredients, real results! ✨ #RawActives #cleanbeauty"
-                },
-                {
-                    title: "JG Brand Partnership",
-                    description: "Absolutely obsessed with this product! 💕 #JGpartner #sponsored"
-                },
-                {
-                    title: "Youzu Live Foundation Demo",
-                    description: "Live foundation matching session! Find your perfect shade 💄 #Youzu #foundation"
-                }
-            ];
-            
-            // Function to show a specific video
-            function showVideo(index) {
-                videoCards.forEach((card, i) => {
-                    if (i === index) {
-                        card.style.display = 'flex';
-                        // Reset video state
-                        const video = card.querySelector('video');
-                        const overlay = card.querySelector('.video-play-overlay');
-                        if (video) {
-                            video.currentTime = 0;
-                            video.pause();
-                            video.muted = false;
-                            card.classList.remove('video-playing');
-                            if (overlay) {
-                                overlay.style.display = 'flex';
-                            }
-                        }
-                    } else {
-                        card.style.display = 'none';
-                        // Pause other videos
-                        const video = card.querySelector('video');
-                        if (video) {
-                            video.pause();
-                        }
-                    }
-                });
-                
-                // Update video info display
-                if (videoInfo[index] && videoTitle) {
-                    videoTitle.textContent = videoInfo[index].title;
-                }
-            }
-            
-            // Function to add animation effect
-            function addAnimation(animationClass) {
-                videoContainer.classList.add(animationClass);
-                setTimeout(() => {
-                    videoContainer.classList.remove(animationClass);
-                }, 1000);
-            }
-            
-            // Next button click
-            nextBtn.addEventListener('click', function() {
-                addAnimation('rolodex-next');
-                setTimeout(() => {
-                    currentIndex = (currentIndex + 1) % videoCards.length;
-                    showVideo(currentIndex);
-                }, 250);
-            });
-            
-            // Previous button click
-            prevBtn.addEventListener('click', function() {
-                addAnimation('rolodex-prev');
-                setTimeout(() => {
-                    currentIndex = (currentIndex - 1 + videoCards.length) % videoCards.length;
-                    showVideo(currentIndex);
-                }, 250);
-            });
-            
-            // Initialize with first video
-            showVideo(0);
         });
 
-        // Collaboration Carousel JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            const collaborationVideos = [
-                {
-                    name: "Beauty For Real",
-                    video: "videos/Beauty For Real (720p for website).mp4"
-                },
-                {
-                    name: "Too Good To Go",
-                    video: "videos/Too Good To Go (720p for website).mp4"
-                },
-                {
-                    name: "Zygo",
-                    video: "videos/Zygo Concept 2 (720p for website).mp4"
-                },
-                {
-                    name: "Crown and Paw",
-                    video: "videos/Crown and Paw (720p for website).mp4"
-                }
-            ];
-
-            let currentCollabIndex = 0;
-            const brandLabel = document.getElementById('collaborationBrandLabel');
-            const videoElement = document.getElementById('collaborationVideo');
-            const videoSource = document.getElementById('collaborationVideoSource');
-            const leftArrow = document.getElementById('collaborationCarouselLeft');
-            const rightArrow = document.getElementById('collaborationCarouselRight');
-
-            function updateCollaborationVideo(index) {
-                const collaboration = collaborationVideos[index];
-                brandLabel.textContent = collaboration.name;
-                videoSource.src = collaboration.video;
-                
-                videoElement.load(); // Reload video with new source
-            }
-
-            leftArrow.addEventListener('click', function() {
-                currentCollabIndex = (currentCollabIndex - 1 + collaborationVideos.length) % collaborationVideos.length;
-                updateCollaborationVideo(currentCollabIndex);
-            });
-
-            rightArrow.addEventListener('click', function() {
-                currentCollabIndex = (currentCollabIndex + 1) % collaborationVideos.length;
-                updateCollaborationVideo(currentCollabIndex);
-            });
-            
-            // Mobile button event listeners
-            const mobileLeftBtn = document.getElementById('mobileCollabLeft');
-            const mobileRightBtn = document.getElementById('mobileCollabRight');
-            
-            if (mobileLeftBtn) {
-                mobileLeftBtn.addEventListener('click', function() {
-                    currentCollabIndex = (currentCollabIndex - 1 + collaborationVideos.length) % collaborationVideos.length;
-                    updateCollaborationVideo(currentCollabIndex);
-                });
-            }
-            
-            if (mobileRightBtn) {
-                mobileRightBtn.addEventListener('click', function() {
-                    currentCollabIndex = (currentCollabIndex + 1) % collaborationVideos.length;
-                    updateCollaborationVideo(currentCollabIndex);
-                });
-            }
-            
-            // Mobile touch/swipe functionality
-            let startX = 0;
-            let endX = 0;
-            const collaborationContainer = document.querySelector('.collaboration-video-container');
-            
-            collaborationContainer.addEventListener('touchstart', function(e) {
-                startX = e.touches[0].clientX;
-            });
-            
-            collaborationContainer.addEventListener('touchend', function(e) {
-                endX = e.changedTouches[0].clientX;
-                handleSwipe();
-            });
-            
-            function handleSwipe() {
-                const swipeThreshold = 50;
-                const diff = startX - endX;
-                
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0) {
-                        // Swipe left - next video
-                        currentCollabIndex = (currentCollabIndex + 1) % collaborationVideos.length;
-                        updateCollaborationVideo(currentCollabIndex);
-                    } else {
-                        // Swipe right - previous video
-                        currentCollabIndex = (currentCollabIndex - 1 + collaborationVideos.length) % collaborationVideos.length;
-                        updateCollaborationVideo(currentCollabIndex);
-                    }
-                }
-            }
-        });
 
         // Function to scroll to top
         function scrollToTop(event) {
@@ -4996,58 +4744,6 @@
             });
         });
 
-        // Logo Carousel Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const logosGrid = document.getElementById('logosGrid');
-            const leftArrow = document.getElementById('logoCarouselLeft');
-            const rightArrow = document.getElementById('logoCarouselRight');
-            
-            let currentIndex = 3;
-            const logoWidth = 155;
-            const gap = 30;
-            const originalLogos = 11; // Now 11 unique logos (8 original + 3 new)
-            const totalLogos = 22; // 11 original + 11 duplicates
-            
-            function updateCarousel() {
-                const translateX = -(currentIndex * (logoWidth + gap));
-                logosGrid.style.transform = `translateX(${translateX}px)`;
-                
-                // Seamless loop: when we get past the original 11 logos, reset to beginning without animation
-                if (currentIndex >= originalLogos) {
-                    setTimeout(() => {
-                        logosGrid.style.transition = 'none';
-                        currentIndex = 0;
-                        logosGrid.style.transform = `translateX(0px)`;
-                        setTimeout(() => {
-                            logosGrid.style.transition = 'transform 0.3s ease';
-                        }, 50);
-                    }, 300);
-                }
-                
-                if (currentIndex < 0) {
-                    setTimeout(() => {
-                        logosGrid.style.transition = 'none';
-                        currentIndex = originalLogos - 1;
-                        logosGrid.style.transform = `translateX(-${(originalLogos - 1) * (logoWidth + gap)}px)`;
-                        setTimeout(() => {
-                            logosGrid.style.transition = 'transform 0.3s ease';
-                        }, 50);
-                    }, 300);
-                }
-            }
-            
-            leftArrow.addEventListener('click', function() {
-                currentIndex--;
-                updateCarousel();
-            });
-            
-            rightArrow.addEventListener('click', function() {
-                currentIndex++;
-                updateCarousel();
-            });
-            
-            updateCarousel();
-        });
 
     </script>
 </body>
