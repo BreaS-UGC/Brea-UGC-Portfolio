@@ -302,54 +302,6 @@
             margin-top: -10px;
         }
         
-        /* Section Header Styling - Match Main Page */
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .section-header h2 {
-            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #4A3B5C;
-            letter-spacing: 1px;
-            height: 3.6rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Mobile responsive for section header */
-        @media (max-width: 768px) {
-            .section-header h2 {
-                font-size: 2rem;
-                letter-spacing: 0.5px;
-                height: 2.4rem;
-            }
-        }
-
-        /* Future Videos Section */
-        .future-videos {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 2px solid #E5DBF0;
-            margin-top: 40px;
-        }
-        
-        .future-videos h2 {
-            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-            font-size: 2rem;
-            color: #4A3B5C;
-            margin-bottom: 20px;
-        }
-        
-        .future-videos p {
-            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-            font-size: 1.1rem;
-            color: #6c757d;
-        }
-        
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .pets-grid {
@@ -415,7 +367,7 @@
                 max-width: 100% !important;
                 padding: 0 20px !important;
                 justify-items: center !important;
-                transform: none !important;
+                transform: translateX(-3px) !important;
             }
             
             
@@ -574,41 +526,6 @@
             object-fit: cover;
         }
         
-        .concept-type {
-            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: white;
-            margin-top: 15px;
-            font-weight: 600;
-            text-align: center;
-            background: #4A3B5C;
-            padding: 8px 16px;
-            border-radius: 15px;
-            border: 2px solid #4A3B5C;
-            letter-spacing: 0.5px;
-            text-transform: capitalize;
-            box-shadow: 0 4px 8px rgba(74, 59, 92, 0.2);
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .concept-type:hover {
-            background: #8B7AA0;
-            color: white;
-        }
-        
-        /* Back Arrow Styling */
-        .back-arrow {
-            font-size: 16px !important;
-            font-weight: 500 !important;
-        }
-        
-        .back-arrow:hover {
-            color: #D4AF37 !important;
-            background: rgba(212, 175, 55, 0.1) !important;
-        }
-        
-        
         /* Footer */
         footer {
             background-color: white;
@@ -682,34 +599,9 @@
             margin-bottom: 0;
         }
         
-        /* Pet Social Media Icons */
-        .pet-social-icons {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            z-index: 100;
-            margin-top: -10px;
-        }
-        
-        .pet-social-icons a {
-            transition: color 0.3s ease;
-        }
-        
-        /* Mobile positioning for pet social icons */
         @media (max-width: 768px) {
             .title-container {
                 margin-bottom: 15px;
-            }
-            
-            .pet-social-icons {
-                position: static;
-                transform: none;
-                justify-content: center;
-                margin: 20px auto 0 auto;
-                gap: 30px;
             }
         }
 
@@ -939,7 +831,7 @@
                     <!-- Leon -->
                     <div class="pet-card">
                         <h3 class="pet-name">Leon</h3>
-                        <img src="Leon .JPG" alt="Leon" class="pet-photo">
+                        <img src="Leon .JPG" alt="Leon" class="pet-photo" loading="lazy">
                         <p class="pet-description">
                             Sweet, affectionate boy cat who is very workable on camera, can speak on command and comes when called.
                         </p>
@@ -948,7 +840,7 @@
                     <!-- Molly -->
                     <div class="pet-card">
                         <h3 class="pet-name">Molly</h3>
-                        <img src="Molly .jpg" alt="Molly" class="pet-photo">
+                        <img src="Molly .jpg" alt="Molly" class="pet-photo" loading="lazy">
                         <p class="pet-description">
                             Senior Pit Lab, can do tons of tricks. Recovering from TPLO surgery, plenty of footage and takes supplements for the camera.
                         </p>
@@ -957,7 +849,7 @@
                     <!-- Willow -->
                     <div class="pet-card">
                         <h3 class="pet-name">Willow</h3>
-                        <img src="Willow .JPG" alt="Willow" class="pet-photo">
+                        <img src="Willow .JPG" alt="Willow" class="pet-photo" loading="lazy">
                         <p class="pet-description">
                             Sweet when she wants to be otherwise an evil mastermind. Goes full crackhead.
                         </p>
@@ -966,7 +858,7 @@
                     <!-- Sophie -->
                     <div class="pet-card">
                         <h3 class="pet-name">Sophie</h3>
-                        <img src="Soph.jpg" alt="Sophie" class="pet-photo">
+                        <img src="Soph.jpg" alt="Sophie" class="pet-photo" loading="lazy">
                         <p class="pet-description">
                             Border Collie, high energy, loves being on camera, has hypothyroidism.
                         </p>
@@ -982,7 +874,7 @@
             <div class="paid-ads-grid">
                     <!-- Video 1 - Sundays for Dogs -->
                     <div class="mini-phone-container">
-                        <div class="phone-label"><img src="Logos/Sundays For Dogs Logo.png" alt="Sundays for Dogs"></div>
+                        <div class="phone-label"><img src="Logos/Sundays For Dogs Logo.png" alt="Sundays for Dogs" loading="lazy"></div>
                         <div class="mini-video-container paid-ads-gradient">
                             <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Sundays for Dogs Spark Ad (720p for website) Thumbnail.png">
                                 <source src="videos/Sundays for Dogs Spark Ad (720p for website).mp4" type="video/mp4">
@@ -993,7 +885,7 @@
 
                     <!-- Video 2 - Fresh Patch -->
                     <div class="mini-phone-container">
-                        <div class="phone-label"><img src="Logos/Fresh Patch Logo.png" alt="Fresh Patch"></div>
+                        <div class="phone-label"><img src="Logos/Fresh Patch Logo.png" alt="Fresh Patch" loading="lazy"></div>
                         <div class="mini-video-container paid-ads-gradient">
                             <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Fresh Patch (720p for website) Thumbnail.png">
                                 <source src="videos/Fresh Patch (720p for website).mp4" type="video/mp4">
@@ -1004,7 +896,7 @@
 
                     <!-- Video 3 - Timber Dog -->
                     <div class="mini-phone-container">
-                        <div class="phone-label"><img src="Logos/Timberdog Logo.jpg" alt="Timber Dog"></div>
+                        <div class="phone-label"><img src="Logos/Timberdog Logo.jpg" alt="Timber Dog" loading="lazy"></div>
                         <div class="mini-video-container paid-ads-gradient">
                             <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Timberdog (720p for website) Thumbnail.png">
                                 <source src="videos/Timberdog (720p for website).mp4" type="video/mp4">
@@ -1015,7 +907,7 @@
 
                     <!-- Video 4 - Lambwolf -->
                     <div class="mini-phone-container">
-                        <div class="phone-label"><img src="Logos/Lambwolf Logo.png" alt="Lambwolf"></div>
+                        <div class="phone-label"><img src="Logos/Lambwolf Logo.png" alt="Lambwolf" loading="lazy"></div>
                         <div class="mini-video-container paid-ads-gradient">
                             <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Lambwolf (720p for website) Thumbnail.png">
                                 <source src="videos/Lambwolf (720p for website).mp4" type="video/mp4">
@@ -1026,7 +918,7 @@
 
                     <!-- Video 5 - Ibiyaya -->
                     <div class="mini-phone-container">
-                        <div class="phone-label"><img src="Logos/ibiyaya logo.png" alt="Ibiyaya"></div>
+                        <div class="phone-label"><img src="Logos/ibiyaya logo.png" alt="Ibiyaya" loading="lazy"></div>
                         <div class="mini-video-container paid-ads-gradient">
                             <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Ibiyaya (720p for website) Thumbnail.png">
                                 <source src="videos/Ibiyaya (720p for website).mp4" type="video/mp4">
@@ -1037,7 +929,7 @@
 
                     <!-- Video 6 - Sy Litter -->
                     <div class="mini-phone-container">
-                        <div class="phone-label"><img src="Logos/Sustainably-Yours-logo-2429460472.png" alt="Sy Litter"></div>
+                        <div class="phone-label"><img src="Logos/Sustainably-Yours-logo-2429460472.png" alt="Sy Litter" loading="lazy"></div>
                         <div class="mini-video-container paid-ads-gradient">
                             <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Sy Litter (720p for website) Thumbnail.png">
                                 <source src="videos/Sy Litter (720p for website).mp4" type="video/mp4">

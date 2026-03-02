@@ -432,14 +432,6 @@
         /* ============================================
            SLIDE 2: WORK
         ============================================ */
-        .card-section-label {
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--bourbon);
-            margin-bottom: 8px;
-        }
         .card-section-title {
             font-family: 'Instrument Serif', serif;
             font-size: clamp(1.6rem, 3vw, 2.2rem);
@@ -503,10 +495,6 @@
             object-fit: cover;
         }
 
-        .fill-warm { background: linear-gradient(170deg, #5A3E2E 0%, #3D2B1F 100%); }
-        .fill-cool { background: linear-gradient(170deg, #2A3040 0%, #1A1E28 100%); }
-        .fill-earth { background: linear-gradient(170deg, #4A5540 0%, #2B3328 100%); }
-        .fill-rust { background: linear-gradient(170deg, #6B3A2A 0%, #3D2015 100%); }
 
         .vid-fill i {
             font-size: 1.1rem;
@@ -1076,6 +1064,14 @@
             transition: all 0.25s;
         }
         .contact-form .submit-btn:hover, .submit-btn:hover { background: var(--wheat); color: var(--ink); }
+        .submit-btn--ghost {
+            margin-top: 28px;
+            background: transparent;
+            color: var(--bourbon);
+            border: 1px solid var(--bourbon);
+            cursor: default;
+        }
+        .submit-btn--ghost:hover { background: var(--bourbon); color: var(--parchment); }
 
         /* ============================================
            NAVIGATION
@@ -1213,14 +1209,14 @@
                 align-items: center;
                 gap: 18px;
                 position: absolute;
-                top: 28px;
-                right: 55px;
+                top: 16px;
+                right: 70px;
                 z-index: 10;
             }
             .mobile-socials-card2 a {
                 color: var(--bourbon) !important;
                 text-decoration: none;
-                font-size: 1.8rem;
+                font-size: 1.55rem;
                 line-height: 1;
             }
             .mobile-socials-card2 a:nth-child(2) {
@@ -1581,7 +1577,7 @@
             </div>
             <div class="vid-grid" style="gap: 45px; margin-top: 6px;">
                 <div class="vid-cell">
-                    <div class="vid-logo"><img src="Logos/Fresh Patch Logo.png" alt="Fresh Patch"></div>
+                    <div class="vid-logo"><img src="Logos/Fresh Patch Logo.png" alt="Fresh Patch" loading="lazy"></div>
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
@@ -1595,7 +1591,7 @@
                     </div>
                 </div>
                 <div class="vid-cell">
-                    <div class="vid-logo"><img src="Logos/ibiyaya logo.png" alt="Ibiyaya"></div>
+                    <div class="vid-logo"><img src="Logos/ibiyaya logo.png" alt="Ibiyaya" loading="lazy"></div>
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
@@ -1609,7 +1605,7 @@
                     </div>
                 </div>
                 <div class="vid-cell">
-                    <div class="vid-logo"><img src="Logos/doggo sessions.webp" alt="Doggo Sessions"></div>
+                    <div class="vid-logo"><img src="Logos/doggo sessions.webp" alt="Doggo Sessions" loading="lazy"></div>
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
@@ -1623,7 +1619,7 @@
                     </div>
                 </div>
                 <div class="vid-cell">
-                    <div class="vid-logo"><img src="Logos/crown and paw logo.jpg" alt="Crown and Paw"></div>
+                    <div class="vid-logo"><img src="Logos/crown and paw logo.jpg" alt="Crown and Paw" loading="lazy"></div>
                     <div class="vid-frame">
                         <div class="play-overlay"></div>
                         <div class="vid-fill">
@@ -1705,7 +1701,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="submit-btn" style="margin-top: 28px; background: transparent; color: var(--bourbon); border: 1px solid var(--bourbon); cursor: default;" onmouseover="this.style.background='var(--bourbon)';this.style.color='var(--parchment)';" onmouseout="this.style.background='transparent';this.style.color='var(--bourbon)';">Coming Soon</button>
+                    <button class="submit-btn submit-btn--ghost">Coming Soon</button>
                     </div>
                 </div>
             </div>
@@ -1717,7 +1713,7 @@
             <div class="jac-tile-grid">
                 <div class="jac-tile">
                     <div class="jac-tile-image">
-                        <img src="Leon and Sophie (Pitching).jpg" alt="Pet UGC">
+                        <img src="Leon and Sophie (Pitching).jpg" alt="Pet UGC" loading="lazy">
                         <div class="jac-tile-overlay"><h3>Pet UGC</h3></div>
                     </div>
                     <div class="jac-tile-body">
@@ -1727,7 +1723,7 @@
                 </div>
                 <div class="jac-tile">
                     <div class="jac-tile-image">
-                        <img src="Portfolio pic.jpg" alt="Female UGC">
+                        <img src="Portfolio pic.jpg" alt="Female UGC" loading="lazy">
                         <div class="jac-tile-overlay"><h3>Female UGC</h3></div>
                     </div>
                     <div class="jac-tile-body">
@@ -1945,10 +1941,6 @@
 
         // Reset scroll on all cards on page load
         slides.forEach(function(s) { s.scrollTop = 0; });
-
-        function pauseAllVideos() {
-            document.querySelectorAll('.mini-video').forEach(v => { v.pause(); });
-        }
 
         function navTo(index) {
             if (window.innerWidth > 1024) {
