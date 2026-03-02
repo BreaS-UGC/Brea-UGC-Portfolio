@@ -63,7 +63,7 @@
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             position: relative;
             width: 100%;
-            overflow: hidden;
+            overflow: visible;
         }
 
         nav {
@@ -136,6 +136,66 @@
             color: #D4AF37;
             background: rgba(212, 175, 55, 0.15);
         }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-toggle {
+            text-decoration: none;
+            color: #4A3B5C;
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            transition: all 0.3s;
+            font-size: 16px;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: inline-block;
+            box-sizing: border-box;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1001;
+        }
+        .dropdown-toggle:hover {
+            color: #D4AF37;
+            background: rgba(212, 175, 55, 0.1);
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #9F8AB3;
+            border-radius: 10px;
+            min-width: 150px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1002;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 5px;
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu a {
+            display: block !important;
+            align-self: auto !important;
+            margin: 0 !important;
+            padding: 12px 20px !important;
+            color: #4A3B5C;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border-radius: 0;
+            background: transparent;
+        }
+        .dropdown-menu a:first-child { border-radius: 10px 10px 0 0; }
+        .dropdown-menu a:last-child { border-radius: 0 0 10px 10px; }
+        .dropdown-menu a:hover { background: #D4AF37; color: #9F8AB3; }
 
         /* Mobile Navigation */
         .hamburger-menu {
@@ -697,8 +757,6 @@
                 <!-- Desktop Navigation -->
                 <div class="nav-links">
                     <a href="index.html">Home</a>
-                    <span class="nav-divider"></span>
-                    <a href="pet-ugc.html">Pet UGC</a>
                 </div>
 
                 <!-- Mobile Hamburger Menu -->
@@ -713,6 +771,7 @@
             <div class="mobile-nav" id="mobileNav">
                 <div class="mobile-nav-close" onclick="toggleMobileNav()">&times;</div>
                 <a href="index.html" onclick="toggleMobileNav()">Home</a>
+                <a href="jacob.html" onclick="toggleMobileNav()">Male UGC</a>
                 <a href="pet-ugc.html" onclick="toggleMobileNav()">Pet UGC</a>
             </div>
         </div>

@@ -70,9 +70,9 @@
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             position: relative;
             width: 100%;
-            overflow: hidden;
+            overflow: visible;
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
@@ -175,7 +175,7 @@
         .dropdown-menu {
             position: absolute;
             top: 100%;
-            right: 0;
+            left: 0;
             background: #9F8AB3;
             border-radius: 10px;
             min-width: 150px;
@@ -195,8 +195,10 @@
         }
         
         .dropdown-menu a {
-            display: block;
-            padding: 12px 20px;
+            display: block !important;
+            align-self: auto !important;
+            margin: 0 !important;
+            padding: 12px 20px !important;
             color: #4A3B5C;
             text-decoration: none;
             font-size: 14px;
@@ -3929,9 +3931,15 @@
 
                 <!-- Desktop Navigation -->
                 <div class="nav-links">
-                    <a href="#services">Services</a>
-                    <span class="nav-divider"></span>
-                    <a href="pet-ugc.html">Pet UGC</a>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#">Services ▾</a>
+                        <div class="dropdown-menu">
+                            <a href="#paid-ads">UGC</a>
+                            <a href="#organic">Organic Content</a>
+                            <a href="jacob.html">Male UGC</a>
+                            <a href="pet-ugc.html">Pet UGC</a>
+                        </div>
+                    </div>
                     <span class="nav-divider"></span>
                     <a href="about.html">About</a>
                 </div>
@@ -3947,7 +3955,9 @@
             <!-- Mobile Navigation Menu -->
             <div class="mobile-nav" id="mobileNav">
                 <div class="mobile-nav-close" onclick="toggleMobileNav()">&times;</div>
-                <a href="#services" onclick="toggleMobileNav()">Services</a>
+                <a href="#paid-ads" onclick="toggleMobileNav()">UGC</a>
+                <a href="#organic" onclick="toggleMobileNav()">Organic Content</a>
+                <a href="jacob.html" onclick="toggleMobileNav()">Male UGC</a>
                 <a href="pet-ugc.html" onclick="toggleMobileNav()">Pet UGC</a>
                 <a href="about.html" onclick="toggleMobileNav()">About</a>
             </div>
@@ -4398,7 +4408,7 @@
                     <div class="tile-image">
                         <img src="Jacob Pic fo Portfolio.JPG" alt="Jacob UGC Services" class="tile-bg-image">
                         <div class="tile-overlay">
-                            <h3 class="tile-title">Jacob UGC</h3>
+                            <h3 class="tile-title">Male UGC</h3>
                         </div>
                     </div>
                     <div class="tile-dropdown">
