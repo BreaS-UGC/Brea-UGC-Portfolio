@@ -20,8 +20,8 @@
             --ink: #1A1215;
             --tobacco: #3D2B1F;
             --rust: #8B4513;
-            --bourbon: #200934;
-            --wheat: #3f407e;
+            --bourbon: #4d0011;
+            --wheat: #68111e;
             --parchment: #F2EADD;
             --cream: #FAF7F2;
             --paper: #FFFDF9;
@@ -37,7 +37,7 @@
         body {
             font-family: 'Didact Gothic', sans-serif;
             color: var(--ink);
-            background: url('Jacob ugc background black.svg') center center / cover no-repeat fixed;
+            background: url('jacob background (1920x1080).jpg') center center / cover no-repeat fixed;
             background-color: var(--ink);
             overflow: hidden;
             height: 100vh;
@@ -294,12 +294,12 @@
             border-color: var(--wheat);
         }
         .guitar-svg {
-            filter: brightness(0) saturate(100%) invert(6%) sepia(90%) saturate(3500%) hue-rotate(272deg) brightness(55%);
+            filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(6000%) hue-rotate(320deg) brightness(45%);
             transition: filter 0.3s ease, transform 0.3s ease;
             cursor: pointer;
         }
         .guitar-svg:hover {
-            filter: brightness(0) saturate(100%) invert(23%) sepia(45%) saturate(650%) hue-rotate(215deg) brightness(88%);
+            filter: brightness(0) saturate(100%) invert(19%) sepia(90%) saturate(1500%) hue-rotate(305deg) brightness(95%);
             transform: scale(1.1);
         }
 
@@ -360,10 +360,10 @@
         }
         .hero-fact {
             font-family: 'Didact Gothic', sans-serif;
-            font-size: 0.55rem;
+            font-size: 0.95rem;
             letter-spacing: 0.8px;
-            text-transform: uppercase;
-            color: var(--wheat);
+            text-transform: none;
+            color: var(--bourbon);
             padding: 5px 0;
             font-weight: 700;
             white-space: nowrap;
@@ -667,16 +667,14 @@
         .svc-exp-header.active .arr { transform: rotate(180deg); }
 
         .svc-exp-body {
-            max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
+            height: 0;
+            transition: height 0.4s ease-in-out;
             border: 1px solid var(--faint);
             border-top: none;
             border-radius: 0 0 4px 4px;
-            padding: 0 14px;
         }
-        .svc-exp-body.active {
-            max-height: 400px;
+        .svc-exp-inner {
             padding: 12px 14px;
         }
         .svc-exp-body ul {
@@ -1374,7 +1372,7 @@
                 transform: translate(-20px, -12px);
             }
             .slide:nth-child(1) .hero-fact {
-                font-size: 0.8rem;
+                font-size: 0.95rem;
             }
             .slide:nth-child(1) .hero-photo {
                 width: 280px !important;
@@ -1414,7 +1412,7 @@
         <div class="hdr-inner">
             <a href="#" class="hdr-logo" onclick="event.preventDefault();goTo(0)" style="visibility:hidden">.</a>
             <nav class="hdr-nav">
-                <a href="index.html">Brea UGC</a>
+                <a href="index.html">Female UGC</a>
                 <a href="pet-ugc.html">Pet UGC</a>
                 <a href="#" onclick="event.preventDefault();navTo(2)">Services</a>
                 <a href="#" onclick="event.preventDefault();navTo(totalSlides - 1)">Book Me</a>
@@ -1423,7 +1421,7 @@
         </div>
     </header>
     <div class="mob-nav" id="mob">
-        <a href="index.html" onclick="toggleNav()">Brea UGC</a>
+        <a href="index.html" onclick="toggleNav()">Female UGC</a>
         <a href="pet-ugc.html" onclick="toggleNav()">Pet UGC</a>
         <a href="#" onclick="event.preventDefault();toggleNav();navTo(2)">Services</a>
         <a href="#" onclick="event.preventDefault();toggleNav();navTo(totalSlides - 1)">Book Me</a>
@@ -1558,7 +1556,6 @@
         <div class="slide">
             <div style="margin-bottom: 28px;">
                 <h2 class="card-section-title" style="font-size: 2rem;">Services</h2>
-                <div class="card-section-label">What I Offer</div>
             </div>
 
             <div class="svc-grid">
@@ -1576,6 +1573,7 @@
                             <i class="fas fa-chevron-down arr"></i>
                         </div>
                         <div class="svc-exp-body">
+                            <div class="svc-exp-inner">
                             <ul>
                                 <li>Concept Ideation</li>
                                 <li>Scripting / Script Reads</li>
@@ -1587,6 +1585,7 @@
                                 <li>30 Days Paid Ad Usage</li>
                             </ul>
                             <p style="font-size: 0.72rem; color: var(--ash); margin-top: 10px; letter-spacing: 0.5px;">Add-Ons: Raw Footage &nbsp;·&nbsp; Hook / CTA Variations &nbsp;·&nbsp; Additional Revisions</p>
+                            </div>
                         </div>
                     </div>
                     </div>
@@ -1606,6 +1605,7 @@
                             <i class="fas fa-chevron-down arr"></i>
                         </div>
                         <div class="svc-exp-body">
+                            <div class="svc-exp-inner">
                             <ul>
                                 <li>Custom design tailored to your brand</li>
                                 <li>Mobile-friendly responsive layout</li>
@@ -1615,6 +1615,7 @@
                                 <li>2 rounds of revisions</li>
                             </ul>
                             <p style="font-size: 0.72rem; color: var(--ash); margin-top: 10px; letter-spacing: 0.5px;">Add-Ons: Extra Pages &nbsp;·&nbsp; Custom Animations &nbsp;·&nbsp; Logo Design &nbsp;·&nbsp; Content Updates</p>
+                            </div>
                         </div>
                     </div>
                     <button class="submit-btn" style="margin-top: 28px; background: transparent; color: var(--bourbon); border: 1px solid var(--bourbon); cursor: default;" onmouseover="this.style.background='var(--bourbon)';this.style.color='var(--parchment)';" onmouseout="this.style.background='transparent';this.style.color='var(--bourbon)';">Coming Soon</button>
@@ -1625,7 +1626,6 @@
             <div class="proc-section" style="margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--faint);">
                 <div style="margin-bottom: 0;">
                     <h2 class="card-section-title" style="font-size: 2rem;">How It Works</h2>
-                    <div class="card-section-label">The Process</div>
                 </div>
 
                 <div class="proc-steps">
@@ -1957,8 +1957,23 @@
         document.querySelectorAll('.svc-exp-header').forEach(header => {
             header.addEventListener('click', function() {
                 const body = this.nextElementSibling;
+                const isOpen = this.classList.contains('active');
                 this.classList.toggle('active');
-                body.classList.toggle('active');
+
+                if (isOpen) {
+                    // Collapse: pin rendered height → animate to 0
+                    body.style.height = body.offsetHeight + 'px';
+                    body.offsetHeight;
+                    body.style.height = '0';
+                } else {
+                    // Expand: animate from 0 to full content height
+                    body.style.height = body.scrollHeight + 'px';
+                    body.addEventListener('transitionend', function once(e) {
+                        if (e.propertyName !== 'height') return;
+                        body.style.height = 'auto';
+                        body.removeEventListener('transitionend', once);
+                    });
+                }
             });
         });
 
