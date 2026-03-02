@@ -298,9 +298,8 @@
             transition: filter 0.3s ease, transform 0.3s ease;
             cursor: pointer;
         }
-        .guitar-svg:hover {
-            filter: brightness(0) saturate(100%) invert(19%) sepia(90%) saturate(1500%) hue-rotate(305deg) brightness(95%);
-            transform: scale(1.1);
+        .hero-socials a:hover .guitar-svg {
+            filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(6000%) hue-rotate(320deg) brightness(65%);
         }
 
         .hero-tag {
@@ -380,6 +379,10 @@
             font-size: 2.8rem;
             line-height: 1;
             transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .hero-socials a:has(.guitar-svg) {
+            font-size: 0;
+            line-height: 0;
         }
         .hero-socials a:hover {
             color: var(--wheat);
@@ -632,7 +635,7 @@
 
         .svc-card p {
             font-size: 0.82rem;
-            color: var(--smoke);
+            color: #000;
             line-height: 1.7;
             margin-bottom: 16px;
         }
@@ -684,7 +687,7 @@
         }
         .svc-exp-body li {
             font-size: 0.78rem;
-            color: var(--smoke);
+            color: #000;
             padding: 3px 0 3px 16px;
             position: relative;
             margin-bottom: 2px;
@@ -698,7 +701,7 @@
         }
         .svc-exp-body p {
             font-size: 0.78rem;
-            color: var(--smoke);
+            color: #000;
             line-height: 1.7;
             margin: 0;
         }
@@ -729,6 +732,80 @@
             font-size: 1.3rem;
             color: var(--wheat);
             letter-spacing: -0.5px;
+        }
+
+        /* Image tiles (desktop only) */
+        .jac-tile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 28px;
+        }
+        .jac-tile {
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .jac-tile-image {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+        }
+        .jac-tile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transform: none;
+        }
+        .jac-tile-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+            padding: 20px 16px 14px;
+        }
+        .jac-tile-overlay h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 0;
+            letter-spacing: 0.3px;
+        }
+        .jac-tile-body {
+            background: var(--parchment);
+            padding: 16px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .jac-tile-body p {
+            font-size: 0.95rem;
+            color: #000;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .jac-tile-btn {
+            display: inline-block;
+            text-align: center;
+            background: var(--bourbon);
+            color: var(--parchment);
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+            align-self: flex-start;
+        }
+        .jac-tile-btn:hover {
+            background: var(--wheat);
         }
 
         /* ============================================
@@ -925,7 +1002,7 @@
             font-weight: 500;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--smoke);
+            color: #000;
             margin-bottom: 4px;
         }
         .contact-form input[type="text"],
@@ -1168,6 +1245,8 @@
             .vid-grid { grid-template-columns: repeat(2, 1fr); }
 
             .svc-grid { grid-template-columns: 1fr; }
+            .jac-tile-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+            .jac-tile-image { height: 200px; }
 
             .proc-steps {
                 grid-template-columns: 1fr;
@@ -1304,11 +1383,11 @@
             /* Card 2 — Recent Projects desktop */
             .slide:nth-child(2) {
                 min-height: 600px;
-                padding: 48px 56px 56px 56px !important;
+                padding: 48px 20px 56px 20px !important;
             }
-            .slide:nth-child(2) .card-section-title { font-size: 3rem; }
+            .slide:nth-child(2) .card-section-title { font-size: 3.2rem; text-align: center; }
             .slide:nth-child(2) .work-header { margin-bottom: 0px !important; }
-            .slide:nth-child(2) .vid-grid { gap: 60px !important; }
+            .slide:nth-child(2) .vid-grid { gap: 16px !important; grid-template-columns: repeat(4, 1fr); }
             .slide:nth-child(2) .vid-type { font-size: 0.9rem; text-align: center; font-weight: 600; color: var(--bourbon); }
             .slide:nth-child(2) .vid-meta { text-align: center; }
 
@@ -1316,10 +1395,12 @@
             .slide:nth-child(3) {
                 padding: 48px 56px 56px 56px !important;
             }
+            .slide:nth-child(2) .work-header { justify-content: center; margin-left: 0 !important; }
             .slide:nth-child(3) .card-section-title {
-                font-size: 3rem;
+                font-size: 3.2rem;
+                text-align: center;
             }
-            .slide:nth-child(3) .svc-card p { font-size: 1rem; }
+            .slide:nth-child(3) .svc-card p { font-size: 1.08rem; }
             .slide:nth-child(3) .svc-exp-body li,
             .slide:nth-child(3) .svc-exp-body p { font-size: 1rem; }
             .slide:nth-child(3) .svc-exp-header span { font-size: 1rem; }
@@ -1331,13 +1412,15 @@
             }
             .slide:nth-child(4) .card-section-title,
             .slide:nth-child(4) .ftr-cta {
-                font-size: 3rem;
+                font-size: 3.2rem;
+                text-align: center;
             }
             .slide:nth-child(4) .submit-btn { font-size: 1rem; margin-top: 40px; }
-            .slide:nth-child(4) .contact-form .form-group label { font-size: 0.9rem; color: var(--bourbon); }
+            .slide:nth-child(4) .contact-form .form-group label { font-size: 0.9rem; color: #000; }
             .slide:nth-child(4) .contact-form .checkbox-group { margin-top: 10px; }
             .slide:nth-child(2) .card-section-title {
-                font-size: 3rem;
+                font-size: 3.2rem;
+                text-align: center;
             }
 
             /* Card 1 — bigger hero on desktop */
@@ -1389,13 +1472,17 @@
             .slide:nth-child(1) .guitar-svg {
                 height: 180px;
                 width: auto;
-                transform: translateX(-32px);
-            }
-            .slide:nth-child(1) .guitar-svg:hover {
-                transform: translateX(-32px) scale(1.1);
             }
             .slide:nth-child(1) .hero-socials a {
                 font-size: 4rem;
+            }
+            .slide:nth-child(1) .hero-socials a:has(.guitar-svg) {
+                font-size: 0;
+                line-height: 0;
+                transform: translateX(-32px);
+            }
+            .slide:nth-child(1) .hero-socials a:has(.guitar-svg):hover {
+                transform: translateX(-32px) scale(1.1);
             }
             .slide:nth-child(1) .pet-btn {
                 font-size: 1rem;
@@ -1490,7 +1577,7 @@
                 <a href="https://tiktok.com/@thehillherdfamily" target="_blank"><i class="fab fa-tiktok"></i></a>
             </div>
             <div class="work-header" style="margin-bottom: 0px; margin-top: 10px; margin-left: 20px;">
-                <h2 class="card-section-title" style="font-size: 2rem;">Recent Projects</h2>
+                <h2 class="card-section-title">Recent Projects</h2>
             </div>
             <div class="vid-grid" style="gap: 45px; margin-top: 6px;">
                 <div class="vid-cell">
@@ -1555,7 +1642,7 @@
         <!-- SLIDE 3: SERVICES -->
         <div class="slide">
             <div style="margin-bottom: 28px;">
-                <h2 class="card-section-title" style="font-size: 2rem;">Services</h2>
+                <h2 class="card-section-title">Services</h2>
             </div>
 
             <div class="svc-grid">
@@ -1623,9 +1710,36 @@
                 </div>
             </div>
 
+            <div style="margin-top: 40px; margin-bottom: 28px; padding-top: 28px; border-top: 1px solid var(--faint);">
+                <h2 class="card-section-title">More</h2>
+            </div>
+
+            <div class="jac-tile-grid">
+                <div class="jac-tile">
+                    <div class="jac-tile-image">
+                        <img src="Leon and Sophie (Pitching).jpg" alt="Pet UGC">
+                        <div class="jac-tile-overlay"><h3>Pet UGC</h3></div>
+                    </div>
+                    <div class="jac-tile-body">
+                        <p>Engaging Pet UGC showcasing our goofy and adorable fur family featuring pet products, toys, supplements, and more!</p>
+                        <a href="pet-ugc.html" class="jac-tile-btn">View Pet Portfolio</a>
+                    </div>
+                </div>
+                <div class="jac-tile">
+                    <div class="jac-tile-image">
+                        <img src="Portfolio pic.jpg" alt="Female UGC">
+                        <div class="jac-tile-overlay"><h3>Female UGC</h3></div>
+                    </div>
+                    <div class="jac-tile-body">
+                        <p>Engaging female UGC from my wife and creative partner Brea — featuring beauty, lifestyle, pets, and more!</p>
+                        <a href="index.html" class="jac-tile-btn">View Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="proc-section" style="margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--faint);">
                 <div style="margin-bottom: 0;">
-                    <h2 class="card-section-title" style="font-size: 2rem;">How It Works</h2>
+                    <h2 class="card-section-title">How It Works</h2>
                 </div>
 
                 <div class="proc-steps">
@@ -1651,7 +1765,7 @@
 
         <!-- SLIDE 4: CONTACT -->
         <div class="slide">
-            <h2 class="card-section-title" style="font-size: 2rem;">Ready to Get Started?</h2>
+            <h2 class="card-section-title">Ready to Get Started?</h2>
 
             <form class="contact-form" action="https://formspree.io/f/xdalpvve" method="POST">
                 <input type="hidden" name="_subject" value="New Jacob UGC Inquiry">
@@ -1695,7 +1809,7 @@
     </div>
 
     <!-- SWIPE HINT -->
-    <img src="arrow swipe for jacob site.svg" class="swipe-hint" alt="swipe">
+    <img src="arrow swipe for jacob site 2.svg" class="swipe-hint" alt="swipe">
 
     <!-- SLIDE NAVIGATION -->
     <div class="slide-nav">
