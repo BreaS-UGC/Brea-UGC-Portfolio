@@ -582,7 +582,7 @@
         ============================================ */
         .svc-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 2fr 3fr;
             gap: 2px;
             border-radius: 12px;
             overflow: hidden;
@@ -595,22 +595,24 @@
             overflow: hidden;
             transition: background 0.3s;
         }
-        .svc-card:hover { background: var(--faint); }
+        .svc-card:hover { background: #ddd4c8; }
+        .svc-card:hover .svc-card-num { color: rgba(255,255,255,0.9); }
 
         .svc-card-header {
             background: var(--bourbon);
-            padding: 14px 24px 10px;
+            padding: 6px 20px 4px;
         }
 
         .svc-card-num {
             font-family: 'Instrument Serif', serif;
-            font-size: 3rem;
+            font-size: 1.6rem;
             color: rgba(255,255,255,0.35);
             line-height: 1;
+            transition: color 0.3s;
         }
 
         .svc-card-body {
-            padding: 20px 24px 28px;
+            padding: 20px 24px 24px;
         }
 
         .svc-card h3 {
@@ -629,26 +631,25 @@
         }
 
         .svc-expandable {
-            border-top: 1px solid var(--faint);
+            background: var(--parchment);
+            grid-column: 1 / -1;
+            transition: background 0.3s;
+        }
+        .svc-expandable:hover {
+            background: #ddd4c8;
         }
         .svc-exp-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0 10px;
+            padding: 12px 24px;
             cursor: pointer;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.25s, color 0.25s;
-        }
-        .svc-exp-header:hover {
-            border-bottom-color: var(--bourbon);
-            color: var(--bourbon);
         }
         .svc-exp-header span {
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            transition: color 0.25s;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.35rem;
+            font-weight: 400;
+            letter-spacing: -0.2px;
         }
         .svc-exp-header .arr {
             font-size: 0.55rem;
@@ -660,13 +661,10 @@
         .svc-exp-body {
             overflow: hidden;
             height: 0;
-            transition: height 0.4s ease-in-out;
-            border: 1px solid var(--faint);
-            border-top: none;
-            border-radius: 0 0 4px 4px;
+            transition: height 0.35s ease;
         }
         .svc-exp-inner {
-            padding: 12px 14px;
+            padding: 0 24px 16px;
         }
         .svc-exp-body ul {
             list-style: none;
@@ -720,6 +718,98 @@
             font-size: 1.3rem;
             color: var(--wheat);
             letter-spacing: -0.5px;
+        }
+
+        .svc-tiles-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            align-self: stretch;
+        }
+
+        .svc-tile {
+            background: var(--parchment);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 160px;
+            transition: background 0.3s;
+            flex: 1;
+        }
+        .svc-tile-btn {
+            display: inline-block;
+            padding: 8px 18px;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border-radius: 6px;
+            border: 1px solid var(--bourbon);
+            color: var(--bourbon);
+            background: transparent;
+            text-decoration: none;
+            transition: background 0.25s, color 0.25s;
+            align-self: flex-start;
+        }
+        .svc-tile-btn:hover {
+            background: var(--bourbon);
+            color: var(--parchment);
+        }
+        .svc-tile:hover { background: #ddd4c8; }
+        .svc-tile:hover .svc-card-num { color: rgba(255,255,255,0.9); }
+        .svc-tile .svc-card-header {
+            grid-column: 1 / -1;
+        }
+        .svc-tile-body {
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .svc-tile h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            color: var(--ink);
+            font-weight: 400;
+            letter-spacing: -0.3px;
+        }
+        .svc-tile p {
+            font-size: 1rem;
+            color: #000;
+            line-height: 1.7;
+        }
+        .svc-tile-image {
+            width: 160px;
+            height: 160px;
+            overflow: hidden;
+            align-self: center;
+            margin: 8px 8px 8px 0;
+            border-radius: 4px;
+        }
+        .svc-tile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        /* More: website dev card */
+        .svc-more-card {
+            background: var(--parchment);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .svc-more-card h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.35rem;
+            color: var(--ink);
+            font-weight: 400;
+            letter-spacing: -0.3px;
+        }
+        .svc-more-card p {
+            font-size: 0.82rem;
+            color: #000;
+            line-height: 1.7;
         }
 
         /* Image tiles (desktop only) */
@@ -1201,7 +1291,8 @@
             .slide:nth-child(1) { --rot: -1deg; overflow-y: auto; padding-top: 36px; }
             .slide:nth-child(2) { --rot: -1deg; --y-offset: 0; left: 4vw; width: 92vw; }
             .slide:nth-child(3) { --rot: -0.5deg; height: auto; max-height: 72vh; }
-            .slide:nth-child(4) { --rot: 1deg; }
+            .slide:nth-child(4) { --rot: 1deg; height: auto; max-height: 72vh; }
+            .slide:nth-child(5) { --rot: 0.5deg; }
 
             .guitar-svg { display: none; }
             .hero-socials { display: none; }
@@ -1242,8 +1333,8 @@
             .vid-grid { grid-template-columns: repeat(2, 1fr); }
 
             .svc-grid { grid-template-columns: 1fr; }
-            .jac-tile-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-            .jac-tile-image { height: 200px; }
+            .svc-tile { grid-template-columns: 1fr 130px; }
+            .svc-tile-image { width: 130px; height: 130px; }
 
             .proc-steps {
                 grid-template-columns: 1fr;
@@ -1301,9 +1392,9 @@
 
             /* Services */
             .slide:nth-child(3) { height: auto; max-height: 68vh; }
-            .svc-card-header { padding: 8px 14px; }
+            .svc-card-header { padding: 5px 14px 3px; }
             .svc-card-body { padding: 14px; }
-            .svc-card-num { font-size: 2rem; }
+            .svc-card-num { font-size: 1.4rem; }
             .proc-section { display: block; }
             .proc-steps {
                 display: flex !important;
@@ -1400,7 +1491,7 @@
             .slide:nth-child(3) .svc-card p { font-size: 1.08rem; }
             .slide:nth-child(3) .svc-exp-body li,
             .slide:nth-child(3) .svc-exp-body p { font-size: 1rem; }
-            .slide:nth-child(3) .svc-exp-header span { font-size: 1rem; }
+            .slide:nth-child(3) .svc-exp-header span { font-size: 1.2rem; }
             .slide:nth-child(3) .proc-sub { font-size: 1rem; }
 
             /* Card 4 — Contact desktop */
@@ -1649,15 +1740,47 @@
                     </div>
                     <div class="svc-card-body">
                     <h3>UGC</h3>
-                    <p>Ad-ready videos created using a combination of retention editing, strong visuals, and expert knowledge of the entertainment industry to produce striking content that showcases your product(s) in a relatable way. Unlike traditional ads, UGC builds genuine trust, driving higher engagement and real conversions.</p>
+                    <p>Ad-ready videos created using a combination of retention editing, strong visuals, and expert knowledge of the entertainment industry to produce striking content that showcases your product(s) in a relatable way.</p>
+                    <p style="color: var(--bourbon); font-style: italic;">Unlike traditional ads, UGC builds genuine trust, driving higher engagement and real conversions.</p>
+                    </div>
+                </div>
 
-                    <div class="svc-expandable">
-                        <div class="svc-exp-header">
-                            <span>What's Included?</span>
-                            <i class="fas fa-chevron-down arr"></i>
+                <div class="svc-tiles-col">
+                    <div class="svc-tile">
+                        <div class="svc-card-header">
+                            <div class="svc-card-num">02</div>
                         </div>
-                        <div class="svc-exp-body">
-                            <div class="svc-exp-inner">
+                        <div class="svc-tile-body">
+                            <h3>Pet UGC</h3>
+                            <p>Engaging Pet UGC showcasing our goofy and adorable fur family featuring pet products, toys, supplements, and more!</p>
+                            <a href="pet-ugc.html" class="svc-tile-btn">View Pet Portfolio</a>
+                        </div>
+                        <div class="svc-tile-image">
+                            <img src="Leon and Sophie (Pitching).jpg" alt="Pet UGC" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="svc-tile">
+                        <div class="svc-card-header">
+                            <div class="svc-card-num">03</div>
+                        </div>
+                        <div class="svc-tile-body">
+                            <h3>Brea UGC</h3>
+                            <p>Personality driven female UGC from my wife and creative partner Brea — featuring beauty, lifestyle, SaaS, and more!</p>
+                            <a href="index.html" class="svc-tile-btn">Check Out Brea's Page</a>
+                        </div>
+                        <div class="svc-tile-image">
+                            <img src="Portfolio pic.jpg" alt="Brea UGC" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="svc-expandable">
+                    <div class="svc-exp-header">
+                        <span>What's Included?</span>
+                        <i class="fas fa-chevron-down arr"></i>
+                    </div>
+                    <div class="svc-exp-body">
+                        <div class="svc-exp-inner">
                             <ul>
                                 <li>Concept Ideation</li>
                                 <li>Scripting / Script Reads</li>
@@ -1668,73 +1791,17 @@
                                 <li>2 Revisions</li>
                                 <li>30 Days Paid Ad Usage</li>
                             </ul>
-                            <p style="font-size: 0.72rem; color: var(--ash); margin-top: 10px; letter-spacing: 0.5px;">Add-Ons: Raw Footage &nbsp;·&nbsp; Hook / CTA Variations &nbsp;·&nbsp; Additional Revisions</p>
-                            </div>
+                            <p style="font-size: 0.82rem; color: var(--tobacco); margin-top: 10px; letter-spacing: 0.5px;">Add-Ons: Raw Footage &nbsp;·&nbsp; Hook / CTA Variations &nbsp;·&nbsp; Additional Revisions</p>
                         </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="svc-card">
-                    <div class="svc-card-header">
-                        <div class="svc-card-num">02</div>
-                    </div>
-                    <div class="svc-card-body">
-                    <h3>Portfolio Development</h3>
-                    <p>Custom UGC portfolio websites for creators — designed and built to help you look professional, pitch with confidence, and land brand deals.</p>
-
-                    <div class="svc-expandable">
-                        <div class="svc-exp-header">
-                            <span>What's Included?</span>
-                            <i class="fas fa-chevron-down arr"></i>
-                        </div>
-                        <div class="svc-exp-body">
-                            <div class="svc-exp-inner">
-                            <ul>
-                                <li>Custom design tailored to your brand</li>
-                                <li>Mobile-friendly responsive layout</li>
-                                <li>Video portfolio sections organized by niche/content type</li>
-                                <li>Contact and booking integration</li>
-                                <li>Domain setup and hosting</li>
-                                <li>2 rounds of revisions</li>
-                            </ul>
-                            <p style="font-size: 0.72rem; color: var(--ash); margin-top: 10px; letter-spacing: 0.5px;">Add-Ons: Extra Pages &nbsp;·&nbsp; Custom Animations &nbsp;·&nbsp; Logo Design &nbsp;·&nbsp; Content Updates</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="submit-btn submit-btn--ghost">Coming Soon</button>
                     </div>
                 </div>
             </div>
 
-            <div style="margin-top: 40px; margin-bottom: 28px; padding-top: 28px; border-top: 1px solid var(--faint);">
-                <h2 class="card-section-title">More</h2>
-            </div>
+        </div>
 
-            <div class="jac-tile-grid">
-                <div class="jac-tile">
-                    <div class="jac-tile-image">
-                        <img src="Leon and Sophie (Pitching).jpg" alt="Pet UGC" loading="lazy">
-                        <div class="jac-tile-overlay"><h3>Pet UGC</h3></div>
-                    </div>
-                    <div class="jac-tile-body">
-                        <p>Engaging Pet UGC showcasing our goofy and adorable fur family featuring pet products, toys, supplements, and more!</p>
-                        <a href="pet-ugc.html" class="jac-tile-btn">View Pet Portfolio</a>
-                    </div>
-                </div>
-                <div class="jac-tile">
-                    <div class="jac-tile-image">
-                        <img src="Portfolio pic.jpg" alt="Brea UGC" loading="lazy">
-                        <div class="jac-tile-overlay"><h3>Brea UGC</h3></div>
-                    </div>
-                    <div class="jac-tile-body">
-                        <p>Personality driven female UGC from my wife and creative partner Brea — featuring beauty, lifestyle, SaaS, and more!</p>
-                        <a href="index.html" class="jac-tile-btn">View Portfolio</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proc-section" style="margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--faint);">
+        <!-- SLIDE 4: HOW IT WORKS + MORE -->
+        <div class="slide">
+            <div class="proc-section">
                 <div style="margin-bottom: 0;">
                     <h2 class="card-section-title">How It Works</h2>
                 </div>
@@ -1758,9 +1825,18 @@
                 </div>
             </div>
 
+            <div style="margin-top: 40px; margin-bottom: 28px; padding-top: 28px; border-top: 1px solid var(--faint);">
+                <h2 class="card-section-title">More</h2>
+            </div>
+
+            <div class="svc-more-card">
+                <h3>Website Development</h3>
+                <p>Custom websites for brands — designed and built to establish your digital presence, showcase your products, and convert visitors into customers.</p>
+                <button class="submit-btn submit-btn--ghost">Coming Soon</button>
+            </div>
         </div>
 
-        <!-- SLIDE 4: CONTACT -->
+        <!-- SLIDE 5: CONTACT -->
         <div class="slide">
             <h2 class="card-section-title">Ready to Get Started?</h2>
 
@@ -1825,7 +1901,7 @@
     </div>
 
     <div class="slide-counter">
-        <span class="current" id="counterCurrent">1</span> / <span id="counterTotal">4</span>
+        <span class="current" id="counterCurrent">1</span> / <span id="counterTotal">5</span>
     </div>
 
     <script>
@@ -1908,7 +1984,7 @@
                         x = 0;
                         y = offset * -65 + 50;
                         scale = 1 - (offset * 0.04);
-                        extraRot = i === 2 ? -2 : i === 3 ? -3 : 0;
+                        extraRot = i === 2 ? -2 : i === 3 ? -3 : i === 4 ? -4 : 0;
                     } else {
                         s.style.top = '';
                         x = i === 2 ? -75 : offset * -55;
@@ -2066,17 +2142,13 @@
                 const body = this.nextElementSibling;
                 const isOpen = this.classList.contains('active');
                 this.classList.toggle('active');
-
                 if (isOpen) {
-                    // Collapse: pin rendered height → animate to 0
-                    body.style.height = body.offsetHeight + 'px';
+                    body.style.height = body.scrollHeight + 'px';
                     body.offsetHeight;
                     body.style.height = '0';
                 } else {
-                    // Expand: animate from 0 to full content height
                     body.style.height = body.scrollHeight + 'px';
-                    body.addEventListener('transitionend', function once(e) {
-                        if (e.propertyName !== 'height') return;
+                    body.addEventListener('transitionend', function once() {
                         body.style.height = 'auto';
                         body.removeEventListener('transitionend', once);
                     });
