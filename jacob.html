@@ -45,18 +45,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Noise texture overlay */
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.025;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 256px;
-        }
 
         /* ============================================
            HEADER — thin editorial bar
@@ -211,9 +199,9 @@
             padding: 24px;
             pointer-events: none;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                        opacity 0.5s ease,
-                        box-shadow 0.5s ease;
+                        opacity 0.5s ease;
             transform-origin: center center;
+            will-change: transform, opacity;
         }
 
         /* Active card — front of the stack */
@@ -475,7 +463,8 @@
             align-items: center;
             justify-content: center;
         }
-        .vid-fill video {
+        .vid-fill video,
+        .vid-fill iframe {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -485,42 +474,6 @@
         .vid-fill i {
             font-size: 1.1rem;
             color: rgba(255,255,255,0.08);
-        }
-
-        .play-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            pointer-events: auto;
-            opacity: 0;
-            transition: opacity 0.3s;
-            touch-action: manipulation;
-        }
-        .play-overlay::after {
-            content: '▶';
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.8);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 1.5px solid rgba(255,255,255,0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0,0,0,0.2);
-            backdrop-filter: blur(4px);
-            padding-left: 2px;
-        }
-        .vid-frame:hover .play-overlay {
-            opacity: 1;
-        }
-        .vid-frame.playing .play-overlay {
-            pointer-events: none;
-            opacity: 0;
         }
 
         .vid-logo {
@@ -1367,10 +1320,10 @@
             .card-section-title { font-size: 1.8rem; text-align: center; }
             .vid-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .vid-frame { aspect-ratio: unset; height: 200px; }
-            .slide:nth-child(2) .vid-grid { grid-template-columns: repeat(2, 110px); justify-content: center; gap: 28px; }
-            .slide:nth-child(2) .vid-cell { align-items: center; }
-            .slide:nth-child(2) .vid-meta { text-align: center; width: 110px; }
-            .slide:nth-child(2) .vid-frame { aspect-ratio: 9/16; height: auto; width: 110px; }
+            .slide:nth-child(2) .vid-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .slide:nth-child(2) .vid-cell { align-items: stretch; }
+            .slide:nth-child(2) .vid-meta { text-align: center; }
+            .slide:nth-child(2) .vid-frame { aspect-ratio: 9/16; height: auto; width: 100%; }
             .vid-logo { height: 28px; }
             .vid-logo img { max-height: 28px; max-width: 100px; }
             .vid-brand { font-size: 0.65rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -1651,11 +1604,8 @@
                 <div class="vid-cell">
                     <div class="vid-logo"><img src="index/Logos/Fresh Patch Logo.png" alt="Fresh Patch" loading="lazy"></div>
                     <div class="vid-frame">
-                        <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/Fresh Patch with better CTA (720p for website) Thumbnail.png">
-                                <source src="videos/Fresh Patch with better CTA (720p for website).mp4" type="video/mp4">
-                            </video>
+                            <iframe src="https://player.vimeo.com/video/1173175739?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" class="mini-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="vid-meta">
@@ -1665,11 +1615,8 @@
                 <div class="vid-cell">
                     <div class="vid-logo"><img src="index/Logos/ibiyaya logo.png" alt="Ibiyaya" loading="lazy"></div>
                     <div class="vid-frame">
-                        <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/Ibiyaya (720p for website) Thumbnail.png">
-                                <source src="videos/Ibiyaya (720p for website).mp4" type="video/mp4">
-                            </video>
+                            <iframe src="https://player.vimeo.com/video/1173175787?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" class="mini-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="vid-meta">
@@ -1679,11 +1626,8 @@
                 <div class="vid-cell">
                     <div class="vid-logo"><img src="index/Logos/doggo sessions.webp" alt="Doggo Sessions" loading="lazy"></div>
                     <div class="vid-frame">
-                        <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/Doggo Sessions (720p for website) Thumbnail.png">
-                                <source src="videos/Doggo Sessions (720p for website).mp4" type="video/mp4">
-                            </video>
+                            <iframe src="https://player.vimeo.com/video/1173175553?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" class="mini-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="vid-meta">
@@ -1693,11 +1637,8 @@
                 <div class="vid-cell">
                     <div class="vid-logo"><img src="index/Logos/crown and paw logo.jpg" alt="Crown and Paw" loading="lazy"></div>
                     <div class="vid-frame">
-                        <div class="play-overlay"></div>
                         <div class="vid-fill">
-                            <video class="mini-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/Crown and Paw (720p for website) Thumbnail.png">
-                                <source src="videos/Crown and Paw (720p for website) fixed.mp4" type="video/mp4">
-                            </video>
+                            <iframe src="https://player.vimeo.com/video/1173175532?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" class="mini-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="vid-meta">

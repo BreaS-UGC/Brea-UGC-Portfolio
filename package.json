@@ -4,6 +4,7 @@
   },
   "devDependencies": {
     "serve": "^14.2.6",
+    "sharp": "^0.34.5",
     "vercel": "^48.0.0"
   }
 }
