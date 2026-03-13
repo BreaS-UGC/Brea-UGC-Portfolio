@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build Your Portfolio — Jacob Hill</title>
+    <title>Web Development — Jacob Hill</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -179,11 +179,11 @@
         }
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
         .tier-card {
-            background: url('jacob ugc parchment.svg') center center / cover no-repeat;
+            background: url('jacob/jacob ugc parchment.svg') center center / cover no-repeat;
             background-color: var(--cream);
             padding: 40px 32px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.35);
@@ -346,7 +346,7 @@
             gap: 3px;
         }
         .include-item {
-            background: url('jacob ugc parchment.svg') center center / cover no-repeat;
+            background: url('jacob/jacob ugc parchment.svg') center center / cover no-repeat;
             background-color: var(--cream);
             padding: 28px 22px;
             text-align: center;
@@ -378,7 +378,7 @@
             padding: 0 32px 120px;
         }
         .form-card {
-            background: url('jacob ugc parchment.svg') center center / cover no-repeat;
+            background: url('jacob/jacob ugc parchment.svg') center center / cover no-repeat;
             background-color: var(--cream);
             padding: 52px 44px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.35);
@@ -477,8 +477,9 @@
         /* ============================================
            MOBILE
         ============================================ */
-        @media (max-width: 900px) {
+        @media (max-width: 700px) {
             .pricing-grid { grid-template-columns: 1fr; }
+            .pricing-grid .tier-card[style*="grid-column"] { max-width: 100%; }
         }
         @media (max-width: 768px) {
             .includes-grid { grid-template-columns: repeat(2, 1fr); }
@@ -512,12 +513,11 @@
     <!-- HEADER -->
     <header class="hdr" id="hdr">
         <div class="hdr-inner">
-            <a href="index.html" class="hdr-logo" style="visibility:hidden">.</a>
+            <a href="jacob.html" class="hdr-logo">Jacob Hill</a>
             <nav class="hdr-nav">
+                <a href="jacob.html">UGC</a>
                 <a href="index.html">Brea UGC</a>
                 <a href="pet-ugc.html">Pet UGC</a>
-                <a href="jacob.html">Jacob UGC</a>
-                <a href="portfolio-dev.html">Portfolios</a>
             </nav>
             <div class="hdr-ham" id="ham" onclick="toggleNav()">
                 <span></span><span></span><span></span>
@@ -526,16 +526,15 @@
     </header>
 
     <div class="mob-nav" id="mob">
+        <a href="jacob.html" onclick="toggleNav()">UGC</a>
         <a href="index.html" onclick="toggleNav()">Brea UGC</a>
         <a href="pet-ugc.html" onclick="toggleNav()">Pet UGC</a>
-        <a href="jacob.html" onclick="toggleNav()">Jacob UGC</a>
-        <a href="portfolio-dev.html" onclick="toggleNav()">Portfolios</a>
     </div>
 
     <!-- HERO -->
     <section class="hero">
-        <h1 class="hero-title">Build Your <em>Portfolio</em></h1>
-        <p class="hero-sub">Custom UGC portfolio websites for creators — designed and built to help you look professional, pitch with confidence, and land brand deals.</p>
+        <h1 class="hero-title">What I <em>Build.</em></h1>
+        <p class="hero-sub">Custom websites for brands — built from scratch or refreshed. Clean, professional, and ready to convert.</p>
         <div class="hero-facts">
             <span class="hero-fact">Mobile Responsive</span>
             <span class="hero-fact sep">·</span>
@@ -567,7 +566,7 @@
 
             <div class="tier-card">
                 <p class="tier-label">Tier 02</p>
-                <h2 class="tier-name">Squarespace</h2>
+                <h2 class="tier-name">From Scratch</h2>
                 <div class="tier-price">$500 <sub>one-time</sub></div>
                 <ul class="tier-features">
                     <li>Built from scratch on Squarespace</li>
@@ -580,27 +579,14 @@
                     <li>2 rounds of revisions</li>
                     <li>5–7 business day delivery</li>
                 </ul>
-                <button class="tier-cta" data-tier="Squarespace — $500">Get Started</button>
+                <button class="tier-cta" data-tier="From Scratch — $500">Get Started</button>
             </div>
 
-            <div class="tier-card featured">
-                <span class="tier-badge">Most Custom</span>
-                <p class="tier-label">Tier 03</p>
-                <h2 class="tier-name">Custom Code</h2>
-                <div class="tier-price">$1,000 <sub>one-time</sub></div>
-                <ul class="tier-features">
-                    <li>Fully custom hand-coded site</li>
-                    <li>One-of-a-kind design — no templates</li>
-                    <li>Animations and interactive elements</li>
-                    <li>Mobile-friendly responsive layout</li>
-                    <li>Video portfolio sections by niche</li>
-                    <li>Contact and booking integration</li>
-                    <li>Domain setup and hosting included</li>
-                    <li>You own the full source code</li>
-                    <li>2 rounds of revisions</li>
-                    <li>5–7 business day delivery</li>
-                </ul>
-                <button class="tier-cta" data-tier="Custom Code — $1,000">Get Started</button>
+            <div class="tier-card" style="background: rgba(26,18,21,0.85); border: 1px solid rgba(242,234,221,0.12); display:flex; flex-direction:column; justify-content:center; grid-column: 1 / -1; max-width: 480px; margin: 0 auto; width: 100%;">
+                <p class="tier-label" style="color:var(--ash);">Everything Else</p>
+                <h2 class="tier-name" style="color:var(--parchment); font-size:2.4rem; line-height:1; margin-bottom:20px;">Something<br>else in mind?</h2>
+                <p style="font-size:0.88rem; color:var(--ash); line-height:1.8; margin-bottom:32px;">Custom coded sites, complex animations, logo design, or anything outside these two — reach out and we'll figure it out.</p>
+                <a href="mailto:jacobhill951@gmail.com" class="tier-cta">Inquire</a>
             </div>
 
         </div>
@@ -672,8 +658,8 @@
             <p class="form-subtitle">Tell me about your project and I'll get back to you within 24 hours.</p>
 
             <form class="contact-form" id="portfolioForm" action="https://formspree.io/f/xdalpvve" method="POST">
-                <input type="hidden" name="_subject" value="New Portfolio Inquiry">
-                <input type="hidden" name="_next" value="https://breaugc.com/portfolio-dev.html?submitted=true">
+                <input type="hidden" name="_subject" value="New Web Dev Inquiry">
+                <input type="hidden" name="_next" value="https://breaugc.com/webdev.html?submitted=true">
 
                 <div class="form-group">
                     <label for="pd-name">Name</label>
@@ -689,8 +675,8 @@
                     <label>Tier</label>
                     <div class="checkbox-group">
                         <label class="checkbox-label"><input type="checkbox" name="tier" value="Revamp — $350"> Revamp — $350</label>
-                        <label class="checkbox-label"><input type="checkbox" name="tier" value="Squarespace — $500"> Squarespace — $500</label>
-                        <label class="checkbox-label"><input type="checkbox" name="tier" value="Custom Code — $1,000"> Custom — $1,000</label>
+                        <label class="checkbox-label"><input type="checkbox" name="tier" value="From Scratch — $500"> From Scratch — $500</label>
+                        <label class="checkbox-label"><input type="checkbox" name="tier" value="Something Else"> Something Else</label>
                     </div>
                 </div>
 
@@ -746,6 +732,7 @@
             document.getElementById('thank-you').style.display = 'block';
             document.getElementById('inquiry').scrollIntoView({ behavior: 'smooth' });
         }
+
     </script>
 
 </body>

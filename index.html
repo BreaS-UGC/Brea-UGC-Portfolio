@@ -11,8 +11,8 @@
     <meta property="og:description" content="UGC Creator | Creative Strategist | Professional Actress">
     <meta property="og:image" content="https://breaugc.com/Screenshot%202026-02-16%20134803.png">
     <meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="apple-touch-icon" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="index/favicon.svg">
+    <link rel="apple-touch-icon" href="index/favicon.svg">
 
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -926,18 +926,19 @@
         }
         
         /* Past Favorites Section */
-        .past-favorites-section {
-            background: #ffffff;
+        .recent-collabs-section {
+            background: #f8f8fa;
             padding: 60px 0 110px 0;
             position: relative;
         }
 
-        .past-favorites-section h2 {
+        .recent-collabs-section h2 {
             color: #4A3B5C;
             margin-bottom: 20px;
+            font-size: 3.6rem !important;
         }
 
-        .past-favorites-section p {
+        .recent-collabs-section p {
             color: #666;
             font-size: 18px;
             margin-bottom: 40px;
@@ -1087,6 +1088,43 @@
             font-family: 'League Spartan', Helvetica, Arial, sans-serif;
             font-size: 42px;
             margin-bottom: 30px;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: #ffffff;
+            padding: 30px 0 60px;
+        }
+
+        .testimonials-container {
+            text-align: center;
+        }
+
+        .testimonials-iframe-wrapper {
+            position: relative;
+        }
+
+        .testimonials-iframe-wrapper .iframe-scroll-blocker {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1;
+        }
+
+        .testimonials-iframe-wrapper.active .iframe-scroll-blocker {
+            display: none;
+        }
+
+        .testimonials-heading {
+            font-family: 'League Spartan', Helvetica, Arial, sans-serif;
+            font-size: 56px;
+            color: #4A3B5C;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-heading {
+                font-size: 22px;
+            }
         }
         
         .collaboration-layout {
@@ -2627,7 +2665,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: url('brushstroke.svg') no-repeat center;
+            background: url('index/brushstroke.svg') no-repeat center;
             background-size: contain;
             width: 1500px;
             height: 600px;
@@ -3512,11 +3550,11 @@
                 margin: 0 auto;
             }
             
-            .past-favorites-section {
+            .recent-collabs-section {
                 padding: 40px 15px 90px 15px !important;
             }
             
-            .past-favorites-section p {
+            .recent-collabs-section p {
                 font-size: 16px !important;
                 margin-bottom: 30px !important;
                 padding: 0 20px;
@@ -3824,8 +3862,7 @@
         .photo-collage {
             width: 100%;
             overflow: hidden;
-            background: #E5DBF0;
-            margin-top: 40px;
+            background: #ffffff;
         }
 
         .photo-collage-row {
@@ -3837,17 +3874,17 @@
         .photo-collage-row img {
             flex: 1 1 0;
             min-width: 0;
-            aspect-ratio: 3 / 4;
+            aspect-ratio: 2 / 3;
             object-fit: cover;
             display: block;
         }
 
         @media (max-width: 768px) {
             .photo-collage {
-                margin-top: 20px;
+                margin-top: 0;
             }
             .photo-collage-row img {
-                aspect-ratio: 2 / 5;
+                aspect-ratio: 3 / 5;
             }
         }
     </style>
@@ -3858,7 +3895,7 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo" onclick="scrollToTop(event)">
-                    <img src="updated brea ugc logo.svg" alt="Brea UGC" />
+                    <img src="index/updated brea ugc logo.svg" alt="Brea UGC" />
                 </a>
 
                 <!-- Desktop Navigation -->
@@ -3903,7 +3940,7 @@
             <div class="hero-desktop-layout">
                 <div class="hero-text-content">
                     <div class="hero-about">
-                        <img src="meet brea.svg?v=2" alt="Meet Brea" class="bio-header-svg">
+                        <img src="index/meet brea.svg?v=2" alt="Meet Brea" class="bio-header-svg">
                         <div class="hero-credentials">UGC Creator | Creative Strategist | Professional Actress</div>
                         <div style="position: relative; border: 2px solid #4A3B5C; border-radius: 15px; padding: 20px; padding-top: 30px; padding-bottom: 6px; margin: 5px 0 5px 0;">
                             <span style="font-family: 'League Spartan', Helvetica, Arial, sans-serif; font-size: 15px; padding: 6px 14px; background-color: #4A3B5C; color: white; border-radius: 20px; font-weight: 600; display: inline-block; position: absolute; top: -12px; left: 20px; z-index: 10;">About Me</span>
@@ -3939,7 +3976,7 @@
                 </div>
                 
                 <div class="hero-image-content">
-                    <img src="Portfolio pic.jpg" alt="Brea Profile" class="hero-desktop-image">
+                    <img src="index/Portfolio pic.jpg" alt="Brea Profile" class="hero-desktop-image">
                 </div>
             </div>
             
@@ -3947,12 +3984,12 @@
             <div class="hero-mobile-content">
                 <!-- Content above photo: only heading and subtitle -->
                 <div class="hero-about-top">
-                    <img src="meet brea.svg?v=2" alt="Meet Brea" class="bio-header-svg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <img src="index/meet brea.svg?v=2" alt="Meet Brea" class="bio-header-svg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <h1 class="bio-header" style="display: none;">Meet Brea</h1>
                     <div class="hero-credentials">UGC Creator | Creative Strategist | Professional Actress</div>
                 </div>
                 
-                <img src="Portfolio pic.jpg" alt="Brea Profile" class="hero-mobile-image">
+                <img src="index/Portfolio pic.jpg" alt="Brea Profile" class="hero-mobile-image">
                 
                 <!-- Content below photo: bio bullets, buttons, and long bio -->
                 <div class="hero-about-bottom">
@@ -3993,20 +4030,41 @@
     <!-- Photo Collage Strip -->
     <section class="photo-collage">
         <div class="photo-collage-row">
-            <img src="Collage for Header/IMG_5024.jpg" alt="" loading="lazy">
-            <img src="Collage for Header/IMG_5027.jpg" alt="" loading="lazy">
-            <img src="Collage for Header/IMG_4820.JPG" alt="" loading="lazy">
-            <img src="Collage for Header/IMG_5020.jpg" alt="" loading="lazy">
-            <img src="Collage for Header/copy_885305DD-2DCF-4496-9C6D-8C9EA892F153.jpg" alt="" loading="lazy">
-            <img src="Collage for Header/IMG_5017.jpg" alt="" loading="lazy">
-            <img src="Collage for Header/IMG_5022.jpg" alt="" loading="lazy">
-            <img src="Collage for Header/IMG_8077.JPG" alt="" loading="lazy">
-            <img src="Collage for Header/IMG_5025.jpg" alt="" loading="lazy">
+            <img src="index/Collage for Header/IMG_5024.jpg" alt="" loading="lazy">
+            <img src="index/Collage for Header/IMG_5027.jpg" alt="" loading="lazy">
+            <img src="index/Collage for Header/IMG_4820.JPG" alt="" loading="lazy">
+            <img src="index/Collage for Header/IMG_5020.jpg" alt="" loading="lazy">
+            <img src="index/Collage for Header/copy_885305DD-2DCF-4496-9C6D-8C9EA892F153.jpg" alt="" loading="lazy">
+            <img src="index/Collage for Header/IMG_5017.jpg" alt="" loading="lazy">
+            <img src="index/Collage for Header/IMG_5022.jpg" alt="" loading="lazy">
+            <img src="index/Collage for Header/IMG_8077.JPG" alt="" loading="lazy">
+            <img src="index/Collage for Header/IMG_5025.jpg" alt="" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-container">
+                <h3 class="testimonials-heading reveal">Here's What Clients Are Saying</h3>
+                <div class="testimonials-iframe-wrapper" id="testimonialsWrapper">
+                    <div class="iframe-scroll-blocker"></div>
+                    <iframe src="https://trustugc.com/widget/aKDHQpXDkwSCcIWB0qLVtjAnD5X2?id=48ce2752-7346-478a-8e0e-4195c781a81d" style="width: 100%; border: none;"></iframe>
+                </div>
+                <script async type="text/javascript" src="https://trustugc.com/scripts/widget-loader.js"></script>
+                <script>
+                    (function() {
+                        var wrapper = document.getElementById('testimonialsWrapper');
+                        wrapper.addEventListener('click', function() { wrapper.classList.add('active'); });
+                        wrapper.addEventListener('mouseleave', function() { wrapper.classList.remove('active'); });
+                    })();
+                </script>
+            </div>
         </div>
     </section>
 
     <!-- Past Favorites Section -->
-    <section id="past-favorites" class="portfolio-section past-favorites-section">
+    <section id="recent-collabs" class="portfolio-section recent-collabs-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="reveal">Recent Collabs</h2>
@@ -4014,7 +4072,7 @@
             
             <div class="collabs-row">
                 <div class="collab-phone">
-                    <div class="collab-logo"><img src="Logos/beauty for real  logo.png" alt="Beauty For Real" loading="lazy"></div>
+                    <div class="collab-logo"><img src="index/Logos/beauty for real  logo.png" alt="Beauty For Real" loading="lazy"></div>
                     <div class="past-favorites-video-container">
                         <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Beauty For Real (720p for website) Thumbnail.png">
                             <source src="videos/Beauty For Real (720p for website).mp4" type="video/mp4">
@@ -4022,7 +4080,7 @@
                     </div>
                 </div>
                 <div class="collab-phone">
-                    <div class="collab-logo"><img src="Logos/TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" loading="lazy"></div>
+                    <div class="collab-logo"><img src="index/Logos/TGTG_Logo_white_RGB-01-3514440460.jpg" alt="Too Good To Go" loading="lazy"></div>
                     <div class="past-favorites-video-container">
                         <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Too Good To Go (720p for website) Thumbnail.png">
                             <source src="videos/Too Good To Go (720p for website).mp4" type="video/mp4">
@@ -4030,7 +4088,7 @@
                     </div>
                 </div>
                 <div class="collab-phone">
-                    <div class="collab-logo"><img src="Logos/zygo logo.png" alt="Zygo" loading="lazy"></div>
+                    <div class="collab-logo"><img src="index/Logos/zygo logo.png" alt="Zygo" loading="lazy"></div>
                     <div class="past-favorites-video-container">
                         <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Zygo Concept 2 (720p for website) Thumbnail.png">
                             <source src="videos/Zygo Concept 2 (720p for website).mp4" type="video/mp4">
@@ -4038,7 +4096,7 @@
                     </div>
                 </div>
                 <div class="collab-phone">
-                    <div class="collab-logo"><img src="Logos/crown and paw logo.jpg" alt="Crown and Paw" loading="lazy"></div>
+                    <div class="collab-logo"><img src="index/Logos/crown and paw logo.jpg" alt="Crown and Paw" loading="lazy"></div>
                     <div class="past-favorites-video-container">
                         <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Crown and Paw (720p for website) Thumbnail.png">
                             <source src="videos/Crown and Paw (720p for website) fixed.mp4" type="video/mp4">
@@ -4046,6 +4104,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -4058,40 +4117,40 @@
             
             <div class="logos-grid-container">
                 <div class="logo-circle">
-                    <img src="Logos/forbrain-logo-299C-1280x216-469214955.png" alt="Forbrain" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/forbrain-logo-299C-1280x216-469214955.png" alt="Forbrain" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/calzen logo.png" alt="Calzen" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/calzen logo.png" alt="Calzen" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/ecoatm logo.png" alt="EcoATM" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/ecoatm logo.png" alt="EcoATM" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/riki loves riki logo.png" alt="Riki Loves Riki" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/riki loves riki logo.png" alt="Riki Loves Riki" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/maelys logo.png" alt="Maelys" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/maelys logo.png" alt="Maelys" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/bodyrok-logo.png" alt="BodyRok" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/bodyrok-logo.png" alt="BodyRok" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/planta-logo.png" alt="Planta" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/planta-logo.png" alt="Planta" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/Prose-2004409305.png" alt="Prose" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/Prose-2004409305.png" alt="Prose" class="circular-logo" loading="lazy">
                 </div>
                 <div class="logo-circle">
-                    <img src="Logos/calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo" loading="lazy">
+                    <img src="index/Logos/calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo" loading="lazy">
                 </div>
             </div>
             
@@ -4099,40 +4158,40 @@
             <div class="mobile-logo-carousel mobile-only">
                 <div class="single-logo-container" id="singleLogoContainer">
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/forbrain-logo-299C-1280x216-469214955.png" alt="Forbrain" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/forbrain-logo-299C-1280x216-469214955.png" alt="Forbrain" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/calzen logo.png" alt="Calzen" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/calzen logo.png" alt="Calzen" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/ecoatm logo.png" alt="EcoATM" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/ecoatm logo.png" alt="EcoATM" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/VANESSA_PRO-2660307216.png" alt="Vanessa Pro" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/riki loves riki logo.png" alt="Riki Loves Riki" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/riki loves riki logo.png" alt="Riki Loves Riki" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/maelys logo.png" alt="Maelys" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/maelys logo.png" alt="Maelys" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/planta-logo.png" alt="Planta" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/planta-logo.png" alt="Planta" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/Prose-2004409305.png" alt="Prose" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/Prose-2004409305.png" alt="Prose" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/calisunglow logo.jpg" alt="CaliSunGlow" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/bodyrok-logo.png" alt="BodyRok" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/bodyrok-logo.png" alt="BodyRok" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/getaway cabins.jpg" alt="Getaway Cabins" class="circular-logo" loading="lazy">
                     </div>
                     <div class="logo-circle mobile-logo-hidden">
-                        <img src="Logos/Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo" loading="lazy">
+                        <img src="index/Logos/Perplexity_AI-Logo.wine-172775586.png" alt="Perplexity AI" class="circular-logo" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -4281,7 +4340,7 @@
                 <!-- UGC Tile -->
                 <div class="service-tile ugc-tile">
                     <div class="tile-image">
-                        <img src="ugc-tile.jpg" alt="UGC Services" class="tile-bg-image" loading="lazy">
+                        <img src="index/ugc-tile.jpg" alt="UGC Services" class="tile-bg-image" loading="lazy">
                         <div class="tile-overlay">
                             <h3 class="tile-title">UGC</h3>
                         </div>
@@ -4322,7 +4381,7 @@
                 <!-- Pet UGC Tile -->
                 <div class="service-tile strategy-tile">
                     <div class="tile-image">
-                        <img src="Leon and Sophie (Pitching).jpg" alt="Pet UGC" class="tile-bg-image" loading="lazy">
+                        <img src="index/Pet UGC Tile for Brea's site.jpg" alt="Pet UGC" class="tile-bg-image" loading="lazy">
                         <div class="tile-overlay">
                             <h3 class="tile-title">Pet UGC</h3>
                         </div>
@@ -4338,7 +4397,7 @@
                 <!-- Jacob UGC Tile -->
                 <div class="service-tile couple-tile">
                     <div class="tile-image">
-                        <img src="Jacob Pic fo Portfolio.JPG" alt="Jacob UGC Services" class="tile-bg-image" loading="lazy">
+                        <img src="jacob/Jacob Pic fo Portfolio.JPG" alt="Jacob UGC Services" class="tile-bg-image" loading="lazy">
                         <div class="tile-overlay">
                             <h3 class="tile-title">Male UGC</h3>
                         </div>
