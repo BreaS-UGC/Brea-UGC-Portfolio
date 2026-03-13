@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "serve . --listen 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.6",
+    "vercel": "^48.0.0"
+  }
+}
