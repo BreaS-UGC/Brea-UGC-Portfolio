@@ -1509,6 +1509,29 @@
             .slide:nth-child(1) .hero-socials a:has(.guitar-svg) { font-size: 0; line-height: 0; transform: translateX(-32px); }
             .slide:nth-child(1) .guitar-svg { height: 180px; width: auto; }
         }
+
+        .photo-collage {
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+            transform: translateY(10px) scale(1.1225);
+            transform-origin: center;
+        }
+        .photo-collage-row {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+        }
+        .photo-collage-row img {
+            flex: 1 1 0;
+            min-width: 0;
+            aspect-ratio: 2 / 3;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .photo-collage-row img { aspect-ratio: 3 / 5; }
+        }
     </style>
 </head>
 <body>
@@ -1521,7 +1544,7 @@
                 <a href="index.html">Brea UGC</a>
                 <a href="pet-ugc.html">Pet UGC</a>
                 <a href="#" onclick="event.preventDefault();navTo(2)">Services</a>
-                <a href="#" onclick="event.preventDefault();navTo(totalSlides - 1)">Book Me</a>
+                <a href="aboutjacob.html">About</a>
             </nav>
             <div class="hdr-socials">
                 <a href="https://instagram.com/thehillherdfamily" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -1534,7 +1557,7 @@
         <a href="index.html" onclick="toggleNav()">Brea UGC</a>
         <a href="pet-ugc.html" onclick="toggleNav()">Pet UGC</a>
         <a href="#" onclick="event.preventDefault();toggleNav();navTo(2)">Services</a>
-        <a href="#" onclick="event.preventDefault();toggleNav();navTo(totalSlides - 1)">Book Me</a>
+        <a href="aboutjacob.html" onclick="toggleNav()">About</a>
     </div>
 
     <!-- SLIDESHOW -->
@@ -1590,6 +1613,20 @@
                         <li>Video game and anime fan</li>
                     </ul>
                     <a href="#" class="pet-btn" onclick="event.preventDefault(); navTo(totalSlides - 1)">Book Me</a>
+                </div>
+            </div>
+
+            <div class="photo-collage">
+                <div class="photo-collage-row">
+                    <img src="index/Collage for Header/IMG_5024.jpg" alt="" loading="lazy">
+                    <img src="index/Collage for Header/IMG_5027.jpg" alt="" loading="lazy">
+                    <img src="index/Collage for Header/IMG_4820.JPG" alt="" loading="lazy">
+                    <img src="index/Collage for Header/IMG_5020.jpg" alt="" loading="lazy">
+                    <img src="index/Collage for Header/copy_885305DD-2DCF-4496-9C6D-8C9EA892F153.jpg" alt="" loading="lazy">
+                    <img src="index/Collage for Header/IMG_5017.jpg" alt="" loading="lazy">
+                    <img src="index/Collage for Header/IMG_5022.jpg" alt="" loading="lazy">
+                    <img src="index/Collage for Header/IMG_8077.JPG" alt="" loading="lazy">
+                    <img src="index/Collage for Header/IMG_5025.jpg" alt="" loading="lazy">
                 </div>
             </div>
 

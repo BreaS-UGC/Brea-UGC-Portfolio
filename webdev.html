@@ -14,9 +14,8 @@
         :root {
             --ink: #1A1215;
             --tobacco: #3D2B1F;
-            --rust: #8B4513;
-            --bourbon: #200934;
-            --wheat: #3f407e;
+            --bourbon: #4d0011;
+            --wheat: #68111e;
             --parchment: #F2EADD;
             --cream: #FAF7F2;
             --paper: #FFFDF9;
@@ -29,23 +28,9 @@
 
         body {
             font-family: 'Didact Gothic', sans-serif;
+            background: var(--cream);
             color: var(--ink);
-            background: url('Jacob ugc background black.svg') center top / cover no-repeat fixed;
-            background-color: var(--ink);
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.025;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 256px;
         }
 
         /* ============================================
@@ -55,649 +40,521 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 100;
-            background: transparent;
+            background: var(--cream);
+            border-bottom: 0.5px solid var(--faint);
         }
         .hdr-inner {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 18px 32px;
+            padding: 0 40px;
+            height: 56px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
         .hdr-logo {
             font-family: 'Didact Gothic', sans-serif;
-            font-size: 1.3rem;
-            color: var(--parchment);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink);
             text-decoration: none;
+            letter-spacing: 0.3px;
+        }
+        .hdr-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .hdr-photo {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--faint);
+            display: block;
+            flex-shrink: 0;
         }
         .hdr-nav {
-            position: fixed;
-            top: 18px;
-            right: 0;
             display: flex;
-            flex-direction: column;
-            gap: 4px;
-            align-items: flex-end;
-            z-index: 101;
+            gap: 28px;
+            align-items: center;
         }
         .hdr-nav a {
             font-family: 'Didact Gothic', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 1.5px;
+            font-size: 11px;
             text-transform: uppercase;
-            color: #fff;
-            background: var(--bourbon);
+            letter-spacing: 1.5px;
+            color: var(--smoke);
             text-decoration: none;
-            padding: 8px 18px 8px 14px;
-            border-radius: 4px 0 0 4px;
-            transition: all 0.25s;
+            transition: color 0.2s;
         }
-        .hdr-nav a:hover { color: #000; background: var(--wheat); }
+        .hdr-nav a:hover { color: var(--bourbon); }
 
-        .hdr-ham { display: none; cursor: pointer; padding: 8px; }
-        .hdr-ham span {
-            display: block; width: 20px; height: 1.5px;
-            background: var(--wheat); margin: 4px 0; transition: 0.3s;
+        .hdr-ham {
+            display: none;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
         }
-        .hdr-ham.on span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+        .hdr-ham span {
+            display: block;
+            width: 20px;
+            height: 1px;
+            background: var(--ink);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        .hdr-ham.on span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
         .hdr-ham.on span:nth-child(2) { opacity: 0; }
-        .hdr-ham.on span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+        .hdr-ham.on span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
 
         .mob-nav {
-            position: fixed; inset: 0; background: var(--ink);
-            z-index: 99; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; gap: 8px;
-            opacity: 0; pointer-events: none; transition: 0.3s;
+            position: fixed;
+            inset: 0;
+            background: var(--cream);
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 40px;
+            gap: 4px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s;
         }
         .mob-nav.on { opacity: 1; pointer-events: all; }
         .mob-nav a {
             font-family: 'Didact Gothic', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 1.5px;
+            font-size: 11px;
             text-transform: uppercase;
-            color: var(--wheat);
+            letter-spacing: 1.5px;
+            color: var(--smoke);
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            transition: all 0.25s;
+            padding: 10px 0;
+            transition: color 0.2s;
         }
-        .mob-nav a:hover { color: var(--ink); background: var(--wheat); }
+        .mob-nav a:hover { color: var(--bourbon); }
+
+        /* ============================================
+           LAYOUT
+        ============================================ */
+        .page-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ============================================
+           EYEBROW
+        ============================================ */
+        .eyebrow {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--ash);
+            margin-bottom: 20px;
+        }
+
+        /* ============================================
+           SECTIONS
+        ============================================ */
+        .section {
+            border-top: 0.5px solid var(--faint);
+            padding: 70px 0;
+        }
+        .section-heading {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            color: var(--ink);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 40px;
+        }
 
         /* ============================================
            HERO
         ============================================ */
         .hero {
-            text-align: center;
-            padding: 140px 32px 80px;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 126px 0 70px;
         }
-        .hero-title {
+        .hero .eyebrow { margin-bottom: 24px; }
+        .hero-heading {
             font-family: 'Instrument Serif', serif;
-            font-size: clamp(3.2rem, 8vw, 6rem);
-            color: var(--parchment);
-            letter-spacing: -2px;
+            font-size: clamp(2.8rem, 5vw, 5rem);
+            color: var(--ink);
+            letter-spacing: -1.5px;
             line-height: 1.0;
+            max-width: 620px;
             margin-bottom: 24px;
         }
-        .hero-title em { font-style: italic; color: var(--wheat); }
-        .hero-sub {
-            font-size: 1rem;
-            color: var(--ash);
-            max-width: 500px;
-            margin: 0 auto 36px;
-            line-height: 1.75;
+        .hero-body {
+            font-size: 13px;
+            color: var(--smoke);
+            line-height: 1.7;
+            max-width: 440px;
+            margin-bottom: 20px;
         }
-        .hero-facts {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .subtle-link {
+            font-size: 11px;
+            color: var(--bourbon);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
+            transition: color 0.2s;
         }
-        .hero-fact {
-            font-size: 0.68rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--wheat);
-            background: rgba(63, 64, 126, 0.12);
-            padding: 6px 16px;
-            border-radius: 30px;
-            border: 1px solid rgba(63, 64, 126, 0.3);
-        }
-        .hero-fact.sep { background: none; border: none; color: var(--smoke); padding: 6px 4px; }
+        .subtle-link:hover { color: var(--wheat); }
 
         /* ============================================
-           PRICING
+           RECENT WORK
         ============================================ */
-        .pricing-section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 32px 80px;
-        }
-        .pricing-grid {
+        .work-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
-        .tier-card {
-            background: url('jacob/jacob ugc parchment.svg') center center / cover no-repeat;
-            background-color: var(--cream);
-            padding: 40px 32px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.35);
-            position: relative;
+        .work-card {
+            border: 0.5px solid var(--faint);
+            border-radius: 4px;
+            background: var(--paper);
+            overflow: hidden;
         }
-        .tier-card.featured { border-top: 3px solid var(--wheat); }
-        .tier-badge {
-            position: absolute;
-            top: 16px; right: 16px;
-            font-size: 0.56rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--wheat);
-            background: rgba(63, 64, 126, 0.1);
-            padding: 4px 10px;
-            border-radius: 30px;
-            border: 1px solid rgba(63, 64, 126, 0.3);
+        .work-card-img {
+            aspect-ratio: 16 / 10;
+            background: var(--faint);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: var(--ash);
+            letter-spacing: 1px;
         }
-        .tier-label {
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--smoke);
-            margin-bottom: 10px;
-        }
-        .tier-name {
-            font-family: 'Instrument Serif', serif;
-            font-size: 2rem;
+        .work-card-body { padding: 14px 16px; }
+        .work-card-body .eyebrow { margin-bottom: 4px; }
+        .work-card-title {
+            font-size: 13px;
             color: var(--ink);
             margin-bottom: 4px;
         }
-        .tier-price {
+        .work-card-desc {
+            font-size: 11px;
+            color: var(--smoke);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* ============================================
+           OPTIONS
+        ============================================ */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .option-col .eyebrow { margin-bottom: 12px; }
+        .option-price {
             font-family: 'Instrument Serif', serif;
-            font-size: 3.8rem;
-            color: var(--ink);
-            letter-spacing: -2px;
-            line-height: 1.0;
-            margin-bottom: 28px;
+            font-style: italic;
+            font-size: 3rem;
+            color: var(--bourbon);
+            line-height: 1;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
         }
-        .tier-price sub {
-            font-family: 'Didact Gothic', sans-serif;
-            font-size: 0.9rem;
+        .option-desc {
+            font-size: 12px;
             color: var(--smoke);
-            letter-spacing: 0;
-            vertical-align: baseline;
+            line-height: 1.6;
+            max-width: 240px;
+            margin-bottom: 20px;
         }
-        .tier-features {
+        .option-features {
+            border-top: 0.5px solid var(--faint);
+            padding-top: 14px;
             list-style: none;
-            margin-bottom: 32px;
         }
-        .tier-features li {
-            font-size: 0.88rem;
-            color: var(--smoke);
-            padding: 7px 0;
-            border-bottom: 1px solid var(--faint);
-            line-height: 1.5;
+        .option-features li {
+            font-size: 11.5px;
+            color: var(--tobacco);
+            line-height: 2;
         }
-        .tier-features li::before {
-            content: '· ';
-            color: var(--wheat);
-            font-weight: 700;
-        }
-        .tier-cta {
-            display: block;
+        .options-footnote {
+            border-top: 0.5px solid var(--faint);
+            padding-top: 20px;
             text-align: center;
-            padding: 12px;
-            background: var(--bourbon);
-            color: var(--parchment);
-            text-decoration: none;
-            font-family: 'Didact Gothic', sans-serif;
-            font-size: 0.72rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            border-radius: 4px;
-            transition: all 0.25s;
-            cursor: pointer;
-            border: none;
-            width: 100%;
+            font-size: 11px;
+            color: var(--smoke);
+            line-height: 1.6;
         }
-        .tier-cta:hover { background: var(--wheat); color: #000; }
+        .options-footnote a {
+            color: var(--bourbon);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
+        }
+        .options-footnote a:hover { color: var(--wheat); }
 
         /* ============================================
            PROCESS
         ============================================ */
-        .process-section {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 32px 80px;
-        }
-        .proc-steps {
+        .process-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-            position: relative;
-            margin-top: 32px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
         }
-        .proc-steps::before {
-            content: '';
-            position: absolute;
-            top: 24px;
-            left: 10%;
-            right: 10%;
-            height: 1px;
-            background: rgba(63, 64, 126, 0.25);
-        }
-        .proc-step {
-            text-align: center;
-            padding: 0 16px;
-            position: relative;
-        }
-        .proc-dot {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--bourbon);
-            border: 2px solid var(--bourbon);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
+        .process-num {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.1rem;
-            color: #fff;
-            position: relative;
-            z-index: 2;
-            transition: all 0.3s;
-        }
-        .proc-step:hover .proc-dot { border-color: var(--wheat); background: var(--wheat); color: var(--ink); }
-        .proc-step h3 {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.3rem;
-            color: var(--parchment);
+            font-style: italic;
+            font-size: 24px;
+            color: var(--bourbon);
             margin-bottom: 10px;
         }
-        .proc-sub {
-            font-size: 0.82rem;
-            color: var(--ash);
-            line-height: 1.65;
-        }
-
-        /* ============================================
-           INCLUDES
-        ============================================ */
-        .includes-section {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 32px 80px;
-        }
-        .section-eyebrow {
-            font-size: 0.6rem;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--wheat);
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        .includes-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3px;
-        }
-        .include-item {
-            background: url('jacob/jacob ugc parchment.svg') center center / cover no-repeat;
-            background-color: var(--cream);
-            padding: 28px 22px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        .include-icon {
-            font-size: 1.3rem;
-            color: var(--wheat);
-            margin-bottom: 12px;
-        }
-        .include-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.05rem;
+        .process-title {
+            font-size: 12px;
+            font-weight: 500;
             color: var(--ink);
             margin-bottom: 6px;
         }
-        .include-desc {
-            font-size: 0.78rem;
+        .process-desc {
+            font-size: 11px;
             color: var(--smoke);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* ============================================
-           FORM
+           INQUIRY
         ============================================ */
-        .form-section {
-            max-width: 700px;
+        .inquiry-intro {
+            font-size: 13px;
+            color: var(--smoke);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+        .inquiry-iframe {
+            display: block;
+            border: 0.5px solid var(--faint);
+            background: var(--paper);
+        }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        footer {
+            border-top: 0.5px solid var(--faint);
+            padding: 28px 0;
+        }
+        .footer-inner {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 32px 120px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .form-card {
-            background: url('jacob/jacob ugc parchment.svg') center center / cover no-repeat;
-            background-color: var(--cream);
-            padding: 52px 44px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+        .footer-email {
+            font-size: 11px;
+            color: var(--bourbon);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
+            transition: color 0.2s;
         }
-        .form-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--ink);
-            letter-spacing: -1px;
-            line-height: 1.1;
-            margin-bottom: 8px;
+        .footer-email:hover { color: var(--wheat); }
+        .footer-social {
+            display: flex;
+            gap: 16px;
         }
-        .form-title em { font-style: italic; color: var(--rust); }
-        .form-subtitle {
-            font-size: 0.88rem;
-            color: var(--smoke);
-            margin-bottom: 32px;
-            line-height: 1.6;
+        .footer-social a {
+            font-size: 14px;
+            color: var(--ash);
+            text-decoration: none;
+            transition: color 0.2s;
         }
-
-        .contact-form .form-group { margin-bottom: 20px; }
-        .contact-form .form-group label {
-            display: block;
-            font-family: 'Didact Gothic', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--smoke);
-            margin-bottom: 4px;
-        }
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: 100%;
-            padding: 8px 0;
-            border: none;
-            border-bottom: 1.5px solid var(--faint);
-            border-radius: 0;
-            font-family: 'Didact Gothic', sans-serif;
-            font-size: 0.9rem;
-            color: var(--ink);
-            background: transparent;
-            outline: none;
-            transition: border-bottom-color 0.3s, background 0.3s;
-        }
-        .contact-form input:hover,
-        .contact-form textarea:hover { border-bottom-color: var(--ash); background: rgba(63,64,126,0.06); }
-        .contact-form input:focus,
-        .contact-form textarea:focus { border-bottom-color: var(--wheat); }
-        .contact-form textarea { min-height: 80px; resize: vertical; }
-        .contact-form .checkbox-group { display: flex; gap: 8px; flex-wrap: wrap; }
-        .contact-form .checkbox-label {
-            cursor: pointer;
-            font-family: 'Didact Gothic', sans-serif;
-            font-size: 0.72rem;
-            letter-spacing: 0.5px;
-            color: #fff;
-            background: var(--bourbon);
-            padding: 7px 16px;
-            border: 1.5px solid var(--bourbon);
-            border-radius: 30px;
-            transition: all 0.2s;
-            user-select: none;
-        }
-        .contact-form .checkbox-label:hover { background: var(--wheat); color: #000; border-color: var(--wheat); }
-        .contact-form .checkbox-label.selected { background: var(--wheat); color: #000; border-color: var(--wheat); }
-        .contact-form .checkbox-label input[type="checkbox"] { display: none; }
-        .contact-form .submit-btn {
-            display: block;
-            width: 100%;
-            margin-top: 16px;
-            padding: 13px;
-            background: var(--bourbon);
-            color: var(--parchment);
-            border: none;
-            border-radius: 4px;
-            font-family: 'Didact Gothic', sans-serif;
-            font-size: 0.72rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.25s;
-        }
-        .contact-form .submit-btn:hover { background: var(--wheat); color: #000; }
-
-        .thank-you {
-            text-align: center;
-            padding: 24px 0 8px;
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.2rem;
-            color: var(--smoke);
-            font-style: italic;
+        .footer-social a:hover { color: var(--bourbon); }
+        .footer-copy {
+            font-size: 10px;
+            color: var(--ash);
         }
 
         /* ============================================
            MOBILE
         ============================================ */
-        @media (max-width: 700px) {
-            .pricing-grid { grid-template-columns: 1fr; }
-            .pricing-grid .tier-card[style*="grid-column"] { max-width: 100%; }
-        }
         @media (max-width: 768px) {
-            .includes-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 576px) {
+            .hdr-inner { padding: 0 20px; }
             .hdr-nav { display: none; }
             .hdr-ham { display: block; }
 
-            .hero { padding: 100px 20px 60px; }
-            .hero-title { font-size: 3rem; letter-spacing: -1px; }
+            .page-wrap { padding: 0 20px; }
 
-            .pricing-section,
-            .process-section,
-            .includes-section,
-            .form-section { padding-left: 16px; padding-right: 16px; }
+            .hero { padding: 96px 0 50px; }
+            .hero-heading { font-size: 2.6rem; }
 
-            .proc-steps { grid-template-columns: 1fr; gap: 32px; }
-            .proc-steps::before { display: none; }
+            .section { padding: 50px 0; }
 
-            .tier-card { padding: 28px 22px; }
-            .tier-price { font-size: 3rem; }
+            .work-grid { grid-template-columns: 1fr; }
+            .options-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
 
-            .includes-grid { grid-template-columns: 1fr; }
-
-            .form-card { padding: 32px 22px; }
+            .footer-inner { padding: 0 20px; }
         }
     </style>
 </head>
 <body>
 
     <!-- HEADER -->
-    <header class="hdr" id="hdr">
+    <header class="hdr">
         <div class="hdr-inner">
             <a href="jacob.html" class="hdr-logo">Jacob Hill</a>
-            <nav class="hdr-nav">
-                <a href="jacob.html">UGC</a>
-                <a href="index.html">Brea UGC</a>
-                <a href="pet-ugc.html">Pet UGC</a>
-            </nav>
-            <div class="hdr-ham" id="ham" onclick="toggleNav()">
-                <span></span><span></span><span></span>
+            <div class="hdr-right">
+                <img src="jacob-photo.jpg" alt="Jacob Hill" class="hdr-photo">
+                <nav class="hdr-nav">
+                    <a href="aboutjacob.html">About</a>
+                    <a href="jacob.html">UGC</a>
+                </nav>
+                <button class="hdr-ham" id="ham" onclick="toggleNav()" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
 
     <div class="mob-nav" id="mob">
+        <a href="aboutjacob.html" onclick="toggleNav()">About</a>
         <a href="jacob.html" onclick="toggleNav()">UGC</a>
-        <a href="index.html" onclick="toggleNav()">Brea UGC</a>
-        <a href="pet-ugc.html" onclick="toggleNav()">Pet UGC</a>
     </div>
 
     <!-- HERO -->
-    <section class="hero">
-        <h1 class="hero-title">What I <em>Build.</em></h1>
-        <p class="hero-sub">Custom websites for brands — built from scratch or refreshed. Clean, professional, and ready to convert.</p>
-        <div class="hero-facts">
-            <span class="hero-fact">Mobile Responsive</span>
-            <span class="hero-fact sep">·</span>
-            <span class="hero-fact">Custom Domain Ready</span>
-            <span class="hero-fact sep">·</span>
-            <span class="hero-fact">5–7 Business Days</span>
-        </div>
-    </section>
+    <div class="page-wrap">
+        <section class="hero">
+            <p class="eyebrow">Portfolio Development</p>
+            <h1 class="hero-heading">Websites built to help you pitch with confidence.</h1>
+            <p class="hero-body">I build portfolio sites for creators and businesses — designed to get you taken seriously and win the deals you're going after.</p>
+            <a href="#work" class="subtle-link">See recent work →</a>
+        </section>
+    </div>
 
-    <!-- PRICING TIERS -->
-    <div class="pricing-section">
-        <div class="pricing-grid">
-
-            <div class="tier-card">
-                <p class="tier-label">Tier 01</p>
-                <h2 class="tier-name">Revamp</h2>
-                <div class="tier-price">$350 <sub>one-time</sub></div>
-                <ul class="tier-features">
-                    <li>Refresh your existing portfolio site</li>
-                    <li>Updated layout, colors, and branding</li>
-                    <li>New video sections added or reorganized</li>
-                    <li>Mobile-friendly responsive layout</li>
-                    <li>Contact and booking integration</li>
-                    <li>2 rounds of revisions</li>
-                    <li>5–7 business day delivery</li>
-                </ul>
-                <button class="tier-cta" data-tier="Revamp — $350">Get Started</button>
+    <!-- RECENT WORK -->
+    <div class="page-wrap">
+        <section class="section" id="work">
+            <p class="eyebrow">Recent Work</p>
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-card-img">Screenshot placeholder</div>
+                    <div class="work-card-body">
+                        <p class="eyebrow">Live Site</p>
+                        <p class="work-card-title">breaugc.com</p>
+                        <p class="work-card-desc">UGC portfolio.</p>
+                        <a href="index.html" class="subtle-link">View site →</a>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-card-img">Screenshot placeholder</div>
+                    <div class="work-card-body">
+                        <p class="eyebrow">Squarespace Sites</p>
+                        <p class="work-card-title">Sites built on Squarespace</p>
+                    </div>
+                </div>
             </div>
+        </section>
+    </div>
 
-            <div class="tier-card">
-                <p class="tier-label">Tier 02</p>
-                <h2 class="tier-name">From Scratch</h2>
-                <div class="tier-price">$500 <sub>one-time</sub></div>
-                <ul class="tier-features">
-                    <li>Built from scratch on Squarespace</li>
-                    <li>Custom design tailored to your brand</li>
-                    <li>Easy to update yourself after delivery</li>
-                    <li>Mobile-friendly responsive layout</li>
-                    <li>Video portfolio sections by niche</li>
-                    <li>Contact and booking integration</li>
-                    <li>Domain setup and hosting guidance</li>
-                    <li>2 rounds of revisions</li>
-                    <li>5–7 business day delivery</li>
-                </ul>
-                <button class="tier-cta" data-tier="From Scratch — $500">Get Started</button>
+    <!-- OPTIONS -->
+    <div class="page-wrap">
+        <section class="section">
+            <p class="eyebrow">Options</p>
+            <h2 class="section-heading">Ways to work together.</h2>
+            <div class="options-grid">
+                <div class="option-col">
+                    <p class="eyebrow">01 / Revamp</p>
+                    <div class="option-price">$350</div>
+                    <p class="option-desc">For creators who already have a site but want it cleaner.</p>
+                    <ul class="option-features">
+                        <li>Works on any platform</li>
+                        <li>You keep your login</li>
+                        <li>Layout and copy improvements</li>
+                        <li>Mobile responsive cleanup</li>
+                        <li>2 rounds of revisions</li>
+                    </ul>
+                    <a href="#inquiry" class="subtle-link" style="display:inline-block; margin-top:20px;">Start here →</a>
+                </div>
+                <div class="option-col">
+                    <p class="eyebrow">02 / Squarespace Build</p>
+                    <div class="option-price">$665</div>
+                    <p class="option-desc">For creators starting from scratch who want a polished site.</p>
+                    <ul class="option-features">
+                        <li>Built on Squarespace template</li>
+                        <li>Personalized Loom at handoff</li>
+                        <li>Handoff documents included</li>
+                        <li>3 months of support</li>
+                        <li>Mobile responsive</li>
+                        <li>You pay Squarespace (~$23/mo)</li>
+                    </ul>
+                    <a href="#inquiry" class="subtle-link" style="display:inline-block; margin-top:20px;">Start here →</a>
+                </div>
             </div>
-
-            <div class="tier-card" style="background: rgba(26,18,21,0.85); border: 1px solid rgba(242,234,221,0.12); display:flex; flex-direction:column; justify-content:center; grid-column: 1 / -1; max-width: 480px; margin: 0 auto; width: 100%;">
-                <p class="tier-label" style="color:var(--ash);">Everything Else</p>
-                <h2 class="tier-name" style="color:var(--parchment); font-size:2.4rem; line-height:1; margin-bottom:20px;">Something<br>else in mind?</h2>
-                <p style="font-size:0.88rem; color:var(--ash); line-height:1.8; margin-bottom:32px;">Custom coded sites, complex animations, logo design, or anything outside these two — reach out and we'll figure it out.</p>
-                <a href="mailto:jacobhill951@gmail.com" class="tier-cta">Inquire</a>
+            <div class="options-footnote">
+                Looking for something fully custom or outside the scope of these two? Reach out at <a href="mailto:jacobhill951@gmail.com">jacobhill951@gmail.com</a>.
             </div>
-
-        </div>
+        </section>
     </div>
 
     <!-- PROCESS -->
-    <div class="process-section">
-        <p class="section-eyebrow">How It Works</p>
-        <div class="proc-steps">
-            <div class="proc-step">
-                <div class="proc-dot">01</div>
-                <h3>Creative Brief</h3>
-                <p class="proc-sub">Quick email to go over your brand, niche, and what you want your site to look like.</p>
+    <div class="page-wrap">
+        <section class="section">
+            <p class="eyebrow">Process</p>
+            <h2 class="section-heading">How it works.</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-num">01</div>
+                    <p class="process-title">Submit</p>
+                    <p class="process-desc">Fill out the form below.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">02</div>
+                    <p class="process-title">Align</p>
+                    <p class="process-desc">Quick call to talk through what you need.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">03</div>
+                    <p class="process-title">Build</p>
+                    <p class="process-desc">I build it out and send a draft for review.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">04</div>
+                    <p class="process-title">Handoff</p>
+                    <p class="process-desc">Final handoff with a personalized Loom.</p>
+                </div>
             </div>
-            <div class="proc-step">
-                <div class="proc-dot">02</div>
-                <h3>Development</h3>
-                <p class="proc-sub">Site built and ready for review in 5–7 business days.</p>
-            </div>
-            <div class="proc-step">
-                <div class="proc-dot">03</div>
-                <h3>Working Together</h3>
-                <p class="proc-sub">Flexible contract setup — I can provide one covering deliverables, timelines, and payment terms.</p>
-            </div>
-        </div>
+        </section>
     </div>
 
-    <!-- WHAT'S INCLUDED -->
-    <div class="includes-section">
-        <p class="section-eyebrow">What's Included</p>
-        <div class="includes-grid">
-            <div class="include-item">
-                <div class="include-icon"><i class="fas fa-mobile-alt"></i></div>
-                <h3 class="include-title">Mobile Responsive</h3>
-                <p class="include-desc">Looks great on every screen size.</p>
-            </div>
-            <div class="include-item">
-                <div class="include-icon"><i class="fas fa-video"></i></div>
-                <h3 class="include-title">Video Portfolio</h3>
-                <p class="include-desc">Sections organized by niche and content type.</p>
-            </div>
-            <div class="include-item">
-                <div class="include-icon"><i class="fas fa-envelope"></i></div>
-                <h3 class="include-title">Contact & Booking</h3>
-                <p class="include-desc">Inquiry form built in so brands can reach you.</p>
-            </div>
-            <div class="include-item">
-                <div class="include-icon"><i class="fas fa-globe"></i></div>
-                <h3 class="include-title">Domain & Hosting</h3>
-                <p class="include-desc">Setup and deployment included.</p>
-            </div>
-            <div class="include-item">
-                <div class="include-icon"><i class="fas fa-rotate-left"></i></div>
-                <h3 class="include-title">2 Rounds of Revisions</h3>
-                <p class="include-desc">Feedback incorporated before final delivery.</p>
-            </div>
-            <div class="include-item">
-                <div class="include-icon"><i class="fas fa-code"></i></div>
-                <h3 class="include-title">You Own the Code</h3>
-                <p class="include-desc">Full source files delivered. No ongoing fees.</p>
-            </div>
-        </div>
+    <!-- INQUIRY -->
+    <div class="page-wrap">
+        <section class="section" id="inquiry">
+            <p class="eyebrow">Get Started</p>
+            <h2 class="section-heading">Let's talk.</h2>
+            <p class="inquiry-intro">Fill out the form below. I'll be in touch within 48 hours.</p>
+            <iframe
+                src="https://docs.google.com/forms/d/e/PLACEHOLDER/viewform?embedded=true"
+                width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0"
+                class="inquiry-iframe">Loading…</iframe>
+        </section>
     </div>
 
-    <!-- INQUIRY FORM -->
-    <div class="form-section" id="inquiry">
-        <div class="form-card">
-            <h2 class="form-title">Let's <em>Work Together</em></h2>
-            <p class="form-subtitle">Tell me about your project and I'll get back to you within 24 hours.</p>
-
-            <form class="contact-form" id="portfolioForm" action="https://formspree.io/f/xdalpvve" method="POST">
-                <input type="hidden" name="_subject" value="New Web Dev Inquiry">
-                <input type="hidden" name="_next" value="https://breaugc.com/webdev.html?submitted=true">
-
-                <div class="form-group">
-                    <label for="pd-name">Name</label>
-                    <input type="text" id="pd-name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="pd-email">Email</label>
-                    <input type="email" id="pd-email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Tier</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label"><input type="checkbox" name="tier" value="Revamp — $350"> Revamp — $350</label>
-                        <label class="checkbox-label"><input type="checkbox" name="tier" value="From Scratch — $500"> From Scratch — $500</label>
-                        <label class="checkbox-label"><input type="checkbox" name="tier" value="Something Else"> Something Else</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="pd-ig">Instagram / TikTok Handle</label>
-                    <input type="text" id="pd-ig" name="social_handle">
-                </div>
-
-                <div class="form-group">
-                    <label for="pd-message">Tell me about your niche / brand</label>
-                    <textarea id="pd-message" name="message" required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Submit Inquiry</button>
-            </form>
-
-            <p class="thank-you" id="thank-you" style="display:none;">
-                Got it — I'll be in touch within 24 hours.
-            </p>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <a href="mailto:jacobhill951@gmail.com" class="footer-email">jacobhill951@gmail.com</a>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <span class="footer-copy">© 2026 Jacob Hill</span>
         </div>
-    </div>
+    </footer>
 
     <script>
         function toggleNav() {
@@ -705,34 +562,15 @@
             document.getElementById('mob').classList.toggle('on');
         }
 
-        document.querySelectorAll('.checkbox-label').forEach(function(label) {
-            label.addEventListener('click', function(e) {
-                e.preventDefault();
-                var cb = this.querySelector('input[type="checkbox"]');
-                cb.checked = !cb.checked;
-                this.classList.toggle('selected', cb.checked);
+        document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+            a.addEventListener('click', function(e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
-
-        document.querySelectorAll('.tier-cta').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var tier = this.getAttribute('data-tier');
-                document.querySelectorAll('.checkbox-label').forEach(function(l) {
-                    var cb = l.querySelector('input');
-                    var match = cb.value === tier;
-                    cb.checked = match;
-                    l.classList.toggle('selected', match);
-                });
-                document.getElementById('inquiry').scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        if (window.location.search.includes('submitted=true')) {
-            document.getElementById('portfolioForm').style.display = 'none';
-            document.getElementById('thank-you').style.display = 'block';
-            document.getElementById('inquiry').scrollIntoView({ behavior: 'smooth' });
-        }
-
     </script>
 
 </body>
