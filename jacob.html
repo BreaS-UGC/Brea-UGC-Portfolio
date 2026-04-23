@@ -95,6 +95,8 @@
             padding: 8px 18px 8px 14px;
             border-radius: 4px 0 0 4px;
             transition: all 0.25s;
+            min-width: 110px;
+            text-align: center;
         }
         .hdr-nav a:hover { color: #000; background: var(--wheat); }
 
@@ -318,10 +320,13 @@
             line-height: 1.7;
             color: var(--ink);
             list-style: none;
-            padding-left: 0;
+            padding: 10px 14px;
             max-width: 400px;
             margin-bottom: 0;
             margin-top: 0;
+            border: 3px solid var(--bourbon);
+            border-radius: 8px;
+            background: var(--cream);
         }
         .hero-desc strong { color: var(--tobacco); font-weight: 600; }
         .hero-desc-m { display: none; }
@@ -1474,7 +1479,7 @@
                 text-align: left;
                 transform: translateY(-20px);
                 font-weight: 600;
-                background: #E4D9C8;
+                background: var(--cream);
                 border-radius: 10px;
                 padding: 14px 20px;
             }
@@ -1544,7 +1549,6 @@
                 <a href="index.html">Brea UGC</a>
                 <a href="pet-ugc.html">Pet UGC</a>
                 <a href="#" onclick="event.preventDefault();navTo(2)">Services</a>
-                <a href="aboutjacob.html">About</a>
             </nav>
             <div class="hdr-socials">
                 <a href="https://instagram.com/thehillherdfamily" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -1557,7 +1561,6 @@
         <a href="index.html" onclick="toggleNav()">Brea UGC</a>
         <a href="pet-ugc.html" onclick="toggleNav()">Pet UGC</a>
         <a href="#" onclick="event.preventDefault();toggleNav();navTo(2)">Services</a>
-        <a href="aboutjacob.html" onclick="toggleNav()">About</a>
     </div>
 
     <!-- SLIDESHOW -->
