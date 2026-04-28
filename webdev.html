@@ -221,6 +221,8 @@
             background: var(--paper);
             overflow: hidden;
         }
+        .work-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .work-card:hover { transform: translateY(-6px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
         .work-card-img {
             aspect-ratio: 16 / 10;
             background: var(--faint);
@@ -442,7 +444,11 @@
             <p class="eyebrow">Recent Work</p>
             <div class="work-grid">
                 <div class="work-card">
-                    <div class="work-card-img">Screenshot placeholder</div>
+                    <div class="work-card-img" style="background:none; overflow:hidden; padding: 10px; aspect-ratio: unset; height: auto;">
+                        <div style="border: 1px solid var(--ash); border-radius: 3px; overflow:hidden; height: 320px; position:relative;">
+                            <iframe src="https://breaugc.com" style="width:900px; height:640px; border:none; display:block; transform:scale(0.5); transform-origin:top left; pointer-events:auto;"></iframe>
+                        </div>
+                    </div>
                     <div class="work-card-body">
                         <p class="eyebrow">Live Site</p>
                         <p class="work-card-title">breaugc.com</p>
@@ -557,6 +563,15 @@
     </footer>
 
     <script>
+        var _slide = 0;
+        function advanceSlide() {
+            _slide = (_slide + 1) % 3;
+            document.getElementById('siteSlider').style.transform = 'translateX(-' + (_slide * 33.333) + '%)';
+            document.querySelectorAll('.sdot').forEach(function(d, i) {
+                d.style.background = i === _slide ? 'var(--ash)' : 'rgba(155,142,134,0.3)';
+            });
+        }
+
         function toggleNav() {
             document.getElementById('ham').classList.toggle('on');
             document.getElementById('mob').classList.toggle('on');
