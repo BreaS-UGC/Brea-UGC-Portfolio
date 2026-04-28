@@ -397,6 +397,9 @@
             .section { padding: 50px 0; }
 
             .work-grid { grid-template-columns: 1fr; }
+            .mobile-preview { display: block !important; }
+            .desktop-preview { display: none !important; }
+            .work-card-window { height: auto !important; aspect-ratio: 9 / 16; }
             .options-grid { grid-template-columns: 1fr; }
             .process-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -445,7 +448,7 @@
             <div class="work-grid">
                 <div class="work-card">
                     <div class="work-card-img" style="background:none; overflow:hidden; padding: 0; aspect-ratio: unset; height: auto;">
-                        <div style="border: 1px solid var(--ash); border-radius: 3px; overflow:hidden; height: 275px; width: 100%; position:relative;">
+                        <div style="border: 1px solid #111; border-radius: 3px; overflow:hidden; height: 275px; width: 100%; position:relative;">
                             <iframe src="https://breaugc.com" style="width:1100px; height:550px; border:none; display:block; transform:scale(0.5); transform-origin:top left; pointer-events:auto;"></iframe>
                         </div>
                     </div>
@@ -457,7 +460,20 @@
                     </div>
                 </div>
                 <div class="work-card">
-                    <div class="work-card-img">Screenshot placeholder</div>
+                    <div class="work-card-img" style="background:none; overflow:hidden; padding: 0; aspect-ratio: unset; height: auto; position: relative;">
+                        <div style="border: 1px solid #111; border-radius: 3px; overflow:hidden; height: 275px; width: 100%; position:relative;">
+                            <div id="siteSlider" style="display:flex; width:300%; height:100%; transition: transform 0.5s ease;">
+                                <img src="webdev/Screenshot 2026-04-27 193441.png" style="width:33.333%; height:100%; object-fit:cover; object-position:top; flex-shrink:0;">
+                                <img src="webdev/Screenshot 2026-04-27 193529.png" style="width:33.333%; height:100%; object-fit:cover; object-position:top; flex-shrink:0;">
+                                <img src="webdev/Screenshot 2026-04-27 193609.png" style="width:33.333%; height:100%; object-fit:cover; object-position:top; flex-shrink:0;">
+                            </div>
+                        </div>
+                        <div style="position:absolute; bottom:8px; left:50%; transform:translateX(-50%); display:flex; gap:5px;">
+                            <span class="sdot" style="width:6px;height:6px;border-radius:50%;background:var(--ash);display:inline-block;"></span>
+                            <span class="sdot" style="width:6px;height:6px;border-radius:50%;background:rgba(155,142,134,0.3);display:inline-block;"></span>
+                            <span class="sdot" style="width:6px;height:6px;border-radius:50%;background:rgba(155,142,134,0.3);display:inline-block;"></span>
+                        </div>
+                    </div>
                     <div class="work-card-body">
                         <p class="eyebrow">Squarespace Sites</p>
                         <p class="work-card-title">Sites built on Squarespace</p>
@@ -571,6 +587,7 @@
                 d.style.background = i === _slide ? 'var(--ash)' : 'rgba(155,142,134,0.3)';
             });
         }
+        setInterval(advanceSlide, 3000);
 
         function toggleNav() {
             document.getElementById('ham').classList.toggle('on');

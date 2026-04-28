@@ -1318,8 +1318,8 @@
             .hero-facts { gap: 6px; flex-wrap: wrap; font-size: 0.85rem; }
             .hero-photo { width: 80px; }
             .slide:nth-child(1) .hero-photo { width: 160px; }
-            .hero-desc-m { transform: translateY(-20px); font-size: 0.85rem; font-weight: 700; line-height: 1.6; width: 75%; text-align: left; display: flex; flex-direction: column; gap: 4px; border: 3px solid var(--bourbon); border-radius: 8px; padding: 10px 14px; }
-            .pet-btn { font-size: 0.85rem; padding: 20px 18px; margin-bottom: 20px; margin-top: -10px; }
+            .hero-desc-m { transform: translateY(-12px); font-size: 0.85rem; font-weight: 700; line-height: 1.6; width: 75%; text-align: left; display: flex; flex-direction: column; gap: 4px; border: 3px solid var(--bourbon); border-radius: 8px; padding: 10px 14px; }
+            .pet-btn { font-size: 0.85rem; padding: 20px 18px; margin-bottom: 20px; margin-top: -10px; transform: translateY(25px); }
 
             /* Work */
             .card-section-title { font-size: 1.8rem; text-align: center; }
@@ -1501,7 +1501,7 @@
             }
             .slide:nth-child(1) .pet-btn {
                 font-size: 1rem;
-                padding: 18px 32px;
+                padding: 28px 32px;
                 margin-top: 16px;
             }
             .slide:nth-child(1) .hero-socials {
@@ -1519,7 +1519,7 @@
             width: 100%;
             overflow: hidden;
             margin-top: 20px;
-            transform: translateY(10px) scale(1.1225);
+            transform: translateY(46px) scale(1.1225);
             transform-origin: center;
         }
         .photo-collage-row {
@@ -1530,12 +1530,13 @@
         .photo-collage-row img {
             flex: 1 1 0;
             min-width: 0;
-            aspect-ratio: 2 / 3;
+            aspect-ratio: 3 / 5;
             object-fit: cover;
             display: block;
         }
         @media (max-width: 768px) {
             .photo-collage-row img { aspect-ratio: 3 / 5; }
+            .photo-collage { transform: translateY(25px) scale(1.1225); }
         }
     </style>
 </head>
