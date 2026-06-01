@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Hill Herd UGC - Brea UGC</title>
+    <title>The Hill Herd - Brea UGC</title>
     <link rel="icon" type="image/svg+xml" href="index/favicon.svg">
     <link rel="apple-touch-icon" href="index/favicon.svg">
 
@@ -232,11 +232,55 @@
             letter-spacing: 1px;
         }
 
+        .hero-intro {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+        }
         .hillherd-logo {
             width: 575px;
             margin-bottom: -120px;
             margin-top: -170px;
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
+        .hero-intro.revealed .hillherd-logo {
+            transform: translateX(-60px);
+        }
+        .chowder-wrap {
+            opacity: 0;
+            max-width: 0;
+            overflow: hidden;
+            margin-bottom: -120px;
+            margin-top: -170px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: opacity 0.6s ease, max-width 0.6s ease;
+        }
+        .hero-intro.revealed .chowder-wrap {
+            opacity: 1;
+            max-width: 400px;
+        }
+        .chowder-label {
+            font-family: 'Zodiak', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #4A3B5C;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+        .chowder-video {
+            width: 150px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+            display: block;
+            flex-shrink: 0;
+        }
+        .chowder-video:hover { transform: translateY(-5px); }
         
         /* Pet Showcase Styles */
         .pet-showcase {
@@ -327,6 +371,13 @@
                 margin-bottom: -60px;
                 margin-top: -110px;
             }
+            .hero-intro { gap: 0; }
+            .hero-intro.revealed { gap: 16px; }
+            .hero-intro.revealed .hillherd-logo { transform: translateX(-280px); }
+            .hero-intro.revealed .chowder-wrap { max-width: 280px; transform: translateX(-220px); }
+            .chowder-video { width: 115px; height: 170px; }
+            .chowder-label { font-size: 1.1rem; }
+            .chowder-analytics { width: 150px !important; margin-left: -25px !important; }
         }
         
         @media (max-width: 480px) {
@@ -821,8 +872,19 @@
     <div class="main-content">
         <div class="container">
             <div class="title-container">
-                <img src="pet-ugc/hillherd logo fixed.svg" alt="The Hill Herd" class="hillherd-logo">
+                <div class="hero-intro">
+                    <img src="pet-ugc/hillherd logo fixed.svg" alt="The Hill Herd" class="hillherd-logo">
+                <div class="chowder-wrap">
+                    <div class="chowder-label">Now<br>Featuring...<br><br>Chowder!!</div>
+                    <div style="display:flex; flex-direction:column; align-items:flex-start;">
+                        <video class="chowder-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/Chowder Thumbnail.png">
+                            <source src="videos/Chowder.mp4" type="video/mp4">
+                        </video>
+                        <img src="videos/Chowder Analytics.jpg" alt="Chowder Analytics" loading="lazy" style="width:220px; border-radius:8px; margin-top:8px; margin-left:-40px;" class="chowder-analytics">
+                    </div>
                 </div>
+                </div>
+            </div>
             </div>
             
             <!-- Pet Showcase -->
@@ -978,6 +1040,27 @@
 
         const contactHeading = document.getElementById('contact-heading');
         if (contactHeading) sketchObserver.observe(contactHeading);
+
+        // Reveal Chowder on first scroll gesture, then stays
+        var heroIntro = document.querySelector('.hero-intro');
+        if (heroIntro) {
+            function reveal() {
+                // On mobile, position chowder-wrap to match logo position
+                if (window.innerWidth <= 768) {
+                    var logo = heroIntro.querySelector('.hillherd-logo');
+                    var wrap = heroIntro.querySelector('.chowder-wrap');
+                    var r = logo.getBoundingClientRect();
+                    var pr = heroIntro.getBoundingClientRect();
+                    wrap.style.top = (r.top - pr.top) + 'px';
+                    wrap.style.height = r.height + 'px';
+                }
+                heroIntro.classList.add('revealed');
+                window.removeEventListener('wheel', reveal);
+                window.removeEventListener('touchstart', reveal);
+            }
+            window.addEventListener('wheel', reveal, { passive: true });
+            window.addEventListener('touchstart', reveal, { passive: true });
+        }
     </script>
 
 </body>
