@@ -255,10 +255,15 @@
             flex-shrink: 0;
         }
         .chowder-video:hover { transform: translateY(-5px); }
-        .chowder-right .chowder-video { transform: translate(60px, -60px); }
-        .chowder-right .chowder-analytics { transform: translate(60px, -60px); }
+        .chowder-right .chowder-video { transform: translate(65px, -59px); }
+        .chowder-right .chowder-analytics { transform: translate(65px, -59px); }
+        .petlab-right .chowder-video { transform: translate(-60px, -60px); }
+        .petlab-right .chowder-analytics { transform: translate(-60px, -60px); }
         @media (min-width: 769px) {
             .chowder-bio { font-size: 18px !important; }
+            .chowder-right .chowder-analytics { width: 320px !important; }
+            .chowder-left { transform: translate(15px, -95px) !important; }
+            .chowder-video { width: 320px !important; height: 569px !important; }
         }
         
         /* Pet Showcase Styles */
@@ -350,11 +355,19 @@
                 margin-bottom: -60px;
                 margin-top: -110px;
             }
-            .chowder-section { flex-direction: row !important; align-items: center !important; gap: 20px !important; margin-bottom: 0 !important; padding: 10px 16px 24px !important; margin-top: -40px !important; }
-            .chowder-left { transform: none !important; height: auto !important; }
-            .chowder-video { width: 140px !important; height: 200px !important; transform: none !important; }
-            .chowder-analytics { width: 140px !important; transform: none !important; }
-            .chowder-label { font-size: 1rem; }
+            .chowder-section { flex-direction: column !important; align-items: center !important; gap: 40px !important; margin-bottom: 0 !important; padding: 24px 16px !important; margin-top: 0 !important; }
+            .chowder-section > div { flex-direction: row !important; align-items: center !important; gap: 12px !important; }
+            .chowder-left { transform: translateY(-100px) !important; height: auto !important; }
+            .chowder-right, .petlab-right { transform: none !important; }
+            .petlab-right .chowder-video { transform: translateY(-80px) !important; }
+            .chowder-bg { margin-bottom: -80px !important; }
+            .q2-info img { transform: translateY(20px); }
+            .q2-info { transform: translate(8px, -140px) !important; height: auto !important; }
+            .chowder-video { width: 160px !important; height: 284px !important; transform: translateY(-60px) !important; }
+            .chowder-analytics { width: 160px !important; transform: translateY(-60px) !important; }
+            .chowder-right .chowder-analytics { width: 160px !important; transform: translateY(-60px) !important; }
+            .petlab-right .chowder-analytics { transform: translateY(-80px) !important; }
+            .chowder-label { font-size: 0.9rem !important; }
         }
         
         @media (max-width: 480px) {
@@ -896,18 +909,42 @@
         </div>
     </div>
 
-    <!-- Now Featuring Chowder -->
-    <div class="chowder-section" style="display:flex; align-items:center; justify-content:center; gap:260px; padding: 0px 20px 0px; margin-bottom:-60px; max-width:1200px; margin:0 auto;">
-        <div class="chowder-left" style="display:flex; flex-direction:column; justify-content:center; height:380px; gap:16px; transform: translate(40px, -80px);">
-            <div class="chowder-label" style="text-align:center;">Now<br><span style="margin-left:20px;">Featuring...</span><br><br>Chowder!!</div>
-            <p class="pet-description chowder-bio" style="max-width:220px;">A very goofy leopard gecko with a lot of personality. Don't let his size fool you, he has a voracious appetite.</p>
+    <!-- Now Featuring Chowder + Q2 Spotlight -->
+    <div class="chowder-bg" style="background:#f0eff3; width:100%; margin-top:-70px; padding-top:70px; padding-bottom:0px;">
+    <div class="chowder-section" style="display:flex; align-items:center; justify-content:center; gap:160px; padding: 30px 60px 0px 20px; margin-bottom:-60px; max-width:1400px; margin:0 auto;">
+        <!-- Left: Chowder -->
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div class="chowder-left" style="display:flex; flex-direction:column; justify-content:center; height:380px; gap:16px; transform: translate(15px, -95px);">
+                <div class="chowder-label" style="text-align:center;">Now<br><span style="margin-left:20px;">Featuring...</span><br><br>Chowder!!</div>
+                <p class="pet-description chowder-bio" style="max-width:220px;">A very goofy leopard gecko with a lot of personality. Don't let his size fool you, he has a voracious appetite.</p>
+            </div>
+            <div class="chowder-right" style="display:flex; flex-direction:column; align-items:flex-start;">
+                <div class="mini-video-container paid-ads-gradient chowder-video" style="border-radius:20px;">
+                    <video class="mini-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/Chowder Thumbnail.png">
+                        <source src="videos/Chowder.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <img src="videos/chowder numbers.png" alt="Chowder Analytics" loading="lazy" style="width:180px; border-radius:8px; margin-top:8px; border:1.5px solid #9F8AB3;" class="chowder-analytics">
+            </div>
         </div>
-        <div class="chowder-right" style="display:flex; flex-direction:column; align-items:flex-start;">
-            <video class="chowder-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/Chowder Thumbnail.png" style="width:320px; height:420px;">
-                <source src="videos/Chowder.mp4" type="video/mp4">
-            </video>
-            <img src="videos/Chowder Analytics.jpg" alt="Chowder Analytics" loading="lazy" style="width:320px; border-radius:8px; margin-top:8px;" class="chowder-analytics">
+        <!-- Right: PetLab Q2 Spotlight (mirrored) -->
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div class="petlab-right" style="display:flex; flex-direction:column; align-items:flex-start;">
+                <div class="mini-video-container paid-ads-gradient chowder-video" style="border-radius:20px;">
+                    <video class="mini-video" controls controlsList="nodownload" preload="none" playsinline poster="videos/PetLab Co Thumbnail.png">
+                        <source src="videos/PetLab Co (720p for website).mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="chowder-analytics" style="width:320px; margin-top:8px; background:#fff; border-radius:8px; overflow:hidden; border:1.5px solid #9F8AB3;">
+                    <img src="videos/PetLab Co Analytics 3 (pet niche).jpg" alt="PetLab Analytics" loading="lazy" style="width:100%; height:auto; display:block; filter:invert(1) sepia(0.4) hue-rotate(220deg) saturate(1.1); mix-blend-mode:multiply;">
+                </div>
+            </div>
+            <div class="q2-info" style="display:flex; flex-direction:column; justify-content:center; height:380px; gap:16px; transform: translateY(-160px);">
+                <div class="chowder-label" style="text-align:center;">Q2<br>Spotlight</div>
+                <img src="index/Logos/petlab-co-logo-768x160-2352198797.png" alt="PetLab Co" loading="lazy" style="width:160px; margin-top:12px;">
+            </div>
         </div>
+    </div>
     </div>
 
     <!-- Pet Videos Section -->

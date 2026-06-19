@@ -1077,6 +1077,68 @@
             height: 410px;
         }
 
+        /* Analytics row below recent collabs */
+        .analytics-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .analytics-col {
+            flex: 1;
+            max-width: 360px;
+            background: #E5DBF0;
+            border-radius: 12px;
+        }
+
+        .analytics-divider {
+            width: 1.5px;
+            background: #9F8AB3;
+            align-self: stretch;
+            flex-shrink: 0;
+        }
+
+        .analytics-img-wrap {
+            position: relative;
+        }
+
+        .analytics-stat-divider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1.5px;
+            background: #9F8AB3;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .analytics-col:nth-child(2),
+        .analytics-col:nth-child(3) {
+            overflow: hidden;
+        }
+
+        .analytics-col:nth-child(2) .analytics-img,
+        .analytics-col:nth-child(3) .analytics-img {
+            aspect-ratio: 1206 / 202;
+            object-fit: cover;
+        }
+
+
+        .analytics-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: block;
+            filter: invert(1) sepia(0.4) hue-rotate(220deg) saturate(1.1);
+            mix-blend-mode: multiply;
+        }
+
         /* Recent Collaborations Section */
         .recent-collaborations {
             margin-top: 60px;
@@ -3552,7 +3614,7 @@
             }
             
             .recent-collabs-section {
-                padding: 40px 15px 90px 15px !important;
+                padding: 40px 15px 60px 15px !important;
             }
             
             .recent-collabs-section p {
@@ -3582,6 +3644,19 @@
             .collab-logo img {
                 max-width: 170px !important;
                 max-height: 60px !important;
+            }
+
+            .analytics-row {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 16px !important;
+                margin-top: 54px !important;
+                padding: 0 16px !important;
+            }
+
+            .analytics-col {
+                max-width: 100% !important;
+                width: 100% !important;
             }
 
             /* COMPREHENSIVE MOBILE FIXES */
@@ -4102,6 +4177,24 @@
                         <video class="mini-video" controls controlsList="nodownload" preload="none" poster="videos/Crown and Paw (720p for website) Thumbnail.png">
                             <source src="videos/Crown and Paw (720p for website) fixed.mp4" type="video/mp4">
                         </video>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analytics-row">
+                <div class="analytics-col">
+                    <div class="analytics-img-wrap">
+                        <img src="videos/Analytics 1 (niche_ music studio).jpg" alt="Analytics 1" loading="lazy" class="analytics-img">
+                    </div>
+                </div>
+                <div class="analytics-col">
+                    <div class="analytics-img-wrap">
+                        <img src="videos/Analytics 2 (niche_ music studio).jpg" alt="Analytics 2" loading="lazy" class="analytics-img">
+                    </div>
+                </div>
+                <div class="analytics-col">
+                    <div class="analytics-img-wrap">
+                        <img src="videos/Analytics 3 (pet niche).jpg" alt="Analytics 3" loading="lazy" class="analytics-img">
                     </div>
                 </div>
             </div>
